@@ -1,0 +1,14 @@
+I"�
+<p>Binquan Kou, Yixin Cao, Jindong Li, Chengjie Xia, Zhifeng Li, Haipeng Dong, Ang Zhang, Jie Zhang, Walter Kob, Yujie Wang, “Granular materials flow like complex fluids”, Nature [Nature], vol. 551, no., pp. 360-363, Nov 2017, url <a href="https://doi.org/10.1038/nature24062">https://doi.org/10.1038/nature24062</a></p>
+
+<h2 id="discussion">discussion</h2>
+<p>Experiment setup is given in follwong Fig. <a href="#fig:x">1</a>.</p>
+
+<p><img src="/assets/img/phys/doi_10_1038_nature24062_fig_1.png" alt=".." />
+<br />
+Figure <a name="fig:x">1</a> a, Schematic of the experimental set-up, showing the computational tomography (CT) scanner (which includes an X-ray tube and a camera) and the shear cell that contains the granular media (red ellipsoids) to be probed. The plate used to generate the pressure on the sample is also shown. The directions of the coordinate axis (x, y, z) used in our study are also indicated; the shear is applied in the y direction and the pressure is applied in the z direction. b, The TMSD for γ = 0.07, 0.10, 0.19 and 0.26 exhibits power-law behaviour with an exponent that depends on the time interval considered. For γ = 0.10 we have two set of curves from two independent measurements: the first one (green) probes the early-time dynamics; the second one (orange; labelled ‘L’) uses a larger time grid and thus shows the TMSD at late times. From the fact that the two curves agree very well at intermediate times, we infer that the precision of the data is high. Inset, TMSD/t as a function of t, demonstrating that for small γ and early times the TMSD is indeed linear in time, whereas for late times and large γ the dynamics is subdiffusive. The kink in the curves for γ = 0.19 (γ = 0.10) at t ≈ 10 (t ≈ 100) also indicates that the relaxation dynamics of the system changes from normal diffusion to anomalous diffusion. The anomalous diffusion sets in once the particles start to move distances that are of the order of their size. This behaviour can therefore be caused by the shear during one cycle with large strain (such as for γ = 0.26) or by the diffusive motion after many cycles (such as for γ ≤ 0.19). For times later than those accessed in these experiments, the TMSD will become linear in time for all values of γ; that is, the particle will ultimately become diffusive. c, RMSD for γ = 0.07, 0.10, 0.19 and 0.26, showing that at early times the exponent of the power law depends on γ. Inset, RMSD/t as a function of t, showing that at late times the RMSD is linear in time for all shear amplitudes..</p>
+
+<ul>
+  <li><a href="https://github.com/su3ndo-lab/refs/commits/main/_posts/phys/2021-02-04-doi_2021-02-04-doi_10.1038_nature24062.md">Article history</a></li>
+</ul>
+:ET
