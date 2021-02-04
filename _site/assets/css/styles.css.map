@@ -1,0 +1,14 @@
+{
+	"version": 3,
+	"file": "styles.css",
+	"sources": [
+		"styles.scss",
+		"_sass/main.scss"
+	],
+	"sourcesContent": [
+		"@import \"main.scss\";\n@import \"github.css\";\n@import \"pygments-github.css\";",
+		".current {\r\n  color: blue;\r\n}\r\n\r\n.citation {\r\n\tborder: 1px solid #ddf;\r\n\tbackground: #eef;\r\n\tpadding: 2px 8px;\r\n\tfont-size: 95%;\r\n}\r\n\r\nli {\r\n\tmargin-top: 0.2em;\r\n\tmargin-bottom: 0.2em;\r\n}\r\n\r\n.inc_false, \r\n.mathjax_true,\r\n.chartjs_true,\r\n.ptext_true,\r\n.x3dom_true,\r\n.threejs_true,\r\n._3dmol_true,\r\n.oo_true {\r\n\tfont-size: 11px;\r\n}\r\n\r\n.inc_false {\r\n\tpadding: 1px 4px;\r\n\tborder: 1px solid #ccc;\r\n\tcolor: #aaa;\r\n}\r\n\r\n.mathjax_true {\r\n\tcolor: #fff;\t\r\n\tbackground: #a00;\r\n\tborder: 1px solid #a00;\r\n\tpadding: 1px 6px;\r\n}\r\n\r\n.chartjs_true {\r\n\tcolor: #fff;\t\r\n\tbackground: #0a0;\r\n\tborder: 1px solid #0a0;\r\n\tpadding: 1px 6px;\r\n}\r\n\r\n.ptext_true {\r\n\tcolor: #fff;\t\r\n\tbackground: #00a;\r\n\tborder: 1px solid #00a;\r\n\tpadding: 1px 6px;\r\n}\r\n\r\n.x3dom_true {\r\n\tcolor: #fff;\t\r\n\tbackground: #a0a;\r\n\tborder: 1px solid #a0a;\r\n\tpadding: 1px 6px;\r\n}\r\n\r\n.threejs_true {\r\n\tcolor: #fff;\t\r\n\tbackground: #aa0;\r\n\tborder: 1px solid #aa0;\r\n\tpadding: 1px 6px;\r\n}\r\n\r\n._3dmol_true {\r\n\tcolor: #fff;\t\r\n\tbackground: #0aa;\r\n\tborder: 1px solid #0aa;\r\n\tpadding: 1px 6px;\r\n}\r\n\r\n.oo_true {\r\n\tcolor: #fff;\t\r\n\tbackground: #48f;\r\n\tborder: 1px solid #48f;\r\n\tpadding: 1px 6px;\r\n}\r\n\r\npre {\r\n    tab-size: 2;\r\n}"
+	],
+	"names": [],
+	"mappings": "AACA,OAAO,CAAP,eAAO;AACP,OAAO,CAAP,wBAAO;ACFP,AAAA,QAAQ,CAAC,EACP,KAAK,EAAE,IAAI,GACZ;;AAED,AAAA,SAAS,CAAC,EACT,MAAM,EAAE,cAAc,EACtB,UAAU,EAAE,IAAI,EAChB,OAAO,EAAE,OAAO,EAChB,SAAS,EAAE,GAAG,GACd;;AAED,AAAA,EAAE,CAAC,EACF,UAAU,EAAE,KAAK,EACjB,aAAa,EAAE,KAAK,GACpB;;AAED,AAAA,UAAU,EACV,aAAa,EACb,aAAa,EACb,WAAW,EACX,WAAW,EACX,aAAa,EACb,YAAY,EACZ,QAAQ,CAAC,EACR,SAAS,EAAE,IAAI,GACf;;AAED,AAAA,UAAU,CAAC,EACV,OAAO,EAAE,OAAO,EAChB,MAAM,EAAE,cAAc,EACtB,KAAK,EAAE,IAAI,GACX;;AAED,AAAA,aAAa,CAAC,EACb,KAAK,EAAE,IAAI,EACX,UAAU,EAAE,IAAI,EAChB,MAAM,EAAE,cAAc,EACtB,OAAO,EAAE,OAAO,GAChB;;AAED,AAAA,aAAa,CAAC,EACb,KAAK,EAAE,IAAI,EACX,UAAU,EAAE,IAAI,EAChB,MAAM,EAAE,cAAc,EACtB,OAAO,EAAE,OAAO,GAChB;;AAED,AAAA,WAAW,CAAC,EACX,KAAK,EAAE,IAAI,EACX,UAAU,EAAE,IAAI,EAChB,MAAM,EAAE,cAAc,EACtB,OAAO,EAAE,OAAO,GAChB;;AAED,AAAA,WAAW,CAAC,EACX,KAAK,EAAE,IAAI,EACX,UAAU,EAAE,IAAI,EAChB,MAAM,EAAE,cAAc,EACtB,OAAO,EAAE,OAAO,GAChB;;AAED,AAAA,aAAa,CAAC,EACb,KAAK,EAAE,IAAI,EACX,UAAU,EAAE,IAAI,EAChB,MAAM,EAAE,cAAc,EACtB,OAAO,EAAE,OAAO,GAChB;;AAED,AAAA,YAAY,CAAC,EACZ,KAAK,EAAE,IAAI,EACX,UAAU,EAAE,IAAI,EAChB,MAAM,EAAE,cAAc,EACtB,OAAO,EAAE,OAAO,GAChB;;AAED,AAAA,QAAQ,CAAC,EACR,KAAK,EAAE,IAAI,EACX,UAAU,EAAE,IAAI,EAChB,MAAM,EAAE,cAAc,EACtB,OAAO,EAAE,OAAO,GAChB;;AAED,AAAA,GAAG,CAAC,EACA,QAAQ,EAAE,CAAC,GACd"
+}

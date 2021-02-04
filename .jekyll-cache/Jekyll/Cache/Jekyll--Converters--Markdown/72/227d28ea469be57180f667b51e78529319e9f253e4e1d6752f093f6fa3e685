@@ -1,0 +1,197 @@
+I"2><p>When there are two charges in space, they will interact through electrostatic force formulated by Coulomb’s law [<a href="#ref1">1</a>]. In the case of attractive force between two point charges Coulomb force does behave like the gravitational force between two point masses [<a href="#ref2">2</a>].</p>
+
+<h2 id="coulombs-law">coulomb’s law</h2>
+<p>Suppose that there are two charges $q_i$ and $q_j$ in space, where each is located at position $\vec{r}_i$ and $\vec{r}_j$, respectively, as shown in Fig. <a href="#fig:cf-coulomb-force">1</a>. We use the definition that $\vec{F} _{ij}$ is an electrostatic force acted upon charge $q_i$ due to the presence of charge $q_j$ and vice versa.</p>
+
+<p style="text-align: center;"><img src="/assets/img/phys/electrostatics/coulomb-force.png" alt=".." />
+<br />
+Figure <a name="fig:cf-coulomb-force">1</a> Coulomb force between two charges $q_i$ and $q_j$.</p>
+
+<p>In vector form Coulomb’s law is</p>
+
+<p>\begin{equation}
+\label{eqn:cf-coulomb’s-law}
+\vec{F} _{ij} = k \frac{q_i q_j}{r _{ij}^2} \ \hat{r} _{ij} = k \frac{q_i q_j}{r _{ij}^3} \ \vec{r} _{ij}
+\end{equation}</p>
+
+<p>with</p>
+
+<p>\begin{equation}
+\label{eqn:cf-coulomb’s-constant}
+k = \frac{1}{4 \pi \epsilon_0} \approx 9 \times 10^9 \ {\rm N \cdot m^2 / C^2}
+\end{equation}</p>
+
+<p>is Coulomb’s constant.</p>
+
+<h2 id="detail-use">detail use</h2>
+<p>Notation of $\vec{r} _{ij}$ in Eqn. \eqref{eqn:cf-coulomb’s-law} stands for <a href="/physics/position#relative-position">relative position</a> of charge $q_i$ relative to charge $q_j$</p>
+
+<p>\begin{equation}
+\label{eqn:cf-relative-position}
+\vec{r} _{ij} = \vec{r}_i - \vec{r}_j.
+\end{equation}</p>
+
+<p>And the <a href="/physics/position#distance">distance</a> between two charges is</p>
+
+<p>\begin{equation}
+\label{eqn:cf-distance-two-charges}
+r_{ij} = | \vec{r} _{ij} | =  \sqrt{\vec{r} _{ij} \cdot \vec{r} _{ij}}.
+\end{equation}</p>
+
+<p>Unit vector $\hat{r} _{ij}$ is related to relative positiion $\vec{r} {ij}$ and distance $r _{ij}$ through</p>
+
+<p>\begin{equation}
+\label{eqn:cf-relative-position-unit-vector}
+\hat{r} _{ij} = \frac{\vec{r} _{ij}}{r _{ij}}.
+\end{equation}</p>
+
+<p>Eqn. \eqref{eqn:cf-relative-position-unit-vector} explains the relation between middle site and right side of Eqn. \eqref{eqn:cf-coulomb’s-law}.</p>
+
+<h2 id="case-of-q_i-q_j--0">case of $q_i q_j &gt; 0$</h2>
+<p>Let us simplify the illustration in previous Fig. <a href="#fig:cf-coulomb-force">1</a> with two-dimensional projection as shown in Fig. <a href="#fig:cf-coulomb-force-1">2</a> for the case of $q_i q_j &gt; 0$. We will concentrate on $q_i$ firs, since it will be the same for $q_j$.</p>
+
+<p style="text-align: center;"><img src="/assets/img/phys/electrostatics/coulomb-force-qiqj-gt0.png" alt=".." />
+<br />
+Figure <a name="fig:cf-coulomb-force-1">2</a> Coulomb force on $q_i$ due to existence of $q_j$ for $q_i q_j &gt; 0$.</p>
+
+<p>From Fig. <a href="#fig:cf-coulomb-force-1">2</a> we can have relative position of charge $q_i$ to charge $q_j$, which is denoted as $\vec{r} _{ij}$ as given previously in Eqn. \eqref{eqn:cf-relative-position}. Then using Eqn. \eqref{eqn:cf-distance-two-charges}, which is always positive since it is length of a vector, and Eqn. \eqref{eqn:cf-relative-position-unit-vector} we can have the unit vector $\hat{r} _{ij}$ to be used in Eqn. \eqref{eqn:cf-coulomb’s-law}. Vector $\vec{r} _{ij}$, scalar $r _{ij}$, and vector $\hat{r} _{ij}$ are shown in Fig. <a href="#fig:cf-coulomb-force-1">2</a> (center). And the last term direction is toward charge $q_i$ from charge $q_j$. Combining all terms in Eqn. \eqref{eqn:cf-coulomb’s-law} we can have that what determines direction of $\vec{F} _{ij}$ is the term $q_i q_j$ since $r _ij$ and $k$ are already positive. For this case $q_i q_j &gt; 0$ then $\vec{F} _{ij}$ will have the same direction with $\hat{F} _{ij}$ or the force on $q_i$ will have direction away from $q_j$ (and also vice versa), which is showing a repulsive force.</p>
+
+<h2 id="case-of-q_i-q_j--0-1">case of $q_i q_j &lt; 0$</h2>
+<p>Now we consider the case of $q_i q_j &lt; 0$ as given in Fig. <a href="#fig:cf-coulomb-force-2">3</a>.</p>
+
+<p style="text-align: center;"><img src="/assets/img/phys/electrostatics/coulomb-force-qiqj-lt0.png" alt=".." />
+<br />
+Figure <a name="fig:cf-coulomb-force-2">3</a> Coulomb force on $q_i$ due to existence of $q_j$ for $q_i q_j &lt; 0$.</p>
+
+<p>Similar to the previous discussion direction of $\vec{F} _{ij}$ will be determined by value of $q_i q_j$ which is negative in this case. Then $\vec{F} _{ij}$ will have an opposite direction compated to $\hat{r} _{ij}$ direction, which is shown as red arrow in Fig. <a href="#fig:cf-coulomb-force-2">3</a> (right). This is a direction of an attractive force.</p>
+
+<h2 id="the-two-cases">the two cases</h2>
+<p>Direction of repulsive force holds for the case of $q_i q_j &gt; 0$ and it can be one of the two condition</p>
+<ul>
+  <li>$q_i &lt; 0$ and $q_j &lt; 0$ (both charges are negative), or</li>
+  <li>$q_i &gt; 0$ and $q_j &gt; 0$ (both charges are positive),</li>
+</ul>
+
+<p>as shwon in Fig. <a href="#fig:cf-coulomb-force-repulsive">4</a></p>
+
+<p style="text-align: center;"><img src="/assets/img/phys/electrostatics/coulomb-force-repulsive.png" alt=".." />
+<br />
+Figure <a name="fig:cf-coulomb-force-repulsive">4</a> repulsive Coulomb force of between two charges: all negative (left) and all positive (right).</p>
+
+<p>while direction of attractive force holds for the case of $q_i q_j &lt; 0$ and it can be one of the two condition</p>
+<ul>
+  <li>$q_i &lt; 0$ and $q_j &gt; 0$ (negative and positive), or</li>
+  <li>$q_i &gt; 0$ and $q_j &lt; 0$ (positive and negative)</li>
+</ul>
+
+<p>as shwon in Fig. <a href="#fig:cf-coulomb-force-attractive">5</a>.</p>
+
+<p style="text-align: center;"><img src="/assets/img/phys/electrostatics/coulomb-force-attractive.png" alt=".." />
+<br />
+Figure <a name="fig:cf-coulomb-force-attractive">5</a> Attractive Coulomb force between two charges: negative-positive (left) and positive-negative (right).</p>
+
+<p>From the both cases we can have that like charges repel each other, while unlike charges attract each other  [<a href="#ref3">3</a>].</p>
+
+<h2 id="2-d-and-1-d-examples">2-d and 1-d examples</h2>
+<p>Consider two charges are located in $xy$ plane as shown in Fig. <a href="#fig:cf-coulomb-force-1n2-d">6</a>, where they have the same or opposite signs.</p>
+
+<p style="text-align: center;"><img src="/assets/img/phys/electrostatics/coulomb-force-1n2-d.png" alt=".." />
+<br />
+Figure <a name="fig:cf-coulomb-force-1nd-d">6</a> System of two charges: negative-positive (left), positive-positive (center), and negative-negative (right).</p>
+
+<p>Coordinates of $x$ and $y$ in Fig. <a href="#fig:cf-coulomb-force-1nd-d">6</a> are in $\rm \mu m$ and $q_1 = +1 \ \rm nC$, $q_2 = -25 \ \rm nC$, $q_3 = +4 \ \rm nC$, $q_4 = +8 \ \rm nC$, $q_5 = -2 \ \rm nC$, $q_6 = -0.5 \ \rm nC$. To calculate the electrostatic force we use Eqns. \eqref{eqn:cf-coulomb’s-law} - \eqref{eqn:cf-relative-position-unit-vector}.</p>
+
+<h3 id="force-on-q_2-due-to-existence-of-q_1">force on $q_2$ due to existence of $q_1$</h3>
+<p>$\vec{r}_2 = (\hat{x} + 2\hat{y}) \ \rm \mu m$. <br />
+$\vec{r}_1 = (5\hat{x} + 5\hat{y})  \ \rm \mu m$. <br />
+$\vec{r} _{21} = \vec{r}_2 - \vec{r}_1 = (1-5)\hat{x} + (2-5)\hat{y} = (-4\hat{x} - 3\hat{y}) \ \rm \mu m$. <br />
+$r _{21} = | \vec{r} _{21} | = \sqrt{\vec{r} _{21} \cdot \vec{r} _{21}} = \sqrt{(-4\hat{x} - 3\hat{y}) \cdot (-4\hat{x} - 3\hat{y})} = \sqrt{(-4)^2 + (-3)^2} = 5  \ \rm \mu m$. <br />
+$\displaystyle \hat{r} _{21} = \frac{\vec{r} _{21}}{r _{21}} = \frac{-4\hat{x} - 3\hat{y}}{5} = (-0.8\hat{x} - 0.6\hat{y})$. <br />
+$\displaystyle \hat{F} _{21} = k \frac{q_2 q_1}{r^2 _{21}} \hat{r} _{21} = (9\times 10^9) \frac{(-25\times 10^{-9})(+1\times 10^{-9})}{(5\times 10^{-6})^2} (-0.8\hat{x} - 0.6\hat{y}) = (9\times 10^3)(0.8\hat{x} + 0.6\hat{y}) \ \rm N$.</p>
+
+<h3 id="force-on-q_3-due-to-existence-of-q_4">force on $q_3$ due to existence of $q_4$</h3>
+<p>$\vec{r}_3 = (6\hat{x} + 2\hat{y}) \ \rm \mu m$. <br />
+$\vec{r}_4 = (6\hat{x} + 10\hat{y})  \ \rm \mu m$. <br />
+$\vec{r} _{34} = \vec{r}_3 - \vec{r}_4 = (6-6)\hat{x} + (2-10)\hat{y} = (-8\hat{y}) \ \rm \mu m$. <br />
+$r _{34} = | \vec{r} _{34} | = \sqrt{\vec{r} _{34} \cdot \vec{r} _{34}} = \sqrt{(-8\hat{y}) \cdot (-8\hat{y})} = \sqrt{(-8)^2} = 8  \ \rm \mu m$. <br />
+$\displaystyle \hat{r} _{34} = \frac{\vec{r} _{34}}{r _{34}} = \frac{-8\hat{y}}{8} = (-\hat{y})$. <br />
+$\displaystyle \hat{F} _{34} = k \frac{q_3 q_4}{r^2 _{34}} \hat{r} _{34} = (9\times 10^9) \frac{(+4\times 10^{-9})(+8\times 10^{-9})}{(8\times 10^{-6})^2} (-\hat{y}) = (4.5\times 10^3)(-\hat{y}) \ \rm N$.</p>
+
+<h3 id="force-on-q_5-due-to-existence-of-q_6">force on $q_5$ due to existence of $q_6$</h3>
+<p>$\vec{r}_5 = (0.5\hat{x} + 2\hat{y}) \ \rm \mu m$. <br />
+$\vec{r}_6 = (2.5\hat{x} + 2\hat{y})  \ \rm \mu m$. <br />
+$\vec{r} _{56} = \vec{r}_5 - \vec{r}_6 = (0.5-2.5)\hat{x} + (2-2)\hat{y} = (-2\hat{x}) \ \rm \mu m$. <br />
+$r _{56} = | \vec{r} _{56} | = \sqrt{\vec{r} _{56} \cdot \vec{r} _{56}} = \sqrt{(-2\hat{x}) \cdot (-2\hat{x})} = \sqrt{(-2)} = 2  \ \rm \mu m$. <br />
+$\displaystyle \hat{r} _{56} = \frac{\vec{r} _{56}}{r _{56}} = \frac{-2\hat{x}}{2} = (-\hat{x})$. <br />
+$\displaystyle \hat{F} _{56} = k \frac{q_5 q_6}{r^2 _{56}} \hat{r} _{56} = (9\times 10^9) \frac{(-2\times 10^{-9})(-0.5\times 10^{-9})}{(2\times 10^{-6})^2} (-\hat{x}) = (2.25\times 10^3)(-\hat{x}) \ \rm N$.</p>
+
+<h2 id="1-d-2-d-and-3-d-examples">1-d, 2-d, and 3-d examples</h2>
+<p>Fig. <a href="#fig:cf-coulomb-force-2-charges-123-d">7</a> shows examples of 1-d, 2-d, and 3-d configuration of two charges. The difference than previous Fig. <a href="#fig:cf-coulomb-force-1n2-d">6</a> is that the position of one of the two charges might has additional $z$ component.</p>
+
+<p style="text-align: center;"><img src="/assets/img/phys/electrostatics/coulomb-force-2-charges-123-d.png" alt=".." />
+<br />
+Figure <a name="fig:cf-coulomb-force-2-charges-123-d">7</a> System of two charges: 1-d positive-negative (left), 2-d positive-positive (center), and 3-d negative-negative (right).</p>
+
+<p>Position of the charges are given as follow.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>charge</strong></td>
+      <td>$q_1 &gt; 0$</td>
+      <td>$q_2 &lt; 0$</td>
+      <td>$q_3 &gt; 0$</td>
+      <td>$q_4 &lt; 0$</td>
+    </tr>
+    <tr>
+      <td><strong>position</strong></td>
+      <td>$\vec{r}_1 = s_x \hat{x}$</td>
+      <td>$\vec{r}_2 = s_x \hat{x} + s_y \hat{y}$</td>
+      <td>$\vec{r}_3 = s_y \hat{y}$</td>
+      <td>$\vec{r}_4 = s_z \hat{z}$</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Using the provided information we can obtain values of $\vec{r} _{12}$, $\vec{r} _{13}$, and $\vec{r} _{24}$ in order to calculate $\vec{F} _{12}$, $\vec{F} _{13}$, and $\vec{F} _{24}$. Do it in the exercises 7-9.</p>
+
+<h2 id="superposition-of-forces">superposition of forces</h2>
+<p>Until now we only consider electrostatic force acted upon a charge do to existence of the other charge. It is a two-charges system. How is about a system consisted of three or more charges? Can we calculate the forces on a charge due to existence of the other charges? Using superposition of forces [<a href="#ref4">4</a>] we can calculate force on a charge due to the other charge at a time, repeat it due to the next charge, and then sum the all forces using vector addition [<a href="#ref5">5</a>], since force is a vector. Illustration for system of three charges is given in Fig. <a href="#fig:coulomb-force-superposition-3-charges">8</a>.</p>
+
+<p style="text-align: center;"><img src="/assets/img/phys/electrostatics/coulomb-force-superposition-3-charges.png" alt=".." />
+<br />
+Figure <a name="fig:coulomb-force-superposition-3-charges">8</a> System of three charges: (a) $q_1 &gt; 0$, $q_2 &gt;0$, $q_3 &lt; 0$, (b) $\vec{F} _{12}$, a repulsive force, (c) $\vec{F} _{23}$, an attractive force, and (d) $\vec{F}_2 = \vec{F} _{21} + \vec{F} _{23}$, net force acted upon $q_2$ due to existence of $q_1$ and $q_3$.</p>
+
+<p>You can access a visualization of four point charges and how forces acted upon each charge due to existence of the other three charges are calculated in an interactive GeoGebra page [<a href="#ref6">6</a>].</p>
+
+<h2 id="exercises">exercises</h2>
+<ol>
+  <li>What is the definition of $\vec{F} _{ji}$? Modify the related sentence in the Coulomb’s law section.</li>
+  <li>Write the first two sides from the left of Eqn. \eqref{eqn:cf-coulomb’s-law} and try to get the right side of it using Eqn. \eqref{eqn:cf-relative-position-unit-vector}.</li>
+  <li>Open [<a href="#ref3">3</a>] and find the four properties of the electric force for charges at rest. Explain it in brief whether those properties are already contained in the Eqn. \eqref{eqn:cf-coulomb’s-law} or not.</li>
+  <li>Using the previous 2-d and 1-d examples in Fig. <a href="#fig:cf-coulomb-force-1nd-d">6</a>, caculate $\vec{F} _{12}$.</li>
+  <li>Repeat using Fig. <a href="#fig:cf-coulomb-force-1nd-d">6</a> to caculate $\vec{F} _{43}$.</li>
+  <li>Caculate $\vec{F} _{65}$ using Fig. <a href="#fig:cf-coulomb-force-1nd-d">6</a>.</li>
+  <li>If $s_x = s_y = s_z = 2 \ \rm \mu m$, $q_1 = +2 \ \rm nC$, and $q_2 = -1 \ \rm nC$, calculate $\vec{F} _{12}$ using Fig. <a href="#fig:cf-coulomb-force-2-charges-123-d">7</a>.</li>
+  <li>If $s_x = s_y = s_z = 2 \ \rm \mu m$, $q_1 = +2 \ \rm nC$, and $q_3 = +\sqrt{2} \ \rm nC$, calculate $\vec{F} _{13}$ using Fig. <a href="#fig:cf-coulomb-force-2-charges-123-d">7</a>.</li>
+  <li>If $s_x = s_y = s_z = 2 \ \rm \mu m$, $q_2 = -1 \ \rm nC$,
+and $q_4 = -\sqrt{3} \ \rm nC$, calculate $\vec{F} _{24}$ using Fig. <a href="#fig:cf-coulomb-force-2-charges-123-d">7</a>.</li>
+  <li>Draw you own 2-d configuration and calculate electrostatic force on a charge due to existence of the other charge.</li>
+  <li>Open [<a href="#ref6">6</a>] and learn the superposition principle of forces.</li>
+  <li>Use Fig. <a href="#fig:coulomb-force-superposition-3-charges">8</a> and draw net force on $q_3$ due to existence of the other two charges, $q_1$ adn $q_2$.</li>
+</ol>
+
+<h2 id="references">references</h2>
+<ol>
+  <li><a name="ref1"></a>Carl R. Nave, “Coulomb’s Law”, HyperPhysics, 2017, url <a href="http://hyperphysics.phy-astr.gsu.edu/hbase/electric/elefor.html">http://hyperphysics.phy-astr.gsu.edu/hbase/electric/elefor.html</a> [20210123].</li>
+  <li><a name="ref2"></a>Wikipedia-Autoren, “Coulombsches Gesetz”, Wikipedia, Die freie Enzyklopädie, 29 Sep 2020, 08:15 UTC, url <a href="https://en.wikipedia.org/w/index.php?oldid=204085948">https://en.wikipedia.org/w/index.php?oldid=204085948</a> [20210123].</li>
+  <li><a name="ref3"></a>The Editors of Encyclopaedia Britannica, William L. Hosch, Parul Jain, Thinley Kalsang, Bhutia, Adam Augustyn, “Coulomb’s law”, Encyclopaedia Britannica, 11 Jan 2019, url <a href="https://www.britannica.com/science/Coulombs-law">https://www.britannica.com/science/Coulombs-law</a> [20210123].</li>
+  <li><a name="ref4"></a>-, “Coulomb’s Law” in Boundless Physics, Lumen Learning, url <a href="https://courses.lumenlearning.com/boundless-physics/chapter/coulombs-law/">https://courses.lumenlearning.com/boundless-physics/chapter/coulombs-law/</a> [20210125].</li>
+  <li><a name="ref5"></a>Eric W. Weisstein, “Vector Addition” from MathWorld–A Wolfram Web Resource, url <a href="https://mathworld.wolfram.com/VectorAddition.html">https://mathworld.wolfram.com/VectorAddition.html</a> [20210125].</li>
+  <li><a name="ref6"></a>Fiki Akbar, “Electrostatic Forces”, GeoGebra, url <a href="https://www.geogebra.org/m/ndcsgbzb">https://www.geogebra.org/m/ndcsgbzb</a> [20210125].</li>
+</ol>
+
+<ul>
+  <li><a href="https://github.com/butiran/butiran.github.io/commits/master/_posts/phys/electrostatics/2021-01-11-coulomb-force.md">Article history</a></li>
+</ul>
+:ET

@@ -1,0 +1,57 @@
+I"
+<p>Two successive collisions, the first is swinging pendulum with a block and the second is moving block with another block, are discussed here.</p>
+
+<h2 id="problem">Problem</h2>
+<p>A system of swinging pendulum ($m_0 + m_1$) and two blocks ($m_2$ and $m_3$) on top of a horizontal surface, which is frictionless ($\mu_k = 0$), is shown in Fig. <a href="#fig:sim-system">1</a>.</p>
+
+<p style="text-align: center;"><img src="/assets/img/phys/swing-impuls-momentum.png" alt="swingin pendulum colliding a block" />
+<br />
+Figure <a name="fig:sim-system">1</a> A pendulum swings and hits first block, transfer all its kinetic energy and momentum to it, later the first block collides second block and transfers only partially its kinetic energy and momentum.</p>
+
+<p>It would be better and easier if we divide the problem into four consecutive parts, where in each part some related concepts are applied.</p>
+
+<h2 id="concept">Concept</h2>
+<p>Following concepts are required in solving the problem</p>
+<ol>
+  <li><strong>Moment of inertia</strong> <br />
+For a mass $m$ with distance $l$ from center of rotation
+\begin{equation}
+\label{eqn:sim-moi-ml2}
+I = ml^2
+\end{equation}
+and for a beam rotated on one of its end
+\begin{equation}
+\label{eqn:sim-moi-beam-end}
+I = \frac{1}{3} M L^2,
+\end{equation}
+with $M$ and $L$ are mass and  length of the beam, respectively.</li>
+  <li><strong>Conservation of energy</strong><br />
+Mechanical energy $E$ is conserved without work of non-conservative force
+\begin{equation}
+\label{eqn:sim-moi-coe}
+E = mgh + \frac12 m v^2 + \frac12 I \omega^2
+\end{equation},
+where in right side there are terms for gravitational potential energy, translational kinetic energy, and rotational kinetic energy.</li>
+  <li><strong>Conservation of momentum</strong><br />
+During a collision, in absence of external force, momentum $\vec{P}$ is conserved
+\begin{equation}
+\label{eqn:sim-moi-com}
+\vec{P} = \vec{p}_1 + \vec{p}_2 + \dots + \vec{p}_N,
+\end{equation}
+for system consisted of $N$ particles.</li>
+  <li><strong>Impulse and momentum</strong><br />
+Force $F$ can give an impuls to an object and change the object momentum
+\begin{equation}
+\label{eqn:sim-moi-imp-mom-force}
+F \Delta t = I = \Delta p = p_f - p_i
+\end{equation}
+with $\Delta t$ is time duration where the force is working on the object.</li>
+</ol>
+
+<h2 id="note">Note</h2>
+<p>There are some assumption used in solving this problem.</p>
+
+<ul>
+  <li><a href="https://github.com/butiran/butiran.github.io/commits/master/_posts/phys/quiz/2020-11-02-swing-imp-mom.md">Article history</a></li>
+</ul>
+:ET

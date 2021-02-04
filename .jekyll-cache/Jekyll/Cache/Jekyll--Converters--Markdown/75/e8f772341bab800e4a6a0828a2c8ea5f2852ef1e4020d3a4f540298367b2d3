@@ -1,0 +1,77 @@
+I"c<p>Some integrals required in butiran are presented here.</p>
+
+<h2 id="in-front-of-line-of-charge">in front of line of charge</h2>
+<p>In <a href="/electrostatics/electric-field-line-charge-front">electric field in front of line of charge</a> following form</p>
+
+<p>\begin{equation}
+\label{eqn:loi0-in-front-of-line-of-charge-1}
+\int \frac{dx}{(b+l-x)^2}
+\end{equation}</p>
+
+<p>is required to solve. Using $u = (b + l - x)$ we can have that $du = d(b + l - x) = -dx$, which makes Eqn. \eqref{eqn:loi0-in-front-of-line-of-charge-1} into</p>
+
+<p>\begin{equation}
+\label{eqn:loi0-in-front-of-line-of-charge-2}
+-\int \frac{du}{u^2} = \frac{1}{u} + c.
+\end{equation}</p>
+
+<p>Substitute $u$ back to Eqn. \eqref{eqn:loi0-in-front-of-line-of-charge-2} will produce</p>
+
+<p>\begin{equation}
+\label{eqn:loi0-in-front-of-line-of-charge-3}
+\int \frac{dx}{(b+l-x)^2} = \frac{1}{b + l - x} + c,
+\end{equation}</p>
+
+<p>where $c$ is an arbitrary constant. If we put lower bound $x = a$ and upper bound $x = b$ we will have</p>
+
+<p>\begin{equation}
+\label{eqn:loi0-in-front-of-line-of-charge-4}
+\begin{array}{rcl}
+\displaystyle \int_a^b \frac{dx}{(b+l-x)^2} &amp; = &amp; \displaystyle \left[ \frac{1}{b + l - x} \right]_{x = a}^b \newline 
+&amp; = &amp; \displaystyle \left( \frac{1}{b + l - b} \right) - \left( \frac{1}{b + l - a} \right) \newline
+&amp; = &amp; \displaystyle \frac{1}{l} - \frac{1}{b-a + l} \newline
+&amp; = &amp; \displaystyle \frac{1}{l} - \frac{1}{L + l} \newline
+&amp; = &amp; \displaystyle \frac{(L + l) - l}{l (l + L)} \newline
+&amp; = &amp; \displaystyle \frac{L}{l (l + L)},
+\end{array}
+\end{equation}</p>
+
+<p>since it is known that $L = b - a$.</p>
+
+<h2 id="at-back-of-line-of-charge">at back of line of charge</h2>
+<p>In <a href="/electrostatics/electric-field-line-charge-front">at back of the other end of the line</a> following form</p>
+
+<p>\begin{equation}
+\label{eqn:loi0-at-back-of-line-of-charge-1}
+\int \frac{dx}{(a-l-x)^2},
+\end{equation}</p>
+
+<p>that the solution, straight forwards using previous way, is</p>
+
+<p>\begin{equation}
+\label{eqn:loi0-at-back-of-line-of-charge-2}
+\int \frac{dx}{(a-l-x)^2} = \frac{1}{a-l-x} + c.
+\end{equation}</p>
+
+<p>By putting lower bound $x = a$ and upper bound $x = b$ we will have</p>
+
+<p>\begin{equation}
+\label{eqn:loi0-at-back-of-line-of-charge-3}
+\begin{array}{rcl}
+\displaystyle \int_a^b \frac{dx}{(a-l-x)^2} &amp; = &amp; \displaystyle \left[ \frac{1}{a - l - x} \right]_{x = a}^b \newline 
+&amp; = &amp; \displaystyle \left( \frac{1}{a - l - b} \right) - \left( \frac{1}{a - l - a} \right) \newline
+&amp; = &amp; \displaystyle \frac{1}{a - b - l} - \frac{1}{- l} \newline
+&amp; = &amp; \displaystyle \frac{1}{-L - l} + \frac{1}{l} \newline
+&amp; = &amp; \displaystyle -\frac{1}{L + l} + \frac{1}{l} \newline
+&amp; = &amp; \displaystyle \frac{1}{l} - \frac{1}{L + l} \newline
+&amp; = &amp; \displaystyle \frac{(L + l) - l}{l(L+l)} \newline
+&amp; = &amp; \displaystyle \frac{L}{l(L+l)},
+\end{array}
+\end{equation}</p>
+
+<p>again with $a - b = -L$.</p>
+
+<ul>
+  <li><a href="https://github.com/butiran/butiran.github.io/commits/master/_posts/math/2021-01-25-list-of-integrals-0.md">Article history</a></li>
+</ul>
+:ET

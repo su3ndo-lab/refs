@@ -1,0 +1,110 @@
+I"m9<p>One way to get the solution of a quadratic equation is using the quadratic formula [<a href="#ref1">1</a>]. Here how the formula can be written in some programming languages are shown.</p>
+
+<h2 id="equation-and-solution">equation and solution</h2>
+<p>For an unknown $x$, a general quadratic equation can be written in form of</p>
+
+<p>\begin{equation}
+\label{eqn:qf-quadratic-equation}
+ax^2 + bx + c = 0,
+\end{equation}</p>
+
+<p>where $a$, $b$, and $c$ represent constants. Solution of Eqn. \eqref{eqn:qf-quadratic-equation} can be obtained using the quadratic formula</p>
+
+<p>\begin{equation}
+\label{eqn:qf-quadratic-formula}
+x_{1, 2} = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
+\end{equation}</p>
+
+<p>with $a \ne 0$. Note that a quadratic equation has two solutions, that is given by $x_1$ and $x_2$.</p>
+
+<h2 id="algorithm">algorithm</h2>
+<p>From Eqns. \eqref{eqn:qf-quadratic-equation} and \eqref{eqn:qf-quadratic-formula}, there are four input parameters $a$, $b$, $c$, and $x$, and there are two output values $x_1$ and $x_2$. We can make the following algorithm using previous information.</p>
+
+<p>Algorithm <a name="alg:qf-quadratic-formula-algorithm">1</a> Quadratic formula. <br />
+<code class="language-plaintext highlighter-rouge">I</code>: $a$, $b$, $c$ <br />
+<code class="language-plaintext highlighter-rouge">O</code>: $x_1$, $x_2$</p>
+<ol>
+  <li>$D \leftarrow b^2 - 4ac$.</li>
+  <li>$\displaystyle x_1 \leftarrow \frac{-b + \sqrt{D}}{2a}$.</li>
+  <li>$\displaystyle x_2 \leftarrow \frac{-b - \sqrt{D}}{2a}$.</li>
+</ol>
+
+<p>The $\leftarrow$ means that the variable on the left is substituted by the expression on the right, which is different when using $=$ which is for equating  [<a href="#ref2">2</a>]. As an alternative to the previous algorithm, a flow chart for quadratic formula is shown in Fig. <a href="#fig:qf-quadratic-formula-flow-chart">1</a>.</p>
+
+<p style="text-align: center;"><img src="/assets/img/math/quadratic-formula-flow-chart.png" alt=".." />
+<br />
+Figure <a name="fig:qf-quadratic-formula-flow-chart">1</a> A quadratic equation specified by constants $a$, $b$, $c$ and unknown $x$ have solutions of $x_1$ and $x_2$ through quadratic formula.</p>
+
+<p>Algorithm and flow chart have their own advantages and disadvantages [<a href="#ref3">3</a>], and it also depends on the complexity of the problem you are trying to solve. It might be better if you try to exercise which one suits you and on what kind of problem.</p>
+
+<h2 id="implementation">implementation</h2>
+<p>Flow chart in Fig. <a href="#fig:qf-quadratic-formula-flow-chart">1</a> and algorithm in Alg. <a href="#alg:qf-quadratic-formula-algorithm">1</a> will be implemented in, at least, one programming language. Since there is a lot of variation in writing program, following codes are not the only solution to the problem.</p>
+
+<h3 id="output">output</h3>
+<p>Independent of the programming language</p>
+<div class="language-batch highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">Equation</span>: <span class="kd">ax</span><span class="se">^2</span> <span class="o">+</span> <span class="kd">bx</span> <span class="o">+</span> <span class="kd">c</span> <span class="o">=</span> <span class="m">0</span>
+<span class="kd">Constant</span>: <span class="kd">a</span> <span class="o">=</span> <span class="m">1</span><span class="o">,</span> <span class="kd">b</span> <span class="o">=</span> <span class="o">-</span><span class="m">5</span><span class="o">,</span> <span class="kd">c</span> <span class="o">=</span> <span class="m">4</span>
+<span class="kd">Solution</span>: <span class="kd">x1</span> <span class="o">=</span> <span class="m">4</span><span class="o">,</span> <span class="kd">x2</span> <span class="o">=</span> <span class="m">1</span>
+</code></pre></div></div>
+<p>should be output of the program.</p>
+
+<h3 id="javascript">javascript</h3>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">b</span> <span class="o">=</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="nx">c</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">D</span> <span class="o">=</span> <span class="nx">b</span><span class="o">*</span><span class="nx">b</span> <span class="o">-</span> <span class="mi">4</span><span class="o">*</span><span class="nx">a</span><span class="o">*</span><span class="nx">c</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">x1</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="nx">b</span> <span class="o">+</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">sqrt</span><span class="p">(</span><span class="nx">D</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="nx">a</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">x2</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="nx">b</span> <span class="o">-</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">sqrt</span><span class="p">(</span><span class="nx">D</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="nx">a</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Equation: ax^2 + bx + c = 0</span><span class="dl">"</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Constant: a = </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">a</span> <span class="o">+</span> <span class="dl">"</span><span class="s2">, b = </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">b</span> <span class="o">+</span> <span class="dl">"</span><span class="s2">, c = </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">c</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Solution: x1 = </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">x1</span> <span class="o">+</span> <span class="dl">"</span><span class="s2">, x2 = </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">x2</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h3 id="c">c++</h3>
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;iostream&gt;
+#include &lt;cmath&gt;
+</span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
+    <span class="kt">double</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">D</span> <span class="o">=</span> <span class="n">b</span><span class="o">*</span><span class="n">b</span> <span class="o">-</span> <span class="mi">4</span><span class="o">*</span><span class="n">a</span><span class="o">*</span><span class="n">c</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">x1</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="n">b</span> <span class="o">+</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">D</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">a</span><span class="p">);</span>
+    <span class="kt">double</span> <span class="n">x2</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="n">b</span> <span class="o">-</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">D</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">a</span><span class="p">);</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Equation: ax^2 + bx + c = 0"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Constant: a = "</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="s">", b = "</span> <span class="o">&lt;&lt;</span> <span class="n">b</span> <span class="o">&lt;&lt;</span> <span class="s">", c = "</span> <span class="o">&lt;&lt;</span> <span class="n">c</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Solution: x1 = "</span> <span class="o">&lt;&lt;</span> <span class="n">x1</span> <span class="o">&lt;&lt;</span> <span class="s">", x2 = "</span> <span class="o">&lt;&lt;</span> <span class="n">x2</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="python">python</h3>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">b</span> <span class="o">=</span> <span class="o">-</span><span class="mi">5</span><span class="p">;</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">D</span> <span class="o">=</span> <span class="n">b</span><span class="o">*</span><span class="n">b</span> <span class="o">-</span> <span class="mi">4</span><span class="o">*</span><span class="n">a</span><span class="o">*</span><span class="n">c</span>
+<span class="n">x1</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="n">b</span> <span class="o">+</span> <span class="n">D</span><span class="o">**</span><span class="mf">0.5</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">a</span><span class="p">)</span>
+<span class="n">x2</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="n">b</span> <span class="o">-</span> <span class="n">D</span><span class="o">**</span><span class="mf">0.5</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">a</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Equation: ax^2 + bx + c = 0"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Constant: a = "</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="s">", b = "</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="s">", c = "</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s">""</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Solution: x1 = "</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="s">", x2 = "</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s">""</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>To test the given codes you can use <a href="online-compiler">online compilers</a>.</p>
+
+<h2 id="exercises">exercises</h2>
+<ol>
+  <li>Discriminant $D$ in Alg. <a href="#alg:qf-quadratic-formula-algorithm">1</a>. seems not too essential, since it can be directly substitute to the formula for $x_1$ and $x_2$. Explain why it is defined as separate term $D$? Can you guess? The hint is number of solutions.</li>
+  <li>Modify the given JavaScript program for calculating solution of a quadratic equation $2x^2 - 5x + 2 = 0$.</li>
+  <li>Modify the given C++ program for calculating solution of a quadratic equation $4x^2 - 9$.</li>
+  <li>Modify the given Python program for calculating solution of a quadratic equation $5x^2 - 125x = 0$.</li>
+  <li>Make program in BASIC to calculate solution of a quadratic equation $x^2 - 10x + 9 = 0$.</li>
+</ol>
+
+<h2 id="references">references</h2>
+<ol>
+  <li><a name="ref1"></a>Wikipedia contributors, “Vector (mathematics and physics)”, Wikipedia, The Free Encyclopedia, 22 August 2020, 14:24 UTC, <a href="https://en.wikipedia.org/w/index.php?oldid=974354203">https://en.wikipedia.org/w/index.php?oldid=974354203</a> [20210123].</li>
+  <li><a name="ref2"></a>Henry Swanson, “Answer to ‘reverse (left) arrow in an algorithm?’”, Mathematics Stack Exchange, 9 Mar 2014, url <a href="https://math.stackexchange.com/q/704942">https://math.stackexchange.com/q/704942</a> [20210123].</li>
+  <li><a name="ref3"></a>Sampurna Shrestha, “Advantages and disadvantages of algorithm and flowchart”, Computer Science Mentor, 28 Feb 2017, url <a href="https://computersciencementor.com/advantages-and-disadvantages-of-algorithm-and-flowchart/">https://computersciencementor.com/advantages-and-disadvantages-of-algorithm-and-flowchart/</a> [20210123].</li>
+</ol>
+
+<ul>
+  <li><a href="https://github.com/butiran/butiran.github.io/commits/master/_posts/fi3201/2021-01-23-quadratic-formula.md">Article history</a></li>
+</ul>
+
+:ET

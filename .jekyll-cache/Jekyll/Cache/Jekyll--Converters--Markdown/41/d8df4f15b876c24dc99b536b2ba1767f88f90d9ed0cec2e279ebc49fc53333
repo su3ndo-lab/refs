@@ -1,0 +1,120 @@
+I"s<p>The use of work-energy theorem in non-linear trajectory.</p>
+
+<h2 id="problem">Problem</h2>
+<p>A small $0.200-\rm kg$ package is released from rest at point A on a track that is one-quarter of a circle with radius $1.60 \ \rm m$. The size of the package is much less than $1.60 \ \rm m$, so the package can be treated as a particle. It slides down the track and reaches point B with a speed of $4.80 \ \rm m/s$. From point B, it slides on a level surface at distance of $3.00 \ \rm m$ to point C, where it comes to rest. (a) What is the coefficient of kinetic friction on the horizontal surface? (b) How much work is done on the package by friction as it slides down the circular arc from A to B? [∎] See [<a href="#ref1">1</a>] for illustration of package trajectory.</p>
+
+<h2 id="concepts">Concepts</h2>
+<p>Following concepts are required to solve the problem:</p>
+<ol>
+  <li>kinematics equation
+\begin{equation}
+\label{eqn:t2020-1-03-p10-kinematics-equation}
+v_2^2 = v_1^2 + 2 a (x_2 - x_1)
+\end{equation}</li>
+  <li>free-body diagram and 1st Newton’s law in $y$ direction
+\begin{equation}
+\label{eqn:t2020-1-03-p10-dynamics-y}
+\sum F_y = 0
+\end{equation}</li>
+  <li>Gravitational force or weight
+\begin{equation}
+\label{eqn:t2020-1-03-p10-weight}
+w = mg
+\end{equation}</li>
+  <li>kinetic friction - normal force relation
+\begin{equation}
+\label{eqn:t2020-1-03-p10-kinetic-friction}
+f_k = \mu_k N
+\end{equation}</li>
+  <li>work-energy theorem
+\begin{equation}
+\label{eqn:t2020-1-03-p10-work-energy-theorem}
+\Delta K = W
+\end{equation}</li>
+  <li>net work
+\begin{equation}
+\label{eqn:t2020-1-03-p10-net-work}
+W = \int \sum \vec{F} \cdot d\vec{s}
+\end{equation}</li>
+</ol>
+
+<h2 id="solution">Solution</h2>
+<p>We do not need to solve the problem sequentially from segment A-B (one-quarter of circle) and then segment B-C (level surface). But we can start from the second question as suggested in the problem and then go to the first.</p>
+
+<h3 id="level-surface">Level surface</h3>
+<p>Information obtained from the problem are $v_B = 4.80 \ \rm m/s$, $v_C = 0 \ \rm m/s$, and $x_{BC} = 3.00 \ \rm m$. Using Eqn. \eqref{eqn:t2020-1-03-p10-kinematics-equation}</p>
+
+<p>\begin{equation}
+\label{eqn:t2020-1-03-p10-kinematics-equation-a}
+a_{BC} = \frac{v_C^2 - v_B^2}{2(x_C - x_B)}
+\end{equation}</p>
+
+<p>we can get $a_{BC} = (0^2 - 4.80^2)/(2 \cdot 3) =  -3.84 \ \rm m/s^2$. Using Eqns. \eqref{eqn:t2020-1-03-p10-dynamics-y}, \eqref{eqn:t2020-1-03-p10-weight}, and \eqref{eqn:t2020-1-03-p10-kinetic-friction}</p>
+
+<p>\begin{equation}
+\label{eqn:t2020-1-03-p10-a-uk}
+\mu_k = \frac{a_{BC}}{g},
+\end{equation}</p>
+
+<p>that gives $\mu_k = 0.384$.</p>
+
+<h3 id="one-quarter-of-a-circle">One-quarter of a circle</h3>
+<p>Using Eqn. \eqref{eqn:t2020-1-03-p10-net-work}, we can see for this problem that there are two types of work, work of gravitation</p>
+
+<p>\begin{equation}
+\label{eqn:t2020-1-03-p10-work-gravitation}
+W_g = \int \vec{w} \cdot d\vec{s} = -mg \int_h^0 dy = mgh
+\end{equation}</p>
+
+<p>and work of kinetic friction</p>
+
+<p>\begin{equation}
+\label{eqn:t2020-1-03-p10-work-friction}
+W_f = \int \vec{w} \cdot d\vec{s} = - \mu_k m \int_{\pi/2}^0 \left[ \omega^2(\theta) R + g \cos \theta \right] d\theta, 
+\end{equation}</p>
+
+<p>that both compose the net work</p>
+
+<p>\begin{equation}
+\label{eqn:t2020-1-03-p10-work-net}
+W = W_g + W_f.
+\end{equation}</p>
+
+<p>Do we need to solve Eqn. \eqref{eqn:t2020-1-03-p10-work-friction}? Actually not since $W_g$ can be obtained and from work-energy theorem we can calculate net work. Substitution Eqn. \eqref{eqn:t2020-1-03-p10-work-energy-theorem} into Eqn. \eqref{eqn:t2020-1-03-p10-work-net} produce</p>
+
+<p>\begin{equation}
+\label{eqn:t2020-1-03-p10-work-friction-wet}
+W_f = \Delta K - W_g = (K_B - K_A) - mgh,
+\end{equation}</p>
+
+<p>that gives $W_f = (\frac12 \cdot 0.200 \cdot 4.80^2 - 0) - 0.200 \cdot 10 \cdot 1.60 = 2.304 - 3.200 = -0.896 \ \rm J$.</p>
+
+<p>It could be true since the sign is already negative. From</p>
+
+<p>\begin{equation}
+\label{eqn:t2020-1-03-p10-v-no-friction}
+v_B ({\rm no-friction}) = \sqrt{2gh},
+\end{equation}</p>
+
+<p>that gives $v_B ({\rm no-friction}) = \sqrt{2 \cdot 10 \cdot 1.6} = 4 \sqrt{2} = 5.657 \ \rm m/s$, which is larger than $v_B = 4.80 \ \rm m/s$.</p>
+
+<h2 id="note">Note</h2>
+<ul>
+  <li>The symbol [∎] means that there is a diagram, figure, or graph, which is still illustrated using only text. Or a link to an image.</li>
+  <li>Using $\omega = d\theta/dt$, Eqn. \eqref{eqn:t2020-1-03-p10-work-friction} will be turned into
+\begin{equation}
+\label{eqn:t2020-1-03-p10-work-friction-dthetadt}
+W_f = - \mu_k m \int_{\pi/2}^0 \left[ \left( \frac{d\theta}{dt} \right)^2 R + g \cos \theta \right] d\theta, 
+\end{equation}
+which is not easy to solve.</li>
+</ul>
+
+<h2 id="references">References</h2>
+<ol>
+  <li><a name="ref1"></a>-, “In a truck-loading station at a post office, a small 0.200-kg package is released from rest at point on a track that is one-quarter of a circle with radius 1.60 m”, Clutch, url <a href="https://www.clutchprep.com/physics/practice-problems/103125/in-a-truck-loading-station-at-a-post-office-a-small-0-200-kg-package-is-released">https://www.clutchprep.com/physics/practice-problems/103125/in-a-truck-loading-station-at-a-post-office-a-small-0-200-kg-package-is-released</a> [20201012].</li>
+</ol>
+
+<ul>
+  <li><a href="https://github.com/butiran/butiran.github.io/commits/master/_posts/phys/tutorial/2020-10-20-tutorial-03-2020-1-p10.md">Article history</a></li>
+</ul>
+:ET

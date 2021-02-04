@@ -1,0 +1,629 @@
+I"��<p>One of the root finding algorithms is bisection method, which applies to any continuous functions that has values with opposite signs in the search range [<a href="#ref1">1</a>]. It is an iterative method that divides previous internal into two subintervals and then evaluate which subintervals should be used, there the function still has value with opposite signs [<a href="#ref2">2</a>]. There is a lot of use of similar principle in scientific works [<a href="#ref3">3</a>].</p>
+
+<h2 id="swap-function">swap function</h2>
+<p>A swap function is a function that exchanges its two arguments value</p>
+
+<p>\begin{equation}
+\label{eqn:rb-swap-function}
+{\rm swap}(\vec{r}) = (\vec{r} \cdot \hat{y})\hat{x} + (\vec{r} \cdot \hat{x})\hat{y},
+\end{equation}</p>
+
+<p>where $\vec{r} = x\hat{x} + y\hat{r}$ is used to store two values, i.e. $x$ and $y$, in single output. If $\vec{r} = 1.5\hat{x} - 7.2\hat{y}$ then ${\rm swap}(\vec{r})$ will produce $-7.2\hat{x} + 1.5\hat{y}$ or simply</p>
+
+<p>\begin{equation}
+\label{eqn:rb-swap-function-example}
+(1.5, -7,2) \rightarrow (-7.2, 1.5).
+\end{equation}</p>
+
+<p>There is a built-in function in C++ standard template libray (STL) [<a href="#ref4">4</a>] in the form of</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">swap</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>with <code class="language-plaintext highlighter-rouge">a</code> and <code class="language-plaintext highlighter-rouge">b</code> are two mandatory parameters to be swapped. Manually there are some algorithms to perform the swap process without using a temporary variable but using arithmetic or bitwise operation or mixture of them [<a href="#ref5">5</a>] or other ways [<a href="#ref6">6</a>]. There is also a clever user defined function for the swap function in MATLAB [<a href="#ref7">7</a>], while in Python a fine syntax already provided [<a href="#ref8">8</a>]. We will use this function in designing more readable algorithm for bisection method.</p>
+
+<h2 id="algorithm">algorithm</h2>
+<p>Let us assume that there is a function $f(x)$, which holds for $f(x_{\rm beg}) f(x_{\rm end}) &lt; 0$, when $x \in [x_{\rm beg}, x_{\rm end}]$.</p>
+
+<p>Algorithm <a name="alg:rb-bisection-method-algorithm">1</a> Bisection method. <br />
+<code class="language-plaintext highlighter-rouge">I</code>: $f(x)$, $x_{\rm beg}$, $x_{\rm end}$, $\epsilon$. <br />
+<code class="language-plaintext highlighter-rouge">O</code>: $x_{\rm root}$.</p>
+<ol>
+  <li>$n = 1$.</li>
+  <li>$x_n \leftarrow x_{\rm beg}$.</li>
+  <li>$x_{n+1} \leftarrow x_{\rm end}$.</li>
+  <li>$x_{n+2} \leftarrow \frac12 (x_{n+1} + x_n)$.</li>
+  <li>$f(x_{n+1}) f(x_{n+2}) &lt; 0 \Rightarrow \color{blue}{\bf\scriptsize STEP} \ 7$.</li>
+  <li>${\rm swap}(x_n, x_{n+1})$.</li>
+  <li>$|f(x_{n+2})| &lt; \epsilon \Rightarrow \color{blue}{\bf\scriptsize STEP} \ 10$.</li>
+  <li>$n \leftarrow n + 1$.</li>
+  <li>$\Rightarrow \color{blue}{\bf\scriptsize STEP} \ 4$.</li>
+  <li>$x_{\rm root} \leftarrow x_{n+2}$.</li>
+</ol>
+
+<p>A function $f(x)$ as an example will be solved using Alg. <a href="#alg:rb-bisection-method-algorithm">1</a>.</p>
+
+<h2 id="flowchart">flowchart</h2>
+<p>We can also use a flowchart to design how steps of finding root using bisection method instead of using Alg. <a href="#alg:rb-bisection-method-algorithm">1</a>.</p>
+
+<p style="text-align: center;"><img src="/assets/img/math/root/root-bisection-flowchart.png" alt=".." />
+<br />
+Figure <a name="fig:rb-bisection-method-flowchart">1</a> Steps in bisection method are described in a flow chart.</p>
+
+<p>Number of elements in the flowchart shown in Fig. <a href="#fig:rb-bisection-method-flowchart">1</a> is more than in the Alg. <a href="#alg:rs-bisection-method-algorithm">1</a> since short expressions in every element are required, e.g. in decision block we use $f_{\rm root} &lt; \epsilon$ instead of $|f(x_{n+2})| &lt; \epsilon$ as in the algorithm.</p>
+
+<h2 id="test-function">test function</h2>
+<p>A function</p>
+
+<p>\begin{equation}
+\label{eqn:rb-test-function}
+f(x) = 0.025x^3 - 0.2585x^2 + 0.243x + 0.5265 
+\end{equation}</p>
+
+<p>is used as test function in implementing the bisection method from the flowchart shown in Fig. <a href="#fig:rb-bisection-method-flowchart">1</a> or Alg. <a href="#alg:rs-bisection-method-algorithm">1</a>.</p>
+
+<p style="text-align: center;"><img src="/assets/img/math/root/root-bisection-1.png" alt=".." />
+<img src="/assets/img/math/root/root-bisection-2.png" alt=".." />
+<img src="/assets/img/math/root/root-bisection-3.png" alt=".." />
+<br />
+Figure <a name="fig:rb-example">2</a> Scanning a root with $x_{\rm beg} = 1$ and $x_{\rm end} = 8$, the points are $x_1 = 8$, $x_2 = 1$, $x_3 = 4.5$ (top), $x_2 = 4.5$, $x_3 = 1$, $x_4 = 2.75$ (middle), and $x_3 = 1$, $x_4 = 2.75$, $x_5 = 1.875$ (bottom).</p>
+
+<p>Fig. <a href="#fig:rb-example">2</a> shows that root predictions are $x_1 = 8$, $x_2 = 4.5$, $x_3 = 1$, $x_4 = 2.75$, and  $x_5 = 1.875$. The swap operation changing the order or $x_{n}$ and $x_{n+1}$ will make the order of predictions not in historical order.</p>
+
+<div class="language-batch highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">n</span>       <span class="kd">x</span>       <span class="kd">f</span><span class="o">(</span><span class="kd">x</span><span class="o">)</span>
+<span class="m">0</span>       <span class="m">8</span>       <span class="o">-</span><span class="m">1</span>.2734999999999999
+<span class="m">1</span>       <span class="m">1</span>       <span class="o">-</span><span class="m">1</span>.2734999999999999
+<span class="m">2</span>       <span class="m">4</span>.5     <span class="o">-</span><span class="m">1</span>.3365000000000007
+<span class="m">3</span>       <span class="m">2</span>.75    <span class="o">-</span><span class="m">0</span>.240234375
+<span class="m">4</span>       <span class="m">1</span>.875   <span class="m">0</span>.23813085937499995
+<span class="m">5</span>       <span class="m">2</span>.3125  <span class="m">0</span>.015229736328124854
+<span class="m">6</span>       <span class="m">2</span>.53125 <span class="o">-</span><span class="m">0</span>.109217010498047
+<span class="m">7</span>       <span class="m">2</span>.421875        <span class="o">-</span><span class="m">0</span>.04607417678833026
+<span class="m">8</span>       <span class="m">2</span>.3671875       <span class="o">-</span><span class="m">0</span>.015180088520050261
+<span class="m">9</span>       <span class="m">2</span>.33984375      <span class="m">8</span>.689016103746727e<span class="o">-</span><span class="m">05</span>
+
+<span class="kd">f</span><span class="o">(</span><span class="kd">x</span><span class="o">)</span>   <span class="m">0</span>.025x<span class="se">^3</span> <span class="o">-</span> <span class="m">0</span>.2585x<span class="se">^2</span> <span class="o">+</span> <span class="m">0</span>.243x <span class="o">+</span> <span class="m">0</span>.5265
+<span class="kd">xbeg</span>  <span class="m">1</span>
+<span class="kd">xend</span>  <span class="m">8</span>
+ε     <span class="m">0</span>.001
+<span class="kd">Nstep</span> <span class="m">10</span>
+<span class="kd">xroot</span> <span class="m">2</span>.33984375
+</code></pre></div></div>
+
+<p>Output of program given above still show the historical orde since it is printed before the wap process and here is</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[8, 4.5, 1, 1.875, 2.75, 2.53125, 2.421875, 2.3125, 2.3671875, 2.353515625, 2.3466796875, 2.34326171875, 2.341552734375, 2.3406982421875, 2.34027099609375, 2.33984375, 2.340057373046875, 2.3399505615234375, 2.339977264404297, 2.3399906158447266, 2.3400039672851562, 2.3399972915649414, 2.340000629425049]
+</code></pre></div></div>
+
+<p>the predictions which has the order as in Fig. <a href="#fig:rb-example">2</a>, where $x_4$ and $x_5$ are still not in the historical order since the $x_6$ has not yet been calculated at that step.</p>
+
+<h2 id="implementation">implementation</h2>
+<p>The output is designed as follow</p>
+
+<div class="language-batch highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">f</span><span class="o">(</span><span class="kd">x</span><span class="o">)</span>  <span class="m">0</span>.025x<span class="se">^3</span> <span class="o">-</span> <span class="m">0</span>.2585x<span class="se">^2</span> <span class="o">+</span> <span class="m">0</span>.243x <span class="o">+</span> <span class="m">0</span>.5265
+<span class="kd">xbeg</span>  <span class="m">1</span>
+<span class="kd">xend</span>  <span class="m">8</span>
+ε     <span class="m">0</span>.1
+<span class="kd">Nstep</span> <span class="m">6</span>
+<span class="kd">xroot</span> <span class="m">2</span>.3125
+</code></pre></div></div>
+
+<p>with ome implementations are given here, e.g. in Python, JavaScript, GNU Octave, C++.</p>
+
+<h3 id="python">python</h3>
+<p>Following code <code class="language-plaintext highlighter-rouge">root-bisection.py</code> has been tested using Python 3.7.7 through Cygwin version 2.873 on Windows 10 Home.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Import necessary libraries
+</span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+
+
+<span class="c1"># Define a test function
+</span><span class="k">def</span> <span class="nf">test_function</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+	<span class="n">y3</span> <span class="o">=</span> <span class="mf">0.025</span> <span class="o">*</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span><span class="p">;</span>
+	<span class="n">y2</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.2585</span> <span class="o">*</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span><span class="p">;</span>
+	<span class="n">y1</span> <span class="o">=</span> <span class="mf">0.243</span> <span class="o">*</span> <span class="n">x</span><span class="p">;</span>
+	<span class="n">y0</span> <span class="o">=</span> <span class="mf">0.5265</span><span class="p">;</span>
+	<span class="n">y</span> <span class="o">=</span> <span class="n">y3</span> <span class="o">+</span> <span class="n">y2</span> <span class="o">+</span> <span class="n">y1</span> <span class="o">+</span> <span class="n">y0</span><span class="p">;</span>
+	<span class="k">return</span> <span class="n">y</span>
+
+
+<span class="c1"># Define input
+</span><span class="n">f</span> <span class="o">=</span> <span class="n">test_function</span>
+<span class="n">xbeg</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">xend</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="n">eps</span> <span class="o">=</span> <span class="mf">1E-3</span>
+<span class="n">Nstep</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">maxstep</span> <span class="o">=</span> <span class="mi">40</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="c1"># Define default message and parameter
+</span><span class="n">xroot</span> <span class="o">=</span> <span class="s">"not found"</span>
+<span class="n">SHOW_PROGRESS</span> <span class="o">=</span> <span class="bp">False</span>
+
+<span class="c1"># Do iteration
+</span><span class="n">Nstep</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">x</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">x</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">xbeg</span><span class="p">)</span>
+<span class="n">x</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">xend</span><span class="p">)</span>
+<span class="n">froot</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nb">abs</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">]))</span>
+
+<span class="k">while</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="n">maxstep</span><span class="o">-</span><span class="mi">3</span> <span class="ow">and</span> <span class="n">froot</span> <span class="o">&gt;</span> <span class="n">eps</span><span class="p">:</span>
+	<span class="n">x</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">+</span> <span class="n">x</span><span class="p">[</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">]))</span>
+	
+	<span class="n">fn1</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span>
+	<span class="n">fn2</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">n</span><span class="o">+</span><span class="mi">2</span><span class="p">])</span>
+	<span class="n">c</span> <span class="o">=</span> <span class="n">fn1</span> <span class="o">*</span> <span class="n">fn2</span>
+	<span class="k">if</span> <span class="n">c</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+		<span class="n">x</span><span class="p">[</span><span class="n">n</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="n">n</span><span class="p">]</span>
+	
+	<span class="k">if</span> <span class="n">SHOW_PROGRESS</span><span class="p">:</span>
+		<span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+			<span class="n">fn</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">n</span><span class="p">])</span>
+			<span class="k">print</span><span class="p">(</span><span class="s">"n</span><span class="se">\t</span><span class="s">x</span><span class="se">\t</span><span class="s">f(x)"</span><span class="p">)</span>
+			<span class="k">print</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">x</span><span class="p">[</span><span class="n">n</span><span class="p">],</span> <span class="n">fn</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s">"</span><span class="se">\t</span><span class="s">"</span><span class="p">)</span>
+			<span class="k">print</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">x</span><span class="p">[</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span> <span class="n">fn1</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s">"</span><span class="se">\t</span><span class="s">"</span><span class="p">)</span>
+		<span class="k">print</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">2</span><span class="p">,</span> <span class="n">x</span><span class="p">[</span><span class="n">n</span><span class="o">+</span><span class="mi">2</span><span class="p">],</span> <span class="n">fn2</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s">"</span><span class="se">\t</span><span class="s">"</span><span class="p">)</span> 
+	
+	<span class="n">froot</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nb">abs</span><span class="p">(</span><span class="n">fn2</span><span class="p">)</span>
+	<span class="k">if</span> <span class="n">froot</span> <span class="o">&lt;</span> <span class="n">eps</span><span class="p">:</span>
+		<span class="n">xroot</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">n</span><span class="o">+</span><span class="mi">2</span><span class="p">]</span>
+	
+	<span class="n">n</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="n">Nstep</span> <span class="o">=</span> <span class="n">n</span><span class="o">+</span><span class="mi">2</span>
+
+<span class="k">if</span> <span class="n">SHOW_PROGRESS</span><span class="p">:</span>
+	<span class="k">print</span><span class="p">()</span>
+
+<span class="c1"># Display result
+</span><span class="k">print</span><span class="p">(</span><span class="s">"f(x)   0.025x^3 - 0.2585x^2 + 0.243x + 0.5265"</span><span class="p">);</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"xbeg  "</span><span class="p">,</span> <span class="n">xbeg</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s">""</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"xend  "</span><span class="p">,</span> <span class="n">xend</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s">""</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"ε     "</span><span class="p">,</span> <span class="n">eps</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s">""</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Nstep "</span><span class="p">,</span> <span class="n">Nstep</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s">""</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"xroot "</span><span class="p">,</span> <span class="n">xroot</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s">""</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Full source code with comments can be accessed <a href="https://github.com/butiran/butiran.github.io/blob/master/src/py/fi3201/root/root-bisection.py">here</a></p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>$\epsilon$</td>
+      <td>$1$</td>
+      <td>$0.1$</td>
+      <td>$0.01$</td>
+      <td>$10^{-3}$</td>
+      <td>$10^{-4}$</td>
+      <td>$10^{-5}$</td>
+      <td>$10^{-6}$</td>
+    </tr>
+    <tr>
+      <td>$N_{\rm step}$</td>
+      <td>$4$</td>
+      <td>$6$</td>
+      <td>$10$</td>
+      <td>$10$</td>
+      <td>$10$</td>
+      <td>$19$</td>
+      <td>$23$</td>
+    </tr>
+    <tr>
+      <td>$x_{\rm root}$</td>
+      <td>$2.75$</td>
+      <td>$2.3125$</td>
+      <td>$2.33984375$</td>
+      <td>$2.33984375$</td>
+      <td>$2.33984375$</td>
+      <td>$2.3400039672851562$</td>
+      <td>$2.340000629425049$</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Using $x_{\rm beg} = 1$ and $x_{\rm end} = 8$ we can have results in the previous table.</p>
+
+<h3 id="javascript">javascript</h3>
+<p>Following code <code class="language-plaintext highlighter-rouge">root-bisection.js</code> is tested using Node.js v10.1.0 on Windows 10 Home.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Define test function</span>
+<span class="kd">function</span> <span class="nx">test_function</span><span class="p">()</span> <span class="p">{</span>
+	<span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="nx">arguments</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+	<span class="kd">var</span> <span class="nx">y3</span> <span class="o">=</span> <span class="mf">0.025</span> <span class="o">*</span> <span class="nx">x</span> <span class="o">*</span> <span class="nx">x</span> <span class="o">*</span> <span class="nx">x</span><span class="p">;</span>
+	<span class="kd">var</span> <span class="nx">y2</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.2585</span> <span class="o">*</span> <span class="nx">x</span> <span class="o">*</span> <span class="nx">x</span><span class="p">;</span>
+	<span class="kd">var</span> <span class="nx">y1</span> <span class="o">=</span> <span class="mf">0.243</span> <span class="o">*</span> <span class="nx">x</span><span class="p">;</span>
+	<span class="kd">var</span> <span class="nx">y0</span> <span class="o">=</span> <span class="mf">0.5265</span><span class="p">;</span>
+	<span class="kd">var</span> <span class="nx">y</span> <span class="o">=</span> <span class="nx">y3</span> <span class="o">+</span> <span class="nx">y2</span> <span class="o">+</span> <span class="nx">y1</span> <span class="o">+</span> <span class="nx">y0</span><span class="p">;</span>
+	<span class="k">return</span> <span class="nx">y</span><span class="p">;</span>
+<span class="p">}</span>
+
+
+<span class="c1">// Define main function</span>
+<span class="kd">function</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+	<span class="c1">// Define input parameters</span>
+	<span class="kd">var</span> <span class="nx">xbeg</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+	<span class="kd">var</span> <span class="nx">xend</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span>
+	<span class="kd">var</span> <span class="nx">eps</span> <span class="o">=</span> <span class="mi">1</span><span class="nx">E</span><span class="o">-</span><span class="mi">6</span><span class="p">;</span>
+	<span class="kd">var</span> <span class="nx">Nstep</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+	
+	<span class="c1">// Create variables for output</span>
+	<span class="kd">var</span> <span class="nx">f</span> <span class="o">=</span> <span class="nx">test_function</span><span class="p">;</span>
+	<span class="kd">var</span> <span class="nx">xroot</span> <span class="o">=</span> <span class="nx">xend</span><span class="p">;</span>
+	<span class="kd">var</span> <span class="nx">maxstep</span> <span class="o">=</span> <span class="mi">40</span><span class="p">;</span>
+	<span class="kd">var</span> <span class="nx">n</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+	
+	<span class="c1">// Initialize variables</span>
+	<span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="p">[];</span>
+	<span class="nx">x</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">xbeg</span><span class="p">);</span>
+	<span class="nx">x</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">xend</span><span class="p">);</span>
+	<span class="kd">var</span> <span class="nx">froot</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">abs</span><span class="p">(</span><span class="nx">f</span><span class="p">(</span><span class="nx">x</span><span class="p">[</span><span class="nx">n</span><span class="o">+</span><span class="mi">1</span><span class="p">]));</span>
+	
+	<span class="c1">// Do iteration using bisection method</span>
+	<span class="k">while</span><span class="p">((</span><span class="nx">froot</span> <span class="o">&gt;</span> <span class="nx">eps</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="nx">n</span> <span class="o">&lt;</span> <span class="nx">maxstep</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span> <span class="p">{</span>
+		<span class="c1">// Do bisection the search range</span>
+		<span class="nx">x</span><span class="p">[</span><span class="nx">n</span><span class="o">+</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="nx">x</span><span class="p">[</span><span class="nx">n</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="nx">x</span><span class="p">[</span><span class="nx">n</span><span class="p">]);</span>
+		
+		<span class="c1">// Swap if necessary</span>
+		<span class="nx">fn1</span> <span class="o">=</span> <span class="nx">f</span><span class="p">(</span><span class="nx">x</span><span class="p">[</span><span class="nx">n</span><span class="o">+</span><span class="mi">1</span><span class="p">]);</span>
+		<span class="nx">fn2</span> <span class="o">=</span> <span class="nx">f</span><span class="p">(</span><span class="nx">x</span><span class="p">[</span><span class="nx">n</span><span class="o">+</span><span class="mi">2</span><span class="p">]);</span>
+		<span class="nx">c</span> <span class="o">=</span> <span class="nx">fn2</span> <span class="o">*</span> <span class="nx">fn1</span><span class="p">;</span>
+		<span class="k">if</span><span class="p">(</span><span class="nx">c</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+			<span class="p">[</span><span class="nx">x</span><span class="p">[</span><span class="nx">n</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span> <span class="nx">x</span><span class="p">[</span><span class="nx">n</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[</span><span class="nx">x</span><span class="p">[</span><span class="nx">n</span><span class="p">],</span> <span class="nx">x</span><span class="p">[</span><span class="nx">n</span><span class="o">+</span><span class="mi">1</span><span class="p">]];</span>
+		<span class="p">}</span>
+		
+		<span class="c1">// Caculate absoulte value of the function</span>
+		<span class="nx">froot</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">abs</span><span class="p">(</span><span class="nx">f</span><span class="p">(</span><span class="nx">x</span><span class="p">[</span><span class="nx">n</span><span class="o">+</span><span class="mi">2</span><span class="p">]));</span>
+		
+		<span class="c1">// Get the xroot</span>
+		<span class="k">if</span><span class="p">(</span><span class="nx">froot</span> <span class="o">&lt;=</span> <span class="nx">eps</span><span class="p">)</span> <span class="p">{</span>
+			<span class="nx">Nstep</span> <span class="o">=</span> <span class="nx">n</span> <span class="o">+</span> <span class="mi">2</span><span class="p">;</span>
+			<span class="nx">xroot</span> <span class="o">=</span> <span class="nx">x</span><span class="p">[</span><span class="nx">n</span><span class="o">+</span><span class="mi">2</span><span class="p">];</span>
+		<span class="p">}</span>
+		
+		<span class="c1">// Increase n</span>
+		<span class="nx">n</span><span class="o">++</span><span class="p">;</span>
+	<span class="p">}</span>
+	
+	<span class="c1">// Case of root not found in the search range</span>
+	<span class="k">if</span><span class="p">(</span><span class="nx">Nstep</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+		<span class="nx">xroot</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">not found</span><span class="dl">"</span><span class="p">;</span>
+		<span class="nx">Nstep</span> <span class="o">=</span> <span class="nx">maxstep</span><span class="p">;</span>
+	<span class="p">}</span>	
+	
+	<span class="c1">// Display output</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">f(x)  0.025x^3 - 0.2585x^2 + 0.243x + 0.5265</span><span class="dl">"</span><span class="p">);</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">xbeg  </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">xbeg</span><span class="p">);</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">xend  </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">xend</span><span class="p">);</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">ε     </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">eps</span><span class="p">);</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Nstep </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">Nstep</span><span class="p">);</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">xroot </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">xroot</span><span class="p">);</span>
+<span class="p">}</span>
+
+
+<span class="c1">// Call main function</span>
+<span class="nx">main</span><span class="p">();</span>
+</code></pre></div></div>
+
+<p>Full source code with comments can be accessed <a href="https://github.com/butiran/butiran.github.io/blob/master/src/js/fi3201/root/root-bisection.js">here</a></p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>$\epsilon$</td>
+      <td>$1$</td>
+      <td>$0.1$</td>
+      <td>$0.01$</td>
+      <td>$10^{-3}$</td>
+      <td>$10^{-4}$</td>
+      <td>$10^{-5}$</td>
+      <td>$10^{-6}$</td>
+    </tr>
+    <tr>
+      <td>$N_{\rm step}$</td>
+      <td>$4$</td>
+      <td>$6$</td>
+      <td>$10$</td>
+      <td>$10$</td>
+      <td>$10$</td>
+      <td>$19$</td>
+      <td>$23$</td>
+    </tr>
+    <tr>
+      <td>$x_{\rm root}$</td>
+      <td>$2.75$</td>
+      <td>$2.3125$</td>
+      <td>$2.33984375$</td>
+      <td>$2.33984375$</td>
+      <td>$2.33984375$</td>
+      <td>$2.3400039672851562$</td>
+      <td>$2.340000629425049$</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Using $x_{\rm beg} = 1$ and $x_{\rm end} = 8$ we can have results in the previous table.</p>
+
+<h3 id="octave">octave</h3>
+<p>Following code <code class="language-plaintext highlighter-rouge">root-bisection.m</code> is tested using GNU Octave version 5.2.0 through Cygwin version 2.873 on Windows 10 Home.</p>
+
+<div class="language-m highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">% Define a swap function according to [2]</span>
+<span class="k">function</span> <span class="p">[</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">]</span> <span class="o">=</span> <span class="n">swap</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<span class="n">endfunction</span>
+
+
+<span class="c1">% Define a function whose root to be found</span>
+<span class="k">function</span> <span class="n">y</span> <span class="o">=</span> <span class="n">test_function</span> <span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mf">0.025</span> <span class="o">*</span> <span class="n">x</span><span class="o">**</span><span class="mi">3</span> <span class="o">-</span> <span class="mf">0.2585</span> <span class="o">*</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mf">0.243</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="mf">0.5265</span><span class="p">;</span>
+<span class="n">endfunction</span>
+
+
+<span class="c1">% Define input parameters</span>
+<span class="n">xbeg</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="n">xend</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span>
+<span class="nb">eps</span> <span class="o">=</span> <span class="mf">1E-1</span><span class="p">;</span>
+<span class="n">Nstep</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="c1">% Create variables for output</span>
+<span class="n">xroot</span> <span class="o">=</span> <span class="n">xend</span><span class="p">;</span>
+<span class="n">maxstep</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+
+<span class="c1">% Initialize variables</span>
+<span class="n">x</span> <span class="o">=</span> <span class="p">[];</span>
+<span class="n">x</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">=</span> <span class="n">xbeg</span><span class="p">;</span>
+<span class="n">x</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="n">xend</span><span class="p">;</span>
+<span class="n">froot</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">test_function</span><span class="p">(</span><span class="n">x</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)));</span>
+
+<span class="c1">% Do iteration using bisection method</span>
+<span class="k">while</span><span class="p">((</span><span class="n">froot</span> <span class="o">&gt;</span> <span class="nb">eps</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">n</span> <span class="o">&lt;</span> <span class="n">maxstep</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span>
+	<span class="c1">% Do bisection the search range</span>
+	<span class="n">x</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">x</span><span class="p">(</span><span class="n">n</span><span class="p">));</span>
+	
+	<span class="c1">% Swap if necessary</span>
+	<span class="n">fn1</span> <span class="o">=</span> <span class="n">test_function</span><span class="p">(</span><span class="n">x</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">));</span>
+	<span class="n">fn2</span> <span class="o">=</span> <span class="n">test_function</span><span class="p">(</span><span class="n">x</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">2</span><span class="p">));</span>
+	<span class="n">c</span> <span class="o">=</span> <span class="n">fn2</span> <span class="o">*</span> <span class="n">fn1</span><span class="p">;</span>
+	<span class="k">if</span><span class="p">(</span><span class="n">c</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+		<span class="p">[</span><span class="n">x</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span> <span class="n">x</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span> <span class="o">=</span> <span class="n">swap</span><span class="p">(</span><span class="n">x</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span> <span class="n">x</span><span class="p">(</span><span class="n">n</span><span class="p">));</span>
+	<span class="n">endif</span>
+	
+	<span class="c1">% Caculate absoulte value of the function</span>
+	<span class="n">froot</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">test_function</span><span class="p">(</span><span class="n">x</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">2</span><span class="p">)));</span>
+		
+	<span class="c1">% Get the xroot</span>
+	<span class="k">if</span><span class="p">(</span><span class="n">froot</span> <span class="o">&lt;=</span> <span class="nb">eps</span><span class="p">)</span>
+		<span class="n">Nstep</span> <span class="o">=</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">2</span> <span class="p">;</span>
+		<span class="n">xroot</span> <span class="o">=</span> <span class="n">x</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">2</span><span class="p">);</span>
+	<span class="n">endif</span>
+	
+	<span class="c1">% Increase n</span>
+	<span class="n">n</span><span class="o">++</span><span class="p">;</span>
+<span class="n">endwhile</span>
+
+<span class="c1">% Case of root not found in the search range</span>
+<span class="k">if</span><span class="p">(</span><span class="n">Nstep</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+	<span class="n">str_xroot</span> <span class="o">=</span> <span class="s2">"not found"</span><span class="p">;</span>
+	<span class="n">Nstep</span> <span class="o">=</span> <span class="n">maxstep</span><span class="p">;</span>
+<span class="k">else</span>
+	<span class="n">str_xroot</span> <span class="o">=</span> <span class="nb">num2str</span><span class="p">(</span><span class="n">xroot</span><span class="p">);</span>
+<span class="n">endif</span>
+
+<span class="c1">% Display output</span>
+<span class="nb">disp</span><span class="p">([</span><span class="s2">"f(x)  0.025x^3 - 0.2585x^2 + 0.243x + 0.5265"</span><span class="p">]);</span>
+<span class="nb">disp</span><span class="p">([</span><span class="s2">"xbeg  "</span> <span class="nb">num2str</span><span class="p">(</span><span class="n">xbeg</span><span class="p">)]);</span>
+<span class="nb">disp</span><span class="p">([</span><span class="s2">"xend  "</span> <span class="nb">num2str</span><span class="p">(</span><span class="n">xend</span><span class="p">)]);</span>
+<span class="nb">disp</span><span class="p">([</span><span class="s2">"ε     "</span> <span class="nb">num2str</span><span class="p">(</span><span class="nb">eps</span><span class="p">)]);</span>
+<span class="nb">disp</span><span class="p">([</span><span class="s2">"Nstep "</span> <span class="nb">num2str</span><span class="p">(</span><span class="n">Nstep</span><span class="p">)]);</span>
+<span class="nb">disp</span><span class="p">([</span><span class="s2">"xroot "</span> <span class="n">str_xroot</span><span class="p">]);</span>
+</code></pre></div></div>
+
+<p>Full source code with comments can be accessed <a href="https://github.com/butiran/butiran.github.io/blob/master/src/m/fi3201/root/root-bisection.m">here</a></p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>$\epsilon$</td>
+      <td>$1$</td>
+      <td>$0.1$</td>
+      <td>$0.01$</td>
+      <td>$10^{-3}$</td>
+      <td>$10^{-4}$</td>
+      <td>$10^{-5}$</td>
+      <td>$10^{-6}$</td>
+    </tr>
+    <tr>
+      <td>$N_{\rm step}$</td>
+      <td>$4$</td>
+      <td>$6$</td>
+      <td>$10$</td>
+      <td>$10$</td>
+      <td>$10$</td>
+      <td>$19$</td>
+      <td>$23$</td>
+    </tr>
+    <tr>
+      <td>$x_{\rm root}$</td>
+      <td>$2.75$</td>
+      <td>$2.3125$</td>
+      <td>$2.3398$</td>
+      <td>$2.3398$</td>
+      <td>$2.3398$</td>
+      <td>$2.34$</td>
+      <td>$2.34$</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Using $x_{\rm beg} = 1$ and $x_{\rm end} = 8$ we can have results in the previous table.</p>
+
+<h3 id="c">c++</h3>
+<p>Following code <code class="language-plaintext highlighter-rouge">root-bisection.cpp</code> has been tested using g++ (GCC) 10.2.0 through Cygwin version 2.873 on Windows 10 Home.</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Include necessary libraries</span>
+<span class="cp">#include &lt;iostream&gt;
+#include &lt;cmath&gt;
+#include &lt;vector&gt;
+</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="c1">// Define some functions</span>
+<span class="kt">double</span> <span class="nf">test_function</span><span class="p">(</span><span class="kt">double</span><span class="p">);</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
+	<span class="c1">// Define input</span>
+	<span class="kt">double</span> <span class="n">xbeg</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+	<span class="kt">double</span> <span class="n">xend</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span>
+	<span class="kt">double</span> <span class="n">eps</span> <span class="o">=</span> <span class="mf">1E-6</span><span class="p">;</span>
+	<span class="kt">int</span> <span class="n">Nstep</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+	<span class="kt">bool</span> <span class="n">SHOW_PROGRESS</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+	
+	<span class="c1">// Define default value</span>
+	<span class="kt">double</span> <span class="n">not_found</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2021</span><span class="p">;</span>
+	<span class="kt">double</span> <span class="n">xroot</span> <span class="o">=</span> <span class="n">not_found</span><span class="p">;</span>
+	
+	<span class="c1">// Create variables for output</span>
+	<span class="kt">int</span> <span class="n">maxstep</span> <span class="o">=</span> <span class="mi">40</span><span class="p">;</span>
+	<span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+	
+	<span class="c1">// Initialize variables</span>
+	<span class="n">vector</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <span class="n">x</span><span class="p">;</span>
+	<span class="n">x</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">xbeg</span><span class="p">);</span>
+	<span class="n">x</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">xend</span><span class="p">);</span>
+	<span class="kt">double</span> <span class="n">froot</span> <span class="o">=</span> <span class="n">fabs</span><span class="p">(</span><span class="n">test_function</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">]));</span>
+	
+	<span class="k">while</span><span class="p">((</span><span class="n">froot</span> <span class="o">&gt;</span> <span class="n">eps</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">n</span> <span class="o">&lt;</span> <span class="n">maxstep</span><span class="p">))</span> <span class="p">{</span>
+		<span class="c1">// Do bisection the search range</span>
+		<span class="n">x</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">x</span><span class="p">[</span><span class="n">n</span><span class="p">]));</span>
+		
+		<span class="c1">// Swap if necessary</span>
+		<span class="kt">double</span> <span class="n">fn1</span> <span class="o">=</span> <span class="n">test_function</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">]);</span>
+		<span class="kt">double</span> <span class="n">fn2</span> <span class="o">=</span> <span class="n">test_function</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">n</span><span class="o">+</span><span class="mi">2</span><span class="p">]);</span>
+		<span class="kt">double</span> <span class="n">c</span> <span class="o">=</span> <span class="n">fn2</span> <span class="o">*</span> <span class="n">fn1</span><span class="p">;</span>
+		<span class="k">if</span><span class="p">(</span><span class="n">c</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+			<span class="n">swap</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="n">n</span><span class="p">]);</span>
+		<span class="p">}</span>
+		
+		<span class="c1">// Display the progress</span>
+		<span class="k">if</span><span class="p">(</span><span class="n">SHOW_PROGRESS</span><span class="p">)</span> <span class="p">{</span>
+			<span class="k">if</span><span class="p">(</span><span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+				<span class="kt">double</span> <span class="n">fn</span> <span class="o">=</span> <span class="n">test_function</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">n</span><span class="p">]);</span>
+				<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"n</span><span class="se">\t</span><span class="s">x</span><span class="se">\t</span><span class="s">f(x)"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+				<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\t</span><span class="s">"</span><span class="p">;</span>
+				<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">x</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\t</span><span class="s">"</span><span class="p">;</span>
+				<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">fn</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+				<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\t</span><span class="s">"</span><span class="p">;</span>
+				<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">x</span><span class="p">[</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\t</span><span class="s">"</span><span class="p">;</span>
+				<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">fn1</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+			<span class="p">}</span>
+			<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\t</span><span class="s">"</span> <span class="o">&lt;&lt;</span> <span class="n">x</span><span class="p">[</span><span class="n">n</span><span class="o">+</span><span class="mi">2</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\t</span><span class="s">"</span> <span class="o">&lt;&lt;</span> <span class="n">fn2</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+		<span class="p">}</span>
+		
+		<span class="c1">// Caculate absoulte value of the function</span>
+		<span class="n">froot</span> <span class="o">=</span> <span class="n">fabs</span><span class="p">(</span><span class="n">test_function</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">n</span><span class="o">+</span><span class="mi">2</span><span class="p">]));</span>
+		
+		<span class="k">if</span><span class="p">(</span><span class="n">froot</span> <span class="o">&lt;</span> <span class="n">eps</span><span class="p">)</span> <span class="p">{</span>
+			<span class="n">xroot</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">n</span><span class="o">+</span><span class="mi">2</span><span class="p">];</span>
+		<span class="p">}</span>
+		
+		<span class="c1">// Increase n</span>
+		<span class="n">n</span><span class="o">++</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="n">Nstep</span> <span class="o">=</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">2</span><span class="p">;</span>
+	
+	<span class="k">if</span><span class="p">(</span><span class="n">SHOW_PROGRESS</span><span class="p">)</span> <span class="p">{</span>
+		<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+	<span class="p">}</span>
+	
+	<span class="c1">// Display result</span>
+	<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"f(x)  "</span><span class="p">;</span>
+	<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"0.025x^3 - 0.2585x^2 + 0.243x + 0.5265"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+	<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"xbeg  "</span> <span class="o">&lt;&lt;</span> <span class="n">xbeg</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+	<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"xend  "</span> <span class="o">&lt;&lt;</span> <span class="n">xend</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+	<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"ε     "</span> <span class="o">&lt;&lt;</span> <span class="n">eps</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+	<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Nstep "</span> <span class="o">&lt;&lt;</span> <span class="n">Nstep</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+	<span class="k">if</span><span class="p">(</span><span class="n">xroot</span> <span class="o">==</span> <span class="n">not_found</span><span class="p">)</span> <span class="p">{</span>
+		<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"xroot not found"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+	<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+		<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"xroot "</span> <span class="o">&lt;&lt;</span> <span class="n">xroot</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+	<span class="p">}</span>
+	
+	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+
+<span class="c1">// Define test function</span>
+<span class="kt">double</span> <span class="nf">test_function</span><span class="p">(</span><span class="kt">double</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+	<span class="kt">double</span> <span class="n">y3</span> <span class="o">=</span> <span class="mf">0.025</span> <span class="o">*</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span><span class="p">;</span>
+	<span class="kt">double</span> <span class="n">y2</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.2585</span> <span class="o">*</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span><span class="p">;</span>
+	<span class="kt">double</span> <span class="n">y1</span> <span class="o">=</span> <span class="mf">0.243</span> <span class="o">*</span> <span class="n">x</span><span class="p">;</span>
+	<span class="kt">double</span> <span class="n">y0</span> <span class="o">=</span> <span class="mf">0.5265</span><span class="p">;</span>
+	<span class="kt">double</span> <span class="n">y</span> <span class="o">=</span> <span class="n">y3</span> <span class="o">+</span> <span class="n">y2</span> <span class="o">+</span> <span class="n">y1</span> <span class="o">+</span> <span class="n">y0</span><span class="p">;</span>
+	<span class="k">return</span> <span class="n">y</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Full source code with comments can be accessed <a href="https://github.com/butiran/butiran.github.io/blob/master/src/cpp/fi3201/root/root-bisection.cpp">here</a></p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>$\epsilon$</td>
+      <td>$1$</td>
+      <td>$0.1$</td>
+      <td>$0.01$</td>
+      <td>$10^{-3}$</td>
+      <td>$10^{-4}$</td>
+      <td>$10^{-5}$</td>
+      <td>$10^{-6}$</td>
+    </tr>
+    <tr>
+      <td>$N_{\rm step}$</td>
+      <td>$4$</td>
+      <td>$6$</td>
+      <td>$10$</td>
+      <td>$10$</td>
+      <td>$10$</td>
+      <td>$19$</td>
+      <td>$23$</td>
+    </tr>
+    <tr>
+      <td>$x_{\rm root}$</td>
+      <td>$2.75$</td>
+      <td>$2.3125$</td>
+      <td>$2.33984$</td>
+      <td>$2.33984$</td>
+      <td>$2.33984$</td>
+      <td>$2.34$</td>
+      <td>$2.34$</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Using $x_{\rm beg} = 1$ and $x_{\rm end} = 8$ we can have results in the previous table.</p>
+
+<h2 id="exercises">exercises</h2>
+<ol>
+  <li>Comparing the given flowchart in Fig. <a href="#fig:rb-bisection-method-flowchart">1</a> and algoritm in Alg. <a href="#alg:rb-bisection-method-algorithm">1</a>, which one suits you better? Give your opinion about it.</li>
+  <li>Modify the flowchart in Fig. <a href="#fig:rb-bisection-method-flowchart">1</a> so that number of elements is the same as in Alg. <a href="#alg:rb-bisection-method-algorithm">1</a>. Is it simpler or more comples compared the given flowchart? Explain in brief.</li>
+  <li>Not as shown in Fig. <a href="#fig:rb-bisection-method-flowchart">1</a> or Alg. <a href="#alg:rb-bisection-method-algorithm">1</a> the implementation in the given Octave program there is <code class="language-plaintext highlighter-rouge">maxstep</code> variable. Explain what the use of this variable. And why we require it?</li>
+  <li>Compare the obtained $x_{\rm root}$ using different codes, e.q. <code class="language-plaintext highlighter-rouge">root-bisection.py</code>, <code class="language-plaintext highlighter-rouge">root-bisection.js</code>, <code class="language-plaintext highlighter-rouge">root-bisection.m</code>, <code class="language-plaintext highlighter-rouge">root-bisection.cpp</code> and discuss about them.</li>
+  <li>Can you design some lines of code that can save the prediction of $x$ as in historical order and in the order after swap process? Explain that in brief.</li>
+</ol>
+
+<h2 id="references">references</h2>
+<ol>
+  <li><a name="ref1"></a>Wikipedia contributors, “Bisection method”, Wikipedia, The Free Encyclopedia, 12 January 2021, 04:52 UTC, <a href="https://en.wikipedia.org/w/index.php?oldid=999831078">https://en.wikipedia.org/w/index.php?oldid=999831078</a> [20210129].</li>
+  <li><a name="ref2"></a>Eric W. Weisstein, “Bisection” from MathWorld–A Wolfram Web Resource, url <a href="https://mathworld.wolfram.com/Bisection.html">https://mathworld.wolfram.com/Bisection.html</a> [20210129].</li>
+  <li><a name="ref3"></a>url <a href="https://www.sciencedirect.com/topics/engineering/bisection-algorithm">https://www.sciencedirect.com/topics/engineering/bisection-algorithm</a> [20210129].</li>
+  <li><a name="ref4"></a>Prateek Sharma 7, “swap() in C++”, GeeksforGeeks, 01 May 2019, url <a href="https://www.geeksforgeeks.org/swap-in-cpp/">https://www.geeksforgeeks.org/swap-in-cpp/</a> [20210129].</li>
+  <li><a name="ref5"></a>GeeksforGeeks contributors (jit_t, mohit kumar 29, Chandan_Kumar, Code_Mech, ujjwalmittal, rathbhupendra, SHUBHAMSINGH10, Rajput-Ji, supershounak2001, yashbeersingh42, divyeshrabadiya07, bunnyram19, divyesh072019), “How to swap two numbers without using a temporary variable?”, GeeksforGeeks, 11 Dec 2020, url <a href="https://www.geeksforgeeks.org/swap-two-numbers-without-using-temporary-variable/">https://www.geeksforgeeks.org/swap-two-numbers-without-using-temporary-variable/</a> [20210129].</li>
+  <li><a name="ref6"></a>Piyush Kochhar, “10 Ways To Swap Values In JavaScript”, codeburst.io, 12 Aug 2020, url <a href="https://codeburst.io/10-ways-to-swap-values-in-javascript-8a1d056352dd">https://codeburst.io/10-ways-to-swap-values-in-javascript-8a1d056352dd</a> [20210129].</li>
+  <li><a name="ref7"></a>Jan, “Answer to ‘How to swap values of two variables?’”, MATLAB Answers, MathWorks, 23 Oct 2017, url <a href="https://www.mathworks.com/matlabcentral/answers/362680-how-to-swap-values-of-two-variables#answer_287217">https://www.mathworks.com/matlabcentral/answers/362680-how-to-swap-values-of-two-variables#answer_287217</a> [20210130].</li>
+  <li><a name="ref8"></a>eyquem, pauloue, “Answer to ‘Is there a standardized method to swap two variables in Python?’”, StackOverflow, 22 Jan 2018, url <a href="https://stackoverflow.com/a/14836456">https://stackoverflow.com/a/14836456</a> [20210130].</li>
+</ol>
+
+<ul>
+  <li><a href="https://github.com/butiran/butiran.github.io/commits/master/_posts/fi3201/2021-01-29-root-bisection.md">Article history</a></li>
+</ul>
+
+:ET

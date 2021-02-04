@@ -1,0 +1,98 @@
+I"o<p>This entry is related to the questions part of <a href="2020-1-04">tutorial 4 in 2020-1</a>.</p>
+
+<h2 id="questions">Questions</h2>
+<ol>
+  <li>Two objects have the same momentum. Do the velocities of these objects necessarily have (a) the same directions and (b) the same magnitudes? Give your reasoning in each case.</li>
+  <li>(a) Can a single object have kinetic energy but no momentum? (b) Can a system of two or more objects have a total kinetic energy that is not zero but a total momentum that is zero? Account for your answers.</li>
+  <li>Where would you expect the center of mass of a doughnut to be located? Why?</li>
+  <li>A satellite explodes in outer space, far from any other body, sending thousands of pieces in all directions. How does the linear momentum of the satellite before the explosion compare with the total linear momentum of all the pieces after the explosion? Account for your answer.</li>
+  <li>A boxer being hit with a punch tries to extend the time of contact for best results, whereas a karate expert delivers a blow in a short time for best results. Isn’t there a contradiction here?</li>
+</ol>
+
+<h2 id="answers-1">Answers 1</h2>
+<p>Two objects have the same momentum. Do the velocities of these objects necessarily have (a) the same directions and (b) the same magnitudes? Give your reasoning in each case.</p>
+<ul>
+  <li>
+    <p>Momentum is a vector. When two objects have the same momentum, their velocities should have the same direction because their masses are always positive. With unit vector of each velocities are $\hat{e}_1$ and $\hat{e}_2$, we can get
+\begin{equation}
+\label{eqn:tut04-momentum-direction-the-same}
+\begin{array}{rcl}
+\vec{p}_1 &amp; = &amp; \vec{p}_2 \newline
+m_1 \vec{v}_1 &amp; = &amp; m_2 \vec{v}_2 \newline
+m_1 v_1 \vec{e}_1 &amp; = &amp; m_2 v_2 \vec{e}_2 \newline
+\vec{e}_1 &amp; = &amp; \vec{e}_2,
+\end{array}
+\end{equation}
+since $m_1 v_1 = m_2 v_2$.</p>
+  </li>
+  <li>
+    <p>But the magnitudes of their velocities are not necessary the same because what should be the same are product of mass and velocity $(m_1 v_1 = m_2 v_2)$. Then
+\begin{equation}
+\label{eqn:tut04-momentum-magnitude-not-the-same}
+\begin{array}{rcl}
+\vec{p}_1 &amp; = &amp; \vec{p}_2 \newline
+m_1 \vec{v}_1 &amp; = &amp; m_2 \vec{v}_2 \newline
+\vec{v}_1 &amp; = &amp; \displaystyle \frac{m_2}{m_1} \vec{v}_2 \newline
+\left| \vec{v}_1 \right| &amp; = &amp; \displaystyle \left| \frac{m_2}{m_1} \vec{v}_2  \right| \newline
+\left| \vec{v}_1 \right| &amp; = &amp; \displaystyle \frac{m_2}{m_1} \left|  \vec{v}_2  \right| \newline
+\left| \vec{v}_1 \right| &amp; \ne &amp; \left|  \vec{v}_2  \right|,
+\end{array}
+\end{equation}
+or $v_1 \ne v_2$.</p>
+  </li>
+</ul>
+
+<h2 id="answer-2">Answer 2</h2>
+<p>(a) Can a single object have kinetic energy but no momentum? (b) Can a system of two or more objects have a total kinetic energy that is not zero but a total momentum that is zero? Account for your answers.</p>
+<ul>
+  <li>For single object if it has no momentum, then it means that it has zero velocity, which lead to zero kinetic energy through
+\begin{equation}
+\label{eqn:tut04-p-k}
+K = \frac{p^2}{2m} = \frac12 m v^2.
+\end{equation}</li>
+  <li>For system of two or more objects they can have zero momentum but non-zero kinetic energy
+\begin{equation}
+\label{eqn:tut04-p-k-p=0}
+\vec{p} = \vec{p}_1 + \vec{p}_2 = 0
+\end{equation}
+or simply that $\vec{p}_1 = - \vec{p}_2$. And for the kinetic energy
+\begin{equation}
+\label{eqn:tut04-p-k-p=!0}
+K = \frac{p_1^2}{2m_1} + \frac{p_2^2}{2m_2} &gt; 0.
+\end{equation}</li>
+</ul>
+
+<h2 id="answer-3">Answer 3</h2>
+<p>Where would you expect the center of mass of a doughnut to be located? Why?</p>
+<ul>
+  <li>It will be at the center of doughnut, which is an empty space, where there is not any part of doughnut.</li>
+  <li>center of mass is not necessary on an object, it can be located outside of the object, e.g doughnut, biblade boomerang, and Fosbury flop [<a href="#ref1">1</a>].</li>
+</ul>
+
+<h2 id="answer-4">Answer 4</h2>
+<p>A satellite explodes in outer space, far from any other body, sending thousands of pieces in all directions. How does the linear momentum of the satellite before the explosion compare with the total linear momentum of all the pieces after the explosion? Account for your answer.</p>
+<ul>
+  <li>Since the satellite is far from any other body, it means that it is free from any gravitational forces (external forces). Free from external forces guarantees that conservation of momentum holds. Then
+\begin{equation}
+\label{eqn:tut04-pi=pf}
+\vec{P} = \sum_{i = 1}^N \vec{p}_i,
+\end{equation}
+where left side is linear momentum of the satellite before explosion (only one body) and right side is total linear momentum of all pieces of satellite after explosion. It it assumed that after the explosion the satellit has $N$ pieces moving to all directions.</li>
+</ul>
+
+<h2 id="answer-5">Answer 5</h2>
+<p>A boxer being hit with a punch tries to extend the time of contact for best results, whereas a karate expert delivers a blow in a short time for best results. Isn’t there a contradiction here?</p>
+<ul>
+  <li>Both are consistente since the first is receiving punch and try to reduce it by extending time of contact, while the second is giving a blow and try to increase it by reducing time of contact. Please see [<a href="#ref2">2</a>] for longer explanation.</li>
+</ul>
+
+<h2 id="references">References</h2>
+<ol>
+  <li><a name="ref1"></a>Olympic, “Fosbury revolutioniert den Hochsprung in Mexiko-Stadt 1968 | The Olympics On The Record”, YouTube, 1 Apr 2018, url <a href="https://www.youtube.com/watch?v=CZsH46Ek2ao&amp;t=1m50s">https://www.youtube.com/watch?v=CZsH46Ek2ao&amp;t=1m50s</a> [20201101].</li>
+  <li><a name="ref2"></a>Troy McMillen, “Case 3: Decreasing Momentum over s Short Time”, in Practical Physics, Packet #2 (13 Days), 26 Mar 2020, pp. 86-87, url <a href="https://www.mansfieldschools.org/Downloads/mcmillan%20practical%20physicals.pdf">https://www.mansfieldschools.org/Downloads/mcmillan%20practical%20physicals.pdf</a> [20201101].</li>
+</ol>
+
+<ul>
+  <li><a href="https://github.com/butiran/butiran.github.io/commits/master/_posts/phys/tutorial/2020-11-01-tutorial-04-2020-1-q1-5.md">Article history</a></li>
+</ul>
+:ET

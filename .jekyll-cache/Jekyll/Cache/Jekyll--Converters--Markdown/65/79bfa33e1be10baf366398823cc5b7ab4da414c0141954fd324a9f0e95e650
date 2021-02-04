@@ -1,0 +1,164 @@
+I"�,<p>An example of Python 3 code is discussed in here. It is named in lower case [<a href="#ref1">1</a>] and uses suggested comment style [<a href="#ref2">2</a>]. The program is called from command line [<a href="#ref3">3</a>] and is able to process the arguments [<a href="#ref4">4</a>] providing a filename to be opened [<a href="#ref5">5</a>] showing its content without addition newline [<a href="#ref6">6</a>].</p>
+
+<h2 id="parameters-file">Parameters file</h2>
+<p>A plain text file containing parameters, named <code class="language-plaintext highlighter-rouge">params.txt</code> in this case, has following content.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">TITL</span> <span class="mi">2</span><span class="nx">d</span><span class="o">-</span><span class="nx">Lissajous</span><span class="o">-</span><span class="nx">pattern</span><span class="o">-</span><span class="nx">generator</span>
+
+<span class="nx">AMPX</span> <span class="mi">1</span>
+<span class="nx">TPEX</span> <span class="mi">1</span>
+<span class="nx">PHAX</span> <span class="mi">0</span>
+
+<span class="nx">AMPY</span> <span class="mi">1</span>
+<span class="nx">TPEY</span> <span class="mi">1</span>
+<span class="nx">PHAY</span> <span class="mf">1.57</span>
+
+<span class="nx">TBEG</span> <span class="mi">0</span>
+<span class="nx">TEND</span> <span class="mi">2</span>
+<span class="nx">TSTP</span> <span class="mf">0.1</span>
+</code></pre></div></div>
+
+<p>The file will be read and its content will be displayed. First the program has to know what is the filename.</p>
+
+<h2 id="python-file">Python file</h2>
+<p>A Python file named <code class="language-plaintext highlighter-rouge">rdpf.py</code> is made and has content as follow.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 
+# rdpf.py
+# Read parameters file and show its content
+# 
+# Sparisoma Viridi | https://github.com/dudung
+# 
+# Execute: python3 rdpf.py params.txt
+# 
+# 20200922
+# 1637 Start this example.
+# 1723 Collect references [1-4].
+# 1735 Test simple args and add [5].
+# 1751 Get newline problem in printing output.
+# 1828 Solve it using Python 3 [6].
+# 1916 Finalize comments.
+# 
+# References
+# 1. agold, "Asnwer to 'Python file naming convention?'", 
+#    Software Engineering, 6 Jun 2019, url https:// 
+#    softwareengineering.stackexchange.com/a/308976 [20200922].
+# 2. Dan Bader, "Python Multi-line Comments: Your Two Best
+#    Options", url https://dbader.org/blog/python-multiline
+#    -comment [20200922].
+# 3. -,"1. Command line and environment", Python, 22 Sep 2020, 
+#    url https://docs.python.org/3/using/cmdline.html
+#    [20200922].
+# 4. Sayak Paul, "Argument Parsing in Python", DataCamp, 16 May
+#    2019, url https://www.datacamp.com/community/tutorials
+#    /argument-parsing-in-python [20200922].
+# 5. -, "Open a File on the Server", W3Schools, url https://www
+#    .w3schools.com/python/python_file_open.asp [20200922].
+# 6. codelogic, "Answer to 'How to print without newline or
+#    space?'", StackOverflow, 29 Jan 2009, url https://
+#    stackoverflow.com/a/493399 [20200922].
+# 
+</span>
+<span class="c1"># Import necessary modules
+</span><span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="c1"># Get command line arguments
+</span><span class="n">argv</span> <span class="o">=</span> <span class="n">sys</span><span class="p">.</span><span class="n">argv</span>
+
+<span class="c1"># Get parameters filename
+</span><span class="n">fn</span> <span class="o">=</span> <span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="c1"># Open parameters file
+</span><span class="n">fp</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">fn</span><span class="p">,</span> <span class="s">"r"</span><span class="p">)</span>
+
+<span class="c1"># Show parameters line by line
+</span><span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">fp</span><span class="p">:</span>
+	<span class="k">print</span><span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s">""</span><span class="p">)</span>
+
+<span class="c1"># Close file
+</span><span class="n">fp</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>The last 18 lines is the implementation part of the program, while the preceeded lines are for comments and documentation. You can copy, adapt, and modify it.</p>
+
+<h2 id="output">Output</h2>
+<p>The <code class="language-plaintext highlighter-rouge">rdpf.py</code> is executed from command line</p>
+
+<div class="language-batch highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ <span class="kd">python3</span> <span class="kd">rdpf</span>.py <span class="kd">params</span>.txt
+</code></pre></div></div>
+
+<p>and will produce</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">TITL</span> <span class="mi">2</span><span class="nx">d</span><span class="o">-</span><span class="nx">Lissajous</span><span class="o">-</span><span class="nx">pattern</span><span class="o">-</span><span class="nx">generator</span>
+
+<span class="nx">AMPX</span> <span class="mi">1</span>
+<span class="nx">TPEX</span> <span class="mi">1</span>
+<span class="nx">PHAX</span> <span class="mi">0</span>
+
+<span class="nx">AMPY</span> <span class="mi">1</span>
+<span class="nx">TPEY</span> <span class="mi">1</span>
+<span class="nx">PHAY</span> <span class="mf">1.57</span>
+
+<span class="nx">TBEG</span> <span class="mi">0</span>
+<span class="nx">TEND</span> <span class="mi">2</span>
+<span class="nx">TSTP</span> <span class="mf">0.1</span>
+</code></pre></div></div>
+
+<p>as expected.</p>
+
+<h2 id="exercises">Exercises</h2>
+<ol>
+  <li>Modify <code class="language-plaintext highlighter-rouge">params.txt</code> and see the output result.</li>
+  <li>Type following code and show the result.
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">argv</span> <span class="o">=</span> <span class="n">sys</span><span class="p">.</span><span class="n">argv</span>
+<span class="n">fn</span> <span class="o">=</span> <span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">fp</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">fn</span><span class="p">,</span> <span class="s">"r"</span><span class="p">)</span>
+<span class="n">params</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">fp</span><span class="p">:</span>
+ <span class="n">line2</span> <span class="o">=</span> <span class="n">line</span><span class="p">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">)</span>
+ <span class="n">params</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">line2</span><span class="p">)</span>
+<span class="n">fp</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">params</span><span class="p">:</span>
+ <span class="n">b</span> <span class="o">=</span> <span class="n">p</span><span class="p">.</span><span class="n">split</span><span class="p">();</span>
+ <span class="k">if</span> <span class="n">b</span><span class="p">:</span>
+     <span class="k">print</span><span class="p">(</span><span class="s">"Name = "</span><span class="p">,</span> <span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+     <span class="k">print</span><span class="p">(</span><span class="s">"Value = "</span><span class="p">,</span> <span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</code></pre></div>    </div>
+  </li>
+  <li>Explain the last 6 lines from previous code. Modify it in order to produce
+    <div class="language-batch highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">TITL</span> <span class="o">=</span> <span class="m">2</span><span class="kd">d</span><span class="na">-Lissajous </span><span class="kd">pattern</span> <span class="kd">generator</span>
+<span class="kd">AMPX</span> <span class="o">=</span> <span class="m">1</span>
+<span class="kd">TPEX</span> <span class="o">=</span> <span class="m">1</span>
+..
+<span class="kd">TSTP</span> <span class="o">=</span> <span class="m">0</span>.1
+</code></pre></div>    </div>
+  </li>
+  <li>Following equations is necessary for creating 2-d Lissajous pattern.
+\begin{equation}
+\label{eqn:pyrdpf-x}
+x(t) = A_x \sin \left( \frac{2\pi}{T_x} t + \phi_x \right)
+\end{equation}
+and
+\begin{equation}
+\label{eqn:pyrdpf-y}
+y(t) = A_y \sin \left( \frac{2\pi}{T_y} t + \phi_y \right).
+\end{equation}
+Map the relation beween parameters in Eqns. \eqref{eqn:pyrdpf-x} and \eqref{eqn:pyrdpf-y}, e.g. $A_x$, $\dots$, $\phi_y$, to parameters in <code class="language-plaintext highlighter-rouge">params.txt</code> file., e.g. <code class="language-plaintext highlighter-rouge">AMPX</code>, $\dots$, <code class="language-plaintext highlighter-rouge">PHAY</code>.</li>
+  <li>Design your own parameters file and explain the use of each line in that file.</li>
+</ol>
+
+<h2 id="references">References</h2>
+<ol>
+  <li><a name="ref1"></a>agold, “Asnwer to ‘Python file naming convention?’”, Software Engineering, 6 Jun 2019, url <a href="https://softwareengineering.stackexchange.com/a/308976">https://softwareengineering.stackexchange.com/a/308976</a> [20200922].</li>
+  <li><a name="ref2"></a>Dan Bader, “Python Multi-line Comments: Your Two Best Options”, url <a href="https://dbader.org/blog/python-multiline-comment">https://dbader.org/blog/python-multiline-comment</a> [20200922].</li>
+  <li><a name="ref3"></a>-,”1. Command line and environment”, Python, 22 Sep 2020, url <a href="https://docs.python.org/3/using/cmdline.html">https://docs.python.org/3/using/cmdline.html</a> [20200922].</li>
+  <li><a name="ref4"></a>Sayak Paul, “Argument Parsing in Python”, DataCamp, 16 May 2019, url <a href="https://www.datacamp.com/community/tutorials/argument-parsing-in-python">https://www.datacamp.com/community/tutorials/argument-parsing-in-python</a> [20200922].</li>
+  <li><a name="ref5"></a>-, “Open a File on the Server”, W3Schools, url <a href="https://www.w3schools.com/python/python_file_open.asp">https://www.w3schools.com/python/python_file_open.asp</a> [20200922].</li>
+  <li><a name="ref6"></a>codelogic, “Answer to ‘How to print without newline or space?’”, StackOverflow, 29 Jan 2009, url <a href="https://stackoverflow.com/a/493399">https://stackoverflow.com/a/493399</a> [20200922].</li>
+</ol>
+
+<ul>
+  <li><a href="https://github.com/butiran/butiran.github.io/commits/master/_posts/code/py/2020-09-22-read-params-file.md">Article history</a></li>
+</ul>
+:ET

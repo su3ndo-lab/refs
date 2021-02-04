@@ -1,0 +1,151 @@
+I"�+<p>Brief introduction to function in Python with an example is presented here.</p>
+
+<h2 id="function">function</h2>
+<p>How a varying quantity depends on another quantity can be represented in a function [<a href="#ref1">1</a>], e.g. $y$ depends on $x$</p>
+
+<p>\begin{equation}
+\label{fintro-function}
+y = f(x)
+\end{equation}</p>
+
+<p>and it may also be said, in this case, that $x$ is independent variable, while $y$ is dependent variable [<a href="#ref2">2</a>].</p>
+
+<h2 id="polynomial">polynomial</h2>
+<p>A univariate polynomial [<a href="#ref3">3</a>] can be expressed, e.g. with order of two, in the form of</p>
+
+<p>\begin{equation}
+\label{fintro-polynomial-2}
+P(x) = c_0 + c_1 \ x + c_2 x^2,
+\end{equation}</p>
+
+<p>where $c_0$, $c_1$, $c_2$ are coefficients. We will use list, a generic containers in Python [<a href="#ref4">4</a>], instead of array to store the coefficients</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">c0</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="n">c1</span> <span class="o">=</span> <span class="o">-</span><span class="mi">5</span>
+<span class="n">c2</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">coeff</span> <span class="o">=</span> <span class="p">[</span><span class="n">c0</span><span class="p">,</span> <span class="n">c1</span><span class="p">,</span> <span class="n">c2</span><span class="p">]</span>
+</code></pre></div></div>
+
+<p>where <code class="language-plaintext highlighter-rouge">coeff</code> is variable with type of Python list. We can also using number directyl in the list, between <code class="language-plaintext highlighter-rouge">[</code> and <code class="language-plaintext highlighter-rouge">]</code>, the square brackets. Previous example still uses <code class="language-plaintext highlighter-rouge">c0</code>, <code class="language-plaintext highlighter-rouge">c1</code>, and <code class="language-plaintext highlighter-rouge">c2</code> only to give better relation to Eqn. \eqref{fintro-polynomial-2}.</p>
+
+<h2 id="syntax">syntax</h2>
+<p>In Python we can define a function [<a href="#re5">5</a>, <a href="#re6">6</a>] as follow</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">function_name</span><span class="p">(</span><span class="n">argument</span><span class="p">):</span>
+	<span class="c1"># Relate the argument (as input) with processed_value (as output)
+</span>	<span class="n">processed_value</span> <span class="o">=</span> <span class="n">argument</span>
+	<span class="k">return</span> <span class="n">processed_value</span>
+</code></pre></div></div>
+
+<p>which is an illustration of a user-defined function.</p>
+
+<h2 id="example">example</h2>
+<p>Suppose that we have following quadratic equation</p>
+
+<p>\begin{equation}
+\label{fintro-example-quadratic}
+f(x) = x^2 - 5x + 6,
+\end{equation}</p>
+
+<p>that has values of $x$ and $y$</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>$x$</td>
+      <td>0</td>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+      <td>4</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>$y$</td>
+      <td>6</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>6</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Eqn. \eqref{fintro-example-quadratic} can be implemented in Python (there are some other ways) as follow</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 
+# funx.py
+# Example of function in Python 3.7
+#
+# Sparisoma Viridi | https://github.com/dudung
+# 
+# 20210110
+# 1920 Create this example, test it, and it works.
+# 1925 Add another output for clearer meaning.
+# 1938 Change f1 to fA to fun for function of x.
+#
+</span>
+<span class="c1"># Define function fun with argument x
+</span><span class="k">def</span> <span class="nf">fun</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+	<span class="n">c</span> <span class="o">=</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+	<span class="n">y</span> <span class="o">=</span> <span class="n">c</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">*</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">c</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="n">c</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+	<span class="k">return</span> <span class="n">y</span><span class="p">;</span>
+
+<span class="c1"># Define some x and use the function
+</span><span class="n">x1</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">y1</span> <span class="o">=</span> <span class="n">fun</span><span class="p">(</span><span class="n">x1</span><span class="p">)</span>
+<span class="n">x2</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="n">y2</span> <span class="o">=</span> <span class="n">fun</span><span class="p">(</span><span class="n">x2</span><span class="p">)</span>
+<span class="n">x3</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span> <span class="n">y3</span> <span class="o">=</span> <span class="n">fun</span><span class="p">(</span><span class="n">x3</span><span class="p">)</span>
+
+<span class="c1"># Display the results
+</span><span class="k">print</span><span class="p">(</span><span class="s">"x1 = "</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="s">", fun(x1) = "</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s">""</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"x2 = "</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="s">", fun(x2) = "</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s">""</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"x3 = "</span><span class="p">,</span> <span class="n">x3</span><span class="p">,</span> <span class="s">", fun(x3) = "</span><span class="p">,</span> <span class="n">y3</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s">""</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>that produces some output from previous table</p>
+
+<pre><code class="language-cmd">$ python3.7 fun/funx.py
+x1 = 0, fun(x1) = 6
+x2 = 2, fun(x2) = 0
+x3 = 4, fun(x3) = 2
+</code></pre>
+
+<p>when executed. Notice that $f(x)$ in Eqn. \eqref{fintro-example-quadratic} is represented as <code class="language-plaintext highlighter-rouge">fun(x)</code> in the code.</p>
+
+<h2 id="note">note</h2>
+<ul>
+  <li>Function name should represent purpose of the function and argument(s) should be defined to give a clear description and usage of the function.</li>
+  <li>Codes are tested with Python 3.7 using Cygwin (x86) in Windows 10 Home (x64).</li>
+  <li>It would be better if a function also includes doctring (documentation string), which has not yet been used in here.</li>
+</ul>
+
+<h2 id="exercises">exercises</h2>
+<ol>
+  <li>Execute <code class="language-plaintext highlighter-rouge">funx.py</code> to get the output and compare it with previously given information. You can access the source <a href="https://github.com/butiran/butiran.github.io/blob/master/src/py/fun/funx.py">here</a>.</li>
+  <li>Modify <code class="language-plaintext highlighter-rouge">funx.py</code> to show value of $f(x)$ in Eqn. \eqref{fintro-example-quadratic} for $x = 1, 3, 5$. Name the new code as <code class="language-plaintext highlighter-rouge">funx_ex2.py</code>.</li>
+  <li>Modify <code class="language-plaintext highlighter-rouge">funx.py</code> to calculate another function $g(x) = 1 + x + x^2 + x^3$ for $x = 0, 1, 2, 3$. Rename the code as <code class="language-plaintext highlighter-rouge">funx_ex3.py</code> to store the modification.</li>
+  <li>Look at the following snippet
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">volume</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">):</span>
+ <span class="n">V</span> <span class="o">=</span> <span class="n">l</span> <span class="o">*</span> <span class="n">w</span> <span class="o">*</span> <span class="n">h</span>
+ <span class="k">return</span> <span class="n">V</span><span class="p">;</span>
+</code></pre></div>    </div>
+    <p>What is the purpose of it? Explain in brief.</p>
+  </li>
+  <li>Create a code named <code class="language-plaintext highlighter-rouge">funvol.py</code> and implement previous snippet. Calculate five different blocks and shows the results.</li>
+</ol>
+
+<h2 id="references">references</h2>
+<ol>
+  <li><a name="ref1"></a>Wikipedia contributors, “Function (mathematics)”, Wikipedia, The Free Encyclopedia, 9 Jan 2021, 17:09 UTC, <a href="https://en.wikipedia.org/w/index.php?oldid=999330249">https://en.wikipedia.org/w/index.php?oldid=999330249</a> [20210110].</li>
+  <li><a name="ref2"></a>Wikipedia-Autoren, “Abhängige und unabhängige Variable”, Wikipedia, Die freie Enzyklopädie, 1 Dez 2020, 17:28 UTC, <a href="https://de.wikipedia.org/w/index.php?oldid=206134794">https://de.wikipedia.org/w/index.php?oldid=206134794</a> [20210110].</li>
+  <li><a name="ref3"></a>Eric W. Weisstein,  “Univariate Polynomial”, from MathWorld–A Wolfram Web Resource, url <a href="https://mathworld.wolfram.com/UnivariatePolynomial.html">https://mathworld.wolfram.com/UnivariatePolynomial.html</a> [20210111].</li>
+  <li><a name="ref4"></a>Shreya Khare, “Array in Python | Set 1 (Introduction and Functions)”, GeeksforGeeks, 07 Oct 2020, url <a href="https://www.w3schools.com/python/python_functions.asp">https://www.w3schools.com/python/python_functions.asp</a> [20210111].</li>
+  <li><a name="ref5"></a>-, “Python Functions”, Programiz, url <a href="https://www.programiz.com/python-programming/function">https://www.programiz.com/python-programming/function</a> [20210111].</li>
+  <li><a name="ref6"></a>-, “Python Functions”, W3Schools, url <a href="https://www.w3schools.com/python/python_functions.asp">https://www.w3schools.com/python/python_functions.asp</a> [20210110].</li>
+</ol>
+
+<ul>
+  <li><a href="https://github.com/butiran/butiran.github.io/commits/master/_posts/code/py/2021-01-10-function-intro.md">Article history</a></li>
+</ul>
+:ET

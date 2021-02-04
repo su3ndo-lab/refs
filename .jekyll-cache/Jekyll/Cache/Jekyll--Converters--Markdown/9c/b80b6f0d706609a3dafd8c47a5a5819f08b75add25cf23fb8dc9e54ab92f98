@@ -1,0 +1,229 @@
+I" <p>Ilustrastion how to calculate work of friction from an object moving on a horizontal surface.</p>
+
+<h2 id="problem">Problem</h2>
+<p>On a horizontal rough surface a block is moving from left to right along $x$ direction. Perpendicular to the surface is defined as $y$ direction, where earth gravitational $g$ is parallel to $y$-axis and to the negative direction. Initial velocity $v_A = 50 \ \rm m/s$ and final velocity $v_B = 40 \ \rm m/s$. Mass of the particle is $3 \ \rm kg$. The system is illustrated in Fig. <a href="#fig:wf-hs-wet-system">1</a>.</p>
+
+<oo>
+svg 400 200 #fafafa fig:wf-hs-wet-system|A block with mass $m$ is moving on a horizontal surface with friction $\mu_k$, where $x_B &gt; x_A$.
+
+# Standard gravity
+style lc:#0c0 ls:0 lw:2 lo:1 fc:#0c0 fo:1
+arrow 20 30 20 70
+style lw:0 fc:#000 fo:1 ts:italic tw:normal tf:Times tz:16px
+text 15 20 g
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:16px
+text 30 20 = 10 m/s
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:10px
+text 87 15 2
+
+# Horizontal floor
+style lc:#000 ls:0 lw:2 lo:1
+line 20 120 380 120
+style lw:0 fc:#000 fo:1 ts:italic tw:normal tf:Times tz:16px
+text 193 140 &mu;
+style lw:0 fc:#000 fo:1 ts:italic tw:normal tf:Times tz:10px
+text 200 145 k
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:16px
+text 210 140 = 0.2
+
+# Block at xA
+style lc:#000 ls:0 lw:2 lo:1 fc:#ddd fo:1
+rect 60 60 60 60
+style lc:#000 ls:0 lw:2 lo:1 fc:#000 fo:1
+circle 90 120 2
+style lw:0 fc:#000 fo:1 ts:italic tw:normal tf:Times tz:16px
+text 83 140 x
+text 83 170 t
+text 130 100 v
+style lw:0 fc:#000 fo:1 ts:italic tw:normal tf:Times tz:10px
+text 90 145 A
+text 90 175 A
+text 137 105 A
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:16px
+text 100 170 = 5 s
+style lc:#00f ls:0 lw:2 lo:1 fc:#00f fo:1
+arrow 130 80 180 80
+
+# Block at xB
+style lc:#000 ls:4-2 lw:1 lo:1 fc:#eee fo:1
+rect 280 60 60 60
+style lc:#000 ls:0 lw:2 lo:1 fc:#000 fo:1
+circle 310 120 2
+style lw:0 fc:#000 fo:1 ts:italic tw:normal tf:Times tz:16px
+text 303 140 x
+text 303 170 t
+text 350 100 v
+style lw:0 fc:#000 fo:1 ts:italic tw:normal tf:Times tz:10px
+text 310 145 B
+text 310 175 B
+text 357 105 B
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:16px
+text 320 170 = 10 s
+style lc:#00f ls:0 lw:2 lo:1 fc:#00f fo:1
+arrow 350 80 390 80
+</oo>
+
+<p>Find work of kinetic friction $W_f$ using the shortest way. Compared the result using the other way.</p>
+
+<h2 id="solution">Solution</h2>
+<p>There will be at least three ways to get the solution of $W_f$.</p>
+
+<h3 id="work-energy-theorem">Work-energy theorem</h3>
+<p>Since kinetik friction $f_k$ is the only force parallel to the displacement $\Delta s = x_B - x_A &gt; 0$ then net work is the work of friction. Using work-energy theorem</p>
+
+<p>\begin{equation}
+\label{eqn:wf-hs-wet-work-energy-theorem}
+\begin{array}{rcl}
+(\sum F_x) \Delta s &amp; = &amp; \Delta K \newline
+W_f &amp; = &amp; K_f - K_i \newline
+&amp; = &amp; \frac12 m v_B^2 - \frac12 m v_A^2,
+\end{array}
+\end{equation}</p>
+
+<p>that will give $0.5 \cdot 3 \cdot 40^2 - 0.5 \cdot 3 \cdot 50^2 = 2400 - 3750 = -1350 \ \rm J$.</p>
+
+<h3 id="kinematics-and-work">Kinematics and work</h3>
+<p>Using one of kinematics relation</p>
+
+<p>\begin{equation}
+\label{eqn:wf-hs-wet-kinematics-a}
+\begin{array}{rcl}
+v_B &amp; = &amp; v_A + a_x (t_B - t_A) \newline
+a_x &amp; = &amp; \displaystyle \frac{v_B - v_A}{t_B - t_A},
+\end{array}
+\end{equation}</p>
+
+<p>which gives $a_x = (40 - 50)/(10 - 5) = -10/5 = -2 \ \rm m/s^2$. Then using another kinematics relation</p>
+
+<p>\begin{equation}
+\label{eqn:wf-hs-wet-kinematics-s}
+\begin{array}{rcl}
+x_B &amp; = &amp; x_A + v_A(t_B - t_A) + \frac12 a_x (t_B - t_A)^2 \newline
+\Delta s = x_B - x_A &amp; = &amp; v_A(t_B - t_A) + \frac12 a_x (t_B - t_A)^2,
+\end{array}
+\end{equation}</p>
+
+<p>that produces $\Delta s = 50 \cdot (10-5) + 0.5 \cdot -2 \cdot (10-5)^2 = 50 \cdot 5 - 0.5 \cdot 2 \cdot 25 = 250 - 25 = 225 \ \rm m$. And since net work is, in this case, work of kinetik friction, then</p>
+
+<p>\begin{equation}
+\label{eqn:wf-hs-wet-kinematics-s-wf}
+\begin{array}{rcl}
+W_f &amp; = &amp; (\sum F_x) \Delta s \newline
+&amp; = &amp; m a_x \Delta s,
+\end{array}
+\end{equation}</p>
+
+<p>which yields $W_f = 3 \cdot -2 \cdot 225 = -1350 \ \rm J$.</p>
+
+<h3 id="dynamics-kinematics-and-work">Dynamics, kinematics, and work</h3>
+<p>Free body diagram in Fig. <a href="#fig:wf-hs-wet-fbd">2</a> of the block</p>
+
+<oo>
+svg 180 170 #fafafa fig:wf-hs-wet-fbd|Free-body diagram of the block, where positive direction is taken to the direction of velocity $v$.
+
+# Block
+style lc:#000 ls:0 lw:2 lo:1 fc:#ddd fo:1
+rect 40 40 60 60
+
+# w
+style lc:#000 ls:0 lw:2 lo:1 fc:#000 fo:1
+circle 70 70 2
+style lc:#0c0 ls:0 lw:2 lo:1 fc:#0c0 fo:1
+arrow 70 70 70 150
+style lw:0 fc:#000 fo:1 ts:italic tw:normal tf:Times tz:16px
+text 80 150 w
+
+# N
+style lc:#00f ls:0 lw:2 lo:1 fc:#00f fo:1
+arrow 60 100 60 20
+style lw:0 fc:#000 fo:1 ts:italic tw:normal tf:Times tz:16px
+text 70 25 N
+
+# fk
+style lc:#f00 ls:0 lw:2 lo:1 fc:#f00 fo:1
+arrow 60 100 20 100
+style lw:0 fc:#000 fo:1 ts:italic tw:normal tf:Times tz:16px
+text 20 125 f
+style lw:0 fc:#000 fo:1 ts:italic tw:normal tf:Times tz:10px
+text 25 130 k
+
+# v
+style lc:#f0f ls:0 lw:2 lo:1 fc:#f0f fo:1
+arrow 120 70 160 70
+style lw:0 fc:#000 fo:1 ts:italic tw:normal tf:Times tz:16px
+text 130 60 v
+</oo>
+
+<p>will give</p>
+
+<p>\begin{equation}
+\label{eqn:wf-hs-wet-dyn-y}
+\begin{array}{rcl}
+\sum F_y &amp; = &amp; 0 \newline
+N - w &amp; = &amp; 0 \newline
+N &amp; = &amp; w \newline
+N &amp; = &amp; mg
+\end{array}
+\end{equation}</p>
+
+<p>in $y$ direction and</p>
+
+<p>\begin{equation}
+\label{eqn:wf-hs-wet-dyn-x}
+\begin{array}{rcl}
+\sum F_x &amp; = &amp; m a_x \newline
+-f_k &amp; = &amp; m a_x \newline
+-\mu_k N &amp; = &amp; m a_x \newline
+-\mu_k mg &amp; = &amp; m a_x \newline
+a_x &amp; = &amp; - \mu_k g \newline
+&amp; = &amp; -0.2 \cdot 10 = -2 \ \rm m/s^2 
+\end{array}
+\end{equation}</p>
+
+<p>in $x$ direction. Using Eqn. \eqref{eqn:wf-hs-wet-dyn-x}, \eqref{eqn:wf-hs-wet-kinematics-s}, and \eqref{eqn:wf-hs-wet-kinematics-s-wf}, we will have $W_f = 3 \cdot -2 \cdot 225 = -1350 \ \rm J$.</p>
+
+<h2 id="comparison">Comparison</h2>
+<p>Based on previous three ways to get $W_f$, we can make following comparison table.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>No.</td>
+      <td>Concepts</td>
+      <td>Equation</td>
+      <td>Prior knowledge</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>work-energy theorem</td>
+      <td>\eqref{eqn:wf-hs-wet-work-energy-theorem}</td>
+      <td>$f_k$ is net force</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>kinematics, work</td>
+      <td>\eqref{eqn:wf-hs-wet-kinematics-a}, \eqref{eqn:wf-hs-wet-kinematics-s}, \eqref{eqn:wf-hs-wet-kinematics-s-wf}</td>
+      <td>$f_k$ is net force</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>dynamics (+free-body diagram), kinematics, work</td>
+      <td>\eqref{eqn:wf-hs-wet-dyn-y}, \eqref{eqn:wf-hs-wet-dyn-x}, \eqref{eqn:wf-hs-wet-kinematics-s}, \eqref{eqn:wf-hs-wet-kinematics-s-wf}</td>
+      <td>$f_k$ is net force</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>If $f_k$ is not net force, then we can not use the three ways, but we must first find $f_k$ and then calculate $W_f = f_k \Delta s$. In this case $W_f &lt; 0$ since $f_k$ is in opposite direction to <a href="../position#displacement">displacement</a> $\Delta s$, where $\Delta s &gt; 0$.</p>
+
+<h2 id="note">Note</h2>
+<ol>
+  <li>See <a href="../friction">friction</a> for more description.</li>
+  <li>It is usual to write $v_t = v_0 + a(t-t_0)$ or $v_t = v_0 + at$, if we already choose $t_0 = 0$. In this case $a = a_x$, $v_0 = v_A$, $v_t = v_B$, $t_0 = t_A$, and $t = t_B$, where Eqn. \eqref{eqn:wf-hs-wet-kinematics-a} is more general form.</li>
+  <li>It is also usual to write $x_t = x_0 + v_0(t - t_0) + \frac12 a(t - t_0)^2$ or $x_t = x_0 + v_0 t - \frac12 a t^2$, if we already choose $t_0 = 0$. In this case $a = a_x$, $v_0 = v_A$, $v_t = v_B$, $x_0 = x_A$, $x_t = x_B$, $t_0 = t_A$, and $t = t_B$, where Eqn. \eqref{eqn:wf-hs-wet-kinematics-s} is more general form.</li>
+</ol>
+
+<ul>
+  <li><a href="https://github.com/butiran/butiran.github.io/commits/master/_posts/phys/quiz/2020-10-19-wf-hs-wet.md">Article history</a></li>
+</ul>
+:ET

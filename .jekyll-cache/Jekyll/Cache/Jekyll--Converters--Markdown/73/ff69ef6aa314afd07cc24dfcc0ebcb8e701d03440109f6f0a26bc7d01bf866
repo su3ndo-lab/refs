@@ -1,0 +1,134 @@
+I"� <p>A system consisted of a mass and a spring (also a wall) on a horizontal frictionless surface [<a href="#ref1">1</a>] is an example of a simple harmonic motion, where systems of a spring-mass attached on ceiling and a simple pendulum are more common to discussed [<a href="#ref2">2</a>].</p>
+
+<h2 id="system">System</h2>
+<p>A mass $m$ connected to a spring with spring constant $k$ is moving on a frictionless ($\mu = 0$), horizontal surface. Another end of the massless spring is attached on a wall. The system is shown in Fig. <a href="#fig:shm-sms-hfless">1</a>.</p>
+
+<p style="text-align: center;"><img src="/assets/img/phys/shm-spring-mass-horiz-fless-0.png" alt=".." />
+<br />
+Figure <a name="fig:fig:shm-sms-hfless">1</a> Spring-mass system of a frictionless horizontal surface.</p>
+
+<p>Spring force works on the mass $m$ is</p>
+
+<p>\begin{equation}
+\label{eqn:shm-sms-hfless-system}
+F = -k(x - x_0),
+\end{equation}</p>
+
+<p>where $x = x_0$ is the equilibrium position. At that position the spring $k$ is in a relax condition (not compressed nor stretched) and does not give any force to the mass $m$. Fig. <a href="#fig:shm-sms-hfless-oscillation">2</a> shows the relation between displacement $x - x_0$, spring force $F$, and velocity $v$ as the mass $m$ moving forward and backward.</p>
+
+<p style="text-align: center;"><img src="/assets/img/phys/shm-spring-mass-horiz-fless-1.png" alt=".." />
+<br />
+Figure <a name="fig:fig:shm-sms-hfless-oscillation">2</a> Snapshot of spring-mass system in one oscillation period.</p>
+
+<p>A red dashed line is a rough curve illustrating the dynamics of object position at several times, which are not so accurate. We can choose $x_0 = 0$ and copy the red dashed line from Fig. Fig. <a href="#fig:shm-sms-hfless-oscillation">2</a> to make a complete cycle of an oscillation as shown in Fig. <a href="#fig:shm-sms-hfless-cycle">3</a>.</p>
+
+<p style="text-align: center;"><img src="/assets/img/phys/shm-spring-mass-horiz-fless-2.png" alt=".." />
+<br />
+Figure <a name="fig:fig:shm-sms-hfless-oscillation">3</a> Position of the mass of spring-mass system.</p>
+
+<p>The lower part of Fig. <a href="#fig:shm-sms-hfless-cycle">3</a> should be a sinusoidal function with $T$ is oscillation periode and $A$ is amplitude of the oscillation.</p>
+
+<h2 id="formulation">Formulation</h2>
+<p>Since the net force works on the mass $m$ is the spring force given in Eqn. \eqref{eqn:shm-sms-hfless-system}, we will have</p>
+
+<p>\begin{equation}
+\label{eqn:shm-sms-hfless-system-formulation}
+\begin{array}{rcl}
+\sum F &amp; = &amp; ma \newline
+-kx &amp; = &amp; ma \newline
+0 &amp; = &amp; ma + kx \newline
+ma + kx &amp; = &amp; 0 \newline
+\displaystyle a + \frac{k}{m} x &amp; = &amp; 0 \newline
+\displaystyle \frac{d^2x}{dt^2} + \omega^2 x &amp; = &amp; 0 \newline
+\end{array}
+\end{equation}</p>
+
+<p>using Newton’s 2nd law of motion. Notice that we set $x_0 = 0$ in Eqn. \eqref{eqn:shm-sms-hfless-system-formulation} as in Fig. <a href="#fig:shm-sms-hfless-cycle">3</a> and we define that</p>
+
+<p>\begin{equation}
+\label{eqn:shm-sms-hfless-system-formulation-omega}
+\omega = \sqrt{\frac{k}{m}}.
+\end{equation}</p>
+
+<p>Eqn. \eqref{eqn:shm-sms-hfless-system-formulation} is a differential equation of a <a href="simple-harmonic-motion">simple harmonic motion</a>, where the solution is</p>
+
+<p>\begin{equation}
+\label{eqn:shm-sms-diff-eqn-soulution}
+x(t) = A \sin (\omega t + \varphi_0),
+\end{equation}</p>
+
+<p>with $\varphi_0$ is initial phase of the oscillation. Its unit is $\rm rad$.</p>
+
+<h2 id="some-relations">Some relations</h2>
+<p>Related to the solution given by Eqn. \eqref{eqn:shm-sms-diff-eqn-soulution} there are some relations that are already common</p>
+
+<p>\begin{equation}
+\label{eqn:shm-sms-diff-eqn-soulution-rel-0}
+\omega = 2\pi f,
+\end{equation}</p>
+
+<p>\begin{equation}
+\label{eqn:shm-sms-diff-eqn-soulution-rel-1}
+T = \frac{1}{f},
+\end{equation}</p>
+
+<p>\begin{equation}
+\label{eqn:shm-sms-diff-eqn-soulution-rel-2}
+x_\max = A,
+\end{equation}</p>
+
+<p>\begin{equation}
+\label{eqn:shm-sms-diff-eqn-soulution-rel-3}
+v_\max = \omega A,
+\end{equation}</p>
+
+<p>\begin{equation}
+\label{eqn:shm-sms-diff-eqn-soulution-rel-4}
+a_\max = \omega^2 A,
+\end{equation}</p>
+
+<p>where $\omega$ is angular frequency and $f$ is frequency. Their unit are $\rm rad/s$ and $\rm Hz$, respectively. Unit of $A$ and $x$ are length unit, eq. $\rm m$, $\rm cm$, or $\rm mm$.</p>
+
+<h2 id="circular-motion-point-of-view">Circular motion point of view</h2>
+<p>We can view the SHM as an analogy of circular motion. A nice simulation using GeoGebra is available [<a href="#ref3">3</a>] as shown in Fig. <a href="#fig:shm-sms-geogebra-ftas">4</a>.</p>
+
+<p style="text-align: center;"><img src="/assets/img/phys/gg/shm-geogebra-ftas.png" alt=".." />
+<br />
+Figure <a name="fig:shm-sms-geogebra-ftas">4</a> Simulation of a spring-mass sytem and how its parameters of motion, e.g. position $x$, velocity $v$, acceleration $a$, are evolving.</p>
+
+<p>You can have explore the simulation <a href="https://www.geogebra.org/m/sgsvd7js">here</a>. Amplitude $A$ and frequency $f$ can be changed. Animation speed might be also adjusted for better view. You can also drag the time slide bar to see position of the object at a certain desired time $t$.</p>
+
+<h2 id="exercises">Exercises</h2>
+<ol>
+  <li>
+    <p><a name="prob1"></a>A $100 \ \rm g$-mass is attached on an ideal spring (linear, massless) with spring constant $4000 \pi^2 \ \rm N/m$ and moving on a frictionless horizontal surface. Find oscillation angular frequency, frequency, and period of the system. The units are $\rm rad/s$, $\rm Hz$, $\rm s$, respectively.</p>
+  </li>
+  <li>
+    <p><a name="prob2"></a>A spring-mass system on a frictionless horizontal surface is performing a simple harmonic motion (SHM) with oscillation period of $0.1 \ \rm s$. If the system amplitude is $1 \ \rm cm$, find oscillation frequency and angular frequency, then calculate the object maximum velocity and acceleration. The units are $\rm Hz$, $\rm rad/s$, $\rm m/s$, $\rm m/s^2$, respectively.</p>
+  </li>
+  <li>
+    <p><a name="prob3"></a>A mass $m$ attached on an ideal spring is performing an SHM on a frictionless horizontal surface with maxsimum acceleration $0.2\pi^2 \ \rm m/s^2$ and maksimum velocity $0.1\pi \ \rm m/s$. Find oscillation angular velocity and amplitude, and the spring constant if $m = 1000/\pi^2 \ \rm g$. The units are $\rm rad/s$, $\rm m$, $\rm N/m$, respectively.</p>
+  </li>
+  <li>
+    <p><a name="prob4"></a>A SHM function is $x(t) = 0.02 \sin (2\pi t + \frac12\pi) \ \rm m$, where $t$ is 2π, 0.05, 4in $\rm s$. Determine oscillation amplitude, angular frequency, frequency, period, and initial phase. The units are $\rm m$, $\rm rad/s$, $\rm Hz$, $\rm s$, $\rm rad$, respectively.</p>
+  </li>
+  <li>
+    <p><a name="prob5"></a>A $2 \ \rm kg$-mass is performing a SHM while moving on a frictionless horizontal surface and attached on an ideal spring with spring constant $200 \ \rm N/m$. Maximum kinetic energy of the mass is $100 \ \rm J$. Find oscillation maximum velocity, amplitude and angular frequency. The units are $\rm m/s$, $\rm m$, $\rm rad/s$.</p>
+  </li>
+</ol>
+
+<h2 id="quiz">Quiz</h2>
+<p>You can submit your answers for the given exercises through <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=gxFu22VMXECCznzVP6bp3NGUp4ijN01Ks-VZMpTE-hpUOFhZVUkyN1NVMzlGTEROMkVDRlpHTVhDRy4u">here</a>.</p>
+
+<h2 id="references">References</h2>
+<ol>
+  <li><a name="ref1"></a>Sydney Redner, “Mass on a Horizontal Spring”, PY211 Lecture Notes, Boston University, Spring 2006, url <a href="http://physics.bu.edu/~redner/211-sp06/class-oscillations/spring_mass.html">http://physics.bu.edu/~redner/211-sp06/class-oscillations/spring_mass.html</a> [20201116].</li>
+  <li><a name="ref2"></a>Wikipedia contributors, “Simple harmonic motion”, Wikipedia, The Free Encyclopedia, 19 Oct 2020, 03:17 UTC, url <a href="https://en.wikipedia.org/w/index.php?oldid=984257153">https://en.wikipedia.org/w/index.php?oldid=984257153</a> [20201115].</li>
+  <li><a name="ref3"></a>Fiki Akbar, “Simple Harmonic Motion”, GeoGebra, 16 Nov 2020, url <a href="https://www.geogebra.org/m/sgsvd7js">https://www.geogebra.org/m/sgsvd7js</a> [20201116].</li>
+</ol>
+
+<ul>
+  <li><a href="https://github.com/butiran/butiran.github.io/commits/master/_posts/phys/2020-11-15-shm-spring-mass-horiz.md">Article history</a></li>
+</ul>
+
+:ET

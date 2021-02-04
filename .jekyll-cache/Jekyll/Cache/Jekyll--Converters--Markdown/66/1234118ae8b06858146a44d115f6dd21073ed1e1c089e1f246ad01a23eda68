@@ -1,0 +1,87 @@
+I"L<p>Hydrodynamics is part of fluid concept [<a href="#ref1">1</a>], which describes the flow of fluids (liquids and gases) [<a href="#ref2">2</a>].</p>
+
+<h2 id="continuity-equation">Continuity equation</h2>
+<p>In steady flow along a chanell with only one inlet and one outlet amount of fluid flowing passed every point must be the same or the mass flow rate is constant, which is essentially a statement of the law of coservation of mass. Then, the formula of continuity is [<a href="#ref3">3</a>]</p>
+
+<p>\begin{equation}
+\label{eqn:hdyn-continuity}
+\rho_i A_i v_i = \rho_j A_j v_j,
+\end{equation}</p>
+
+<p>where $i$ and $j$ indicates two different regions in the chanell. For incompressible fluid density of fluid is always the same in all region, which simplifies Eqn. \eqref{eqn:hdyn-continuity} into</p>
+
+<p>\begin{equation}
+\label{eqn:hdyn-continuity-incompressible}
+A_i v_i = A_j v_j.
+\end{equation}</p>
+
+<p>We can also write Eqn. \eqref{eqn:hdyn-continuity-incompressible} in the form of</p>
+
+<p>\begin{equation}
+\label{eqn:hdyn-continuity-incompressible-Q}
+Q_i = Q_j.
+\end{equation}</p>
+
+<p>using the <a href="volumetric-flow-rate">volumetric flow rate</a> term.</p>
+
+<p style="text-align: center;"><img src="/assets/img/phys/hydrodynamics/vfr-constant-cross-section.png" alt=".." />
+<br />
+Figure <a name="fig:hdyn-continuity">1</a> A channel with one inlet and outlet has three different regions $n = 1, 2, 3$.</p>
+
+<p>The three different regions in Fig. <a href="#fig:hdyn-continuity">1</a> will have the same volumetric flow rate $Q$ according to continuity equation in Eqn. \eqref{eqn:hdyn-continuity-incompressible-Q} or simply that $Q_1 = Q_2 = Q3$ as shown in the figure.</p>
+
+<h2 id="bernoulli-principle">Bernoulli principle</h2>
+<p>There is relation between speed of fluid flow $v$, static pressure $p$, and fluid’s potential energy $U$ through Bernoulli’s equation</p>
+
+<p>\begin{equation}
+\label{eqn:hdyn-bernoulli-equation}
+p_i + \frac12 \rho v_i^2 + \rho g y_i = p_j + \frac12 \rho v_j^2 + \rho g y_j,
+\end{equation}</p>
+
+<p>where $i$ and $j$ are two different regions. Note that Eqn. \eqref{eqn:hdyn-bernoulli-equation} is the form for incompressible flow.</p>
+
+<p style="text-align: center;"><img src="/assets/img/phys/hydrodynamics/bernoulli-principle.png" alt=".." />
+<br />
+Figure <a name="fig:hdyn-bernoulli">2</a> Regions 1 and 2 are related through Bernoulli equation.</p>
+
+<p>The indices $i$ and $j$ in Eqn. \eqref{eqn:hdyn-bernoulli-equation} are set to be $1$ and $2$ in Fig. <a href="#fig:hdyn-bernoulli">2</a>. Note that the reference for calculating fluid’s potential energy using $y_1$ and $y_2$ should be the same.</p>
+
+<h2 id="volumetric-flow-rate">Volumetric flow rate</h2>
+<p>For incompressible steady flow the volumetric flow rate $Q$ can be obtained using Eqns. \eqref{eqn:hdyn-continuity-incompressible} and \eqref{eqn:hdyn-bernoulli-equation}</p>
+
+<p>\begin{equation}
+\label{eqn:hdyn-volumetric-flow}
+\begin{array}{rcl}
+2p_i + \rho v_i^2 + 2\rho g y_i &amp; = &amp; 2p_j + \rho v_j^2 + 2\rho g y_j \newline
+\rho (v_i^2 - v_j^2) &amp; = &amp; 2(p_j - p_i) + 2\rho g (y_j - y_i) \newline
+\rho v_i^2 \left( 1 - \frac{A_i^2}{A_j^2} \right) &amp; = &amp; 2(p_j - p_i) + 2\rho g (y_j - y_i) \newline
+v_i &amp; = &amp; \displaystyle \sqrt{ \frac{2(p_j - p_i) + 2\rho g (y_j - y_i)}{\rho (1- A_i^2/A_j^2)} }.
+\end{array}
+\end{equation}</p>
+
+<p>In a typical venturimeter fluid flow from point $i = 1$ to point $j = 2$ with $A_1 &gt; A_2$, $y_1 = y_2$, and $p_1 &gt; p_2$, which turns Eqn. \eqref{eqn:hdyn-volumetric-flow} into</p>
+
+<p>\begin{equation}
+\label{eqn:hdyn-venturimeter}
+v_1 = \displaystyle \sqrt{ \left( \frac{2}{\rho} \right) \cdot \frac{p_1 - p_2}{ \left( \frac{A_1}{A_2} \right)^2 - 1} }.
+\end{equation}</p>
+
+<p>And the volumetric flow rate can be obtained as [<a href="#ref4">4</a>]</p>
+
+<p>\begin{equation}
+\label{eqn:hdyn-venturimeter-Q}
+Q = A_1 \displaystyle \sqrt{ \left( \frac{2}{\rho} \right) \cdot \frac{p_1 - p_2}{ \left( \frac{A_1}{A_2} \right)^2 - 1} } = A_2 \displaystyle \sqrt{ \left( \frac{2}{\rho} \right) \cdot \frac{p_1 - p_2}{ \left( 1 - \frac{A_2}{A_1} \right)^2} }.
+\end{equation}</p>
+
+<h2 id="references">References</h2>
+<ol>
+  <li><a name="ref1"></a>Carl R. Nave, “Fluids”, HyperPhysics, 2017, url <a href="http://hyperphysics.phy-astr.gsu.edu/hbase/fluid.html">http://hyperphysics.phy-astr.gsu.edu/hbase/fluid.html</a> [20201124].</li>
+  <li><a name="ref2"></a>Wikipedia contributors, “Fluid dynamics”, Wikipedia, The Free Encyclopedia, 19 Nov 2020, 07:11 UTC, url <a href="https://en.wikipedia.org/w/index.php?oldid=989485057">https://en.wikipedia.org/w/index.php?oldid=989485057</a> [20201124].</li>
+  <li><a name="ref3"></a> Gayle Towell, “Continuity Equation (Fluids): Definition, Forms &amp; Examples”, Sciencing, 29 Jan 2020, url <a href="https://sciencing.com/continuity-equation-fluids-definition-forms-examples-13723387.html">https://sciencing.com/continuity-equation-fluids-definition-forms-examples-13723387.html</a> [20201124].</li>
+</ol>
+
+<ul>
+  <li><a href="https://github.com/butiran/butiran.github.io/commits/master/_posts/phys/2020-11-24-hydrodynamics.md">Article history</a></li>
+</ul>
+
+:ET

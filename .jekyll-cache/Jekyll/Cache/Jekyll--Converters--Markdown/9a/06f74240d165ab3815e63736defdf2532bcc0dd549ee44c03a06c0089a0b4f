@@ -1,0 +1,263 @@
+I"�6<p>Position [<a href="#ref1">1</a>], relative position [<a href="#ref2">2</a>], displacement [<a href="#ref3">3</a>], distance [<a href="#ref4">4</a>], and path length [<a href="#ref5">5</a>]  will be discussed here. These concepts are important in any types of motion in physics, but sometimes the relation between them are still confusing. Even in one dimension, magnitude of dispacement may or may not equal to distance [<a href="#ref6">6</a>].</p>
+
+<h2 id="notation">Notation</h2>
+<p>In this article we will deal with an object that change its position, i.e. from initial to final position, and also with two different objects. The first case is related to the concept of displacement, distance, and path length, wile the second is related to relative position and (also) distance.</p>
+
+<p>Since the second case is simpler than the first, we will discuss its notation first. Subscript will indicate object, e.g. position of object A is $\vec{r}_A$ and position of object B is $\vec{r}_B$, and position of object A relative to object B is $\vec{r} _{AB}$. The details will be discussed further.</p>
+
+<p>In the first case subscript indicates initial dan final state, e.g. $\vec{r}_i$ for initial position and $\vec{r}_f$ for final position.</p>
+
+<p>There is also mixture of the both cases. If there are two objects A and B and we need their initial and final positions, we can use</p>
+
+<p>\begin{equation}
+\label{eqn:position-ab-if-subscript}
+\vec{r} _{A,i} \ \ \ \vec{r} _{A,f} \ \ \ \vec{r} _{B,i} \ \ \  \vec{r} _{B,f}
+\end{equation}</p>
+
+<p>or</p>
+
+<p>\begin{equation}
+\label{eqn:position-ab-if-function}
+\vec{r}_A(t_i) \ \ \ \vec{r}_A(t_f) \ \ \ \vec{r}_B(t_i) \ \ \  \vec{r}_B(t_f),
+\end{equation}</p>
+
+<p>where initial position of object A is $\vec{r} _{A,i}$ or $\vec{r}_A(t_i)$ and for the other condition (final) and object (B), they will use similiar rule. Please refer to the nearest text if the notation of an equation is not clear.</p>
+
+<h2 id="position">Position</h2>
+<p>Vector $\vec{r}$ is usually use in describing position of an object or a point mass particle, which can be in one-, two-, or three-dimensional coordinate systems.</p>
+
+<oo>
+svg 600 200 #fafafa fig:position-1-2-3|Position of point P is given by vector $\vec{r}$ in ($x$) one-, ($xy$) two-, and ($xyz$) three-dimensional coordinate systems.
+
+style lc:#000 ls:6-2 lw:0.3 lo:0.8
+line 20 90 20 110
+line 60 90 60 110
+line 100 90 100 110
+line 140 90 140 110
+grid 220 20 340 140 40 40
+grid 460 20 580 140 40 40
+line 500 140 460 180
+line 540 140 500 180
+line 580 140 540 180
+line 440 160 560 160
+line 420 180 540 180
+line 420 180 420 60
+line 440 160 440 40
+line 420 140 460 100
+line 420 100 460 60
+line 420 60 460 20
+
+style lc:#000 ls:0 lw:1 lo:1
+arrow 20 100 140 100
+arrow 220 140 340 140
+arrow 220 140 220 20
+arrow 460 140 580 140
+arrow 460 140 460 20
+arrow 460 140 420 180
+
+style lw:0 fc:#000 fo:1 ts:italic tw:normal tf:Times tz:16px
+text 5 105 o
+text 145 105 x
+text 208 152 o
+text 345 145 x
+text 215 15 y
+text 445 143 o
+text 585 145 x
+text 460 15 y
+text 410 185 z
+
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:16px
+text 100 120 P
+text 310 25 P
+text 515 35 P
+
+style lw:0 fc:#000 fo:1 ts:normal tw:bold tf:Times tz:16px
+text 60 90 r
+text 240 80 r
+text 475 90 r
+
+style lc:#f00 ls:0 lw:2 lo:1 fc:#f00
+arrow 20 100 100 100
+arrow 220 140 300 20
+arrow 460 140 520 40
+
+style lc:#d00 ls:8-4 lw:0.6 lo:0.9
+line 540 20 540 140
+line 540 20 460 20
+line 520 40 520 160
+line 440 40 440 160
+line 520 40 540 20
+line 440 40 460 20
+line 520 40 440 40
+line 520 160 440 160
+line 520 160 540 140
+
+style lc:#000 ls:0 lw:1 lo:1 fc:#000
+circle 20 100 2
+circle 220 140 2
+circle 460 140 2
+</oo>
+
+<p>Fig. <a href="#fig:position-1-2-3">1</a> (left) shows a vector in a one-dimensional coordinate system</p>
+
+<p>\begin{equation}
+\label{eqn:position-1-d}
+\vec{r} = x \hat{i},
+\end{equation}</p>
+
+<p>Fig. <a href="#fig:position-1-2-3">1</a> (center) shows a vector in a two-dimensional coordinate system</p>
+
+<p>\begin{equation}
+\label{eqn:position-2-d}
+\vec{r} = x \hat{i} + y \hat{j},
+\end{equation}</p>
+
+<p>and Fig. <a href="#fig:position-1-2-3">1</a> (right) shows a vector in a three-dimensional system</p>
+
+<p>\begin{equation}
+\label{eqn:position-3-d}
+\vec{r} = x \hat{i} + y\hat{j} + z \hat{k}.
+\end{equation}</p>
+
+<p>For now only one- and two-dimensional coordinate systems will be discussed.</p>
+
+<h2 id="relative-position">Relative position</h2>
+<p>Position is measured from origin $o$, while relative position is measured from a particular point. Or it can be said that position is a relative position to the origin $o$ of the coordinate system.</p>
+
+<oo>
+svg 600 200 #fafafa fig:position-relative|Position of point B and relative position of point C to point A in a two-dimensional coordinate systems.
+
+style lc:#000 ls:6-2 lw:0.3 lo:0.8
+grid 20 20 580 180 40 40
+
+style lc:#000 ls:0 lw:1 lo:1
+arrow 20 180 580 180
+arrow 20 180 20 20
+
+style lw:0 fc:#000 fo:1 ts:italic tw:normal tf:Times tz:16px
+text 10 190 o
+text 585 185 x
+text 15 15 y
+
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:16px
+text 190 65 B
+text 370 170 A
+text 550 65 C
+
+style lw:0 fc:#000 fo:1 ts:normal tw:bold tf:Times tz:16px
+text 105 85 r
+text 200 170 r
+text 280 100 r
+text 490 120 r
+
+style lw:0 fc:#000 fo:1 ts:normal tw:bold tf:Times tz:12px
+text 112 91 B
+text 207 176 A
+text 287 106 C
+text 497 126 CA
+
+style lc:#f00 ls:0 lw:2 lo:1 fc:#f00
+arrow 20 180 180 60
+arrow 380 180 540 60
+
+style lc:#0f0 ls:0 lw:2 lo:1 fc:#0f0
+arrow 20 180 380 180
+
+style lc:#00f ls:0 lw:2 lo:1 fc:#00f
+arrow 20 180 540 60
+
+style lc:#000 ls:0 lw:1 lo:1 fc:#000
+circle 20 180 2
+circle 180 60 2
+circle 380 180 2
+circle 540 60 2
+</oo>
+
+<p>Fig. <a href="#fig:position-relative">2</a> (left) shows position of point B as described by vector $\vec{r}_B$, while Fig. <a href="#fig:position-relative">2</a> (right) shows relative position of point C to point A as described</p>
+
+<p>\begin{equation}
+\label{eqn:position-2-relative}
+\vec{r}_{CA} = \vec{r}_C - \vec{r}_A.
+\end{equation}</p>
+
+<p>Length of two red vectors, $|\vec{r}_B|$ and $|\vec{r} _{CA}|$, are the same. Can you see it? Eqn. \eqref{eqn:position-2-relative} is important and will be used in many equation in physics. Some physics formula require only relative position and not (absolute) position, e.g gravitational potential energy, spring potential energy, electrostatic potential energy, gravitational force, spring force, Coulomb force, and other conservative forces.</p>
+
+<p>Remember that in relative position, it refers position of an object relative to another object, e.g. position of object C relative to object A as shown previously in Fig. <a href="#fig:position-relative">2</a> (right).</p>
+
+<h2 id="displacement">Displacement</h2>
+<p>Change of position of an object is called displacement, which is defined as</p>
+
+<p>\begin{equation}
+\label{eqn:position-displacement}
+\Delta \vec{r} = \vec{r}_f - \vec{r}_i,
+\end{equation}</p>
+
+<p>where subscripts $i$ and $f$ stand for initial (beginning) and final (end), respectively. Eqn. \eqref{eqn:position-displacement} can also be written as</p>
+
+<p>\begin{equation}
+\label{eqn:position-displacement-t}
+\Delta \vec{r} = \vec{r}(t_f) - \vec{r}(t_i),
+\end{equation}</p>
+
+<p>where $\vec{r}_i = \vec{r}(t_i)$ is position of the object at time $t = t_i$ and $\vec{r}_f = \vec{r}(t_f)$ is position of the object at time $t = t_f$. If we set the values $t = t_1 = 0 \ {\rm s}$ and $t = t_2 = 1.5 \ {\rm s}$ then Eqn. \eqref{eqn:position-displacement-t} can be simplified to</p>
+
+<p>\begin{equation}
+\label{eqn:position-displacement-t-val}
+\Delta \vec{r} = \vec{r}_{1.5} - \vec{r}_0.
+\end{equation}</p>
+
+<p>Notation in Eqn. \eqref{eqn:position-displacement-t-val} is not clear and not recommended to use. It would be better to use Eqn. \eqref{eqn:position-displacement} or  \eqref{eqn:position-displacement-t}.</p>
+
+<h2 id="distance">Distance</h2>
+<p>In popular way, distance is answer to the question, “How far is it from this to that or between this and that?” or in more formal way, distance is a measure of the interval between two locations [<a href="#ref4">4</a>].</p>
+
+<p>There are two different meaning of distance, first is direct distance, e.g. distance from earth to moon and second is distance along a path, e.g. distance from Bandung to Jakarta, where the road is curved. The last meaning will be addresed to path length to differ it from the first meaning and discuss in next section. In solving a problem, please read carefully when it is related to distance. Make sure that it does mean the distance in the sense of direct distance or path length.</p>
+
+<p>With distance as direct distance, then it is simply magnitude of displacement for an object moves from initial position $\vec{r}_i$ to final position $\vec{r}_f$ along a straight line</p>
+
+<p>\begin{equation}
+\label{eqn:position-distance-i-f}
+d = |\Delta \vec{r}| = |\vec{r}_f - \vec{r}_i| = |\vec{r}_i - \vec{r}_f|
+\end{equation}</p>
+
+<p>or magnitude of relative position object A from object B</p>
+
+<p>\begin{equation}
+\label{eqn:position-distance-a-b}
+d = |\vec{r} _{AB}| = |\vec{r}_A - \vec{r}_B| = |\vec{r}_B - \vec{r}_A|,
+\end{equation}</p>
+
+<p>where both give that distance from first point to second point is the same as distance from second point to first point.</p>
+
+<p>Eqn. \eqref{eqn:position-distance-i-f} gives distance travelled by an object along a straight line, while Eqn. \eqref{eqn:position-distance-a-b} is distance of an object relatively to a reference point, e.g. start point, destination point, etc. In the application those two equations can give the same or different value. For the first case, suppose that there is an object is at point A at time $t = 0 \ {\rm s}$, which is initial time.</p>
+
+<h2 id="path-length">Path length</h2>
+<p>Let’s take an example using Google Maps. Find the path length from Traditional market Maninjau to Warung Kelok 37 over Jl. Kelok 44/Jl. Padang Lua - Maninjau [<a href="#ref7">7</a>]. It will give the path length of 6.9 km, while the direct distance is only about 1.75 km using one of the feature provied [<a href="#ref8">8</a>].</p>
+
+<p>There is also a lot of tools available, e.g. Free Map Tools, that can be use to measure the direct distance (distance as the crow flies) and path length (distance by land transport) from Banda Aceh to Bandar Lampung [<a href="#ref9">9</a>]. The first is about 1658 km and the second 2236 km. There is 578 km difference.</p>
+
+<h2 id="exercises">Exercises</h2>
+<ol>
+  <li>Write the vectors shown in Fig. <a href="#fig:position-1-2-3">1</a> (left), (center), and (right), if one grid equals to one unit. Or determine value of $x$, $y$, and $z$ in Eqns. \eqref{eqn:position-1-d} - \eqref{eqn:position-3-d}.</li>
+  <li>Write all vectors in Fig. <a href="#fig:position-relative">2</a> and show that $|\vec{r}_B| = |\vec{r} _{CA}|$ with the calculation and without calculation but only use the drawing.</li>
+  <li>Explain concisely the difference between displacement and relative position related to the number of objects required in the concepts.</li>
+  <li>Find a curved road between two points using Google Maps, save the link as [<a href="#ref7">7</a>] and measure the direct distance between the points. Report the distance and the path length.</li>
+</ol>
+
+<h2 id="references">References</h2>
+<ol>
+  <li><a name="ref1"></a>Carl R. Nave, “Position”, HyperPhysics, 2017, url <a href="http://hyperphysics.phy-astr.gsu.edu/hbase/posit.html">http://hyperphysics.phy-astr.gsu.edu/hbase/posit.html</a> [20200902].</li>
+  <li><a name="ref2"></a>KeysToMaths1, “Relative Position and Relative Velocity Vectors”, YouTube, 31.12.2012, url <a href="https://www.youtube.com/watch?v=2Oebgo04feI">https://www.youtube.com/watch?v=2Oebgo04feI</a> [20200902].</li>
+  <li><a name="ref3"></a>-, “What is displacement”, Khan Academy, url <a href="https://www.khanacademy.org/science/physics/one-dimensional-motion/displacement-velocity-time/a/what-is-displacement">https://www.khanacademy.org/science/physics/one-dimensional-motion/displacement-velocity-time/a/what-is-displacement</a> [20200902].</li>
+  <li><a name="ref4"></a>Glenn Elert, “Distance and Displacement”, The Physics Hypertextbook, 2020, url <a href="https://physics.info/displacement/">https://physics.info/displacement/</a> [20200902].</li>
+  <li><a name="ref5"></a>Wikipedia contributors, “Path length”, Wikipedia, The Free Encyclopedia, 31 August 2020, 02:24 UTC, <a href="https://en.wikipedia.org/w/index.php?oldid=975908450">https://en.wikipedia.org/w/index.php?oldid=975908450</a> [20200902].</li>
+  <li><a name="ref6"></a>Sameer Anand, “Position, Path Length &amp; Displacement”, Tutorials Point (India) Ltd., YouTube, 24.01.2018, url <a href="https://www.youtube.com/watch?v=VC5I7MMmJDY">https://www.youtube.com/watch?v=VC5I7MMmJDY</a> [20200902].</li>
+  <li><a name="ref7"></a>-, “Traditional market Maninjau nach Warung Kelok 37 über Jl. Kelok 44/Jl. Padang Lua - Maninjau”, Google Maps, url <a href="https://goo.gl/maps/5BzGe1KY1DEEpaT66">https://goo.gl/maps/5BzGe1KY1DEEpaT66</a> [20200909].</li>
+  <li><a name="ref8"></a>J. D. Biersdorfer, “How to Measure a Straight Line in Google Maps”, The New York Times, Tech Tip, 2 Jul 2018, url <a href="https://www.nytimes.com/2018/07/02/technology/personaltech/google-maps-straight-distance.html">https://www.nytimes.com/2018/07/02/technology/personaltech/google-maps-straight-distance.html</a> [20200909].</li>
+  <li><a name="ref9"></a>-, “Map Showing the Distance Between Banda Aceh, Indonesia and Bandar Lampung, Indonesia”, Free Map Tools, url <a href="https://www.freemaptools.com/how-far-is-it-between-banda-aceh_-indonesia-and-bandar-lampung_-indonesia.htm?units=KM">https://www.freemaptools.com/how-far-is-it-between-banda-aceh_-indonesia-and-bandar-lampung_-indonesia.htm?units=KM</a> [20200909].</li>
+</ol>
+
+<ul>
+  <li><a href="https://github.com/butiran/butiran.github.io/commits/master/_posts/phys/2020-09-02-position.md">Article history</a></li>
+</ul>
+:ET

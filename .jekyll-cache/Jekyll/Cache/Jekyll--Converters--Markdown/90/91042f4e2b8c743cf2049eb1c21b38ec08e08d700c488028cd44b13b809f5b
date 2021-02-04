@@ -1,0 +1,111 @@
+I"}<p>Center of mass (com) [<a href="#ref1">1</a>] is discussed here in brief.</p>
+
+<h2 id="two-particle-system">Two particle system</h2>
+<p>In <a href="linear-momentum">linear momentum</a> there is a relation of</p>
+
+<p>\begin{equation}
+\label{eqn:com-dp/dt=F}
+\frac{d\vec{p}}{dt} = \vec{F},
+\end{equation}</p>
+
+<p>which also holds for system of particles, where here we will take only system consisted of two particles as the example. Now, mass $m$ is total mass of the system</p>
+
+<p>\begin{equation}
+\label{eqn:linmom-total-mass}
+M = m_1 + m_2
+\end{equation}</p>
+
+<p>and momentum of the system</p>
+
+<p>\begin{equation}
+\label{eqn:linmom-total-momentum}
+\vec{P} = \vec{p}_1 + \vec{p}_2,
+\end{equation}</p>
+
+<p>with</p>
+
+<p>\begin{equation}
+\label{eqn:linmom-momentum-i}
+\vec{p}_i = m_i \vec{v}_i
+\end{equation}</p>
+
+<p>with $i = 1, 2$, for each particle. We can define center of mass velocity of the system $\vec{V}_{\rm com}$, which makes</p>
+
+<p>\begin{equation}
+\label{eqn:linmom-total-momentum-mcom}
+\vec{P} = M \vec{V}_{\rm com}.
+\end{equation}</p>
+
+<p>Substitute Eqn. \eqref{eqn:linmom-total-mass} to the right side of Eqn. \eqref{eqn:linmom-total-momentum-mcom} and Eqn. \eqref{eqn:linmom-total-momentum} to the left side, we will have</p>
+
+<p>\begin{equation}
+\label{eqn:linmom-vcom-derivation}
+\begin{array}{rcl}
+\vec{p}_1 + \vec{p}_2 &amp; = &amp; (m_1 + m_2) \ \vec{V} _{\rm com} \newline
+m_1 \vec{v}_1 + m_2 \vec{v}_2 &amp; = &amp; (m_1 + m_2) \ \vec{V} _{\rm com} \newline
+\displaystyle \frac{m_1 \vec{v}_1 + m_2 \vec{v}_2}{m_1 + m_2} &amp; = &amp; \ \vec{V} _{\rm com},
+\end{array}
+\end{equation}</p>
+
+<p>which defines the $\vec{V}_{\rm com}$.</p>
+
+<h2 id="com-parameters-of-motion">COM parameters of motion</h2>
+<p>As in <a href="kinematics">kinematics</a>, in COM reference of frame there will be also position and acceleration. For $N$ particles, the position, velocity, and acceleration are Eqn. \eqref{eqn:linmom-vcom-derivation}.</p>
+
+<p>\begin{equation}
+\label{eqn:linmom-Rcom}
+\vec{R} _{\rm com} = \frac{\sum _{i = 1} ^N m_i \vec{r}_i}{\sum _{i = 1} ^N m_i},
+\end{equation}</p>
+
+<p>\begin{equation}
+\label{eqn:linmom-Vcom}
+\vec{V} _{\rm com} = \frac{\sum _{i = 1} ^N m_i \vec{v}_i}{\sum _{i = 1} ^N m_i},
+\end{equation}</p>
+
+<p>\begin{equation}
+\label{eqn:linmom-Acom}
+\vec{A} _{\rm com} = \frac{\sum _{i = 1} ^N m_i \vec{a}_i}{\sum _{i = 1} ^N m_i}.
+\end{equation}</p>
+
+<p>Eqns. \eqref{eqn:linmom-Rcom}, \eqref{eqn:linmom-Vcom}, and \eqref{eqn:linmom-Acom} will also have similar relations</p>
+
+<p>\begin{equation}
+\label{eqn:linmom-Vcom-Rcom}
+\vec{V} _{\rm com} = \frac{d\vec{R} _{\rm com}}{dt}
+\end{equation}</p>
+
+<p>and</p>
+
+<p>\begin{equation}
+\label{eqn:linmom-Acom-Vcom}
+\vec{A} _{\rm com} = \frac{d\vec{V} _{\rm com}}{dt}.
+\end{equation}</p>
+
+<p>Eqns. \eqref{eqn:linmom-Vcom-Rcom} and \eqref{eqn:linmom-Acom-Vcom} can be proven using relation for each particle $i$ through $\vec{v}_i = d\vec{r}_i/dt$ and $\vec{a}_i = d\vec{v}_i/dt$ and Eqns. \eqref{eqn:linmom-Rcom}, \eqref{eqn:linmom-Vcom}, \eqref{eqn:linmom-Acom}.</p>
+
+<h2 id="newtons-laws">Newton’s laws</h2>
+<p>Using Eqns. \eqref{eqn:com-dp/dt=F} and \eqref{eqn:linmom-total-momentum-mcom} through analogy we can have</p>
+
+<p>\begin{equation}
+\label{eqn:com-dp/dt=F-com}
+\frac{d\vec{P}}{dt} = \vec{F}_{\rm com},
+\end{equation}</p>
+
+<p>where $\vec{P}$ is total momentum and $\vec{F}_{\rm com}$ is external force acted upon system center of mass. Eqn. \eqref{eqn:com-dp/dt=F-com} is 2nd Newton’s law of system of particles. And the 1st Newton’s law of system of particles will lead us to <a href="conservation-of-momentum">conservation of momentum</a>.</p>
+
+<h2 id="exercises">Exercises</h2>
+<ol>
+  <li>Find expression for $\vec{R} _{\rm com}$ and $\vec{A} _{\rm com}$ for system of two particles as in Eqn. \eqref{eqn:linmom-vcom-derivation}.</li>
+  <li>There are three particles with mass $1 \ {\rm kg}$, $2 \ {\rm kg}$, and $3 \ {\rm kg}$, where their position are given by $\vec{r}_1 = [ t^3 \hat{i} + t^2 \hat{j} + t \hat{k} ] \ {\rm m}$, $\vec{r}_2 = [ (t^2 - 1) \hat{i} + (1 - 3t) \hat{j} - 10 \hat{k} ] \ {\rm m}$, and $\vec{r}_3 = [ t \hat{i} + (10 - t^2) \hat{k} ] \ {\rm m}$. Find position, velocity, and acceleration of system center of mass $\vec{R} _{\rm com}$, $\vec{V} _{\rm com}$, and $\vec{A} _{\rm com}$.</li>
+  <li>With the information for each particle $i$ that $\vec{v}_i = d\vec{r}_i/dt$ and $\vec{a}_i = d\vec{v}_i/dt$, proove Eqns. \eqref{eqn:linmom-Vcom-Rcom} and \eqref{eqn:linmom-Acom-Vcom}.</li>
+</ol>
+
+<h2 id="references">References</h2>
+<ol>
+  <li><a name="ref1"></a>Wikipedia contributors, “Center of mass”, Wikipedia, The Free Encyclopedia, 25 Oct 2020, 04:07 UTC, <a href="https://en.wikipedia.org/w/index.php?oldid=985295653">https://en.wikipedia.org/w/index.php?oldid=985295653</a> [20201026].</li>
+</ol>
+
+<ul>
+  <li><a href="https://github.com/butiran/butiran.github.io/commits/master/_posts/phys/2020-10-26-center-of-mass.md">Article history</a></li>
+</ul>
+:ET

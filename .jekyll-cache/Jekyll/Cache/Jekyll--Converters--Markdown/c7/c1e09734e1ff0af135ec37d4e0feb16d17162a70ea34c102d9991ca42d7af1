@@ -1,0 +1,295 @@
+I"�.<p>Here we will discuss about work-energy theorem [<a href="#ref1">1</a>] and how it helps to solve a problem in easier way compared to the use of dynamics and <a href="work">work</a> concepts together. <a href="kinetic-energy">Kinetic energy</a> concept will also be used here.</p>
+
+<h2 id="change-in-kinetic-energy">Change in kinetic energy</h2>
+<p>If at initial time $t_i$ a particle with mass $m$ has velocity of $v_i$ and at final time $t_f$ it has velocity of $v_f$ then change of particle’s kinetic energy is</p>
+
+<p>\begin{equation}
+\label{eqn:wet-work-integral}
+\Delta K = K_f - K_i = \frac12 m v_f^2 - \frac12 m v_i^2,
+\end{equation}</p>
+
+<p>where the subscript $i$ and $f$ can be any subscript provided by a problem.</p>
+
+<h2 id="work-due-to-constant-force-in-linear-motion">Work due to constant force in linear motion</h2>
+<p>In  this part we will limit the discussion to the work due to constant force only and for the case of linear motion. A start the force is also assumed to be always parallel to the trajectory $s$. If $F$ is the only force works on the object, then the work is simply</p>
+
+<p>\begin{equation}
+\label{eqn:wet-work}
+W = F \Delta s,
+\end{equation}</p>
+
+<p>where $\Delta s$ is the displacement. In 1-d kinematics we are used to use $\Delta x = x_f - x_i$ instead of $\Delta s$.</p>
+
+<h2 id="work-energy-theorem">Work-energy theorem</h2>
+<p>The theorem states that the change in kinetic energy is equal to the work of net force</p>
+
+<p>\begin{equation}
+\label{eqn:wet-theorem}
+W = \Delta K,
+\end{equation}</p>
+
+<p>where the work is</p>
+
+<p>\begin{equation}
+\label{eqn:wet-work-net-force}
+W = (\Sigma F) \Delta s.
+\end{equation}</p>
+
+<p>According to Newtons’ second law for linear motion</p>
+
+<p>\begin{equation}
+\label{eqn:wet-newton-2}
+\Sigma F = ma.
+\end{equation}</p>
+
+<p>Subsitute Eqn. \eqref{eqn:wet-newton-2} ino Eqn. \eqref{eqn:wet-work-net-force}, and then the result into Eqn. \eqref{eqn:wet-theorem} will produce</p>
+
+<p>\begin{equation}
+\label{eqn:wet-theorem-proof}
+ma \Delta x = \frac12 mv_f^2 - \frac12 mv_i^2.
+\end{equation}</p>
+
+<p>Multiply Eqn. \eqref with $2/m$ and rearrange the terms, we can have</p>
+
+<p>\begin{equation}
+\label{eqn:wet-theorem-proof-kinematics}
+v_f^2 = v_i^2 + 2a(x_f - x_i),
+\end{equation}</p>
+
+<p>which is one of the well-known kinematics formula.</p>
+
+<h2 id="moving-on-a-horizontal-surface-with-friction">Moving on a horizontal surface with friction</h2>
+<p>A block with mass $m$ is moving on a horizontal surface with friction $\mu_k$ and is continuously pulled with a constant force $F_{\rm ext}$ that has an angle $\theta$ with the horizontal in the direction of the motion. Observation is taken place at two points, $x_A$ and $x_B$, where the block passes them at time $t_A$ and $t_B$, respectively.</p>
+
+<oo>
+svg 400 200 #fafafa fig:wet-horiz-surf-fric-fext|A block with mass $m$ is moving on a horizontal surface with friction $\mu_k$ and is pulled by a constant force $F_{\rm ext}$.
+
+# Standard gravity
+style lc:#0c0 ls:0 lw:2 lo:1 fc:#0c0 fo:1
+arrow 20 30 20 70
+style lw:0 fc:#000 fo:1 ts:italic tw:normal tf:Times tz:16px
+text 15 20 g
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:16px
+text 30 20 = 10 m/s
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:10px
+text 87 15 2
+
+# Horizontal floor
+style lc:#000 ls:0 lw:2 lo:1
+line 20 120 380 120
+style lw:0 fc:#000 fo:1 ts:italic tw:normal tf:Times tz:16px
+text 193 140 &mu;
+style lw:0 fc:#000 fo:1 ts:italic tw:normal tf:Times tz:10px
+text 200 145 k
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:16px
+text 210 140 = 0.2
+
+# Block at xA
+style lc:#000 ls:0 lw:2 lo:1 fc:#ddd fo:1
+rect 60 60 60 60
+style lc:#000 ls:0 lw:2 lo:1 fc:#000 fo:1
+circle 90 120 2
+style lw:0 fc:#000 fo:1 ts:italic tw:normal tf:Times tz:16px
+text 83 140 x
+text 83 170 t
+text 130 100 v
+style lw:0 fc:#000 fo:1 ts:italic tw:normal tf:Times tz:10px
+text 90 145 A
+text 90 175 A
+text 137 105 A
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:16px
+text 100 140 = 4 m
+text 100 170 = 2 s
+text 147 100 = 7 m/s
+style lc:#00f ls:0 lw:2 lo:1 fc:#00f fo:1
+arrow 130 80 150 80
+
+# Block at xB
+style lc:#000 ls:4-2 lw:1 lo:1 fc:#eee fo:1
+rect 280 60 60 60
+style lc:#000 ls:0 lw:2 lo:1 fc:#000 fo:1
+circle 310 120 2
+style lw:0 fc:#000 fo:1 ts:italic tw:normal tf:Times tz:16px
+text 303 140 x
+text 303 170 t
+text 350 100 v
+style lw:0 fc:#000 fo:1 ts:italic tw:normal tf:Times tz:10px
+text 310 145 B
+text 310 175 B
+text 357 105 B
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:16px
+text 320 140 = 100 m
+style lc:#00f ls:0 lw:2 lo:1 fc:#00f fo:1
+arrow 350 80 380 80
+
+# External force Fext
+style lc:#f88 ls:0 lw:3 lo:1 fc:#f88 fo:1
+arrow 120 60 160 30
+style lw:0 fc:#000 fo:1 ts:italic tw:normal tf:Times tz:16px
+text 140 20 F
+text 140 57 &theta;
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:10px
+text 148 25 ext
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:16px
+text 165 20 = 100 N
+style lc:#000 ls:4-2 lw:1 lo:1 fc:#000 fo:1
+line 120 60 160 60
+style lc:#f88 ls:4-2 lw:2 lo:1 fc:#f88 fo:1
+arrow 340 60 380 30
+
+# tan \theta
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:16px
+text 190 60 tan
+text 225 60 = 3/4
+style lw:0 fc:#000 fo:1 ts:italic tw:normal tf:Times tz:16px
+text 212 60 &theta;
+
+</oo>
+
+<p>Value of some physical quantities are given in Fig. <a href="#fig:wet-horiz-surf-fric-fext">1</a>. (a) Determine when the block passes point $B$ and its velocity at that point using dynamics and kinematics. (b) Find the kinetic energy at point $B$ using previous solution and using work-energy theorem.</p>
+
+<h3 id="free-body-diagram">Free-body diagram</h3>
+<p>Free-body diagram of the block is as shown in Fig. <a href="#fig:wet-horiz-surf-fric-fext-fbd">2</a></p>
+
+<h3 id="newtons-laws">Newtons’ laws</h3>
+<p>Using Fig. <a href="#fig:wet-horiz-surf-fric-fext-fbd">2</a> we can have in $y$-direction</p>
+
+<p>\begin{equation}
+\label{eqn:wet-hsf-fext-fbd-y}
+\begin{array}{rcl}
+\sum F_y &amp; = &amp; 0 \newline 
+F_{\rm ext} \ \sin \theta + N - w &amp; = &amp; 0 \newline
+N &amp; = &amp; w - F_{\rm ext} \ \sin \theta
+\end{array}
+\end{equation}</p>
+
+<p>and in $x$-direction</p>
+
+<p>\begin{equation}
+\label{eqn:wet-hsf-fext-fbd-x}
+\begin{array}{rcl}
+\sum F_x &amp; = &amp; m a_x \newline 
+F_{\rm ext} \ \cos \theta - f_k &amp; = &amp; m a_x \newline
+a_x &amp; = &amp; \displaystyle \frac{F_{\rm ext} \ \cos \theta - f_k}{m}.
+\end{array}
+\end{equation}</p>
+
+<h3 id="weight-and-kinetic-friction">Weight and kinetic friction</h3>
+<p>Weight of the block</p>
+
+<p>\begin{equation}
+\label{eqn:wet-hsf-fext-w}
+w = mg
+\end{equation}</p>
+
+<p>and kinetic friction</p>
+
+<p>\begin{equation}
+\label{eqn:wet-hsf-fext-fk}
+f_k = \mu_k N.
+\end{equation}</p>
+
+<h3 id="net-force-and-acceleration">Net force and Acceleration</h3>
+<p>Substitute Eqn. \eqref{eqn:wet-hsf-fext-w} into Eqn. \eqref{eqn:wet-hsf-fext-fbd-y}, then the result into Eqn. \eqref{eqn:wet-hsf-fext-fk}, finally into Eqn. \eqref{eqn:wet-hsf-fext-fbd-x}, will give net force</p>
+
+<p>\begin{equation}
+\label{eqn:wet-hsf-fext-fbd-net-force}
+m a_x = F_{\rm ext} (\cos \theta + \mu_k \sin \theta) - \mu_k mg
+\end{equation}</p>
+
+<p>and acceleration</p>
+
+<p>\begin{equation}
+\label{eqn:wet-hsf-fext-fbd-solution-ax}
+a_x = \frac{F_{\rm ext}}{m}(\cos \theta + \mu_k \sin \theta) - \mu_k g.
+\end{equation}</p>
+
+<h3 id="velocity-v_b">Velocity $v_B$</h3>
+<p>Velocity at point $B$ can be obtained using</p>
+
+<p>\begin{equation}
+\label{eqn:wet-hsf-fext-vB2}
+v_B^2 = v_A^2 + 2a_x (x_B - x_A).
+\end{equation}</p>
+
+<p>Substitute Eqn. \eqref{eqn:wet-hsf-fext-fbd-solution-ax} into Eqn. \eqref{eqn:wet-hsf-fext-vB2} will give</p>
+
+<p>\begin{equation}
+\label{eqn:wet-hsf-fext-vB2-2}
+v_B^2 = v_A^2 + 2 \left[ \frac{F_{\rm ext}}{m}(\cos \theta + \mu_k \sin \theta) - \mu_k g \right] (x_B - x_A).
+\end{equation}</p>
+
+<h3 id="time-t_b">Time $t_B$</h3>
+<p>To get the time the block passes point $B$ we use</p>
+
+<p>\begin{equation}
+\label{eqn:wet-hsf-fext-vB-ax}
+v_B = v_A + a_x (t_B - t_A),
+\end{equation}</p>
+
+<p>that will give</p>
+
+<p>\begin{equation}
+\label{eqn:wet-hsf-fext-tB}
+t_B = t_A + \frac{v_B - v_A}{a_x}.
+\end{equation}</p>
+
+<p>where $v_B$ is obtained from Eqn. \eqref{eqn:wet-hsf-fext-vB2-2} and $a_x$ from Eqn. \eqref{eqn:wet-hsf-fext-fbd-solution-ax}.</p>
+
+<h3 id="work-of-net-force">Work of net force</h3>
+<p>Using Eqn. \eqref{eqn:wet-hsf-fext-fbd-net-force} work of net force can be calculated</p>
+
+<p>\begin{equation}
+\label{eqn:wet-hsf-fext-fbd-net-force-work}
+W = \left[ F_{\rm ext} (\cos \theta + \mu_k \sin \theta) - \mu_k mg \right] (x_B - x_A)
+\end{equation}</p>
+
+<h3 id="kinetic-energy-at-point-b">Kinetic energy at point $B$</h3>
+<p>Using Eqn. \eqref{eqn:wet-hsf-fext-vB2-2} we can can kinetic energy at point $B$</p>
+
+<p>\begin{equation}
+\label{eqn:wet-hsf-fext-KB}
+\begin{array}{rcl}
+K_B &amp; = &amp; \frac12 m v_B^2 \newline
+&amp; = &amp; \frac12 m \left\{ v_A^2 + 2 \left[ \frac{F_{\rm ext}}{m}(\cos \theta + \mu_k \sin \theta) - \mu_k g \right] (x_B - x_A) \right\}
+\end{array}
+\end{equation}</p>
+
+<p>or using Eqn. \eqref{eqn:wet-theorem}</p>
+
+<p>\begin{equation}
+\label{eqn:wet-hsf-fext-fbd-net-force-work-KB}
+\begin{array}{rcl}
+K_B &amp; = &amp; W_{\rm net} + K_A \newline
+&amp; = &amp; (\Sigma F) \Delta s + K_A \newline
+&amp; = &amp; ma_x (x_B - x_A) + \frac12 m v_A^2 \newline
+&amp; = &amp; \left[ F_{\rm ext} (\cos \theta + \mu_k \sin \theta) - \mu_k mg \right] (x_B - x_A) + \frac12 m v_A^2.
+\end{array}
+\end{equation}</p>
+
+<p>Note that last line of Eqns. \eqref{eqn:wet-hsf-fext-KB} and \eqref{eqn:wet-hsf-fext-fbd-net-force-work-KB} are identical.</p>
+
+<h2 id="exercises">Exercises</h2>
+<ol>
+  <li>An object has initial velocity of $4 \ \rm m/s$ to a certain direction and final velocity of $(3 \hat{i} + 4 \hat{j}) \ \rm m/s$. Find its initial kinetic energy, final kinetic energy, and change in object’s kinetic energy.</li>
+  <li>Show how to obtain Eqn. \eqref{eqn:wet-theorem-proof-kinematics} from Eqn. \eqref{eqn:wet-theorem}.</li>
+  <li>Consider a horizontal surface, where an object is moving on it with coefficient of kinetic friction $\mu_k$. While moves from point $A$ to point $B$ the object is also under influence of an external force $F_{\rm ext}$ besides the kinetic friction $f_k$. The object has mass $m$. Velocity at the points are $v_A$ and $v_B$, respectively. The distance between the points are $\Delta x = x_B - x_A$ and the time required to go from point $A$ to point $B$ is $\Delta t = t_B - t_A$. Show the relation between mentioned physical quantities.</li>
+  <li>Use value of physics quantities in Fig. <a href="#fig:wet-horiz-surf-fric-fext">1</a> to find $a_x$, $v_B$, $t_B$, and $k_B$.</li>
+</ol>
+
+<h2 id="quiz">Quiz</h2>
+<p>Suppose that there is a particle with mass $m = 2 \ \rm kg$ moving on a horizontal surface with coefficient of kinetic friction 0.1. It has initial velocity of $5 \ \rm m/s$ and a constant force $F_1 = 4 \ \rm N$ parallel to the surfrace and in the direction of the velocity is always applied to the particle. The distance travel by the particle from initial to final position is $3 \ \rm m$. Find particle final velocity using (a) dynamics and then kinematics, (b) work-energy theorem, and (c) compare number of steps required to solve the problem and discuss which one is preferable.</p>
+
+<ul>
+  <li><a href="https://forms.office.com/Pages/ResponsePage.aspx?id=gxFu22VMXECCznzVP6bp3NGUp4ijN01Ks-VZMpTE-hpUN1VJQVRKMTNXNlM4TUwwMkxWMTJQTFZFVC4u">Submit answer</a></li>
+</ul>
+
+<h2 id="references">References</h2>
+<ol>
+  <li><a name="ref1"></a>-, “Work-Energy Theorem”, in Boundless Physics, Lumen Learning, url <a href="https://courses.lumenlearning.com/boundless-physics/chapter/work-energy-theorem/">https://courses.lumenlearning.com/boundless-physics/chapter/work-energy-theorem/</a> [20201013].</li>
+</ol>
+
+<ul>
+  <li><a href="https://github.com/butiran/butiran.github.io/commits/master/_posts/phys/2020-10-13-work-energy-theorem.md">Article history</a></li>
+</ul>
+:ET

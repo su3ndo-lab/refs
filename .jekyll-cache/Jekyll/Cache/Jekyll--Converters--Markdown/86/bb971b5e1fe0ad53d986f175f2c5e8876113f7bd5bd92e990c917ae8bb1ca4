@@ -1,0 +1,48 @@
+I"�<p>We will discuss about impulse [<a href="#ref1">1</a>] in brief here, which is related to linear momentum [<a href="#ref2">2</a>] and average force [<a href="#ref3">3</a>].</p>
+
+<h2 id="relation-with-momentum">Relation with momentum</h2>
+<p>Impulse $J$ is related to change of momentum $\Delta p$ through</p>
+
+<p>\begin{equation}
+\label{eqn:imp-impulse-momentum}
+J = \Delta p = p_f - p_i
+\end{equation}</p>
+
+<p>where $i$ and $f$ stand for initial dan final condition.</p>
+
+<h2 id="relation-with-force">Relation with force</h2>
+<p>Impulse $J$ is also related to net force acted on an object through</p>
+
+<p>\begin{equation}
+\label{eqn:imp-impulse-force}
+J = \int_{t_i}^{t_f} F dt,
+\end{equation}</p>
+
+<p>with $i$ and $f$ represent similar meaning as in Eqn. \eqref{eqn:imp-impulse-momentum}.</p>
+
+<h2 id="newtons-law">Newton’s law</h2>
+<p>Equate Eqn. \eqref{eqn:imp-impulse-momentum} with Eqn. \eqref{eqn:imp-impulse-force} without lower and upper limits, will give</p>
+
+<p>\begin{equation}
+\label{eqn:imp-impulse-force-momentum}
+\begin{array}{rcl}
+\displaystyle \int_{t_i}^{t_f} F dt &amp; = &amp; \Delta p \newline
+\int F dt &amp; = &amp; p \newline
+F dt &amp; = &amp; dp,
+F &amp; = &amp; \displaystyle \frac{dp}{dt} \newline
+\end{array}
+\end{equation}</p>
+
+<p>which gives again 2nd Newton’s law of motion.</p>
+
+<h2 id="references">References</h2>
+<ol>
+  <li><a name="ref1"></a>Wikipedia, “Impuls”, Die freie Enzyklopädie, 9 Mär 2020, 15:10 UTC, url <a href="https://de.wikipedia.org/w/index.php?oldid=197606025">https://de.wikipedia.org/w/index.php?oldid=197606025</a> [20201026].</li>
+  <li><a name="ref2"></a>Wikipedia contributors, “Momentum”, Wikipedia, The Free Encyclopedia, 19 Oct 2020, 05:55 UTC, <a href="https://en.wikipedia.org/w/index.php?oldid=984273085">https://en.wikipedia.org/w/index.php?oldid=984273085</a> [20201026].</li>
+  <li><a name="ref3"></a>Wikipedia contributors, “Impulse (physics)”, Wikipedia, The Free Encyclopedia, 25 Oct 2020, 20:49 UTC, <a href="https://en.wikipedia.org/w/index.php?oldid=985417011">https://en.wikipedia.org/w/index.php?oldid=985417011</a> [20201026].</li>
+</ol>
+
+<ul>
+  <li><a href="https://github.com/butiran/butiran.github.io/commits/master/_posts/phys/2020-10-26-impulse.md">Article history</a></li>
+</ul>
+:ET

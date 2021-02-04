@@ -1,0 +1,42 @@
+I"�<p>An electronic circuit composed of resistotrs and capacitors known as RC circuit [<a href="#ref1">1</a>], whose simplest one with only one resistor $R$ and one capacitor $C$ arranged in series can be used to learn the process of charging [<a href="#ref2">2</a>] and discharging [<a href="#ref3">3</a>] a capacitor.</p>
+
+<h2 id="first-order-circuit">first-order circuit</h2>
+<p>The simplest circuit composed of one resistor $R$ and capacitor $C$ is named first-order RC circuit. The circuit can a first-order series RC circuit [<a href="#ref4">4</a>] or a paralel one [<a href="#ref5">5</a>]. Fig. <a href="#fig:rc-circuit-first-order-open">1</a> shows the series and parallel first-order RC circuits.</p>
+
+<p style="text-align: center;"><img src="/assets/img/phys/circuit/rc-circuit-first-order-open.png" alt=".." />
+<br />
+Figure <a name="fig:rc-circuit-first-order-open">1</a> First order RC circuits arranged in series (left) and parallel (right), both are open.</p>
+
+<p>An switch $S$ is an additional component for controlling when the current flows from battery $\epsilon$ through resistor $R$ and capacitor $C$. The unit for $R$ is $\rm \Omega$ (ohm), for $\epsilon$ is $\rm V$ (volt), and for $C$ is $\rm F$ (farad).</p>
+
+<h2 id="series-circuit">Series circuit</h2>
+<p>Using series RC circuit in Fig. <a href="#fig:rc-circuit-first-order-open">1</a> (left) we can charge and discharge a capacitor.</p>
+
+<h3 id="charging-a-capacitor">Charging a capacitor</h3>
+<p>At time $t &lt; 0$ it is assumed that the capacitor $C$ does not have any charge $q$ in it. Charging process starts at time $t = 0$ when the switch $S$ is close for the first time and current $I$ begins to flow from the battery $\epsilon$ and pass through the resistor $R$ and capacitor $C$. There will be sudden high value of $I$ and then it is decreasing to zero.</p>
+
+<p style="text-align: center;"><img src="/assets/img/phys/circuit/rc-series-charging.png" alt=".." />
+<br />
+Figure <a name="fig:rc-series-charging">2</a> Charging a capacitor: $t &lt; 0$ (left) and $t = 0$ (right).</p>
+
+<h3 id="discharging-a-capacitor">Discharging a capacitor</h3>
+<p>..</p>
+
+<p style="text-align: center;"><img src="/assets/img/phys/circuit/rc-series-discharging.png" alt=".." />
+<br />
+Figure <a name="fig:rc-series-charging">3</a> Discharging a capacitor: $t &lt; 0$ (left) and $t = 0$ (right).</p>
+
+<h2 id="references">References</h2>
+<ol>
+  <li><a name="ref1"></a>Wikipedia contributors, “RC circuit”, Wikipedia, The Free Encyclopedia, 18 Nov 2020, 06:06 UTC, url <a href="https://en.wikipedia.org/w/index.php?oldid=989305163">https://en.wikipedia.org/w/index.php?oldid=989305163</a> [20201204].</li>
+  <li><a name="ref2"></a>Carl R. Nave, “Charging a Capacitor”, HyperPhysics, 2017, url <a href="http://hyperphysics.phy-astr.gsu.edu/hbase/electric/capchg.html">http://hyperphysics.phy-astr.gsu.edu/hbase/electric/capchg.html</a> [20201204].</li>
+  <li><a name="ref3"></a>-, “RC Discharging Circuit”, Electronics Tutorial, url <a href="https://www.electronics-tutorials.ws/rc/rc_2.html">https://www.electronics-tutorials.ws/rc/rc_2.html</a> [20201204].</li>
+  <li><a name="ref3"></a>John Santiago, “Analyze a Series RC Circuit Using a Differential Equation”, dummies, url <a href="https://www.dummies.com/education/science/science-electronics/analyze-a-series-rc-circuit-using-a-differential-equation/">https://www.dummies.com/education/science/science-electronics/analyze-a-series-rc-circuit-using-a-differential-equation/</a> [20201205].</li>
+  <li><a name="ref3"></a>-, “First Order Circuits”, EENG223 Circuit Theory I, Eastern Mediterranean University, url <a href="https://opencourses.emu.edu.tr/file.php/3/Lecture_Notes/First_Order_Circuits.pdf">https://opencourses.emu.edu.tr/file.php/3/Lecture_Notes/First_Order_Circuits.pdf</a> [20201205].</li>
+</ol>
+
+<ul>
+  <li><a href="https://github.com/butiran/butiran.github.io/commits/master/_posts/phys/2020-12-04-rc-circuit.md">Article history</a></li>
+</ul>
+
+:ET

@@ -1,0 +1,23 @@
+exclude: [README.md, cmd-ruby-x64.lnk, cmd-ruby-x86.lnk, src]
+
+collections:
+  authors:
+    output: true
+
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+  - scope:
+      path: ""
+    values:
+      layout: "default"
+
+markdown: kramdown
+kramdown:
+  highlighter: rouge
+
+plugins:
+  - jemoji

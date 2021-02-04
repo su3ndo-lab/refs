@@ -1,0 +1,127 @@
+I"�0<p>Using ray tracing [<a href="#ref1">1</a>], where the modern optical design is still involving the method but as a computer-aided technique [<a href="#ref2">2</a>], simulator can be developed [<a href="#ref3">3</a>]. Simulation of laser beam interaction with random packings of mono-size and poly-size spherical particles implements this method [<a href="#ref4">4</a>].</p>
+
+<h2 id="light-source">light source</h2>
+<p>Two parameters are required to define a light source emitting a single ray as shown in Fig. <a href="#fig:srsd-lsd">1</a>.</p>
+
+<p style="text-align: center;"><img src="/assets/img/comp/ray-source-direction.png" alt=".." />
+<br />
+Figure <a name="fig:srsd-lsd">1</a> A light source is positioned at $\vec{r} _{\rm src}$ with direction of $\hat{n} _{\rm dir}$, where $\theta = 0.5 \pi$ in this case ($\theta$ is measured from $z$ axis to the direction of $x$ axis).</p>
+
+<p>The first is</p>
+
+<p>\begin{equation}
+\label{eqn:srsd-lso}
+\vec{r}_{\rm src} = x _{\rm src} \ \hat{x} + y _{\rm src} \ \hat{y} + z _{\rm src} \ \hat{z}
+\end{equation}</p>
+
+<p>as position of laser source output and the second is</p>
+
+<p>\begin{equation}
+\label{eqn:srsd-lbd}
+\hat{n}_{\rm dir} = \sin \theta _{\rm dir} \cos \phi _{\rm dir} \ \hat{x} + \sin \theta _{\rm dir} \sin \phi _{\rm dir} \ \hat{y} + \cos \theta _{\rm dir} \ \hat{z}
+\end{equation}</p>
+
+<p>as laser beam direction, which is a unit vector. The angles $\theta _{\rm dir}$ and $\phi _{\rm dir}$ are the angles in spherical coordinates using convention in physics $(r, \theta, \phi)$ [<a href="#ref5">5</a>], where for unit vector $r = 1$ or $|\hat{n} _{\rm dir}| = 1$.</p>
+
+<h2 id="ray-tracing">ray tracing</h2>
+<p>In experiment laser is used to perform the ray tracing [<a href="#ref6">6</a>] and the ray can be traced numerically in simple way using ray velocity $v_{\rm ray}$ and Eqns. \eqref{eqn:srsd-lso} and \eqref{eqn:srsd-lbd}. Position of laser beam wavefront at time $t$ can be defined as</p>
+
+<p>\begin{equation}
+\label{eqn:srsd-lbwf}
+\vec{r}_{\rm waf} (t) = \vec{r} _{\rm src} +  \hat{n} _{\rm dir} v _{\rm ray} (t - t_0)
+\end{equation}</p>
+
+<p>if the laser is turned on at $t = t_0$. Since the time $t$ is disrete in numerical approximation, it will be updated through</p>
+
+<p>\begin{equation}
+\label{eqn:srsd-time-update}
+t \equiv t_n = t_{n-1} + \Delta t,
+\end{equation}</p>
+
+<p>where $\Delta t$ is time step of the simulation and $n$ is $n$-th step in the iteration. We can also write Eqn. \eqref{eqn:srsd-time-update} in other form</p>
+
+<p>\begin{equation}
+\label{eqn:srsd-time-t}
+t = t_0 + n \Delta t,
+\end{equation}</p>
+
+<p>with $n = 0, 1, 2, .., N$. Eqn. \eqref{eqn:srsd-lbwf} in better form</p>
+
+<p>\begin{equation}
+\label{eqn:srsd-lbwf-u}
+\vec{r}_{\rm waf} (t) = \vec{r} _{\rm src} +  \hat{n} _{\rm dir} \ u(t - t_0) \ v _{\rm ray} \ (t - t_0)
+\end{equation}</p>
+
+<p>using unit step function [<a href="#ref7">7</a>]</p>
+
+<p>\begin{equation}
+\label{eqn:srsd-u}
+u(t- t_0) = \left\{
+\begin{array}{lr}
+0, &amp; t &lt; t_0, \newline
+1, &amp; t \ge t_0,
+\end{array}
+\right.
+\end{equation}</p>
+
+<p>to assure that the laser beam wavefront is propagating only when $t \ge t_0$.</p>
+
+<h2 id="implementation-with-js">implementation with js</h2>
+<p>Using JavaScript (JS) Eqns. \eqref{eqn:srsd-time-t} and \eqref{eqn:srsd-lbwf-u} can calculated using following snippets [<a href="#ref8">8</a>]. One way to implement Eqn. \eqref{eqn:srsd-lbwf-u} is</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">getBeamWavefrontPosition</span><span class="p">(</span><span class="nx">r_src</span><span class="p">,</span> <span class="nx">n_dir</span><span class="p">,</span> <span class="nx">v_ray</span><span class="p">,</span> <span class="nx">t_0</span><span class="p">,</span> <span class="nx">t</span><span class="p">)</span> <span class="p">{</span>
+	<span class="kd">var</span> <span class="nx">dt</span> <span class="o">=</span> <span class="nx">t</span> <span class="o">-</span> <span class="nx">t_0</span><span class="p">;</span>
+	<span class="kd">var</span> <span class="nx">u</span> <span class="o">=</span> <span class="p">(</span><span class="nx">t</span> <span class="o">&gt;=</span> <span class="nx">t_0</span><span class="p">)</span> <span class="p">?</span> <span class="mi">1</span> <span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
+	<span class="kd">var</span> <span class="nx">dr</span> <span class="o">=</span> <span class="nx">Vect3</span><span class="p">.</span><span class="nx">Mul</span><span class="p">(</span><span class="nx">n_dir</span><span class="p">,</span> <span class="nx">u</span> <span class="o">*</span> <span class="nx">v_ray</span> <span class="o">*</span> <span class="nx">dt</span><span class="p">);</span>
+	<span class="kd">var</span> <span class="nx">r_waf</span> <span class="o">=</span> <span class="nx">Vect3</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">r_src</span><span class="p">,</span> <span class="nx">dr</span><span class="p">);</span>
+	<span class="k">return</span> <span class="nx">r_waf</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>with <code class="language-plaintext highlighter-rouge">Vect3</code> is a class for 3d <a href="/physics/vector">vector</a>. And for Eqn. \eqref{eqn:srsd-time-t} is simply</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">advanceTime</span><span class="p">(</span><span class="nx">dt</span><span class="p">,</span> <span class="nx">t</span><span class="p">)</span> <span class="p">{</span>
+	<span class="kd">var</span> <span class="nx">t_new</span> <span class="o">=</span> <span class="nx">t</span> <span class="o">+</span> <span class="nx">dt</span><span class="p">;</span>
+	<span class="k">return</span> <span class="nx">t_new</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>where <code class="language-plaintext highlighter-rouge">t = t + dt</code> is still the simplest one. For drawing the ray trajectory array of <code class="language-plaintext highlighter-rouge">Vect3</code> is required. For example in the main function we can have</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">t_0</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">dt</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">t</span> <span class="o">=</span> <span class="o">-</span><span class="mi">10</span> <span class="o">*</span> <span class="nx">t_0</span><span class="p">;</span>
+
+<span class="kd">var</span> <span class="nx">trajectory</span> <span class="o">=</span> <span class="p">[];</span>
+<span class="kd">var</span> <span class="nx">r_src</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Vect3</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">n_dir</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Vect3</span><span class="p">(</span><span class="o">-</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">v_ray</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">;</span>
+
+<span class="kd">var</span> <span class="nx">N</span> <span class="o">=</span> <span class="mi">90</span><span class="p">;</span>
+<span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">n</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">n</span> <span class="o">&lt;=</span> <span class="nx">N</span><span class="p">;</span> <span class="nx">n</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+	<span class="kd">var</span> <span class="nx">r_waf</span> <span class="o">=</span> <span class="nx">getBeamWavefrontPosition</span><span class="p">(</span><span class="nx">r_src</span><span class="p">,</span> <span class="nx">n_dir</span><span class="p">,</span> <span class="nx">v_ray</span><span class="p">,</span> <span class="nx">t_0</span><span class="p">,</span> <span class="nx">t</span><span class="p">);</span>
+	<span class="nx">trajectory</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">r_waf</span><span class="p">);</span>
+	<span class="nx">t</span> <span class="o">=</span> <span class="nx">advanceTime</span><span class="p">(</span><span class="nx">dt</span><span class="p">,</span> <span class="nx">t</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nx">drawPolyline</span><span class="p">(</span><span class="nx">trajectory</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>where <code class="language-plaintext highlighter-rouge">drawPolyline</code> is required for drawing the laser beam. Previous snippet does not give animation view since JS will finish first iteration and then do the instruction after that. You can add the animation inside the <code class="language-plaintext highlighter-rouge">drawPolyline</code> by using <code class="language-plaintext highlighter-rouge">setInterval</code> or <code class="language-plaintext highlighter-rouge">requestAnimationFrame</code> functions, or using another way.</p>
+
+<h2 id="references">references</h2>
+<ol>
+  <li><a name="ref1"></a>Wikipedia contributors, “Ray tracing (physics)”, Wikipedia, The Free Encyclopedia, 20 Dec 2020, 01:37 UTC, url <a href="https://en.wikipedia.org/w/index.php?oldid=995258966">https://en.wikipedia.org/w/index.php?oldid=995258966</a> [20210101].</li>
+  <li><a name="ref2"></a>Thomas V. Higgins, “All rays lead to geometrical optics”, Laser Focus World, 1 Dec 2000, url <a href="https://www.laserfocusworld.com/optics/article/16555510/all-rays-lead-to-geometrical-optics">https://www.laserfocusworld.com/optics/article/16555510/all-rays-lead-to-geometrical-optics</a> [20210101].</li>
+  <li><a name="ref3"></a>Johnson Rick Tu, “Ray Optics Simulation”, GitHub, 20 Aug 2018, url <a href="https://ricktu288.github.io/ray-optics/">https://ricktu288.github.io/ray-optics/</a></li>
+  <li><a name="ref4"></a>O. B. Kovaleva, I. O. Kovaleva, and V. V. Belyaev, “Ray tracing method for simulation of laser beam interaction with random packings of powders”, AIP Conference Proceedings [AIP Conf. Proc.], vol. 1939, no. 1, p. 020028, Mar 2018, url <a href="https://doi.org/10.1063/1.5027340">https://doi.org/10.1063/1.5027340</a></li>
+  <li><a name="ref5"></a>Eric W. Weisstein, “Spherical Coordinates”, from MathWorld–A Wolfram Web Resource, url <a href="https://mathworld.wolfram.com/SphericalCoordinates.html">https://mathworld.wolfram.com/SphericalCoordinates.html</a> [20200101].</li>
+  <li><a name="ref6"></a>Leno S. Pedrotti, “Basic Geometrical Optics”, in Chandra Roychoudhuri (ed), Fundamentals of Photonics, 2008, pp. 73-116, url <a href="https://doi.org/10.1117/3.784938.ch3">https://doi.org/10.1117/3.784938.ch3</a></li>
+  <li><a name="ref7"></a>William F. Trenchm “8.4: The Unit Step Function”, MTH 225 Differential Equations, Mathematics, LibreTexts, 7 Jan 2020, url <a href="https://math.libretexts.org/Courses/Monroe_Community_College/MTH_225_Differential_Equations/8:_Laplace_Transforms/8.4:_The_Unit_Step_Function">https://math.libretexts.org/Courses/Monroe_Community_College/MTH_225_Differential_Equations/8:_Laplace_Transforms/8.4:_The_Unit_Step_Function</a> [20210101].</li>
+  <li><a name="ref8"></a>Wikipedia contributors, “Snippet (programming)”, Wikipedia, The Free Encyclopedia, 19 Dec 2020, 05:43 UTC, url <a href="https://en.wikipedia.org/w/index.php?oldid=995096644">https://en.wikipedia.org/w/index.php?oldid=995096644</a> [20210102].
+    <ul>
+      <li><a href="https://github.com/butiran/butiran.github.io/commits/master/_posts/comp/2021-01-01-single-ray-source-direction.md">Article history</a></li>
+    </ul>
+  </li>
+</ol>
+:ET

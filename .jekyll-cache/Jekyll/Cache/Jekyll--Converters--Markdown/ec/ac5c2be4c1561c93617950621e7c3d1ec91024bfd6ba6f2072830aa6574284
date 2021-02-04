@@ -1,0 +1,468 @@
+I"37<p>A particle can moving with different constant velocity in different time interval. This type of motion should have <a href="step-function-velocity">step function velocty</a>. In each time interval it has a <a href="uniform-linear-motion">uniform linear motion</a> (ULM). The problem will be limited to the 1-d case only.</p>
+
+<h2 id="problem">Problem</h2>
+<p>Suppose that there are five points A, B, C, D, and E located along a straight line. A particle will move from one point to another one. This motion can be considered as a one-dimensional (1-d) motion. We choose $x$ direction in describing this problem. Coordinate of all points are</p>
+
+<p>\begin{equation}
+\label{eqn:sfulm-points-ABCDE}
+x_A = 1 \ {\rm m}, \ x_B = 3 \ {\rm m}, \ x_C = 4 \ {\rm m}, \ x_D = 9 \ {\rm m}, \ x_E = 10 \ {\rm m}.
+\end{equation}</p>
+
+<p>The object arrives at these points on the following times</p>
+
+<p>\begin{equation}
+\label{eqn:sfulm-points-ABCDE-time}
+t_A = 0 \ {\rm s}, \ t_C = 3 \ {\rm s}, \ t_E = 6 \ {\rm s}, \ t_B = 13 \ {\rm s}, \ t_D = 15 \ {\rm s}.
+\end{equation}</p>
+
+<p>Notice that sequence of the particle positions is $A \rightarrow C \rightarrow E \rightarrow B \rightarrow D$, according to the chronological order.</p>
+
+<p>From the problem information can be extracted and then presented in more compact and visible forms, e.g. table, picture, graph, function, where in a particular case one form is preferable than the others.</p>
+
+<h2 id="table">Table</h2>
+<p>Following tables summerizes the sequence of time and position. The table can be in the form of this</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>$t$ (s)</strong></td>
+      <td>0</td>
+      <td>3</td>
+      <td>6</td>
+      <td>13</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <td><strong>$x$ (m)</strong></td>
+      <td>1</td>
+      <td>4</td>
+      <td>10</td>
+      <td>3</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <td><strong>Point</strong></td>
+      <td>$A$</td>
+      <td>$C$</td>
+      <td>$E$</td>
+      <td>$B$</td>
+      <td>$D$</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>or this</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>$t$ (s)</strong></td>
+      <td><strong>$x$ (m)</strong></td>
+      <td><strong>Point</strong></td>
+    </tr>
+    <tr>
+      <td>0</td>
+      <td>1</td>
+      <td>$A$</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>4</td>
+      <td>$C$</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>10</td>
+      <td>$E$</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>3</td>
+      <td>$B$</td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>9</td>
+      <td>$D$</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>where both tables are identical. You can choose which one suits your style. But one aspect must be the same for both tables, i.e. the time should be in ascending order, from small value to large value as the time evolves.</p>
+
+<h2 id="picture">Picture</h2>
+<p>The best way to visualize extracted information from text of a problem is using picture (or sequence of pictures), animation, or film, since it will show how the system is evolving.  We will only disucss the first. How the particle moving according to Eqns. \eqref{eqn:sfulm-points-ABCDE} and \eqref{eqn:sfulm-points-ABCDE-time} is illustrated in following Fig. <a href="#fig:sfulm-1d-ABCDE">1</a>.</p>
+
+<oo>
+svg 540 500 #fafafa fig:sfulm-1d-ABCDE|Positions of particle at time $t = 0 \ {\rm s}, 3 \ {\rm s}, 6 \ {\rm s}, 13 \ {\rm s}, 15 \ {\rm s}$.
+
+// Cartesian 1
+style lc:#000 ls:6-2 lw:0.3 lo:0.8
+grid 20 20 460 60 40 40
+style lc:#000 ls:0 lw:1 lo:1
+arrow 20 60 460 60
+circle 60 60 2
+circle 140 60 2
+circle 180 60 2
+circle 380 60 2
+circle 420 60 2
+style lw:0 fc:#000 fo:1 ts:italic tw:normal tf:Times tz:16px
+text 465 65 x
+text 55 47 A
+text 135 47 B
+text 175 47 C
+text 375 47 D
+text 415 47 E
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:16px
+text 15 77 0
+text 55 77 1
+text 95 77 2
+text 135 77 3
+text 175 77 4
+text 215 77 5
+text 255 77 6
+text 295 77 7
+text 335 77 8
+text 375 77 9
+text 412 77 10
+
+# t = 0 s
+style lc:#000 ls:6-2 lw:0.3 lo:0.8
+grid 20 100 460 140 40 40
+style lc:#000 ls:0 lw:1 lo:1
+arrow 20 140 460 140
+circle 60 140 2
+circle 140 140 2
+circle 180 140 2
+circle 380 140 2
+circle 420 140 2
+style lw:0 fc:#000 fo:1 ts:italic tw:normal tf:Times tz:16px
+text 465 145 x
+text 470 120 t
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:16px
+text 480 120 = 0 s
+text 15 157 0
+text 55 157 1
+text 95 157 2
+text 135 157 3
+text 175 157 4
+text 215 157 5
+text 255 157 6
+text 295 157 7
+text 335 157 8
+text 375 157 9
+text 412 157 10
+style lc:#f00 ls:0 lw:1 lo:1 fc:#faa
+rect 50 120 20 20
+
+# t = 3 s
+style lc:#000 ls:6-2 lw:0.3 lo:0.8
+grid 20 180 460 220 40 40
+style lc:#000 ls:0 lw:1 lo:1
+arrow 20 220 460 220
+circle 60 220 2
+circle 140 220 2
+circle 180 220 2
+circle 380 220 2
+circle 420 220 2
+style lw:0 fc:#000 fo:1 ts:italic tw:normal tf:Times tz:16px
+text 465 225 x
+text 470 200 t
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:16px
+text 480 200 = 3 s
+text 15 237 0
+text 55 237 1
+text 95 237 2
+text 135 237 3
+text 175 237 4
+text 215 237 5
+text 255 237 6
+text 295 237 7
+text 335 237 8
+text 375 237 9
+text 412 237 10
+style lc:#f00 ls:0 lw:1 lo:1 fc:#faa
+rect 170 200 20 20
+arrow 80 200 120 200
+style lc:#f88 ls:4-2 lw:1 lo:1 fc:#fee fo:0.2
+rect 50 200 20 20
+
+# t = 6 s
+style lc:#000 ls:6-2 lw:0.3 lo:0.8
+grid 20 260 460 300 40 40
+style lc:#000 ls:0 lw:1 lo:1
+arrow 20 300 460 300
+circle 60 300 2
+circle 140 300 2
+circle 180 300 2
+circle 380 300 2
+circle 420 300 2
+style lw:0 fc:#000 fo:1 ts:italic tw:normal tf:Times tz:16px
+text 465 305 x
+text 470 280 t
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:16px
+text 480 280 = 6 s
+text 15 317 0
+text 55 317 1
+text 95 317 2
+text 135 317 3
+text 175 317 4
+text 215 317 5
+text 255 317 6
+text 295 317 7
+text 335 317 8
+text 375 317 9
+text 412 317 10
+style lc:#f00 ls:0 lw:1 lo:1 fc:#faa
+rect 410 280 20 20
+arrow 200 280 240 280
+style lc:#f88 ls:4-2 lw:1 lo:1 fc:#fee fo:0.2
+rect 170 280 20 20
+
+# t = 13 s
+style lc:#000 ls:6-2 lw:0.3 lo:0.8
+grid 20 340 460 380 40 40
+style lc:#000 ls:0 lw:1 lo:1
+arrow 20 380 460 380
+circle 60 380 2
+circle 140 380 2
+circle 180 380 2
+circle 380 380 2
+circle 420 380 2
+style lw:0 fc:#000 fo:1 ts:italic tw:normal tf:Times tz:16px
+text 465 385 x
+text 470 360 t
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:16px
+text 480 360 = 13 s
+text 15 397 0
+text 55 397 1
+text 95 397 2
+text 135 397 3
+text 175 397 4
+text 215 397 5
+text 255 397 6
+text 295 397 7
+text 335 397 8
+text 375 397 9
+text 412 397 10
+style lc:#f00 ls:0 lw:1 lo:1 fc:#faa
+rect 130 360 20 20
+arrow 400 360 360 360
+style lc:#f88 ls:4-2 lw:1 lo:1 fc:#fee fo:0.2
+rect 410 360 20 20
+
+# t = 15 s
+style lc:#000 ls:6-2 lw:0.3 lo:0.8
+grid 20 420 460 460 40 40
+style lc:#000 ls:0 lw:1 lo:1
+arrow 20 460 460 460
+circle 60 460 2
+circle 140 460 2
+circle 180 460 2
+circle 380 460 2
+circle 420 460 2
+style lw:0 fc:#000 fo:1 ts:italic tw:normal tf:Times tz:16px
+text 465 465 x
+text 470 440 t
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:16px
+text 480 440 = 15 s
+text 15 477 0
+text 55 477 1
+text 95 477 2
+text 135 477 3
+text 175 477 4
+text 215 477 5
+text 255 477 6
+text 295 477 7
+text 335 477 8
+text 375 477 9
+text 412 477 10
+style lc:#f00 ls:0 lw:1 lo:1 fc:#faa
+rect 370 440 20 20
+arrow 160 440 200 440
+style lc:#f88 ls:4-2 lw:1 lo:1 fc:#fee fo:0.2
+rect 130 440 20 20
+</oo>
+
+<p>Object drawn with solid line in Fig. <a href="#fig:sfulm-1d-ABCDE">1</a> is for the particle at that time, while the drawing with dashed line is for the particle at previous time. The time for each time interval is shown on the right side of each related picture.</p>
+
+<h2 id="graph">Graph</h2>
+<p>Since it is always a ULM in each time interval then in a $x-t$ graph the curve is a straight line in each interval. Fig. <a href="#fig:sfulm-1d-ABCDE-x-t">2</a> wil show the graph.</p>
+
+<oo>
+svg 400 280 #fafafa fig:sfulm-1d-ABCDE-x-t|A graph of $x-t$ for the particle visiting $A$, $B$, $C$, $D$, and $E$ points.
+
+style lc:#000 ls:6-2 lw:0.3 lo:0.8
+grid 20 20 380 260 20 20
+style lc:#000 ls:0 lw:1 lo:1
+arrow 20 260 380 260
+arrow 20 260 20 20
+style lw:0 fc:#000 fo:1 ts:italic tw:normal tf:Times tz:16px
+text 385 265 t
+text 17 12 x
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:16px
+text 15 277 0
+text 55 277 2
+text 95 277 4
+text 135 277 6
+text 175 277 8
+text 212 277 10
+text 252 277 12
+text 292 277 14
+text 332 277 16
+
+text 5 265 0
+text 5 225 2
+text 5 185 4
+text 5 145 6
+text 5 105 8
+text 1 65 10
+
+style lc:#f00 ls:0 lw:2 lo:1 fc:#f00
+line 20 240 80 180
+line 80 180 140 60
+line 140 60 280 200
+line 280 200 320 80
+style lc:#000 ls:0 lw:2 lo:1 fc:#000
+circle 20 240 2
+circle 80 180 2
+circle 140 60 2
+circle 280 200 2
+circle 320 80 2
+style lw:0 fc:#000 fo:1 ts:italic tw:normal tf:Times tz:16px
+text 30 250 A
+text 90 190 C
+text 135 50 E
+text 275 220 B
+text 315 70 D
+</oo>
+
+<p>Position of point $A$, $B$, $C$, $D$, and $E$ in Fig. <a href="#fig:sfulm-1d-ABCDE-x-t">2</a> can be obtained by seeing its value at vertical axis $x$. The values have to match to the information provide by the text in the problem. Along horizontal axis $t$ the points are set in chronological order.</p>
+
+<h2 id="function">Function</h2>
+<p>Fig. <a href="#fig:sfulm-1d-ABCDE-x-t">2</a> we can obtain following function</p>
+
+<p>\begin{equation}
+\label{eqn:sfulm-points-ABCDE-x-t}
+x(t) = \left\{
+\begin{array}{lc}
+t + 1,&amp; 0 \le t \lt 3, \newline
+2t - 2,&amp; 3 \le t \lt 6, \newline
+-t + 16,&amp; 6 \le t \lt 13, \newline
+3t - 36,&amp; 13 \le t \lt 15,
+\end{array}
+\right.
+\end{equation}</p>
+
+<p>describing position of the object at every time $t$. Unit of $x$ is $\rm m$ and unit of $t$ is $\rm s$. Detail how to obtain Eqn. \eqref{eqn:sfulm-points-ABCDE-x-t} will be discuss in <a href="shift-xy-chart">shift x-y chart</a>. There is a lot of online chart tools that can be used to plot points [<a href="#ref1">1</a>] and even funtions [<a href="#ref2">2</a>].</p>
+
+<h2 id="note">Note</h2>
+<p>The term of step function uniform linear motion is not well known, and normally this type of motion is simply referred as ULM.</p>
+
+<h2 id="exercises">Exercises</h2>
+<ol>
+  <li>Discuss which representation that you find helpful in visualizing information extracted from the problem. Explain why you like it.</li>
+  <li>Think about displacement and distance. Find displacement and distance for time $0 \ {\rm s} \le t \lt 3 \ {\rm s}$, $3 \ {\rm s} \le t \lt 6 \ {\rm s}$, $6 \ {\rm s} \le t \lt 13 \ {\rm s}$,  and $13 \ {\rm s} \le t \lt 15 \ {\rm s}$.</li>
+  <li>Find displacement and distance for time $0 \ {\rm s} \le t \lt 3 \ {\rm s}$, $0 \ {\rm s} \le t \lt 6 \ {\rm s}$, $0 \ {\rm s} \le t \lt 13 \ {\rm s}$, and $0 \ {\rm s} \le t \lt 15 \ {\rm s}$.</li>
+  <li>Find the velocity $v$ in each time interval $0 \ {\rm s} \le t \lt 3 \ {\rm s}$, $3 \ {\rm s} \le t \lt 6 \ {\rm s}$, $6 \ {\rm s} \le t \lt 13 \ {\rm s}$,  and $13 \ {\rm s} \le t \lt 15 \ {\rm s}$,  and make a table and a function for it.</li>
+  <li>Make your onw problem and visualize the information using table, sequence of pictures, graph, and function. Use at least four different points, e.g. $A$, $B$, $C$, $D$.</li>
+</ol>
+
+<h2 id="quiz">Quiz</h2>
+<p>A partikel is moving and visiting points $P$, $Q$, $R$, $S$, $T$, and $U$ as illustrated in Fig. <a href="#fig:sfulm-1d-x-t-quiz-1">3</a>.</p>
+
+<oo>
+svg 480 440 #fafafa fig:sfulm-1d-x-t-quiz-1|A step function velocity uniform linear motion with five time intervals.
+
+style lc:#000 ls:6-2 lw:0.3 lo:0.8
+grid 20 20 460 420 20 20
+
+style lc:#000 ls:0 lw:1 lo:1
+arrow 20 420 460 420
+arrow 20 420 20 20
+
+line 60 417 60 423
+line 100 417 100 423
+line 140 417 140 423
+line 180 417 180 423
+line 220 417 220 423
+line 260 417 260 423
+line 300 417 300 423
+line 340 417 340 423
+line 380 417 380 423
+line 420 417 420 423
+
+line 17 380 23 380
+line 17 340 23 340
+line 17 300 23 300
+line 17 260 23 260
+line 17 220 23 220
+line 17 180 23 180
+line 17 140 23 140
+line 17 100 23 100
+line 17 60 23 60
+
+style lw:0 fc:#000 fo:1 ts:italic tw:normal tf:Times tz:16px
+text 465 425 t
+text 17 12 x
+
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:16px
+text 15 437 0
+text 55 437 2
+text 95 437 4
+text 135 437 6
+text 175 437 8
+text 212 437 10
+text 252 437 12
+text 292 437 14
+text 332 437 16
+text 372 437 18
+text 412 437 20
+
+text 5 425 0
+text 5 385 2
+text 5 345 4
+text 5 305 6
+text 5 265 8
+text 1 225 10
+text 1 185 12
+text 1 145 14
+text 1 105 16
+text 1 65 18
+
+style lc:#f00 ls:0 lw:2 lo:1 fc:#f00
+line 20 380 100 300
+line 100 300 160 180
+line 160 180 240 260
+line 240 260 340 60
+line 340 60 420 140
+
+style lc:#000 ls:0 lw:2 lo:1 fc:#000
+circle 20 380 2
+circle 100 300 2
+circle 160 180 2
+circle 240 260 2
+circle 340 60 2
+circle 420 140 2
+
+style lw:0 fc:#000 fo:1 ts:italic tw:normal tf:Times tz:16px
+text 25 390 P
+text 105 310 Q
+text 155 172 R
+text 235 278 S
+text 335 52 T
+text 425 145 U
+</oo>
+
+<p>In each time interval the particle performs a <a href="uniform-linear-motion">uniform linear motion</a> or its velocity is constant in each time interval.</p>
+
+<h2 id="references">References</h2>
+<ol>
+  <li><a name="ref1"></a>Dheera Venkatraman, “Punkte”, FooPlot, url <a href="https://bit.ly/3j2tKd1">https://bit.ly/3j2tKd1</a><!-- http://fooplot.com/#W3sidHlwZSI6MywiZXEiOltbIjAiLCIxIl0sWyIzIiwiNCJdLFsiNiIsIjEwIl0sWyIxMyIsIjMiXSxbIjE1IiwiOSJdXSwiY29sb3IiOiIjMDAwMDAwIn0seyJ0eXBlIjoxMDAwLCJ3aW5kb3ciOlsiLTMuNDQwMDAwMDAwMDAwMDA1MyIsIjIyLjU2IiwiLTMuODc5OTk5OTk5OTk5OTk5NCIsIjEyLjEyMDAwMDAwMDAwMDAwMyJdfV0- --> [20200925].</li>
+  <li><a name="ref2"></a>Dheera Venkatraman, “Funktion”, FooPlot, url <a href="https://bit.ly/3040dba">https://bit.ly/3040dba</a><!-- http://fooplot.com/#W3sidHlwZSI6MCwiZXEiOiIoeD4wKSh4PDMpKHgrMSkiLCJjb2xvciI6IiMwMDAwMDAifSx7InR5cGUiOjAsImVxIjoiKHg.MykoeDw2KSgyeC0yKSIsImNvbG9yIjoiIzAwMDAwMCJ9LHsidHlwZSI6MCwiZXEiOiIoeD42KSh4PDEzKSgteCsxNikiLCJjb2xvciI6IiMwMDAwMDAifSx7InR5cGUiOjAsImVxIjoiKHg.MTMpKHg8MTUpKDN4LTM2KSIsImNvbG9yIjoiIzAwMDAwMCJ9LHsidHlwZSI6MTAwMCwid2luZG93IjpbIi0yMy41MiIsIjI4LjQ4IiwiLTE0LjI0IiwiMTcuNzYiXX1d --> [2020925].</li>
+</ol>
+
+<ul>
+  <li><a href="https://github.com/butiran/butiran.github.io/commits/master/_posts/phys/2020-09-16-sf-ulm.md">Article history</a></li>
+</ul>
+:ET

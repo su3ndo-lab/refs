@@ -1,0 +1,192 @@
+I"�Z<p>A simple program writen in Python to produce Lissajous curve [<a href="#ref1">1</a>] is presented here.</p>
+
+<h2 id="equation">Equation</h2>
+<p>In order to produce a Lissajous pattern in two-dimensional space, two equations are requires</p>
+
+<p>\begin{equation}
+\label{eqn:pyrdpf-x}
+x(t) = A_x \sin \left( \frac{2\pi}{T_x} t + \phi_x \right)
+\end{equation}
+and
+\begin{equation}
+\label{eqn:pyrdpf-y}
+y(t) = A_y \sin \left( \frac{2\pi}{T_y} t + \phi_y \right)
+\end{equation}</p>
+
+<p>with $A$ is amplitude, $T$ is periode, and $\phi$ is initial phase, where all are for both $x$ and $y$ directions.</p>
+
+<h2 id="parameters-file">Parameters file</h2>
+<p>A parameters file with the following content</p>
+
+<div class="language-batch highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">TITL</span> <span class="m">2</span><span class="kd">d</span><span class="na">-Lissajous-pattern-generator
+</span><span class="kd">OUTF</span> <span class="kd">lissajous</span><span class="na">-pattern</span>.png
+
+<span class="kd">AMPX</span> <span class="m">100</span>
+<span class="kd">TPEX</span> <span class="m">3</span>
+<span class="kd">PHAX</span> <span class="m">0</span>
+
+<span class="kd">AMPY</span> <span class="m">100</span>
+<span class="kd">TPEY</span> <span class="m">2</span>
+<span class="kd">PHAY</span> <span class="m">1</span>.57
+
+<span class="kd">TBEG</span> <span class="m">0</span>
+<span class="kd">TEND</span> <span class="m">20</span>
+<span class="kd">TSTP</span> <span class="m">0</span>.0001
+</code></pre></div></div>
+
+<p>is designed for the program, that will open it and use the parameters value.</p>
+
+<h2 id="python-code">Python code</h2>
+<p>A program written in Python 3 has following content</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 
+# lissajous.py
+# Read parameters file and process its content to produce
+# Lissajous pattern in PNG format
+# 
+# Sparisoma Viridi | https://github.com/dudung
+# 
+# Execute: python3 lissajous.py params.txt
+# 
+# 20200922
+# 2108 Derive it from redpf2.py and plan to implement [1].
+# 2152 Install NumPy through Cygwin.
+# 2203 Install PIL through Cygwin python37-imaging package (x).
+# 2226 Install for 37 NumPy and execute with python 37, ok.
+# 2229 Test the example [1] and it works.
+# 2242 Create empty white image 10x10.
+# 20200923
+# 0501 Change output from argv[2] to OUTF in parameters file.
+# 0517 Create emty white PNG image with size (2Ax)x(2Ay).
+# 0543 Change pixel color in two-dimensional array [3], pixels.
+# 0553 Reduce Ax and Ay with 0.98 for better Lissajous curve.
+# 1704 Remove out.png from execute information.
+# 
+# References
+# 1. Jebby, "Answer to 'How to create image from a list of
+#    pixel values in Python3?'", StackOverflow, 25 Oct 2017,
+#    url https://stackoverflow.com/a/46924413 [20200922].
+# 2. -, "https://wiki.python.org/moin/ForLoop", Python, url
+#    https://wiki.python.org/moin/ForLoop [20200923].
+# 3. -, "Python - 2D Array", TutorialsPoint, url https://www.
+#    tutorialspoint.com/python_data_structure/python_2darray
+#    .htm [20200923].
+# 
+</span>
+<span class="c1"># Import necessary modules
+</span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">import</span> <span class="nn">math</span>
+
+<span class="c1"># Get command line arguments
+</span><span class="n">argv</span> <span class="o">=</span> <span class="n">sys</span><span class="p">.</span><span class="n">argv</span>
+
+<span class="c1"># Get parameters filename
+</span><span class="n">fn</span> <span class="o">=</span> <span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="c1"># Open parameters file
+</span><span class="n">fp</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">fn</span><span class="p">,</span> <span class="s">"r"</span><span class="p">)</span>
+
+<span class="c1"># Declare array
+</span><span class="n">params</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="c1"># Iterate throug line in opened file
+</span><span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">fp</span><span class="p">:</span>
+	<span class="c1"># Remove trailing new line
+</span>	<span class="n">line2</span> <span class="o">=</span> <span class="n">line</span><span class="p">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">)</span>
+	
+	<span class="c1"># Append line to params
+</span>	<span class="n">params</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">line2</span><span class="p">)</span>
+
+<span class="c1"># Close file
+</span><span class="n">fp</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="c1"># Get params
+</span><span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">params</span><span class="p">:</span>
+	<span class="n">b</span> <span class="o">=</span> <span class="n">p</span><span class="p">.</span><span class="n">split</span><span class="p">();</span>
+	<span class="k">if</span> <span class="n">b</span><span class="p">:</span>
+		<span class="k">if</span> <span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s">"AMPX"</span><span class="p">:</span> <span class="n">Ax</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+		<span class="k">if</span> <span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s">"AMPY"</span><span class="p">:</span> <span class="n">Ay</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+		<span class="k">if</span> <span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s">"TPEX"</span><span class="p">:</span> <span class="n">Tx</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+		<span class="k">if</span> <span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s">"TPEY"</span><span class="p">:</span> <span class="n">Ty</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+		<span class="k">if</span> <span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s">"PHAX"</span><span class="p">:</span> <span class="n">phx</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+		<span class="k">if</span> <span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s">"PHAY"</span><span class="p">:</span> <span class="n">phy</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+		<span class="k">if</span> <span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s">"TBEG"</span><span class="p">:</span> <span class="n">tbeg</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+		<span class="k">if</span> <span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s">"TEND"</span><span class="p">:</span> <span class="n">tend</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+		<span class="k">if</span> <span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s">"TSTP"</span><span class="p">:</span> <span class="n">dt</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+		<span class="k">if</span> <span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s">"OUTF"</span><span class="p">:</span> <span class="n">fn2</span> <span class="o">=</span> <span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="c1"># Define default color
+</span><span class="n">o</span> <span class="o">=</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span>
+<span class="n">i</span> <span class="o">=</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># Ilustrate plus or '+' in a PNG file -- not used
+</span><span class="n">pixels</span> <span class="o">=</span> <span class="p">[</span>
+	<span class="p">[</span><span class="n">o</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span> <span class="n">o</span><span class="p">],</span>
+	<span class="p">[</span><span class="n">o</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span> <span class="n">o</span><span class="p">],</span>
+	<span class="p">[</span><span class="n">o</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span> <span class="n">o</span><span class="p">],</span>
+	<span class="p">[</span><span class="n">o</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span> <span class="n">o</span><span class="p">],</span>
+	<span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="p">],</span>
+	<span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="p">],</span>
+	<span class="p">[</span><span class="n">o</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span> <span class="n">o</span><span class="p">],</span>
+	<span class="p">[</span><span class="n">o</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span> <span class="n">o</span><span class="p">],</span>
+	<span class="p">[</span><span class="n">o</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span> <span class="n">o</span><span class="p">],</span>
+	<span class="p">[</span><span class="n">o</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span> <span class="n">o</span><span class="p">],</span>
+<span class="p">]</span>
+
+<span class="c1"># Create empty image
+</span><span class="n">pixels</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">Ay</span><span class="p">)):</span>
+	<span class="n">rows</span> <span class="o">=</span> <span class="p">[]</span>
+	<span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">Ax</span><span class="p">)):</span>
+		<span class="n">rows</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">o</span><span class="p">)</span>
+	<span class="n">pixels</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">rows</span><span class="p">)</span>
+
+<span class="c1"># Iterate from tbeg to tend with step dt
+</span><span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="n">tend</span> <span class="o">-</span> <span class="n">tbeg</span><span class="p">)</span><span class="o">/</span><span class="n">dt</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">N</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+	<span class="n">t</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">tbeg</span> <span class="o">+</span> <span class="n">j</span> <span class="o">*</span> <span class="n">dt</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+	<span class="n">x</span> <span class="o">=</span> <span class="mf">0.98</span> <span class="o">*</span> <span class="n">Ax</span> <span class="o">*</span> <span class="n">math</span><span class="p">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">math</span><span class="p">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">t</span> <span class="o">/</span> <span class="n">Tx</span> <span class="o">+</span> <span class="n">phx</span><span class="p">)</span>
+	<span class="n">y</span> <span class="o">=</span> <span class="mf">0.98</span> <span class="o">*</span> <span class="n">Ay</span> <span class="o">*</span> <span class="n">math</span><span class="p">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">math</span><span class="p">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">t</span> <span class="o">/</span> <span class="n">Ty</span> <span class="o">+</span> <span class="n">phy</span><span class="p">)</span>
+	<span class="n">xx</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">Ax</span> <span class="o">+</span> <span class="n">x</span><span class="p">)</span>
+	<span class="n">yy</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">Ay</span> <span class="o">-</span> <span class="n">y</span><span class="p">)</span>
+	<span class="k">if</span> <span class="n">xx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">Ax</span><span class="p">))</span> <span class="ow">and</span> <span class="n">yy</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">Ay</span><span class="p">)):</span>
+		<span class="n">pixels</span><span class="p">[</span><span class="n">yy</span><span class="p">][</span><span class="n">xx</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span>
+
+<span class="c1"># Convert the pixels into an array using numpy
+</span><span class="n">array</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">(</span><span class="n">pixels</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="p">.</span><span class="n">uint8</span><span class="p">)</span>
+
+<span class="c1"># Use PIL to create an image from the new array of pixels
+</span><span class="n">new_image</span> <span class="o">=</span> <span class="n">Image</span><span class="p">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
+<span class="n">new_image</span><span class="p">.</span><span class="n">save</span><span class="p">(</span><span class="n">fn2</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>which will be called using command line as</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ python3.8 lissajous.py params.txt
+</code></pre></div></div>
+
+<p>and produce <code class="language-plaintext highlighter-rouge">lissajous-pattern.png</code> file.</p>
+
+<h2 id="exercise">Exercise</h2>
+<ol>
+  <li>What is the name of parameters file? Show which part of the code that supports your answer.</li>
+  <li>In which part of the parameters file and the code you can find the output filename <code class="language-plaintext highlighter-rouge">lissajous-pattern.png</code>?</li>
+  <li>What is the result of the code for the given parameters file? Refer it to an image in the internet as the answer.</li>
+  <li>Compare the default result with an internet result [<a href="#ref2">2</a>]. Can you confirm that those results are the same? Compare also with [<a href="#ref3">3</a>].</li>
+  <li>See first row and third column from left in the first figure [<a href="#ref4">4</a>]. Can you determine the parameters and produce the curve using <code class="language-plaintext highlighter-rouge">lissajous.py</code> code? Specify the parameters value.</li>
+</ol>
+
+<h2 id="references">References</h2>
+<ol>
+  <li><a name="ref1"></a>Wikipedia contributors, “Lissajous curve”, Wikipedia, The Free Encyclopedia, 17 Aug 2020, 12:46 UTC, <a href="https://en.wikipedia.org/w/index.php?oldid=973478979">https://en.wikipedia.org/w/index.php?oldid=973478979</a> [20200923].</li>
+  <li><a name="ref2"></a>Lee Teschler, “Lissajous patterns: using a scope for display signals”, Test &amp; Measurement Tips – an EE World Online Resources, 11 Aug 2016, url <a href="https://www.testandmeasurementtips.com/using-scope-display-lissajous-patterns/">https://www.testandmeasurementtips.com/using-scope-display-lissajous-patterns/</a> [20200923].</li>
+  <li><a name="ref3"></a>-, “Lissajous curve”, Desmos, url <a href="https://www.desmos.com/calculator/tti5dasmc4?lang=de">https://www.desmos.com/calculator/tti5dasmc4?lang=de</a> [20200923].</li>
+  <li><a name="ref3"></a>Eric W. Weisstein, “Lissajous Curve”, from MathWorld–A Wolfram Web Resource, url <a href="https://mathworld.wolfram.com/LissajousCurve.html">https://mathworld.wolfram.com/LissajousCurve.html</a> [20200923].</li>
+</ol>
+
+<ul>
+  <li><a href="https://github.com/butiran/butiran.github.io/commits/master/_posts/code/py/2020-09-23-lissajous-pattern-generator.md">Article history</a></li>
+</ul>
+:ET

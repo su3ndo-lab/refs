@@ -1,0 +1,201 @@
+I"-$<p>A uniform beam is hung horizontally from ceiling through two vertical wires attached at some positions on the beam. It is a general case of a horizontal rod suspended by two vertical cables [<a href="#ref1">1</a>].</p>
+
+<h2 id="problem">Problem</h2>
+<p>An uniform beam with mass $m$ and length $L$ is supported horizontally by two vertical wires attached to ceiling as shown in following Fig. <a href="#fig:shbar-vwire2-0">1</a>.</p>
+
+<p style="text-align: center;"><img src="/assets/img/phys/hbar-vwire2-0.png" alt="horizontal beam suspended by two vertical wires" />
+<br />
+Figure <a name="fig:shbar-vwire2-0">1</a> A beam supported horizontally by two vertical wires.</p>
+
+<p>Tension of left wire is marked as $T_1$, while tension of the other wire is marked as $T_2$. Length of the beam is $2 \ \rm m$ and its mass is $15 \ \rm kg$. Point $O$ is position of center of the mass of the beam. Distance of point $B$ from point $O$ or $l_1$ is $80 \ \rm cm$ and distance of point $D$ from point $O$ or $l_2$ is $40 \ \rm cm$. Find tension $T_1$ and $T_2$.</p>
+
+<h2 id="theory">Theory</h2>
+<p>The problem in Fig. <a href="#fig:shbar-vwire2-0">1</a> is part of statics, where we will use Newton’s first law for linear motion</p>
+
+<p>\begin{equation}
+\label{eqn:shbar-sum-fx=0}
+\sum F_x = 0
+\end{equation}</p>
+
+<p>in $x$ direction,</p>
+
+<p>\begin{equation}
+\label{eqn:shbar-sum-fy=0}
+\sum F_y = 0
+\end{equation}</p>
+
+<p>in $y$ direction, and also for rotational motion</p>
+
+<p>\begin{equation}
+\label{eqn:shbar-sum-tau=0}
+\sum \tau_P = 0
+\end{equation}</p>
+
+<p>at every point $P$, e.g. $A$, $B$, $C$, $D$, $E$, or $O$.</p>
+
+<h2 id="formulation">Formulation</h2>
+<h3 id="free-body-diagram">Free-body diagram</h3>
+<p>From Fig. <a href="#fig:shbar-vwire2-0">1</a> we can draw the free-body diagram as shown in Fig. <a href="#fig:shbar-vwire2-1">2</a>, where the ceiling should not be drawn.</p>
+
+<p style="text-align: center;"><img src="/assets/img/phys/hbar-vwire2-1.png" alt="horizontal beam suspended by two vertical wires" />
+<br />
+Figure <a name="fig:shbar-vwire2-1">2</a> Free-body digram of a beam supported horizontally by two vertical wires.</p>
+
+<p>Do not forget to draw the coordinate system, $x$ and $y$ axes, to support the description of the free-body diagram.</p>
+
+<h3 id="sum-of-forces-in-x-direction">Sum of forces in $x$ direction</h3>
+<p>From Fig. <a href="#fig:shbar-vwire2-1">2</a> we can see that there is any force or force component in $x$ direction. Then Eqn. \eqref{eqn:shbar-sum-fx=0} already holds.</p>
+
+<h3 id="sum-of-forces-in-y-direction">Sum of forces in $y$ direction</h3>
+<p>In $y$ direction, using Eqn. \eqref{eqn:shbar-sum-fy=0}, we can have that</p>
+
+<p>\begin{equation}
+\label{eqn:shbar-sum-fy=0-applied}
+\begin{array}{rcl}
+T_1 + T_2 - w &amp; = &amp; 0 \newline
+T_1 + T_2 &amp; = &amp; w.
+\end{array}
+\end{equation}</p>
+
+<h3 id="sum-of-torques-at-point-o">Sum of torques at point $O$</h3>
+<p>When point $O$ is chosen as center of rotation we consider only forces not at that point as shown in Fig. <a name="#fig:shbar-vwire2-2">3</a>, where clockwise direction has positive sign.</p>
+
+<p style="text-align: center;"><img src="/assets/img/phys/hbar-vwire2-2.png" alt="horizontal beam suspended by two vertical wires" />
+<br />
+Figure <a name="fig:shbar-vwire2-2">3</a> Torques when point $O$ as center of rotation.</p>
+
+<p>Then we can have</p>
+
+<p>\begin{equation}
+\label{eqn:shbar-sum-tau=0-applied-O}
+\begin{array}{rcl}
+\sum \tau_O &amp; = &amp; 0 \newline
+T_1 l_1 - T_2 l_2 &amp; = &amp; 0 \newline
+T_1 l_1 &amp; = &amp; T_2 l_2 \newline
+T_1 &amp; = &amp; \displaystyle \left( \frac{l_2}{l_1} \right) T_2,
+\end{array}
+\end{equation}</p>
+
+<p>which shows the relation between $T_1$ and $T_2$.</p>
+
+<h3 id="sum-of-torques-at-point-b">Sum of torques at point $B$</h3>
+<p>When point $B$ is chosen as center of rotation we consider only forces not at that point as shown in Fig. <a name="#fig:shbar-vwire2-3">4</a>, where clockwise direction has positive sign.</p>
+
+<p style="text-align: center;"><img src="/assets/img/phys/hbar-vwire2-3.png" alt="horizontal beam suspended by two vertical wires" />
+<br />
+Figure <a name="fig:shbar-vwire2-3">4</a> Torques when point $B$ as center of rotation.</p>
+
+<p>Then we can have</p>
+
+<p>\begin{equation}
+\label{eqn:shbar-sum-tau=0-applied-B}
+\begin{array}{rcl}
+\sum \tau_B &amp; = &amp; 0 \newline
+w l_1 - T_2 (l_1 + l_2) &amp; = &amp; 0 \newline
+-T_2 (l_1 + l_2) &amp; = &amp; -w l_1 \newline
+T_2 &amp; = &amp; \displaystyle \left( \frac{l_1}{l_1 + l_2} \right) w,
+\end{array}
+\end{equation}</p>
+
+<p>that relates $T_2$ and $w$.</p>
+
+<h3 id="sum-of-torques-at-point-d">Sum of torques at point $D$</h3>
+<p>When point $D$ is chosen as center of rotation we consider only forces not at that point as shown in Fig. <a name="#fig:shbar-vwire2-3">4</a>, where clockwise direction has positive sign.</p>
+
+<p style="text-align: center;"><img src="/assets/img/phys/hbar-vwire2-4.png" alt="horizontal beam suspended by two vertical wires" />
+<br />
+Figure <a name="fig:shbar-vwire2-4">3</a> Torques when point $D$ as center of rotation.</p>
+
+<p>Then we can have</p>
+
+<p>\begin{equation}
+\label{eqn:shbar-sum-tau=0-applied-D}
+\begin{array}{rcl}
+\sum \tau_D &amp; = &amp; 0 \newline
+T_1 (l_1 + l_2) - w l_2 &amp; = &amp; 0 \newline
+T_1 (l_1 + l_2) &amp; = &amp; w l_2 \newline
+T_1 &amp; = &amp; \displaystyle \left( \frac{l_2}{l_1 + l_2} \right) w,
+\end{array}
+\end{equation}</p>
+
+<p>tat relates $T_1$ and $w$.</p>
+
+<h2 id="solution">Solution</h2>
+<h3 id="using-tau_o">Using $\tau_O$</h3>
+<p>From Eqns. \eqref{eqn:shbar-sum-fy=0-applied} and \eqref{eqn:shbar-sum-tau=0-applied-O} we can have that</p>
+
+<p>\begin{equation}
+\label{eqn:shbar-sum-fy=0-applied-tau-O}
+\begin{array}{rcl}
+\displaystyle \left( \frac{l_2}{l_1} \right) T_2 + T_2 &amp; = &amp; w \newline
+\displaystyle \left( \frac{l_2}{l_1} + 1 \right) T_2 &amp; = &amp; w \newline
+\displaystyle \left( \frac{l_2 + l_1}{l_1} \right) T_2 &amp; = &amp; w \newline
+T_2 &amp; = &amp; \displaystyle \left( \frac{l_1}{l_2 + l_1} \right) w.
+\end{array}
+\end{equation}</p>
+
+<p>And substitute Eqn. \eqref{eqn:shbar-sum-fy=0-applied-tau-O} to Eqn. \eqref{eqn:shbar-sum-tau=0-applied-O}</p>
+
+<p>\begin{equation}
+\label{eqn:shbar-sum-tau=0-applied-O-T2}
+\begin{array}{rcl}
+T_1 &amp; = &amp; \displaystyle \left( \frac{l_2}{l_1} \right) \left( \frac{l_1}{l_2 + l_1} \right) w \newline
+&amp; = &amp; \displaystyle \left( \frac{l_2}{l_2 + l_1} \right) w.
+\end{array}
+\end{equation}</p>
+
+<p>It requires four steps to find Eqns. \eqref{eqn:shbar-sum-fy=0-applied-tau-O} and \eqref{eqn:shbar-sum-tau=0-applied-O-T2}.</p>
+
+<h3 id="using-tau_b">Using $\tau_B$</h3>
+<p>As shown previously in Eqn. \eqref{eqn:shbar-sum-tau=0-applied-B}, we can get directly Eqn. \eqref{eqn:shbar-sum-fy=0-applied-tau-O} only in one step.</p>
+
+<h3 id="using-tau_d">Using $\tau_D$</h3>
+<p>As shown previously in Eqn. \eqref{eqn:shbar-sum-tau=0-applied-D}, we can get directly Eqn. \eqref{eqn:shbar-sum-tau=0-applied-O-T2} only in one step.</p>
+
+<h2 id="note">Note</h2>
+<h3 id="applying-numerical-value">Applying numerical value</h3>
+<p>Using Eqns. \eqref{eqn:shbar-sum-fy=0-applied-tau-O} and \eqref{eqn:shbar-sum-tau=0-applied-O-T2} and values provided in the problem, $l_1 = 80 \ \rm cm$, $l_2 = 40 \ \rm cm$, $m = 15 \ \rm kg$, we can have</p>
+
+<p>\begin{equation}
+\label{eqn:shbar-value-T1}
+\begin{array}{rcl}
+T_1 &amp; = &amp; \displaystyle \left( \frac{l_2}{l_2 + l_1} \right) w \newline
+&amp; = &amp; \displaystyle \left( \frac{0.4}{0.4 + 0.8} \right) (15 \cdot 10) \newline
+&amp; = &amp; \displaystyle \left( \frac13 \right) 150 \newline
+&amp; = &amp; 50 \ \rm N
+\end{array}
+\end{equation}</p>
+
+<p>and</p>
+
+<p>\begin{equation}
+\label{eqn:shbar-value-T2}
+\begin{array}{rcl}
+T_2 &amp; = &amp; \displaystyle \left( \frac{l_1}{l_2 + l_1} \right) w \newline
+&amp; = &amp; \displaystyle \left( \frac{0.8}{0.4 + 0.8} \right) (15 \cdot 10) \newline
+&amp; = &amp; \displaystyle \left( \frac23 \right) 150 \newline
+&amp; = &amp; 100 \ \rm N.
+\end{array}
+\end{equation}</p>
+
+<p>Since the second vertical wire is nearer to beam center of mass $O$ compared to the first wire, then $T_2 &gt; T_1$.</p>
+
+<h3 id="more-efficient-way">More efficient way</h3>
+<p>There are two ways to get $T_1$ and $T_2$</p>
+
+<ul>
+  <li>four steps through Eqns. \eqref{eqn:shbar-sum-fy=0-applied}, \eqref{eqn:shbar-sum-tau=0-applied-O}, \eqref{eqn:shbar-sum-fy=0-applied-tau-O}, and \eqref{eqn:shbar-sum-tau=0-applied-O-T2}, or</li>
+  <li>two steps through Eqns. \eqref{eqn:shbar-sum-tau=0-applied-B} and \eqref{eqn:shbar-sum-tau=0-applied-D}.</li>
+</ul>
+
+<p>You can determine which way is better compared to the other based on your own experience.</p>
+
+<h2 id="references">References</h2>
+<ol>
+  <li><a name="ref1"></a>Richard Fitzpatrick, “Rods and cables”, in Classical Mechanics: an introductory course, The University of Texas at Austin, 2 Feb 2006, url <a href="http://farside.ph.utexas.edu/teaching/301/lectures/node128.html">http://farside.ph.utexas.edu/teaching/301/lectures/node128.html</a> [20201108].</li>
+</ol>
+
+<ul>
+  <li><a href="https://github.com/butiran/butiran.github.io/commits/master/_posts/phys/2020-11-08-statics-beam-horiz-hang-ceil-vert-wire-2.md">Article history</a></li>
+</ul>
+:ET

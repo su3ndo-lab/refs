@@ -1,0 +1,133 @@
+I";<p>Reflection of single ray of laser beam on many spheres can be performed using <a href="/comp/single-ray-reflection-sphere">single ray reflection on a single sphere</a> consecutively until the beam leaving the observation region or arrving at a light sensor.</p>
+
+<h2 id="many-spheres-system">many spheres system</h2>
+<p>Fig. <a name="#fig:srrms-many-spheres-system">1</a> shows the illustration how a single ray of laser beam reflected multiple times by many spheres.</p>
+
+<p style="text-align: center;"><img src="/assets/img/comp/ray-reflected-many-spheres.png" alt=".." />
+<br />
+Figure <a name="fig:srrs-inc-ref-beam">1</a> Single ray of laser beam reflected multiple times in a many spheres system ($N = 6$).</p>
+
+<p>In each reflection on a spherical particles law of relection [<a href="#ref1">1</a>] always holds.</p>
+
+<h2 id="reflection-on-1st-sphere">reflection on 1st sphere</h2>
+<p>For the first sphere as shown in Fig. <a href="#fig:srrms-ray-reflection-sphere-1">2</a></p>
+
+<p style="text-align: center;"><img src="/assets/img/comp/ray-reflection-sphere-1.png" alt=".." />
+<br />
+Figure <a name="fig:srrms-ray-reflection-sphere-1">1</a> Single ray of laser beam reflected on the first sphere located at $\vec{r} _{O,1}$.</p>
+
+<p>following relation holds</p>
+
+<p>\begin{equation}
+\label{eqn:srrms-reflection-sphere-1}
+\hat{n} _{\rm ref,1} = \hat{n} _{\rm dir} - 2 (\hat{n} _{\rm dir} \cdot \hat{n} _{\rm par,1}) \hat{n} _{\rm par,1},
+\end{equation}</p>
+
+<p>where the derivation has been discussed in <a href="/comp/single-ray-reflection-sphere">single ray reflection on a single sphere</a>.</p>
+
+<h2 id="reflection-on-2nd-sphere">reflection on 2nd sphere</h2>
+<p>For the second sphere as shown in Fig. <a href="#fig:srrms-ray-reflection-sphere-2">3</a></p>
+
+<p style="text-align: center;"><img src="/assets/img/comp/ray-reflection-sphere-2.png" alt=".." />
+<br />
+Figure <a name="fig:srrms-ray-reflection-sphere-2">3</a> Single ray of laser beam reflected on the second sphere located at $\vec{r} _{O,2}$.</p>
+
+<p>following relation holds</p>
+
+<p>\begin{equation}
+\label{eqn:srrms-reflection-sphere-2}
+\hat{n} _{\rm ref,2} = \hat{n} _{\rm ref,1} - 2 (\hat{n} _{\rm ref,1} \cdot \hat{n} _{\rm par,2}) \hat{n} _{\rm par,2},
+\end{equation}</p>
+
+<p>similar to Eqn. \eqref{eqn:srrms-reflection-sphere-1}.</p>
+
+<h2 id="reflection-on-3rd--sphere">reflection on 3rd  sphere</h2>
+<p>For the third sphere as shown in Fig. <a href="#fig:srrms-ray-reflection-sphere-3">4</a></p>
+
+<p style="text-align: center;"><img src="/assets/img/comp/ray-reflection-sphere-3.png" alt=".." />
+<br />
+Figure <a name="fig:srrms-ray-reflection-sphere-3">4</a> Single ray of laser beam reflected on the third sphere located at $\vec{r} _{O,3}$.</p>
+
+<p>following relation holds</p>
+
+<p>\begin{equation}
+\label{eqn:srrms-reflection-sphere-3}
+\hat{n} _{\rm ref,3} = \hat{n} _{\rm ref,2} - 2 (\hat{n} _{\rm ref,2} \cdot \hat{n} _{\rm par,3}) \hat{n} _{\rm par,3},
+\end{equation}</p>
+
+<p>similar to Eqn. \eqref{eqn:srrms-reflection-sphere-2}.</p>
+
+<h2 id="reflection-on-4th-sphere">reflection on 4th sphere</h2>
+<p>For the third sphere as shown in Fig. <a href="#fig:srrms-ray-reflection-sphere-4">5</a></p>
+
+<p style="text-align: center;"><img src="/assets/img/comp/ray-reflection-sphere-4.png" alt=".." />
+<br />
+Figure <a name="fig:srrms-ray-reflection-sphere-4">5</a> Single ray of laser beam reflected on the third sphere located at $\vec{r} _{O,4}$.</p>
+
+<p>following relation holds</p>
+
+<p>\begin{equation}
+\label{eqn:srrms-reflection-sphere-4}
+\hat{n} _{\rm ref,4} = \hat{n} _{\rm ref,3} - 2 (\hat{n} _{\rm ref,3} \cdot \hat{n} _{\rm par,4}) \hat{n} _{\rm par,4},
+\end{equation}</p>
+
+<p>similar to Eqn. \eqref{eqn:srrms-reflection-sphere-3}.</p>
+
+<h2 id="reflection-on-5th--sphere">reflection on 5th  sphere</h2>
+<p>For the third sphere as shown in Fig. <a href="#fig:srrms-ray-reflection-sphere-5">6</a></p>
+
+<p style="text-align: center;"><img src="/assets/img/comp/ray-reflection-sphere-5.png" alt=".." />
+<br />
+Figure <a name="fig:srrms-ray-reflection-sphere-5">6</a> Single ray of laser beam reflected on the third sphere located at $\vec{r} _{O,5}$.</p>
+
+<p>following relation holds</p>
+
+<p>\begin{equation}
+\label{eqn:srrms-reflection-sphere-5}
+\hat{n} _{\rm ref,5} = \hat{n} _{\rm ref,4} - 2 (\hat{n} _{\rm ref,4} \cdot \hat{n} _{\rm par,5}) \hat{n} _{\rm par,5},
+\end{equation}</p>
+
+<p>similar to Eqn. \eqref{eqn:srrms-reflection-sphere-4}.</p>
+
+<h2 id="reflection-on-6th--sphere">reflection on 6th  sphere</h2>
+<p>For the third sphere as shown in Fig. <a href="#fig:srrms-ray-reflection-sphere-6">7</a></p>
+
+<p style="text-align: center;"><img src="/assets/img/comp/ray-reflection-sphere-6.png" alt=".." />
+<br />
+Figure <a name="fig:srrms-ray-reflection-sphere-6">7</a> Single ray of laser beam reflected on the third sphere located at $\vec{r} _{O,6}$.</p>
+
+<p>following relation holds</p>
+
+<p>\begin{equation}
+\label{eqn:srrms-reflection-sphere-6}
+\hat{n} _{\rm ref,6} = \hat{n} _{\rm ref,5} - 2 (\hat{n} _{\rm ref,5} \cdot \hat{n} _{\rm par,6}) \hat{n} _{\rm par,6},
+\end{equation}</p>
+
+<p>similar to Eqn. \eqref{eqn:srrms-reflection-sphere-5}.</p>
+
+<h2 id="iteration-formula">iteration formula</h2>
+<p>Resuming from Eqns. \eqref{eqn:srrms-reflection-sphere-1}-\eqref{eqn:srrms-reflection-sphere-6} we can have</p>
+
+<p>\begin{equation}
+\label{eqn:srrms-reflection-sphere-i}
+\hat{n} _{\rm ref,i} = \hat{n} _{\rm ref,i-1} - 2 (\hat{n} _{\rm ref,i-1} \cdot \hat{n} _{\rm par,i}) \hat{n} _{\rm par,i}
+\end{equation}</p>
+
+<p>with $i = 1, 2, 3, ..$, where</p>
+
+<p>\begin{equation}
+\label{eqn:srrms-reflection-sphere-i=0}
+\hat{n} _{\rm ref,0} = \hat{n} _{\rm dir},
+\end{equation}</p>
+
+<p>is the ray from the first light source located at $\vec{r} _{\rm src}$ as in Figs. <a name="#fig:srrms-many-spheres-system">1</a> and <a href="#fig:srrms-ray-reflection-sphere-1">2</a>. Eqn. \eqref{eqn:srrms-reflection-sphere-i} gives the direction of ray reflected by $i$-th sphere in $N$ spheres system.</p>
+
+<h2 id="references">references</h2>
+<ol>
+  <li><a name="ref1"></a>Carl R. Nave, “Law of Reflection”, HyperPhysics, 2017, url <a href="http://hyperphysics.phy-astr.gsu.edu/hbase/phyopt/Fermat.html">http://hyperphysics.phy-astr.gsu.edu/hbase/phyopt/Fermat.html</a> [20210105].</li>
+</ol>
+
+<ul>
+  <li><a href="https://github.com/butiran/butiran.github.io/commits/master/_posts/comp/2021-01-05-single-ray-reflection-many-spheres.md">Article history</a></li>
+</ul>
+:ET

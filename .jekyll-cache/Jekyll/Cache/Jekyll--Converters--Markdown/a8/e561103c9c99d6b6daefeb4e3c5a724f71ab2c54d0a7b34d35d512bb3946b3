@@ -1,0 +1,92 @@
+I"�<p>An example of <a href="carnot-cycle">Carnot cycle</a> is discussed here.</p>
+
+<h2 id="cycle-in-p-v-diagram">Cycle in p-V diagram</h2>
+<p>Fig. <a href="#fig:ccex1-pV-diagram-normal-scale">1</a> shows a Carnot cycle in $p-V$ diagram with normal scale.</p>
+
+<p style="text-align: center;"><img src="/assets/img/phys/thermodynamics/carnot-cycle-pV-chart-normal-scale-0.png" alt=".." />
+<br />
+Figure <a name="fig:ccex1-pV-diagram-normal-scale">1</a> A Carnot cycle consists of isothermal expansion ($1 \rightarrow 2$), adiabatic expansion ($2 \rightarrow 3$), isothermal compression ($3 \rightarrow 4$), and adiabatic compression ($4 \rightarrow 1$) processes.</p>
+
+<p>In order to give clearer view we can have previous diagram in log scale as shown in Fig. <a href="#fig:ccex1-pV-diagram-log-scale">2</a>.</p>
+
+<p style="text-align: center;"><img src="/assets/img/phys/thermodynamics/carnot-cycle-pV-chart-log-scale-0.png" alt=".." />
+<br />
+Figure <a name="fig:ccex1-pV-diagram-log-scale">1</a> A Carnot cycle, which consists of isothermal expansion ($1 \rightarrow 2$), adiabatic expansion ($2 \rightarrow 3$), isothermal compression ($3 \rightarrow 4$), and adiabatic compression ($4 \rightarrow 1$) processes, is shown with log scale on each of the  axes.</p>
+
+<p>Note that Fig. <a href="#fig:ccex1-pV-diagram-normal-scale">1</a> in normal scale and with real number is not shown as in theoretical discussion in <a href="carnot-cycle">Carnot cyle</a>, where it has been so illustrated to give a better view in differing each of the processes.</p>
+
+<h2 id="problem">Problem</h2>
+<p>A monoatomic ideal gas is performing a Carnot cycle. There are four states indicated by $1$, $2$, $3$, $4$ to give coordinates in $(p, V, T)$ space as $(p_i, V_i, T_i)$ with $i = 1, 2, 3, 4$. Illustration of the cycle in $p-V$ diagram is shown in Fig <a href="#fig:ccex1-carnot-cycle">3</a>. Note that we use theoretical $p-V$ diagram for better illustration instead of Fig. <a href="#fig:ccex1-pV-diagram-normal-scale">1</a>.</p>
+
+<p style="text-align: center;"><img src="/assets/img/phys/thermodynamics/carnot-cycle.png" alt=".." />
+<br />
+Figure <a name="fig:ccex1-carnot-cycle">3</a> A Carnot cycle consists of isothermal expansion ($1 \rightarrow 2$), adiabatic expansion ($2 \rightarrow 3$), isothermal compression ($3 \rightarrow 4$), and adiabatic compression ($4 \rightarrow 1$) processes.</p>
+
+<p>Highest pressure in the cyle is $1.25 \times 10^6 \ {\rm N/m^2}$, lowest volume is $0.008 \ {\rm m^3}$, and highest temperature is $2000 \ {\rm K}$, while lowest pressure in the cyle is $39.063 \times 10^3 \ {\rm N/m^2}$, highest volume is $0.512 \ {\rm m^3}$, and lowest temperature is $500 \ {\rm K}$. Please (a) find amount of gas $n$ in $\rm mol$, (b) write equations relating two states $(p_2, V_2, T_2)$ and $(p_1, V_1, T_1)$, $(p_2, V_2, T_2)$ and $(p_3, V_3, T_3)$, $(p_4, V_4, T_4)$ and $(p_1, V_1, T_1)$, and $(p_4, V_4, T_4)$ and $(p_3, V_3, T_3)$, (c) find gas pressure $p_2$ and volume $V_2$, (d) find gas pressure $p_4$ and volume $V_4$, (e) complete the following table, and (f) calculate efficiency of the cycle.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>State</strong></td>
+      <td>$p \ (\rm N/m^2)$</td>
+      <td>$V \ (\rm m^3)$</td>
+      <td>$T \ (\rm K)$</td>
+      <td>$pV/nRT$</td>
+    </tr>
+    <tr>
+      <td>$1$</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>$2$</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>$3$</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>$3$</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Remember that $C_p = \frac52 R$, $C_p = \frac32 R$, $\gamma = C_p / C_V$, ideal gas $pV = nRT$, isothermal process $pV = \rm const$, and adiabatic process $pV^\gamma = \rm const$. Note that last column in previous table is for checkin the results using ideal gas law.</p>
+
+<h3 id="short-solution">Short solution</h3>
+<p>Please use following information only for comfirmation your answer after you solve the problem.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1 1250000	0.008	2000 1  400
+2 156250	0.064	2000 1 1600
+3   4883	0.512	 500 1 1600
+4  39063	0.064	 500 1  400
+</code></pre></div></div>
+
+<h2 id="exercise">Exercise</h2>
+<ol>
+  <li>Try the online resources [<a href="#ref1">1</a>] and [<a href="#ref2">2</a>] to get another variation of states $(p_i, V_i, T_i)$ with $i = 1, 2, 3, 4$ of a Carnot cycle or the cycle efficiency.</li>
+</ol>
+
+<h2 id="references">References</h2>
+<ol>
+  <li><a name="ref1"></a>Narlin Beaty, “Carnot Engine Practice Problem”, GeoGebra, 8 Sep 2016, url <a href="https://www.geogebra.org/m/vyXcfAKS">https://www.geogebra.org/m/vyXcfAKS</a> [20201218].</li>
+  <li><a name="ref2"></a>Chris Hamper, “Carnot cycle ( with energies and efficiency)”, GeoGebra, 17 Jan 2015, url <a href="https://www.geogebra.org/m/dW93FqWd">https://www.geogebra.org/m/dW93FqWd</a> [20201218].</li>
+</ol>
+
+<ul>
+  <li><a href="https://github.com/butiran/butiran.github.io/commits/master/_posts/phys/2020-12-18-carnot-cycle-example-1.md">Article history</a></li>
+</ul>
+:ET

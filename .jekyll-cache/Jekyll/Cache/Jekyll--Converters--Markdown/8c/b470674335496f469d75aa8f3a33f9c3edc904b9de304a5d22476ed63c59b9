@@ -1,0 +1,91 @@
+I"�<p>Examples of elasticity are discussed here.</p>
+
+<h2 id="p01">P01</h2>
+<p>Young’s modulus $E$ is defined as ratio of stress $\sigma$ to strain $\varepsilon$</p>
+
+<p>\begin{equation}
+\label{eq:qelas-young-modulus}
+E = \frac{\sigma}{\varepsilon}
+\end{equation}</p>
+
+<p>where stress is</p>
+
+<p>\begin{equation}
+\label{eq:qelas-young-modulus-stress}
+\sigma = \frac{F}{A}
+\end{equation}</p>
+
+<p>and strain is</p>
+
+<p>\begin{equation}
+\label{eq:qelas-young-modulus-strain}
+\varepsilon = \frac{\Delta L}{L},
+\end{equation}</p>
+
+<p>which turns Eqn. \eqref{eq:qelas-young-modulus} to</p>
+
+<p>\begin{equation}
+\label{eq:qelas-young-modulus-2}
+E = \frac{F/A}{\Delta L / L} = \frac{FL}{A\Delta L}.
+\end{equation}</p>
+
+<p>In the stress-strain graph Young’s modulus is the gradient of the curve in the elastic region.</p>
+
+<p><strong>Question</strong> Using the table provided in [<a href="#ref1">1</a>] draw illustratively in a $\sigma-\varepsilon$ graph the elastic region of steel (solid line —–), glass (dashed line - - -), concerete (dotted line $\cdots$), and wood (dotted-dashed line $-\cdot-\cdot-$).</p>
+
+<h2 id="p02">P02</h2>
+<p>Shear modulus is defined as</p>
+
+<p>\begin{equation}
+\label{eq:qelas-shear-modulus}
+G = \frac{F/A}{\Delta x / L},
+\end{equation}</p>
+
+<p>as illustrated in [<a href="#ref2">2</a>], where $F/A$ is shear stress, $\Delta x$ is transverse displacement, and $L$ is initial length. Notice that $F$ paralel to the surface $A$ in shear modulus, while in Young’s modulus $F$ is perpendicular to $A$. Instead of $G$, we can also use $S$ for shear modulus [<a href="#ref3">3</a>]. In [<a href="#ref4">4</a>] people use the configuration of quad shear test specimen to measure the shear modulus of GC1280 polyurethane compound.</p>
+
+<p><strong>Question</strong> Explain why the quad shear test method is chosen for finding the shear modulus of the GC1280 polyurethane compound? Write also the constant quantities provided from the measurement setup to be used in Eqn. \eqref{eq:qelas-shear-modulus} for dinding the shear modulus.</p>
+
+<h2 id="p03">P03</h2>
+<p>See the tutorial on how to perform an experiment to measure Young’s modulus of a wire [<a href="#ref5">5</a>].</p>
+
+<p><strong>Question</strong> Make a quantitative graph of stress $\sigma$ againts strain $\varepsilon$ and determine the gradient to get the Young’s modulus. Simply use a spreadsheet application, e.g. MS Excel, and its trendline feature [<a href="#ref6">6</a>]. Compare the result with provided illustrative graph from the video.</p>
+
+<h2 id="p04">P04</h2>
+<p>See the torsion test demonstration of cast iron and carbon steel [<a href="#ref7">7</a>].</p>
+
+<p><strong>Question</strong> Determine first the twist degree every click and then find the data of torque (in $\rm N \cdot m$) and the twist angle (in $\rm rad$) for the cast iron and $0.4\%$ carbon steel. Plot the curve or torque versus twist angle. Explain the modulus their plasticity feature.</p>
+
+<h2 id="p05">P05</h2>
+<p>Read the formulation of cantilever beam for single load at the end and its maximum deflection [<a href="#ref8">8</a>]. And then see the video about related experiment [<a href="#ref9">9</a>].</p>
+
+<p><strong>Question</strong> Find the data of beam deflection for each given mass from the experiment. Plot the curve and describe how to get the elastic modulus.</p>
+
+<h2 id="p06">P06</h2>
+<p>Read [<a href="#ref10">10</a> - <a href="#ref12">12</a>] and think about an applications.</p>
+
+<p><strong>Question</strong> Create a question and also its answer from the given examples.</p>
+
+<h2 id="note">Note</h2>
+<p>There is not any note for now.</p>
+
+<h2 id="references">References</h2>
+<ol>
+  <li><a name="ref1"></a>Carl R. Nave, “Young’s Modulus”, HyperPhysics, 2017, url <a href="http://hyperphysics.phy-astr.gsu.edu/hbase/permot3.html#c2">http://hyperphysics.phy-astr.gsu.edu/hbase/permot3.html#c2</a> [20201117].</li>
+  <li><a name="ref2"></a>Wikipedia contributors, “Shear modulus”, Wikipedia, The Free Encyclopedia, 6 Jul 2020, 19:11 UTC, <a href="https://en.wikipedia.org/w/index.php?oldid=966374343">https://en.wikipedia.org/w/index.php?oldid=966374343</a> [20201117].</li>
+  <li><a name="ref3"></a>Vatche Deyirmenjian, David Harrison (eds.), “Shear Modulus”, First Year Physics Laboratory, University of Toronto, 2 Mar 2020, url <a href="https://faraday.physics.utoronto.ca/IYearLab/WilberforceRefShear4of8.pdf">https://faraday.physics.utoronto.ca/IYearLab/WilberforceRefShear4of8.pdf</a> [20201117].</li>
+  <li><a name="ref4"></a>Gallagher Corporation, “Determining the Shear Modulus of Polyurethane | Gallagher Corporation”, YouTube, 03.02.2015, url <a href="https://www.youtube.com/watch?v=TSXDdyvJ_uc">https://www.youtube.com/watch?v=TSXDdyvJ_uc</a> [20201117].</li>
+  <li><a name="ref5"></a>amritacreate, “Young’s Modulus - MeitY OLabs”, YouTube, 06.02.2017, url <a href="https://www.youtube.com/watch?v=50VYcOryCXo">https://www.youtube.com/watch?v=50VYcOryCXo</a> [20201117].</li>
+  <li><a name="ref6"></a>-, “Trendline”, Excel Easy, url <a href="https://www.excel-easy.com/examples/trendline.html">https://www.excel-easy.com/examples/trendline.html</a> [20201117].</li>
+  <li><a name="ref7"></a>Engineers Academy, “Torsion Test Demonstration: Cast Iron and Carbon Steel”, YouTube, 28.08.2018, url <a href="https://www.youtube.com/watch?v=qPIug2sewFA">https://www.youtube.com/watch?v=qPIug2sewFA</a> [20201117].</li>
+  <li><a name="ref8"></a>-, “Cantilever Beams - Moments and Deflections”, The Engineering ToolBox, 2013, url <a href="https://www.engineeringtoolbox.com/cantilever-beams-d_1848.html">https://www.engineeringtoolbox.com/cantilever-beams-d_1848.html</a> [20201117].</li>
+  <li><a name="ref9"></a>Diogo Montalvao, “Cantilever beam Experiment.mp4”, YouTube, 25.02.2013, url <a href="https://www.youtube.com/watch?v=P3rcO1UMxYw">https://www.youtube.com/watch?v=P3rcO1UMxYw</a> [20201117].</li>
+  <li><a name="ref10"></a>-, “Young’s Modulus Practice Problems Answer Key”, Teach Engineering, url <a href="https://www.teachengineering.org/content/van_/lessons/van_floppy/van_floppy_lesson02_practice_problemsas_v2_tedl_dwc.pdf">https://www.teachengineering.org/content/van_/lessons/van_floppy/van_floppy_lesson02_practice_problemsas_v2_tedl_dwc.pdf</a> [20201117].</li>
+  <li><a name="ref11"></a>-, “Solved Example Problems for Moduli of elasticity”, BrainKart.com, url <a href="http://www.brainkart.com/article/Solved-Example-Problems-for-Moduli-of-elasticity_36177/">http://www.brainkart.com/article/Solved-Example-Problems-for-Moduli-of-elasticity_36177/</a> [20201117].</li>
+  <li><a name="ref12"></a>-, “Young’s Modulus Problems”, IIT JEE Physics, 2015, url <a href="https://www.concepts-of-physics.com/mechanics/youngs-modulus.php">https://www.concepts-of-physics.com/mechanics/youngs-modulus.php</a> [20201117].</li>
+</ol>
+
+<ul>
+  <li><a href="https://github.com/butiran/butiran.github.io/commits/master/_posts/phys/quiz/2020-11-17-elasticity.md">Article history</a></li>
+</ul>
+
+:ET

@@ -1,0 +1,33 @@
+I"�<p>Correlation between two variables connected through a parameter with certain randomness is experimented in this article. Here the correlation coefficient is limited to Pearson correlation coefficient [<a href="#ref1">1</a>].</p>
+
+<h2 id="variables">Variables</h2>
+<p>Two variables, $x$ and $y$, are used and will be connected through a parameter or function, e.g. linear equation</p>
+
+<p>\begin{equation}
+\label{eqn:corrand-y-x}
+y = ax + b,
+\end{equation}</p>
+
+<p>where $a$ and $b$ are parameter to be determined.</p>
+
+<h2 id="randomness">Randomness</h2>
+<p>Assuming sourced from environment [<a href="#ref2">2</a>], $a$ and $b$ will be experimentally varied with some randomness degree.</p>
+
+<h2 id="correlation-coefficient">Correlation coefficient</h2>
+<p>Correlation between $x$ and $y$ will be calculated through</p>
+
+<p>\begin{equation}
+\label{eqn:corrand-rxy}
+r_{xy} = \frac{\sum_{i = 1}^N (x_i - \barover{x})(y_i - \barover{y})}{}
+\end{equation}</p>
+
+<h2 id="references">References</h2>
+<ol>
+  <li><a name="ref1"></a>Wikipedia contributors, “Pearson correlation coefficient”, Wikipedia, The Free Encyclopedia, 21 Sep 2020, 16:32 UTC, <a href="https://en.wikipedia.org/w/index.php?oldid=979594094">https://en.wikipedia.org/w/index.php?oldid=979594094</a> [20200929].</li>
+  <li><a name="ref2"></a>Wikipedia contributors, “Randomness”, Wikipedia, The Free Encyclopedia, 16 Sep 2020, 16:32 UTC, <a href="https://en.wikipedia.org/w/index.php?oldid=978791372">https://en.wikipedia.org/w/index.php?oldid=978791372</a> [20200929].</li>
+</ol>
+
+<ul>
+  <li><a href="https://github.com/butiran/butiran.github.io/commits/master/_posts/phys/2020-09-29-rand-corr.md">Article history</a></li>
+</ul>
+:ET

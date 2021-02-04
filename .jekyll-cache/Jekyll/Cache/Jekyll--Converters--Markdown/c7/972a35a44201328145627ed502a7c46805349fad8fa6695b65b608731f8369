@@ -1,0 +1,37 @@
+I"�<p>At least there are six processes for ideal gas [<a href="#ref1">1</a>], but we will only discuss some of them.</p>
+
+<h2 id="ideal-gas-law">Ideal gas law</h2>
+<p>There is relation between pressure $p$, volume $V$, amount $n$, and temperature $T$ of a gas through</p>
+
+<p>\begin{equation}
+\label{eqn:igproc-ideal-gas-law}
+pV = nRT,
+\end{equation}</p>
+
+<p>which is known as ideal gas law [<a href="#ref2">2</a>]. $R$ is gas constant with value of $8.314 472(15) \ \rm J \cdot K^{-1} \cdot mol^{-1}$ [<a href="#ref3">3</a>]. The units are $\rm N/m^2$ for $p$, $\rm m^3$ for $V$, $\rm mol$ for $n$, and $\rm K$ for $T$. With Eqn. \eqref{eqn:igproc-ideal-gas-law} we can have the relation that</p>
+
+<p>\begin{equation}
+\label{eqn:igproc-ideal-gas-law-stp}
+1 \ {\rm mol} \approx 22.4 \ {\rm l}
+\end{equation}</p>
+
+<p>at standar temperature and pressure (STP) with $T = 0 \ {\rm ^\circ C}$ and $p = 1 \ {\rm atm}$ [<a href="#ref4">4</a>]. Remember that $1 \ {\rm l} = 10^{-3} \ {\rm m^3}$, $0 \ {\rm ^\circ C} = 273.15 \ {\rm K}$, $1 \ {\rm atm} = 1.01325 \times 10^5 \ {\rm Pa}$, and $1 \ {\rm Pa} = 1 \ {\rm N/m^2}$.</p>
+
+<h2 id="exercises">Exercises</h2>
+<ol>
+  <li>Proove Eqn. \eqref{eqn:igproc-ideal-gas-law-stp} using STP condition. Hint: $V/n = 22.4 \ {\rm l/mol}$.</li>
+</ol>
+
+<h2 id="references">References</h2>
+<ol>
+  <li><a name="ref1"></a> P. Mudga, “Ideal Gases and Ideal Gas Processes (With Equation) | Thermodynamics”, Engineering Notes, url <a href="https://www.engineeringenotes.com/thermal-engineering/thermodynamics/ideal-gases-and-ideal-gas-processes-with-equation-thermodynamics">https://www.engineeringenotes.com/thermal-engineering/thermodynamics/ideal-gases-and-ideal-gas-processes-with-equation-thermodynamics</a> [20201212].</li>
+  <li><a name="ref2"></a>Duke LeTran, “The Ideal Gas Law”, Chemistry LibreTexts, 16 Aug 2020, url <a href="https://chem.libretexts.org/Bookshelves/Physical_and_Theoretical_Chemistry_Textbook_Maps/Supplemental_Modules_(Physical_and_Theoretical_Chemistry)/Physical_Properties_of_Matter/States_of_Matter/Properties_of_Gases/Gas_Laws/The_Ideal_Gas_Law">https://chem.libretexts.org/Bookshelves/Physical_and_Theoretical_Chemistry_Textbook_Maps/Supplemental_Modules_(Physical_and_Theoretical_Chemistry)/Physical_Properties_of_Matter/States_of_Matter/Properties_of_Gases/Gas_Laws/The_Ideal_Gas_Law</a> [20201212].</li>
+  <li><a name="ref3"></a>IUPAC. Compendium of Chemical Terminology, 2nd ed. (the “Gold Book”). Compiled by A. D. McNaught and A. Wilkinson. Blackwell Scientific Publications, Oxford (1997). Online version (2019-) created by S. J. Chalk. ISBN 0-9678550-9-8. url <a href="https://doi.org/10.1351/goldbook.G02579">https://doi.org/10.1351/goldbook.G02579</a> [20201212].</li>
+  <li><a name="ref4"></a>Sharon Bewick, Richard Parsons, Therese Forsythe, Shonna Robinson, Jean Dupon, “10.13: Avogadro’s Hypothesis and Molar Volume”, Chemistry LibreTexts, 13 Aug 2020, url <a href="https://chem.libretexts.org/Bookshelves/Introductory_Chemistry/Book:_Introductory_Chemistry_(CK-12)/10:_The_Mole/10.13:_Avogadro's_Hypothesis_and_Molar_Volume">https://chem.libretexts.org/Bookshelves/Introductory_Chemistry/Book:_Introductory_Chemistry_(CK-12)/10:_The_Mole/10.13:_Avogadro's_Hypothesis_and_Molar_Volume</a> [20201212].</li>
+</ol>
+
+<ul>
+  <li><a href="https://github.com/butiran/butiran.github.io/commits/master/_posts/phys/2020-12-12-ideal-gas-processes.md">Article history</a></li>
+</ul>
+
+:ET

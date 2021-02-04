@@ -1,0 +1,142 @@
+I"1?<p>Reflection of single ray of laser beam on particle acting as spherical convex mirror [<a href="#ref1">1</a>] requires the determination of reflection site on the particle surface, which is actually a root finding problem [<a href="#ref2">2</a>]. Illustration how to obtain the reflection site sing secant method [<a href="#ref3">3</a>] is discussed here.</p>
+
+<h2 id="root-finding">root finding</h2>
+<p>Assuming that there is <code class="language-plaintext highlighter-rouge">getBeamWavefrontPosition</code> function as in <a href="/comp/single-ray-source-direction">single ray from a source to a certain direction</a>, which can produce point $A$ at time $t$ and point $B$ at time $t + \Delta t$ as shown in Fig. <a href="#fig:srfs-ray-reflection-site">1</a>, where the actual reflection occurs at point $C$ with $\overline{OC} = R_{\rm par}$ is radius of spherical particle. Center of the particle is point $O$.</p>
+
+<p style="text-align: center;"><img src="/assets/img/comp/ray-reflection-sphere.png" alt=".." />
+<br />
+Figure <a name="fig:srfs-ray-reflection-site">1</a> Ray reflection site $C$ on a spherical particle centered at $O$ with particle radius $R_{\rm par} = \overline{OC}$.</p>
+
+<p>Wavefront of the ray is propagating in $\hat{n} _{\rm dir}$ direction with position advancement $v _{\rm ray} \Delta t$ at each iteration. Obtaining point $C$ from point $A$ (out of the particle) and point $B$ (in the particle) is actually a root finding problem. Position of light beam wavefront is</p>
+
+<p>\begin{equation}
+\label{eqn:srfs-lbwf-u}
+\vec{r}_{\rm waf} (t) = \vec{r} _{\rm src} +  \hat{n} _{\rm dir} \ u(t - t_0) \ v _{\rm ray} \ (t - t_0)
+\end{equation}</p>
+
+<p>as in <a href="/comp/single-ray-source-direction">single ray from a source to a certain direction</a>. Using Eqn. \eqref{eqn:srfs-lbwf-u} we can define</p>
+
+<p>\begin{equation}
+\label{eqn:srfs-lbwf-u-root-function}
+f_{\rm root}(t) = | \vec{r}_{\rm waf} (t) - \vec{r}_O | - R _{\rm par},
+\end{equation}</p>
+
+<p>where $\vec{r}_O$ is position of center of spherical particle. Solution of Eqn. \eqref{eqn:srfs-lbwf-u-root-function} is found when</p>
+
+<p>\begin{equation}
+\label{eqn:srfs-lbwf-u-root-function-solution}
+f _{\rm root}(t) = 0 \rightarrow t = t_C
+\end{equation}</p>
+
+<p>with $t_A \le t_C \le t_B$. In Fig. <a href="#fig:srfs-ray-reflection-site">1</a> $t_A = t$ and $t_B = t + \Delta t$, where $t_C$ is not known. Eqn. \eqref{eqn:srfs-lbwf-u-root-function-solution} do gives the root since $f _{\rm root}(t_A) &gt; 0$ and $f _{\rm root}(t_B) &lt; 0$, or $f _{\rm root}(t_A) f _{\rm root}(t_B) &lt; 0$. And implementation of $f _{\rm root}$ in JS is simply</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">f_root</span><span class="p">(</span><span class="nx">r_waf</span><span class="p">,</span> <span class="nx">r_O</span><span class="p">,</span> <span class="nx">R_par</span><span class="p">)</span> <span class="p">{</span>
+	<span class="kd">var</span> <span class="nx">dist</span> <span class="o">=</span> <span class="nx">Vect3</span><span class="p">.</span><span class="nx">sub</span><span class="p">(</span><span class="nx">r_waf</span><span class="p">,</span> <span class="nx">r_O</span><span class="p">).</span><span class="nx">len</span><span class="p">();</span>
+	<span class="kd">var</span> <span class="nx">f</span> <span class="o">=</span> <span class="nx">dist</span> <span class="o">-</span> <span class="nx">Rpar</span><span class="p">;</span>
+	<span class="k">return</span> <span class="nx">f</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>by assuming that <code class="language-plaintext highlighter-rouge">getBeamWavefrontPosition</code> function exists, which calculate <code class="language-plaintext highlighter-rouge">r_waf</code> value for one of the arguments of <code class="language-plaintext highlighter-rouge">f_root</code> function.</p>
+
+<h2 id="secant-method">secant method</h2>
+<p>Root of Eqn. \eqref{eqn:srfs-lbwf-u-root-function} can be find numerically, e.g. using secant method, which its iterative formula tion is  [<a href="#ref3">3</a>]</p>
+
+<p>\begin{equation}
+\label{eqn:srfs-lbwf-u-root-solution-secant}
+t_n = t _{n-1} - \left( \frac{t _{n-1} - t _{n-2}}{f _{n-1} - f _{n-2}} \right) f _{n-1},
+\end{equation}</p>
+
+<p>where $f_n = f(t_n)$. Since the method requires two pointm i.e. $(t _{n-1}, f _{n-1})$ and $(t _{n-2}, f _{n-2})$, we can simply use</p>
+
+<p>\begin{equation}
+\label{eqn:srfs-lbwf-u-root-solution-secant-tn-2}
+t _{n-2} = t_A
+\end{equation}</p>
+
+<p>and</p>
+
+<p>\begin{equation}
+\label{eqn:srfs-lbwf-u-root-solution-secant-tn-1}
+t _{n-1} = t_B
+\end{equation}</p>
+
+<p>which are provided as in <a href="/comp/single-ray-source-direction">single ray from a source to a certain direction</a> for <code class="language-plaintext highlighter-rouge">getBeamWavefrontPosition</code> function. Eqn. \eqref{eqn:srfs-lbwf-u-root-solution-secant} can be implemented in JS as follow</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">rootSecant</span><span class="p">(</span><span class="nx">f</span><span class="p">,</span> <span class="nx">tA</span><span class="p">,</span> <span class="nx">tB</span><span class="p">,</span> <span class="nx">N</span><span class="p">)</span> <span class="p">{</span>
+	<span class="kd">var</span> <span class="nx">tn_2</span> <span class="o">=</span> <span class="nx">tB</span><span class="p">;</span>
+	<span class="kd">var</span> <span class="nx">tn_1</span> <span class="o">=</span> <span class="nx">tA</span><span class="p">;</span>
+	<span class="kd">var</span> <span class="nx">tn</span><span class="p">;</span>
+	<span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">n</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">n</span> <span class="o">&lt;</span> <span class="nx">N</span><span class="p">;</span> <span class="nx">n</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+		<span class="kd">var</span> <span class="nx">fn_2</span> <span class="o">=</span> <span class="nx">f</span><span class="p">(</span><span class="nx">tn_2</span><span class="p">);</span>
+		<span class="kd">var</span> <span class="nx">fn_1</span> <span class="o">=</span> <span class="nx">f</span><span class="p">(</span><span class="nx">tn_1</span><span class="p">);</span>
+		
+		<span class="nx">tn</span> <span class="o">=</span> <span class="nx">tn_1</span> <span class="o">-</span> <span class="p">(</span> <span class="p">(</span><span class="nx">tn_1</span> <span class="o">-</span> <span class="nx">tn_2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="nx">fn_1</span> <span class="o">-</span> <span class="nx">fn_2</span><span class="p">)</span> <span class="p">)</span> <span class="o">*</span> <span class="nx">fn_1</span><span class="p">;</span>
+		
+		<span class="nx">tn_2</span> <span class="o">=</span> <span class="nx">tn_1</span><span class="p">;</span>
+		<span class="nx">tn_1</span> <span class="o">=</span> <span class="nx">tn</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="k">return</span> <span class="nx">tn</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>using previous snippet of <code class="language-plaintext highlighter-rouge">f_root</code>, where $N$ is number of iteration.</p>
+
+<h2 id="finding-reflection-site">finding reflection site</h2>
+<p>In the <code class="language-plaintext highlighter-rouge">main</code> function the use of two previous functions can be as follow</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">t_0</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">dt</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">t</span> <span class="o">=</span> <span class="o">-</span><span class="mi">10</span> <span class="o">*</span> <span class="nx">t_0</span><span class="p">;</span>
+
+<span class="kd">var</span> <span class="nx">trajectory</span> <span class="o">=</span> <span class="p">[];</span>
+<span class="kd">var</span> <span class="nx">r_src</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Vect3</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">n_dir</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Vect3</span><span class="p">(</span><span class="o">-</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">v_ray</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">;</span>
+
+<span class="kd">var</span> <span class="nx">r_O</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Vect3</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">R_par</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">;</span>
+
+<span class="kd">var</span> <span class="nx">N</span> <span class="o">=</span> <span class="mi">90</span><span class="p">;</span>
+<span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">n</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">n</span> <span class="o">&lt;=</span> <span class="nx">N</span><span class="p">;</span> <span class="nx">n</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+	<span class="kd">var</span> <span class="nx">r_waf</span> <span class="o">=</span> <span class="nx">getBeamWavefrontPosition</span><span class="p">(</span><span class="nx">r_src</span><span class="p">,</span> <span class="nx">n_dir</span><span class="p">,</span> <span class="nx">v_ray</span><span class="p">,</span> <span class="nx">t_0</span><span class="p">,</span> <span class="nx">t</span><span class="p">);</span>
+	<span class="nx">trajectory</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">r_waf</span><span class="p">);</span>
+	
+	<span class="kd">var</span> <span class="nx">tA</span> <span class="o">=</span> <span class="nx">t</span><span class="p">;</span>
+	<span class="kd">var</span> <span class="nx">fA</span> <span class="o">=</span> <span class="nx">f_root</span><span class="p">(</span><span class="nx">r_waf</span><span class="p">,</span> <span class="nx">r_O</span><span class="p">,</span> <span class="nx">R_par</span><span class="p">);</span>
+	
+	<span class="nx">t</span> <span class="o">=</span> <span class="nx">advanceTime</span><span class="p">(</span><span class="nx">dt</span><span class="p">,</span> <span class="nx">t</span><span class="p">);</span>
+	<span class="kd">var</span> <span class="nx">tB</span> <span class="o">=</span> <span class="nx">t</span><span class="p">;</span>
+	<span class="kd">var</span> <span class="nx">r_waf</span> <span class="o">=</span> <span class="nx">getBeamWavefrontPosition</span><span class="p">(</span><span class="nx">r_src</span><span class="p">,</span> <span class="nx">n_dir</span><span class="p">,</span> <span class="nx">v_ray</span><span class="p">,</span> <span class="nx">t_0</span><span class="p">,</span> <span class="nx">t</span><span class="p">);</span>
+	<span class="kd">var</span> <span class="nx">fB</span> <span class="o">=</span> <span class="nx">f_root</span><span class="p">(</span><span class="nx">r_waf</span><span class="p">,</span> <span class="nx">r_O</span><span class="p">,</span> <span class="nx">R_par</span><span class="p">);</span>
+	
+	<span class="k">if</span><span class="p">(</span><span class="nx">fA</span> <span class="o">*</span> <span class="nx">fB</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+		<span class="kd">var</span> <span class="nx">N_irf</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+		<span class="kd">var</span> <span class="nx">tC</span> <span class="o">=</span> <span class="nx">rootSecant</span><span class="p">(</span><span class="nx">f_root</span><span class="p">,</span> <span class="nx">tA</span><span class="p">,</span> <span class="nx">tB</span><span class="p">,</span> <span class="nx">N_irf</span><span class="p">);</span>
+		
+		<span class="kd">var</span> <span class="nx">r_waf</span> <span class="o">=</span> <span class="nx">getBeamWavefrontPosition</span><span class="p">(</span><span class="nx">r_src</span><span class="p">,</span> <span class="nx">n_dir</span><span class="p">,</span> <span class="nx">v_ray</span><span class="p">,</span> <span class="nx">t_0</span><span class="p">,</span> <span class="nx">tC</span><span class="p">);</span>
+		<span class="nx">trajectory</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">r_waf</span><span class="p">);</span>
+		
+		<span class="k">break</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">drawPolyline</span><span class="p">(</span><span class="nx">trajectory</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>which draws the trajectory of laser beam from the source $\vec{r} _{\rm src}$ until it touches the spherical particle, i.e. the reflection site at $\vec{r} _{\rm waf}(t_C)$. Instead of using $\epsilon$ for accuracy of solution, we use $N _{\rm irf}$ or number of iteration for root finding process, which guarantees that the iteration will be terminated.</p>
+
+<h2 id="note">note</h2>
+<p>Notice that $\vec{r} _{\rm waf}$ as one of the arguments of <code class="language-plaintext highlighter-rouge">f_root</code> function is obtained using <code class="language-plaintext highlighter-rouge">getBeamWavefrontPosition</code> function, which requires information of time $t$. This $t$ is not given explicitly in <code class="language-plaintext highlighter-rouge">f_root</code> function for simplicity. Information about <code class="language-plaintext highlighter-rouge">getBeamWavefrontPosition</code> function can be found in <a href="/comp/single-ray-source-direction">single ray from a source to a certain direction</a>.</p>
+
+<h2 id="references">references</h2>
+<ol>
+  <li><a name="ref1"></a>Richard Fitzpatrick, “Image Formation by Convex Mirrors”, Electromagnetism and Optics: An introductory course, The University of Texas at Austin, 14 Jul 2007, url <a href="http://farside.ph.utexas.edu/teaching/302l/lectures/node138.html">http://farside.ph.utexas.edu/teaching/302l/lectures/node138.html</a> [20210103].</li>
+  <li><a name="ref2"></a>Eugeniy E. Mikhailov, “Programming with MATLAB for Scientists: A Beginner’s Introduction”, CRC Press, 1st edition, Jan 2018, pp. <a href="http://physics.wm.edu/~evmik/classes/matlab_book/ch_root_finding/ch_root_finding.pdf">93-94</a>, url <a href="https://isbnsearch.org/isbn/9781498738286">https://isbnsearch.org/isbn/9781498738286</a>  [20200103].</li>
+  <li><a name="ref3"></a>Eric W. Weisstein, “Secant Method”, from MathWorld–A Wolfram Web Resource, url <a href="https://mathworld.wolfram.com/SecantMethod.html">https://mathworld.wolfram.com/SecantMethod.html</a> [20200101].</li>
+</ol>
+
+<ul>
+  <li><a href="https://github.com/butiran/butiran.github.io/commits/master/_posts/comp/2021-01-03-single-ray-reflection-site-on-sphere.md">Article history</a></li>
+</ul>
+:ET

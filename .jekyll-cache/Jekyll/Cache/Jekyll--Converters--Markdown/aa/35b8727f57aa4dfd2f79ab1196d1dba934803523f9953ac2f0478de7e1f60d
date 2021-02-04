@@ -1,0 +1,32 @@
+I"�<p>Volume of fluid which passes per unit time is known as volumetric flow rate (or volume flow rate, rate of fluid flow, volume velocity) with the symbol of $Q$ (or $\dot{V}$) [<a href="#ref1">1</a>] or $\mathcal{F}$ which can also be generally expressed using effective velocity [<a href="#ref2">2</a>].</p>
+
+<h2 id="definition">Definition</h2>
+<p>One of the definition of volume flow rate is</p>
+
+<p>\begin{equation}
+\label{eqn:volumetric-flow-rate-plane}
+Q = \vec{v} \cdot \vec{A}
+\end{equation}</p>
+
+<p>vhere $\vec{v}$ is flow velocity and $\vec{A}$ is cross-sectional vector surface / area. Eqn. \eqref{eqn:volumetric-flow-rate-plane} holds for planar velocity profile. For general velocity profile</p>
+
+<p>\begin{equation}
+\label{eqn:volumetric-flow-rate-plane-integral}
+Q = \int \vec{v} \cdot d\vec{A}
+\end{equation}</p>
+
+<p>is used, where $\vec{v} = \vec{v}(\vec{A})$ and $\vec{A} = \vec{A}(\vec{s})$ with $vec{s}$ is a coordinate along the flow direction.</p>
+
+<h2 id="illustration">Illustration</h2>
+
+<h2 id="references">References</h2>
+<ol>
+  <li><a name="ref1"></a>Wikipedia contributors, “Volumetric flow rate”, Wikipedia, The Free Encyclopedia, 20 Sep 2020, 07:49 UTC, url <a href="https://en.wikipedia.org/w/index.php?oldid=979349383">https://en.wikipedia.org/w/index.php?oldid=979349383</a> [20201119].</li>
+  <li><a name="ref2"></a>Carl R. Nave, “Effective Fluid Speed in a Tube”, HyperPhysics, 2017, url <a href="http://hyperphysics.phy-astr.gsu.edu/hbase/pfric.html#veff">http://hyperphysics.phy-astr.gsu.edu/hbase/pfric.html#veff</a> [20201119].</li>
+</ol>
+
+<ul>
+  <li><a href="https://github.com/butiran/butiran.github.io/commits/master/_posts/phys/2020-11-19-volumetric-flow-rate.md">Article history</a></li>
+</ul>
+
+:ET

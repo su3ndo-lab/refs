@@ -1,0 +1,78 @@
+I"�<p>Even we can find root(s) of a function nowadays in a very easy way [<a href="#ref1">1</a>], it is still interesting to code. And it is still worth to do that.</p>
+
+<h2 id="root-of-a-function">root of a function</h2>
+<p>If there is a function $f(x)$ then roots are values of $x$ that satisfy the condition [<a href="#ref2">2</a>, <a href="#ref3">3</a>, <a href="#ref4">4</a>]</p>
+
+<p>\begin{equation}
+\label{eqn:root-function-zero}
+f(x) = 0,
+\end{equation}</p>
+
+<p>where in general $x$ can also be a vector $\vec{r}$ or even a $n$-dimensional vector [<a href="#ref5">5</a>]. Here we limit the discussion only to $x$.</p>
+
+<p style="text-align: center;"><img src="/assets/img/math/root/root-fx-0.png" alt=".." />
+<br />
+Figure <a name="fig:root-root-fx-0">1</a> A function $f(x)$ with three roots for $x \in [0, 10]$.</p>
+
+<p>Fig. <a href="#fig:root-root-fx-0">1</a> shows example of a function $f(x)$ that has roots of $1$, $5$, and $8$.</p>
+
+<h2 id="another-view">another view</h2>
+<p>We can also view roots as solution when two functions has the same value, which satisfies</p>
+
+<p>\begin{equation}
+\label{eqn:root-two-function-equal}
+g(x) = h(x),
+\end{equation}</p>
+
+<p>as illustrated in Fig. <a href="#fig:root-root-gx-hx">2</a>.</p>
+
+<p style="text-align: center;"><img src="/assets/img/math/root/root-gx-hx.png" alt=".." />
+<br />
+Figure <a name="fig:root-root-gx-hx">1</a> Two functions $g(x)$ and $h(x)$ have the same value at two points for $x \in [0, 10]$.</p>
+
+<p>To satisfy Eqn. \eqref{eqn:root-two-function-equal} the roots are about $0$ and $6.5$ as shown in Fig. <a href="#fig:root-root-gx-hx">2</a>. Actually we can create a new function from Eqn. \eqref{eqn:root-two-function-equal} in the form of</p>
+
+<p>\begin{equation}
+\label{eqn:root-two-function-equal-one-function}
+f(x) = h(x) - g(x) = 0
+\end{equation}</p>
+
+<p>to meet the condition in Eqn. \eqref{eqn:root-function-zero}.</p>
+
+<p style="text-align: center;"><img src="/assets/img/math/root/root-fx-gx-hx.png" alt=".." />
+<br />
+Figure <a name="fig:root-root-fx-gx-hx">3</a> The function $f(x) = h(x) - f(x) $ with two roots for $x \in [0, 10]$.</p>
+
+<p>The roots remain at about $x = 0$ and $x = 6.5$ when we use the relation in Eqn. \eqref{eqn:root-two-function-equal-one-function} as shown in Fig. <a href="#fig:root-root-fx-gx-hx">3</a>, where the blue curve is result of substration of green curve with red curve from Fig. <a href="#fig:root-root-gx-hx">2</a>.</p>
+
+<h2 id="a-way-to-indicate-root-position">a way to indicate root position</h2>
+<p>One way to indicate position of a root is using a graphical approach, which has been shown in Figs. <a href="#fig:root-root-fx-0">1</a>, <a href="#fig:root-root-gx-hx">2</a>, and <a href="#fig:root-root-fx-gx-hx">3</a>. This waay is fast but not accurate since the value depends on the grid size of the chart, where in last examples the value $6.5$ is only a guess, since it can be any number between $6$ and $7$. It is recommended to use this approach to isolate the range where the root lies, and then use other method to find the root with higher accuracy. We will not discuss about precision of the result since only use one attemp. These two terms have different meaning [<a href="#ref6">6</a>].</p>
+
+<h2 id="root-finding-algorithms">root finding algorithms</h2>
+<p>There are some algorithms in finding root of a function [<a href="#ref7">7</a>], e.g.</p>
+
+<ul>
+  <li><a href="/fi3201/root-bisection">bisection method</a></li>
+  <li><a href="/fi3201/root-newton-raphson">Newton’s method</a></li>
+  <li>secant method</li>
+</ul>
+
+<p>and also a not-accurate, not-so-efficient, and step-dependent method is <a href="/fi3201/root-scanning">scanning method</a>.</p>
+
+<p>For quadratic equation it is advised to used the <a href="/fi3201/quadratic-formula">quadratic formula</a> instead of solved it numericallya, even it will work.</p>
+
+<h2 id="references">references</h2>
+<ol>
+  <li><a name="ref1"></a>Crystal Fantry, “Root Finder”, Wolfram | Alpha Widgets, 1 Aug 2010, url <a href="https://www.wolframalpha.com/widgets/view.jsp?id=a7d8ae4569120b5bec12e7b6e9648b86">https://www.wolframalpha.com/widgets/view.jsp?id=a7d8ae4569120b5bec12e7b6e9648b86</a> [20210126].</li>
+  <li><a name="ref2"></a>Eric W. Weisstein, “Root” from MathWorld–A Wolfram Web Resource, url <a href="https://mathworld.wolfram.com/Root.html">https://mathworld.wolfram.com/Root.html</a> [20210126].</li>
+  <li><a name="ref3"></a>Wikipedia contributors, “Zero of a function”, Wikipedia, The Free Encyclopedia, 1 December 2020, 03:55 UTC, <a href="https://en.wikipedia.org/w/index.php?oldid=991651252">https://en.wikipedia.org/w/index.php?oldid=991651252</a> [20210126].</li>
+  <li><a name="ref4"></a>Dennis Theurer, “Root of a function”, Easy-Math, School maths made easy, 2013, url <a href="http://www.easy-math.net/root-of-a-function/">http://www.easy-math.net/root-of-a-function/</a> [20210126].</li>
+  <li><a name="ref5"></a>Christopher Stover, Eric W. Weisstein, “n-Vector” from MathWorld–A Wolfram Web Resource, url <a href="https://mathworld.wolfram.com/n-Vector.html">https://mathworld.wolfram.com/n-Vector.html</a> [20210126].</li>
+  <li><a name="ref6"></a>-, “Precision Vs. Accuracy”, Information Technology, St. Olaf College, url <a href="https://wp.stolaf.edu/it/gis-precision-accuracy/">https://wp.stolaf.edu/it/gis-precision-accuracy/</a> [20210126].</li>
+  <li><a name="ref7"></a>Wikipedia contributors, “Root-finding algorithms”, Wikipedia, The Free Encyclopedia, 15 January 2021, 23:25 UTC, <a href="https://en.wikipedia.org/w/index.php?oldid=1000624440">https://en.wikipedia.org/w/index.php?oldid=1000624440</a> [20210126].</li>
+</ol>
+
+<ul>
+  <li><a href="https://github.com/butiran/butiran.github.io/commits/master/_posts/fi3201/2021-01-26-root.md">Article history</a></li>
+</ul>
+:ET

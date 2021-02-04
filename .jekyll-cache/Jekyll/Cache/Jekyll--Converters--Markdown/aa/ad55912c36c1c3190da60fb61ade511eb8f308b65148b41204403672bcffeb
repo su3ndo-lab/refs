@@ -1,0 +1,17 @@
+I"A<p>In kinematics we learn about object motion without considering the cause of the motion, i.e. the force [<a href="#ref1">1</a>]. Parameters of motion, e.g. <a href="position">position</a>, <a href="velocity">velocity</a>, <a href="acceleration">acceleration</a>, and <a href="time">time</a> [<a href="#ref2">2</a>], and also others derived from those will be used in describing kinematics.</p>
+
+<h2 id="types-of-motion">Types of motion</h2>
+<p>In rectilinear motion or liniear motion, motion can be classified into three types based on its acceleration $a$, where the types are <a href="uniform linear motion">uniform linear motion</a> ($a = 0$), uniform accelerated linear motion ($a = cte \ne 0$), and accelerated rectilinear motion ($a \ne cte$) [<a href="#ref3">3</a>]. The cte term means constant, from the French word ‘constante’ [<a href="#ref4">4</a>].</p>
+
+<h2 id="references">References</h2>
+<ol>
+  <li><a name="ref1"></a>The Editors of Encyclopaedia Britannica, “Kinematics”, Encyclopædia Britannica, 27 May 2020, url <a href="https://www.britannica.com/science/kinematics">https://www.britannica.com/science/kinematics</a> [20200907].</li>
+  <li><a name="ref2"></a>David Lewis, “Answer to ‘Why are speed, velocity, acceleration, distance, displacement, and time called the parameters of motion?”, Quora, 21 Mar 2017, url <a href="https://qr.ae/pNCRxz">https://qr.ae/pNCRxz</a> [20200907].</li>
+  <li><a name="ref3"></a>José L. Fernández, “Types of Motions According to the Acceleration”, Fisicalab, url <a href="https://www.fisicalab.com/en/section/motion-according-to-acceleration">https://www.fisicalab.com/en/section/motion-according-to-acceleration</a> [20200919].</li>
+  <li><a name="ref4"></a>David Giraudo, “Answer to ‘Question on a French math text by P. Masani’”, Mathematics, 13 May 2013, url <a href="https://math.stackexchange.com/a/390623">https://math.stackexchange.com/a/390623</a> [20200919].</li>
+</ol>
+
+<ul>
+  <li><a href="https://github.com/butiran/butiran.github.io/commits/master/_posts/phys/2020-09-07-kinematics.md">Article history</a></li>
+</ul>
+:ET

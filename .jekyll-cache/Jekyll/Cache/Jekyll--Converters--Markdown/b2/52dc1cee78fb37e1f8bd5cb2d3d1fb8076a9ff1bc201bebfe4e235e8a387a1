@@ -1,0 +1,46 @@
+I"�<p>A particle, which performs as spherical convex mirror [<a href="#ref1">1</a>], can reflect single ray of laser beam based on the law of reflection [<a href="#ref2">2</a>]. We can consider that the reflection site as a new light source, similar as it <a href="/comp/single-ray-source-direction">travels from original light source to a certain direction</a> until it arrives at <a href="/comp/single-ray-reflection-site-on-sphere">the reflection site on the surface of spherical particle</a>.</p>
+
+<h2 id="normal-direction">normal direction</h2>
+<p>Illustration how a single ray of laser beam reflected by a particle acting as spherical mirror is given in Fig. <a ref="#fig:srrs-inc-ref-beam">1</a>.</p>
+
+<p style="text-align: center;"><img src="/assets/img/comp/ray-reflected-sphere-0.png" alt=".." />
+<br />
+Figure <a name="fig:srrs-inc-ref-beam">1</a> Incident ray with direction $\hat{n} _{\rm dir}$ falls on reflection site $\vec{r}_C$ and then is reflected as reflected ray with direction $\hat{n} _{\rm ref}$.</p>
+
+<p>At the reflection site $\vec{r} _C$ we will have incident ray direction $\hat{n} _{\rm dir}$ and normal direction $\hat{n} _{\rm par}$ on the particle surface, where the last is simply</p>
+
+<p>\begin{equation}
+\label{eqn:srrs-normal-par}
+\hat{n}_{\rm par} = \frac{\vec{r}_C - \vec{r}_O}{ \left| \vec{r}_C - \vec{r}_O \right|}
+\end{equation}</p>
+
+<p>with $\vec{r} _O$  is position of particle center. The normal vector $\hat{n} _{\rm par}$ is the normal line in law of reflection.</p>
+
+<h2 id="ray-direction-after-reflection">ray direction after reflection</h2>
+<p>By simplying previous figure we can have Fig. <a ref="#fig:srrs-reflected-ray-derivation">2</a>.</p>
+
+<p style="text-align: center;"><img src="/assets/img/comp/ray-reflected-sphere-1.png" alt=".." />
+<br />
+Figure <a name="fig:srrs-reflected-ray-derivation">2</a> Left: incident ray, normal line, reflected ray. Right: Derivation of reflected ray.</p>
+
+<p>Then with vector formulation of ray direction after reflection can be obtained [<a href="#ref3">3</a>]</p>
+
+<p>\begin{equation}
+\label{eqn:srrs-normal-ref}
+\hat{n} _{\rm ref} = \hat{n} _{\rm dir} - 2 (\hat{n} _{\rm dir} \cdot \hat{n} _{\rm par}) \hat{n} _{\rm par}.
+\end{equation}</p>
+
+<p>To produce Eqn. \eqref{eqn:srrs-normal-ref} we can use vector projections and components  [<a href="#ref4">4</a>].</p>
+
+<h2 id="references">references</h2>
+<ol>
+  <li><a name="ref1"></a>Richard Fitzpatrick, “Image Formation by Convex Mirrors”, Electromagnetism and Optics: An introductory course, The University of Texas at Austin, 14 Jul 2007, url <a href="http://farside.ph.utexas.edu/teaching/302l/lectures/node138.html">http://farside.ph.utexas.edu/teaching/302l/lectures/node138.html</a> [20210103].</li>
+  <li><a name="ref2"></a>Carl R. Nave, “Law of Reflection”, HyperPhysics, 2017, url <a href="http://hyperphysics.phy-astr.gsu.edu/hbase/phyopt/Fermat.html">http://hyperphysics.phy-astr.gsu.edu/hbase/phyopt/Fermat.html</a> [20210103].</li>
+  <li><a name="ref3"></a>Wikipedia contributors, “Specular reflection”, Wikipedia, The Free Encyclopedia, 18 Dec 2020, 14:02 UTC, url <a href="https://en.wikipedia.org/w/index.php?oldid=994967599">https://en.wikipedia.org/w/index.php?oldid=994967599</a> [20210103].</li>
+  <li><a name="ref4"></a>Bart Snapp, Jim Talamo, “Projections and components”, Ximera, The Ohio State University, 31 Oct 2018, url <a href="https://ximera.osu.edu/mooculus/calculus2/dotProducts/digInProjections2E">https://ximera.osu.edu/mooculus/calculus2/dotProducts/digInProjections2E</a> [20210105].</li>
+</ol>
+
+<ul>
+  <li><a href="https://github.com/butiran/butiran.github.io/commits/master/_posts/comp/2021-01-02-single-ray-reflection-sphere.md">Article history</a></li>
+</ul>
+:ET

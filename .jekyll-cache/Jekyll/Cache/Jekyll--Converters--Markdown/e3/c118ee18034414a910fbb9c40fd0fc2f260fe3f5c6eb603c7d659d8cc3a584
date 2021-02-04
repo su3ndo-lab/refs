@@ -1,0 +1,53 @@
+I"<p>User interface using Document Object Model [<a href="#ref1">1</a>] in HTML for generating <code class="language-plaintext highlighter-rouge">oo</code> [<a href="#ref2">2</a>] texts is discussed here.</p>
+
+<h2 id="include-and-call">Include and call</h2>
+<p>It shoulde be included in a post using</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">script</span> <span class="nx">src</span><span class="o">=</span><span class="dl">"</span><span class="s2">/assets/js/oo-ui.js</span><span class="dl">"</span><span class="o">&gt;&lt;</span><span class="sr">/script</span><span class="err">&gt;
+</span></code></pre></div></div>
+
+<p>and then later called using</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
+<span class="nx">displayHelloWorldInConsole</span><span class="p">();</span>
+<span class="o">&lt;</span><span class="sr">/script</span><span class="err">&gt;
+</span></code></pre></div></div>
+
+<p>where <code class="language-plaintext highlighter-rouge">displayHelloWorldInConsole</code> is only an example function.</p>
+
+<script src="/assets/js/oo-ui.js"></script>
+
+<h2 id="simple-ui">Simple UI</h2>
+<p>Following UI</p>
+
+<script>
+displaySimpleUI("Thank, you!");
+</script>
+
+<p>is obtained using</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
+<span class="nx">displaySimpleUI</span><span class="p">(</span><span class="dl">"</span><span class="s2">Thank, you!</span><span class="dl">"</span><span class="p">);</span>
+<span class="o">&lt;</span><span class="sr">/script</span><span class="err">&gt;
+</span></code></pre></div></div>
+
+<p>This is only as an illustration.</p>
+
+<h2 id="basic-ui">Basic UI</h2>
+<p>As a base for other UI a basic UI is created.</p>
+
+<script>
+displayBasicUI();
+</script>
+
+<h2 id="references">References</h2>
+<ol>
+  <li><a name="ref1"></a>Wikipedia contributors, “Document Object Model”, Wikipedia, The Free Encyclopedia, 9 Oct 2020, 20:44 UTC, <a href="https://en.wikipedia.org/w/index.php?oldid=982708659">https://en.wikipedia.org/w/index.php?oldid=982708659</a> [20201010].</li>
+  <li><a name="ref2"></a>Diagram parser <code class="language-plaintext highlighter-rouge">oo</code> using JS is developed by Sparisoma Viridi and Fiki Taufik Akbar Sobar, url <a href="https://github.com/dudung/oo">https://github.com/dudung/oo</a> [20201010].</li>
+</ol>
+
+<ul>
+  <li><a href="https://github.com/butiran/butiran.github.io/commits/master/_posts/code/js/oo/2020-10-10-oo-ui.md">Article history</a></li>
+</ul>
+
+:ET

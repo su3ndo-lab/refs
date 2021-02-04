@@ -1,0 +1,101 @@
+I"<p>Concept of work [<a href="#ref1">1</a>] will be discussed here in brief.</p>
+
+<h2 id="formula">Formula</h2>
+<p>In general work done by an object applyingg force $\vec{F}$ varied with small displacement $d\vec{s}$ is</p>
+
+<p>\begin{equation}
+\label{eqn:w-work-integral}
+W = \int \vec{F} \cdot d\vec{s},
+\end{equation}</p>
+
+<p>which is presented in form of force-displacement path integral using calculus [<a href="#ref2">2</a>]. Eqn. \eqref{eqn:w-work-integral} seems complicated and not practical since it is a general form, where $\vec{F} = \vec{F}(\vec{s})$. We will discuss some special cases of it.</p>
+
+<h2 id="differential-of-displacement">Differential of displacement</h2>
+<p>In the integral</p>
+
+<p>\begin{equation}
+\label{eqn:w-integral}
+\int f(s) \ ds,
+\end{equation}</p>
+
+<p>$\int$ represents integration, $ds$ is differential of variabel $s$, and $f(s)$ is the integrand [<a href="#ref3">3</a>]. Here we will make Eqn. \eqref{eqn:w-integral} more complex by setting that</p>
+
+<p>\begin{equation}
+\label{eqn:w-integral-f-F}
+f(s) \equiv \vec{F}(\vec{s})
+\end{equation}</p>
+
+<p>and</p>
+
+<p>\begin{equation}
+\label{eqn:w-integral-ds-vector}
+ds \equiv d\vec{s} = \hat{s} ds.
+\end{equation}</p>
+
+<p>Substitution of Eqns. \eqref{eqn:w-integral-f-F} and \eqref{eqn:w-integral-ds-vector} into Eqn. \eqref{eqn:w-integral} will produce Eqn. \eqref{eqn:w-work-integral}. More to learn, displacement derivatives play important role in dynamics, e.g. velocity, acceleration, jerk, snap, and others [<a href="#ref4">4</a>].</p>
+
+<h2 id="force-with-constant-magnitude">Force with constant magnitude</h2>
+<p>If we deal with a force with constant magnitude</p>
+
+<p>\begin{equation}
+\label{eqn:w-force-constant-magnitude}
+|\vec{F}| = F_0, \ \ \vec{F} \ne \vec{F}(\vec{s}),
+\end{equation}</p>
+
+<p>where $F_0$ is a constant value and the direction is still unknown. Substitution of Eqn. \eqref{eqn:w-force-constant-magnitude} into Eqn. \eqref{eqn:w-work-integral} will give</p>
+
+<p>\begin{equation}
+\label{eqn:w-work-integral-force-constant-magnitude}
+W = \vec{F} \cdot\int d\vec{s} = \vec{F} \cdot \vec{s}.
+\end{equation}</p>
+
+<p>The vector $\vec{F}$ can be moved outside of integral since it is not function of $\vec{s}$. We still have dot operation in Eqn. \eqref{eqn:w-work-integral-force-constant-magnitude} since the force can still have variation in its direction even its magnitude is constant. Remember the application of <a href="vector#dot-product">two vectors dot product</a> in calculating Eqn. \eqref{eqn:w-work-integral-force-constant-magnitude}. Suppose that you can bike on the great wall [<a href="#ref5">5</a>], along the “street” gradient of the surface will be varied depends on which side you choose and also along the wall, but your weight $w$ is always constant in magnitude but the direction to the trajectory $s$ is continuous changing. Similar case is the motion of motorcyle in a devil’s barrel [<a href="#ref6">6</a>].</p>
+
+<h2 id="force-with-constant-direction">Force with constant direction</h2>
+<p>We can also have a force with constant direction</p>
+
+<p>\begin{equation}
+\label{eqn:w-force-constant-direction
+}
+\vec{F} = F(s) \ \hat{q},
+\end{equation}</p>
+
+<p>that will turn Eqn. \eqref{eqn:w-integral} into</p>
+
+<p>\begin{equation}
+\label{eqn:w-work-integral-force-constant-direction}
+W = \int F(s) \ \hat{q} \cdot \hat{s} ds = \int F(s) \ ds \ \cos \theta = \cos \theta \int F(s) \ ds
+\end{equation}</p>
+
+<p>where $\theta$ is the angle between force $\vec{F}$ and displacment $d\vec{s}$. Work due to spring force is an instance of application of Eqn. \eqref{eqn:w-work-integral-force-constant-direction}.</p>
+
+<h2 id="force-with-constant-magnitude-and-direction">Force with constant magnitude and direction</h2>
+<p>From Eqn. \eqref{eqn:w-work-integral-force-constant-magnitude} or  \eqref{eqn:w-work-integral-force-constant-direction} we can have</p>
+
+<p>\begin{equation}
+\label{eqn:w-work-integral-constant-force}
+W = Fs \cos \theta.
+\end{equation}</p>
+
+<p>An example of the use of Eqn. \eqref{eqn:w-work-integral-constant-force} is when a force is exerted on a block, that is moving on a frictionless horizontal surface and the force is appled at certain angle between parallel dan perpendicular directions to the surface.</p>
+
+<h2 id="exercises">Exercises</h2>
+<ol>
+  <li>For a motorcyle moving in a devil’s barrel draw the free body diagram to show that it has constant gravitational force from the earth but the direction measured to the trajectory is always changing.</li>
+  <li>Show how to obtain Eqn. \eqref{eqn:w-work-integral-constant-force} from Eqn. \eqref{eqn:w-work-integral-force-constant-magnitude} or  \eqref{eqn:w-work-integral-force-constant-direction}.</li>
+</ol>
+
+<h2 id="references">References</h2>
+<ol>
+  <li><a name="ref1"></a>Carl R. Nave, “Work”, HyperPhysics, 2017, url <a href="http://hyperphysics.phy-astr.gsu.edu/hbase/wcon.html">http://hyperphysics.phy-astr.gsu.edu/hbase/wcon.html</a> [20201013].</li>
+  <li><a name="ref2"></a>Glenn Elert, “Work”, The Physics Hypertextbook, 2020, url <a href="https://physics.info/work/">https://physics.info/work/</a> [20201013].</li>
+  <li><a name="ref3"></a>Wikipedia contributors, “Integral”, Wikipedia, The Free Encyclopedia, 2 Oct 2020, 18:23 UTC, <a href="https://en.wikipedia.org/w/index.php?oldid=981503576">https://en.wikipedia.org/w/index.php?oldid=981503576</a> [20201013].</li>
+  <li><a name="ref4"></a>-, “Displacement”, AoPS Online, url <a href="https://artofproblemsolving.com/wiki/index.php/Displacement">https://artofproblemsolving.com/wiki/index.php/Displacement</a> [20201013].</li>
+  <li><a name="ref5"></a>Wikipedia contributors, “Great Wall of China”, Wikipedia, The Free Encyclopedia, 28 Sept 2020, 14:21 UTC, <a href="https://en.wikipedia.org/w/index.php?oldid=980796286">https://en.wikipedia.org/w/index.php?oldid=980796286</a> [20201013].</li>
+  <li><a name="ref5"></a>Dedi Sinuhaji, “Inside the devil’s barrel: the female Indonesian wall of death rider – in pictures”, Guardian News &amp; Media Limited, 17 Aug 2016, url <a href="https://www.theguardian.com/world/gallery/2016/aug/17/inside-the-devils-barrel-the-female-indonesian-wall-of-death-rider-in-pictures">https://www.theguardian.com/world/gallery/2016/aug/17/inside-the-devils-barrel-the-female-indonesian-wall-of-death-rider-in-pictures</a> [20201013].</li>
+</ol>
+
+<ul>
+  <li><a href="https://github.com/butiran/butiran.github.io/commits/master/_posts/phys/2020-10-13-work.md">Article history</a></li>
+</ul>
+:ET

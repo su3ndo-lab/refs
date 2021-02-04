@@ -1,0 +1,132 @@
+I":<p>Discussing an object rolling down an incline is interesting, since it brings in many different concepts in introductory physics [<a href="#ref1">1</a>], where the object can be sphere, hoop, or cylinder [<a href="#ref2">2</a>]. It is also fun to observe the race of rolling objects with different moment of inertia [<a href="#ref3">3</a>].</p>
+
+<h2 id="down-an-incline">Down an incline</h2>
+<p>While down an incline, object can performm a sliding or a rolling, where both ways are shown in Fig. <a href="#fig:rdai-down-an-incline">1</a>. Using the first way object can be still considered as a point mass and it requires that</p>
+
+<p>\begin{equation}
+\label{eqn:rdai-slides-requirement}
+\tan \theta &gt; \mu_s,
+\end{equation}</p>
+
+<p>to be able to slide down with normally $\mu_s &gt; \mu_k$, while using the second way object must be considered as a rigid body and $\mu_s &gt; \mu_k &gt; 0$.</p>
+
+<p style="text-align: center;"><img src="/assets/img/phys/down-an-incline.png" alt="down an incline" />
+<br />
+Figure <a name="fig:rdai-down-an-incline">1</a> A point mass slides down an incline (left) and rigid body rolls down an incline (right).</p>
+
+<p>As a point mass $m$ slides down an incline, its velocity $v$ changes due to its acceleration $a$. We can have</p>
+
+<p>\begin{equation}
+\label{eqn:rdai-slides-down}
+a = g (\sin \theta - \mu_k \cos \theta) 
+\end{equation}</p>
+
+<p>for Fig. <a href="#fig:rdai-down-an-incline">1 (left)</a> from previous discussion and when $\mu_k = 0$, Eqn. \eqref{eqn:rdai-slides-down} will be reduced to</p>
+
+<p>\begin{equation}
+\label{eqn:rdai-slides-down-uk=0}
+a = g \sin \theta.
+\end{equation}</p>
+
+<p>And as a rigid body rolls down an incline, its angular velocity $\omega$ changes due to its angular acceleration $\alpha$, where for pure rolling we have that</p>
+
+<p>\begin{equation}
+\label{eqn:rdai-pure-rolling-omega-v}
+v = \omega R
+\end{equation}</p>
+
+<p>and</p>
+
+<p>\begin{equation}
+\label{eqn:rdai-pure-rolling-alpha-a}
+a = \alpha R
+\end{equation}</p>
+
+<p>with $R$ is radius of the object.</p>
+
+<h2 id="pure-rolling">Pure rolling</h2>
+<p>For simplicity only pure rolling is considered in this discussion.</p>
+
+<h3 id="free-body-diagram">Free-body diagram</h3>
+<p>Let’s see the case in Fig. <a href="#fig:rdai-down-an-incline">1 (right)</a>, where its free-body diagram can be obtained as shown in Fig. <a href="#fig:rdai-free-body-diagram">2</a>.</p>
+
+<p style="text-align: center;"><img src="/assets/img/phys/rdai-free-body-diagram.png" alt="down an incline" />
+<br />
+Figure <a name="fig:rdai-free-body-diagram">2</a> Free-body diagram of an object rolling down an incline.</p>
+
+<p>Fig. <a href="#fig:rdai-free-body-diagram">2 (left)</a> is showing the forces acteing upon the object, while the forces and also decompotision of weight $w$ along $x$ and $y$ directions is given in Fig. <a href="#fig:rdai-free-body-diagram">2 (right)</a>. Using the last part of the figure we will apply Newton’s laws.</p>
+
+<h3 id="statics-in-y-direction">Statics in $y$ direction</h3>
+<p>Using Newton’s 1st law we can have in $y$ direction that</p>
+
+<p>\begin{equation}
+\label{eqn:rdai-pr-y}
+\begin{array}{rcl}
+\sum F_y &amp; = &amp; 0 \newline
+N - w \cos \theta &amp; = &amp; 0 \newline
+N &amp; = &amp; w \cos \theta.
+\end{array}
+\end{equation}</p>
+
+<h3 id="dynamics-in-x-direction">Dynamics in $x$ direction</h3>
+<p>Using Newton’s 2nd law we can have in $x$ direction that</p>
+
+<p>\begin{equation}
+\label{eqn:rdai-pr-x}
+\begin{array}{rcl}
+\sum F_x &amp; = &amp; m a_x \newline
+w \sin \theta - f &amp; = &amp; m a_x.
+\end{array}
+\end{equation}</p>
+
+<h3 id="rotation-during-rolling">Rotation during rolling</h3>
+<p>Using Newton’s 2nd law for rotational motion we can have</p>
+
+<p>\begin{equation}
+\label{eqn:rdai-pr-theta}
+\begin{array}{rcl}
+\sum \tau &amp; = &amp; I \alpha \newline
+f R &amp; = &amp; I \alpha.
+\end{array}
+\end{equation}</p>
+
+<p>Notice that we do not calculate $f$ directly from $N$ but keep it unknown.</p>
+
+<h3 id="finding-the-solution">Finding the solution</h3>
+<p>Using Eqn. \eqref{eqn:rdai-pure-rolling-alpha-a} in Eqn. \eqref{eqn:rdai-pr-theta} will give</p>
+
+<p>\begin{equation}
+\label{eqn:rdai-pr-f}
+f = \frac{Ia}{R^2}.
+\end{equation}</p>
+
+<p>Substitution of Eqn. \eqref{eqn:rdai-pr-f} to Eqn. \eqref{eqn:rdai-pr-x} will produce</p>
+
+<p>\begin{equation}
+\label{eqn:rdai-pr-solution-x}
+\begin{array}{rcl}
+\displaystyle m g \sin \theta - \frac{Ia}{R^2} &amp; = &amp; m a \newline
+m g \sin \theta &amp; = &amp; \displaystyle \left( m + \frac{I}{R^2} \right) a \newline
+a &amp; = &amp; \displaystyle \left( \frac{m}{m + I/R^2} \right) g \sin \theta.
+\end{array}
+\end{equation}</p>
+
+<p>For non-rotating point mass particle or rigid body with $I = 0$, Eqn. \eqref{eqn:rdai-pr-solution-x} will turn into Eqn. \eqref{eqn:rdai-slides-down-uk=0}. Notice that $a$ in Eqn. \eqref{eqn:rdai-pr-f} and $a_x$ in Eqn. \eqref{eqn:rdai-pr-x} are the same.</p>
+
+<h2 id="exercises">Exercises</h2>
+<ol>
+  <li>Find information about moments of inertia of hoop, solid cylinder, solid sphere, and thin spherical shell. Use the information in Eqn. \eqref{eqn:rdai-pr-solution-x} to find the acceleration.</li>
+  <li>See [<a href="#ref3">3</a>] and use previous result to confirm it.</li>
+</ol>
+
+<h2 id="references">References</h2>
+<ol>
+  <li><a name="ref1"></a>Rhett Allain, “Rolling Object Accelerating Down an Incline”, Wired, 29 Sep 2014, url <a href="https://www.wired.com/2014/07/a-rolling-object-accelerating-down-an-incline/">https://www.wired.com/2014/07/a-rolling-object-accelerating-down-an-incline/</a> [20201102].</li>
+  <li><a name="ref2"></a>Carl R. Nave, “Rolling Objects”, HyperPhysics, 2017, url <a href="http://hyperphysics.phy-astr.gsu.edu/hbase/rotwe.html#ro">http://hyperphysics.phy-astr.gsu.edu/hbase/rotwe.html#ro</a> [20201102].</li>
+  <li>Flipping Physics, “Which Will Be First? (Rolling Down an Incline)”, YouTube, 17 Mar 2019, url <a href="https://www.youtube.com/watch?v=jaqS5dJlrjY">https://www.youtube.com/watch?v=jaqS5dJlrjY</a> [20201002].</li>
+</ol>
+
+<ul>
+  <li><a href="https://github.com/butiran/butiran.github.io/commits/master/_posts/phys/2020-11-02-rolling-down-an-incline.md">Article history</a></li>
+</ul>
+:ET

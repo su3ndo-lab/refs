@@ -1,0 +1,220 @@
+I"�(<p>Friction can be caused when an object is moving while thouching another object due to surface roughness or when an object is travelling through fluid due to viscous resistance or air resistance [<a href="#ref1">1</a>]. It is actually a force but not a fundamental one, that is resisting the relative motion between an object and the other object or medium or, e.g. solid surface or fluid layers [<a href="#ref2">2</a>]</p>
+
+<h2 id="normal-force">Normal force</h2>
+<p>When two solid object are in contact, there will be normal force from one object to the other. Suppose that there is an object of mass $m$ is on top of a horizontal rough surface with coefficient friction $\mu$. We choose $x$ direction is parallel to the surface, while $y$ direction is perpendicular to it. By assuming that the object does not move in $y$ direction, then we can apply 1st Newtons’ laws of motion</p>
+
+<p>\begin{equation}
+\label{eqn:fric-horiz-surf-y}
+\begin{array}{rcl}
+\sum F_y &amp; = &amp; 0 \newline
+N - w &amp; = &amp; 0 \newline
+N &amp; = &amp; w.
+\end{array}
+\end{equation}</p>
+
+<p>Since we know that</p>
+
+<p>\begin{equation}
+\label{eqn:fric-horiz-surf-w=mg}
+w = mg,
+\end{equation}</p>
+
+<p>then Eqn. \eqref{eqn:fric-horiz-surf-y} can be changed to</p>
+
+<p>\begin{equation}
+\label{eqn:fric-horiz-surf-y-N}
+N = mg
+\end{equation}</p>
+
+<p>using Eqn. \eqref{eqn:fric-horiz-surf-w=mg}.</p>
+
+<h2 id="friction-between-solid-surfaces">Friction between solid surfaces</h2>
+<p>If now we apply force in $x$ direction, e.g. $F_{\rm ext}$, then there will be friction in $x$ direction against the tendencty of motion. Or in other word the direction of friction $f$ will be in opposite direction of $F_{\rm ext}$ and the value will be</p>
+
+<p>\begin{equation}
+\label{eqn:fric-horiz-surf-x-f}
+f = \mu N,
+\end{equation}</p>
+
+<p>where $\mu$ can coefficient of static friction $\mu_s$ or coefficient of kinetic friction $\mu_k$. Usually it holds that</p>
+
+<p>\begin{equation}
+\label{eqn:fric-horiz-surf-x-muk&lt;mus}
+\mu_k &lt; \mu_s.
+\end{equation}</p>
+
+<p>Remember that Eqn. \eqref{eqn:fric-horiz-surf-y-N} holds only for horizontal surface. For an inclice it must be different.</p>
+
+<h3 id="static-friction">Static friction</h3>
+<p>Using $\mu = \mu_s$ and Eqn. \eqref{eqn:fric-horiz-surf-x-f} we can get the maximum value of static friction</p>
+
+<p>\begin{equation}
+\label{eqn:fric-horiz-surf-x-fsmax}
+f_{s, \max} = \mu_s N,
+\end{equation}</p>
+
+<p>where</p>
+
+<p>\begin{equation}
+\label{eqn:fric-horiz-surf-x-fsmax-fs}
+f_s \le f_{s, \max}.
+\end{equation}</p>
+
+<p>Eqns. \eqref{eqn:fric-horiz-surf-x-fsmax} and \eqref{eqn:fric-horiz-surf-x-fsmax-fs} are important since some still think that $f_s = \mu_s N$, which is not correct.</p>
+
+<h3 id="kinetic-friction">Kinetic friction</h3>
+<p>Kinetic friction will happen when object moves relatively to other object, where it is in contact with and the formulation is</p>
+
+<p>\begin{equation}
+\label{eqn:fric-horiz-surf-x-fk}
+f_k = \mu_k N.
+\end{equation}</p>
+
+<h2 id="fluid-friction">Fluid friction</h2>
+<p>An object can also move inside fluid and it will have fluid friction in the form of</p>
+
+<p>\begin{equation}
+\label{eqn:fric-fluid-v1}
+f_v \propto v
+\end{equation}</p>
+
+<p>or</p>
+
+<p>\begin{equation}
+\label{eqn:fric-fluid-v2}
+f_v \propto v^2,
+\end{equation}</p>
+
+<p>where both are in opposite direction of object velocity.</p>
+
+<h2 id="object-on-horizontal-floor">Object on horizontal floor</h2>
+<p>We are back to the case of an object on a horizontal rough floor with coefficients of static and kinetic fiction are $\mu_s$ and $\mu_k$, respectively. Normal force to the object from the floor is already obtained from Eqn. \eqref{eqn:fric-horiz-surf-y-N} and for $x$ direction we must first test whether $\sum F_x$ exceeds $f_{s,\max}$ or not. We can write that for this case</p>
+
+<p>\begin{equation}
+\label{eqn:fric-horiz-friction}
+f = \left\{
+\begin{array}{rl}
+\sum F_x, &amp; \sum F_x \le \mu_s N, \newline
+\mu_k N, &amp; \sum F_x \gt \mu_s N,
+\end{array}
+\right.
+\end{equation}</p>
+
+<p>which guarantees that the object stays at rest when $\sum F_x$ does not exeed $f_{s,\max}$.</p>
+
+<h3 id="using-wrong-concept">Using wrong concept</h3>
+<p>Suppose that $m = 1 \ \rm kg$, $\mu_s = 0.4$, $\mu_k = 0.3$, $F_{\rm ext} = 2 \ \rm N$. If you use that</p>
+
+<p>\begin{equation}
+\label{eqn:fric-horiz-surf-x-fs-wrong}
+f_s = \mu_s N,
+\end{equation}</p>
+
+<p>which is wrong, then you will get that $f_s = 0.4 \cdot 1 \cdot 10 = 4 \ \rm N$. And according to 2nd Newtons’ laws of motion we will have that</p>
+
+<p>\begin{equation}
+\label{eqn:fric-horiz-surf-x-fs-wrong-newton-laws}
+\begin{array}{rcl}
+\sum F_x &amp; = &amp; m a_x \newline
+F_{\rm ext} - f_s &amp; =  &amp; m a_x \newline
+a_x &amp; = &amp; \displaystyle \frac{F_{\rm ext} - f_s}{m},
+\end{array}
+\end{equation}</p>
+
+<p>that gives $a_x = (2 - 4)/1 = -2 \ \rm m/s^2$, which is indicating that the object is moving the the left? How come?</p>
+
+<h3 id="using-correct-concept">Using correct concept</h3>
+<p>Since $F_{\rm ext}$ is the only force in $x$ direction, then we have $\sum F_x = F_{\rm ext}$. From Eqn. \eqref{eqn:fric-horiz-friction} we will have</p>
+
+<p>\begin{equation}
+\label{eqn:fric-horiz-friction-x-correct}
+\begin{array}{rcl}
+f &amp; = &amp; \sum F_x \newline
+f_s &amp; = &amp; F_{\rm ext},
+\end{array}
+\end{equation}</p>
+
+<p>since $\sum F_x \le \mu_s N$ or $F_{\rm ext} \le f_{s,\max}$ or $2 \ {\rm N} \le 4 \ \rm N$. Then using this value</p>
+
+<p>\begin{equation}
+\label{eqn:fric-horiz-surf-x-fs-correct-newton-laws}
+\begin{array}{rcl}
+\sum F_x &amp; = &amp; m a_x \newline
+F_{\rm ext} - f_s &amp; =  &amp; m a_x \newline
+F_{\rm ext} - F_{\rm ext} &amp; =  &amp; m a_x \newline
+a_x &amp; = &amp; 0,
+\end{array}
+\end{equation}</p>
+
+<p>which tells hat the object stays at rest. So please do remember that $f_s \le f_{s,\max}$, where $f_{s,\max} = \mu_s N$ as given in Eqns. \eqref{eqn:fric-horiz-surf-x-fsmax} and \eqref{eqn:fric-horiz-surf-x-fsmax-fs}.</p>
+
+<h2 id="work-by-static-friction">Work by static friction</h2>
+<p>Since static friction does not move the object relatively to the attached surface and there will not be any displacement, work by static friction will be zero to the surface. But if you considered another frame of reference in defining the displacement, there could be work for static friction.</p>
+
+<h2 id="work-by-kinetic-friction">Work by kinetic friction</h2>
+<p>Since kinetic friction has opposite direction with the motion or the displacement then the work done by friction has negative value</p>
+
+<p>\begin{equation}
+\label{eqn:fric-horiz-surf-x-fk-work}
+W_f = F \Delta s = -f_k \Delta s &lt; 0.
+\end{equation}</p>
+
+<p>How we do know that the work is negative? We can use <a href="work-energy-theorem">work-energy theorem</a> to prove it. Let’s take an example of a $2 \ \rm kg$ object moving on a horizontal surface with coefficients of static and kinetic friction $\mu_s = 0.5$ and $\mu_k = 0.4$, respectively, and without any external force. Its initial and final velocities are $50 \ \rm m/s$ and $30 \ \rm m/s$ as it travels a distance of $200 \ \rm m$. We can find the work of (kinetic) friction using dynamics and work-energy theorem.</p>
+
+<h3 id="using-work-energy-theorem">Using work-energy theorem</h3>
+<p>Since forces in $y$ direction will cancel each other and they also have perpendicular to diplacement, we do not need to include them in calculating work of net force and what remains is the kinetic friction then the work is simply</p>
+
+<p>\begin{equation}
+\label{eqn:fric-horiz-surf-x-fk-work-remaining}
+(\sum F_x) \Delta s = -f_k \Delta s = W_f.
+\end{equation}</p>
+
+<p>According to theorem</p>
+
+<p>\begin{equation}
+\label{eqn:fric-work-energy-theorem}
+\begin{array}{rcl}
+W_{\rm net} &amp; = &amp; \Delta K \newline
+(\sum F_x) \Delta s &amp; = &amp; K_f - K_i \newline
+W_f &amp; = &amp; \frac{1}{2} m v_f^2 - \frac{1}{2} m v_i^2
+\end{array}
+\end{equation}</p>
+
+<p>that will give $W_f = 0.5 \cdot 2 \cdot 30^2 - 0.5 \cdot 2 \cdot 50^2 = -1600 \ \rm J$.</p>
+
+<h3 id="using-dynamics">Using dynamics</h3>
+<p>After draw free body diagram and use Newton’s 1st law we can have</p>
+
+<p>\begin{equation}
+\label{eqn:fric-work-dyn-Fy}
+\begin{array}{rcl}
+\sum F_y &amp; = &amp; 0 \newline
+\sum N - w &amp; = &amp; 0 \newline
+\sum N &amp; = &amp; w \newline
+\sum N &amp; = &amp; mg.
+\end{array}
+\end{equation}</p>
+
+<p>Then since the object is already moving, then we use Eqn. \eqref{eqn:fric-horiz-surf-x-fk} to get $f_k = 8 \ \rm N$. Using Eqn. \eqref{eqn:fric-horiz-surf-x-fk-work} and $\Delta s$ from the problem we can have $W_f = -8 \cdot 200 = -1600 \ \rm J$.</p>
+
+<p>You can use both ways, whose difference is only one equation in solving the problem. The former uses two equations, Eqns \eqref{eqn:fric-horiz-surf-x-fk-work-remaining} and \eqref{eqn:fric-work-energy-theorem}, while the later uses three, Eqns \eqref{eqn:fric-work-dyn-Fy}, \eqref{eqn:fric-horiz-surf-x-fk}, \eqref{eqn:fric-horiz-surf-x-fk-work}.</p>
+
+<h2 id="exercises">Exercises</h2>
+<ol>
+  <li>Find the normal force $N$ for an incline, which is different than Eqn. \eqref{eqn:fric-horiz-surf-y-N}, when $\theta$ is the angle of incline, angle of the incline plane measured from horizontal line in counterclockwise direction.</li>
+  <li>Explain the diffence between $f_s = \mu_s N$ and Eqn. \eqref{eqn:fric-horiz-surf-x-fsmax-fs}. What is the importance here?</li>
+  <li>Find expression for Eqns. \eqref{eqn:fric-fluid-v1} and \eqref{eqn:fric-fluid-v2} in [<a href="#ref1">1</a>].</li>
+  <li>Do again the case of object on horizontal floor, if $F_{\rm ext} = 3 \ \rm N$ and also $5 \ \rm N$. Find the acceleration for both cases.</li>
+  <li>For the case of work by kinetic friction, which way do you choose if the displacement is unknown? Explain.</li>
+</ol>
+
+<h2 id="references">References</h2>
+<ol>
+  <li><a name="ref1"></a>Carl R. Nave, “Friction”, HyperPhysics, 2017, url <a href="http://hyperphysics.phy-astr.gsu.edu/hbase/fricon.html">http://hyperphysics.phy-astr.gsu.edu/hbase/fricon.html</a> [20201019].</li>
+  <li><a name="ref2"></a>Wikipedia contributors, “Friction”, Wikipedia, The Free Encyclopedia, 28 Sep 2020, 11:38 UTC, <a href="https://en.wikipedia.org/w/index.php?oldid=980777764">https://en.wikipedia.org/w/index.php?oldid=980777764</a> [20201019].</li>
+</ol>
+
+<ul>
+  <li><a href="https://github.com/butiran/butiran.github.io/commits/master/_posts/phys/2020-10-19-friction.md">Article history</a></li>
+</ul>
+:ET

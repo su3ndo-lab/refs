@@ -1,0 +1,764 @@
+I"�<p>An object of type station used in an agent-based model (ABM) will be discussed in this article. It still a proposal.</p>
+
+<h2 id="station-information">Station information</h2>
+<p>A key value array in JavaScript (JS) is proposed to have the following format</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">StationInfoPTKCI</span> <span class="o">=</span> <span class="p">{</span>
+	<span class="na">TNG</span><span class="p">:</span>  <span class="p">{</span><span class="na">gmap</span><span class="p">:</span><span class="dl">"</span><span class="s2">yDn1Bf2Fkwpz9bdc6</span><span class="dl">"</span><span class="p">,</span> <span class="na">la</span><span class="p">:</span><span class="o">-</span><span class="mf">6.1768038</span><span class="p">,</span> <span class="na">lo</span><span class="p">:</span><span class="mf">106.6152237</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span><span class="dl">"</span><span class="s2">Tangerang</span><span class="dl">"</span><span class="p">,</span> <span class="p">},</span>
+	<span class="na">JAKK</span><span class="p">:</span> <span class="p">{</span><span class="na">gmap</span><span class="p">:</span><span class="dl">"</span><span class="s2">jdfQ2CRSdt1AMN2p8</span><span class="dl">"</span><span class="p">,</span> <span class="na">la</span><span class="p">:</span><span class="o">-</span><span class="mf">6.1375739</span><span class="p">,</span> <span class="na">lo</span><span class="p">:</span><span class="mf">106.8124393</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span><span class="dl">"</span><span class="s2">Jakarta Kota</span><span class="dl">"</span><span class="p">,</span> <span class="p">},</span>
+	<span class="na">BOO</span><span class="p">:</span>  <span class="p">{</span><span class="na">gmap</span><span class="p">:</span><span class="dl">"</span><span class="s2">w1bEwatPYaaN17et5</span><span class="dl">"</span><span class="p">,</span> <span class="na">la</span><span class="p">:</span><span class="o">-</span><span class="mf">6.5956098</span><span class="p">,</span> <span class="na">lo</span><span class="p">:</span><span class="mf">106.7882263</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span><span class="dl">"</span><span class="s2">Bogor</span><span class="dl">"</span><span class="p">,</span> <span class="p">},</span>
+	<span class="na">RK</span><span class="p">:</span>   <span class="p">{</span><span class="na">gmap</span><span class="p">:</span><span class="dl">"</span><span class="s2">kpuPGe49DFcBfVzSA</span><span class="dl">"</span><span class="p">,</span> <span class="na">la</span><span class="p">:</span><span class="o">-</span><span class="mf">6.3526599</span><span class="p">,</span> <span class="na">lo</span><span class="p">:</span><span class="mf">106.2427967</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span><span class="dl">"</span><span class="s2">Rangkasbitung</span><span class="dl">"</span><span class="p">,</span> <span class="p">},</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p>which is, this time, only for PT Kereta Commuter Indonesia (KCI) stations. There are about 74 stations according to [<a href="#ref1">1</a>], with additionally two unused stations [<a href="#ref2">2</a>].</p>
+
+<p>The information can be obtained using station <code class="language-plaintext highlighter-rouge">id</code> as the key, e.g.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">StationInfoPTKCI</span><span class="p">[</span><span class="dl">"</span><span class="s2">JAKK</span><span class="dl">"</span><span class="p">]);</span>
+</code></pre></div></div>
+
+<p>will produce</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="nl">gmap</span><span class="p">:</span> <span class="dl">"</span><span class="s2">jdfQ2CRSdt1AMN2p8</span><span class="dl">"</span><span class="p">,</span> <span class="nx">la</span><span class="p">:</span> <span class="o">-</span><span class="mf">6.1375739</span><span class="p">,</span> <span class="nx">lo</span><span class="p">:</span> <span class="mf">106.8124393</span><span class="p">,</span> <span class="nx">name</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Jakarta Kota</span><span class="dl">"</span><span class="p">}</span>
+</code></pre></div></div>
+
+<p>where <code class="language-plaintext highlighter-rouge">https://goo.gl/maps/</code> + <code class="language-plaintext highlighter-rouge">gmap</code> will produce Google Maps short url to the location, <code class="language-plaintext highlighter-rouge">la</code> and <code class="language-plaintext highlighter-rouge">lo</code> are the Goole Maps coordinates (latitude and longitude), and <code class="language-plaintext highlighter-rouge">name</code> is the station name.</p>
+
+<h2 id="coordinate-transformation">Coordinate transformation</h2>
+<p>A simple and very rough formulation in the form of [<a href="#ref3">3</a>]</p>
+
+<p>\begin{equation}
+\label{eqn:abms-lalo-y}
+y = 110.574 \ la
+\end{equation}</p>
+
+<p>and</p>
+
+<p>\begin{equation}
+\label{eqn:abms-lalo-x}
+x = (111.320 \cos \ la) \ lo
+\end{equation}</p>
+
+<p>will be used to transform $(la, lo)$ to $(x, y)$ for drawing. Notice that $la$ and $lo$ should be in $\rm rad$ and produced $x$ and $y$ will be in $\rm km$. In the <code class="language-plaintext highlighter-rouge">StationInfoPTKCI</code> values of $la$ and $lo$ are still in $^\circ$. Use</p>
+
+<p>\begin{equation}
+\label{eqn:abms-deg-rad}
+\theta = \left( \theta \ {\rm ^\circ} \times \frac{2\pi \ \rm rad}{180 ^\circ} \right) \ {\rm rad}
+\end{equation}</p>
+
+<p>for the conversion from $^\circ$ to $\rm rad$. After testing the results from some pairs of stations and compare it with Google Maps, it is already in $^\circ$. Conversion to $rad$ is not necessary.</p>
+
+<h2 id="result">Result</h2>
+<p>Using the stations data from PT KCI (only the name) and positions (from Google Maps and Wikipedia) a map of commuter network can be produced as shown in following Fig. <a href="#fig:ambs-stations-position">1</a>.</p>
+
+<oo>
+svg 600 305 #fafafa fig:ambs-stations-position|Position of all stations supervised by PT KCI.
+style lc:#a00 ls:0 lw:1 lo:1 fc:#faa
+
+style lc:#a00 ls:0 lw:1 lo:1 fc:#faa
+circle 415 209 4
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:10px
+text 420 219 NMO
+style lc:#a00 ls:0 lw:1 lo:1 fc:#faa
+circle 405 212 4
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:10px
+text 410 222 GPI
+style lc:#a00 ls:0 lw:1 lo:1 fc:#faa
+circle 385 208 4
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:10px
+text 390 218 CBN
+style lc:#a00 ls:0 lw:1 lo:1 fc:#faa
+circle 370 206 4
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:10px
+text 375 216 PDRG
+style lc:#a00 ls:0 lw:1 lo:1 fc:#faa
+circle 352 280 4
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:10px
+text 357 290 BOO
+style lc:#a00 ls:0 lw:1 lo:1 fc:#faa
+circle 357 244 4
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:10px
+text 362 254 CLT
+style lc:#a00 ls:0 lw:1 lo:1 fc:#faa
+circle 354 223 4
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:10px
+text 359 233 BJD
+style lc:#a00 ls:0 lw:1 lo:1 fc:#faa
+circle 358 199 4
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:10px
+text 363 209 CTA
+style lc:#a00 ls:0 lw:1 lo:1 fc:#faa
+circle 366 175 4
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:10px
+text 371 185 DP
+style lc:#a00 ls:0 lw:1 lo:1 fc:#faa
+circle 369 167 4
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:10px
+text 374 177 DPB
+style lc:#a00 ls:0 lw:1 lo:1 fc:#faa
+circle 375 155 4
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:10px
+text 380 165 POC
+style lc:#a00 ls:0 lw:1 lo:1 fc:#faa
+circle 375 151 4
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:10px
+text 380 161 UI
+style lc:#a00 ls:0 lw:1 lo:1 fc:#faa
+circle 376 139 4
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:10px
+text 381 149 UP
+style lc:#a00 ls:0 lw:1 lo:1 fc:#faa
+circle 376 134 4
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:10px
+text 381 144 LNA
+style lc:#a00 ls:0 lw:1 lo:1 fc:#faa
+circle 379 122 4
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:10px
+text 384 132 TNT
+style lc:#a00 ls:0 lw:1 lo:1 fc:#faa
+circle 382 109 4
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:10px
+text 387 119 PSM
+style lc:#a00 ls:0 lw:1 lo:1 fc:#faa
+circle 386 97 4
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:10px
+text 391 107 PSMB
+style lc:#a00 ls:0 lw:1 lo:1 fc:#faa
+circle 388 93 4
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:10px
+text 393 103 DRN
+style lc:#a00 ls:0 lw:1 lo:1 fc:#faa
+circle 386 86 4
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:10px
+text 391 96 CW
+style lc:#a00 ls:0 lw:1 lo:1 fc:#faa
+circle 389 77 4
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:10px
+text 394 87 TEB
+style lc:#a00 ls:0 lw:1 lo:1 fc:#faa
+circle 385 68 4
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:10px
+text 390 78 MRI
+style lc:#a00 ls:0 lw:1 lo:1 fc:#faa
+circle 380 62 4
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:10px
+text 385 72 CKI
+style lc:#a00 ls:0 lw:1 lo:1 fc:#faa
+circle 375 55 4
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:10px
+text 380 65 GDD
+style lc:#a00 ls:0 lw:1 lo:1 fc:#faa
+circle 374 50 4
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:10px
+text 379 60 GMR
+style lc:#a00 ls:0 lw:1 lo:1 fc:#faa
+circle 374 44 4
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:10px
+text 379 54 JUA
+style lc:#a00 ls:0 lw:1 lo:1 fc:#faa
+circle 372 41 4
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:10px
+text 377 51 SWL
+style lc:#a00 ls:0 lw:1 lo:1 fc:#faa
+circle 372 35 4
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:10px
+text 377 45 MGB
+style lc:#a00 ls:0 lw:1 lo:1 fc:#faa
+circle 366 30 4
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:10px
+text 371 40 JAYL
+style lc:#a00 ls:0 lw:1 lo:1 fc:#faa
+circle 365 28 4
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:10px
+text 370 38 JAKK
+style lc:#a00 ls:0 lw:1 lo:1 fc:#faa
+circle 400 14 4
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:10px
+text 405 24 TPK
+style lc:#a00 ls:0 lw:1 lo:1 fc:#faa
+circle 379 20 4
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:10px
+text 384 30 AC
+style lc:#a00 ls:0 lw:1 lo:1 fc:#faa
+circle 373 25 4
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:10px
+text 378 35 KPB
+style lc:#a00 ls:0 lw:1 lo:1 fc:#faa
+circle 396 71 4
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:10px
+text 401 81 JNG
+style lc:#a00 ls:0 lw:1 lo:1 fc:#faa
+circle 392 68 4
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:10px
+text 397 78 POK
+style lc:#a00 ls:0 lw:1 lo:1 fc:#faa
+circle 370 59 4
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:10px
+text 375 69 KMT
+style lc:#a00 ls:0 lw:1 lo:1 fc:#faa
+circle 386 55 4
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:10px
+text 391 65 GST
+style lc:#a00 ls:0 lw:1 lo:1 fc:#faa
+circle 383 49 4
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:10px
+text 388 59 PSE
+style lc:#a00 ls:0 lw:1 lo:1 fc:#faa
+circle 381 42 4
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:10px
+text 386 52 KMO
+style lc:#a00 ls:0 lw:1 lo:1 fc:#faa
+circle 378 32 4
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:10px
+text 383 42 RJW
+style lc:#a00 ls:0 lw:1 lo:1 fc:#faa
+circle 359 38 4
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:10px
+text 364 48 DU
+style lc:#a00 ls:0 lw:1 lo:1 fc:#faa
+circle 352 42 4
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:10px
+text 357 52 GGL
+style lc:#a00 ls:0 lw:1 lo:1 fc:#faa
+circle 342 41 4
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:10px
+text 347 51 PSG
+style lc:#a00 ls:0 lw:1 lo:1 fc:#faa
+circle 315 40 4
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:10px
+text 320 50 TKO
+style lc:#a00 ls:0 lw:1 lo:1 fc:#faa
+circle 323 41 4
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:10px
+text 328 51 BOI
+style lc:#a00 ls:0 lw:1 lo:1 fc:#faa
+circle 311 42 4
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:10px
+text 316 52 RW
+style lc:#a00 ls:0 lw:1 lo:1 fc:#faa
+circle 305 44 4
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:10px
+text 310 54 KDS
+style lc:#a00 ls:0 lw:1 lo:1 fc:#faa
+circle 292 46 4
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:10px
+text 297 56 PI
+style lc:#a00 ls:0 lw:1 lo:1 fc:#faa
+circle 284 47 4
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:10px
+text 289 57 BPR
+style lc:#a00 ls:0 lw:1 lo:1 fc:#faa
+circle 273 49 4
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:10px
+text 278 59 TTI
+style lc:#a00 ls:0 lw:1 lo:1 fc:#faa
+circle 256 50 4
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:10px
+text 261 60 TNG
+style lc:#a00 ls:0 lw:1 lo:1 fc:#faa
+circle 371 64 4
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:10px
+text 376 74 SUD
+style lc:#a00 ls:0 lw:1 lo:1 fc:#faa
+circle 367 63 4
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:10px
+text 372 73 KAT
+style lc:#a00 ls:0 lw:1 lo:1 fc:#faa
+circle 379 66 4
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:10px
+text 384 76 MPG
+style lc:#a00 ls:0 lw:1 lo:1 fc:#faa
+circle 363 55 4
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:10px
+text 368 65 THB
+style lc:#a00 ls:0 lw:1 lo:1 fc:#faa
+circle 357 67 4
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:10px
+text 362 77 PLM
+style lc:#a00 ls:0 lw:1 lo:1 fc:#faa
+circle 349 83 4
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:10px
+text 354 93 KBY
+style lc:#a00 ls:0 lw:1 lo:1 fc:#faa
+circle 338 93 4
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:10px
+text 343 103 PDB
+style lc:#a00 ls:0 lw:1 lo:1 fc:#faa
+circle 308 104 4
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:10px
+text 313 114 PDJ
+style lc:#a00 ls:0 lw:1 lo:1 fc:#faa
+circle 318 111 4
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:10px
+text 323 121 JRU
+style lc:#a00 ls:0 lw:1 lo:1 fc:#faa
+circle 309 116 4
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:10px
+text 314 126 SDM
+style lc:#a00 ls:0 lw:1 lo:1 fc:#faa
+circle 288 126 4
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:10px
+text 293 136 RU
+style lc:#a00 ls:0 lw:1 lo:1 fc:#faa
+circle 283 128 4
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:10px
+text 288 138 SRP
+style lc:#a00 ls:0 lw:1 lo:1 fc:#faa
+circle 269 131 4
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:10px
+text 274 141 CSK
+style lc:#a00 ls:0 lw:1 lo:1 fc:#faa
+circle 257 134 4
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:10px
+text 262 144 CCY
+style lc:#a00 ls:0 lw:1 lo:1 fc:#faa
+circle 230 142 4
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:10px
+text 235 152 PRP
+style lc:#a00 ls:0 lw:1 lo:1 fc:#faa
+circle 209 148 4
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:10px
+text 214 158 CKP
+style lc:#a00 ls:0 lw:1 lo:1 fc:#faa
+circle 196 147 4
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:10px
+text 201 157 CJT
+style lc:#a00 ls:0 lw:1 lo:1 fc:#faa
+circle 187 138 4
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:10px
+text 192 148 DAR
+style lc:#a00 ls:0 lw:1 lo:1 fc:#faa
+circle 169 132 4
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:10px
+text 174 142 TEJ
+style lc:#a00 ls:0 lw:1 lo:1 fc:#faa
+circle 155 133 4
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:10px
+text 160 143 TGS
+style lc:#a00 ls:0 lw:1 lo:1 fc:#faa
+circle 141 137 4
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:10px
+text 146 147 CKY
+style lc:#a00 ls:0 lw:1 lo:1 fc:#faa
+circle 133 136 4
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:10px
+text 138 146 MJ
+style lc:#a00 ls:0 lw:1 lo:1 fc:#faa
+circle 98 136 4
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:10px
+text 103 146 CTR
+style lc:#a00 ls:0 lw:1 lo:1 fc:#faa
+circle 50 146 4
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:10px
+text 55 156 RK
+style lc:#a00 ls:0 lw:1 lo:1 fc:#faa
+circle 405 70 4
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:10px
+text 410 80 CPN
+style lc:#a00 ls:0 lw:1 lo:1 fc:#faa
+circle 413 70 4
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:10px
+text 418 80 KLD
+style lc:#a00 ls:0 lw:1 lo:1 fc:#faa
+circle 425 73 4
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:10px
+text 430 83 BUA
+style lc:#a00 ls:0 lw:1 lo:1 fc:#faa
+circle 436 72 4
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:10px
+text 441 82 KLDB
+style lc:#a00 ls:0 lw:1 lo:1 fc:#faa
+circle 443 73 4
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:10px
+text 448 83 CUK
+style lc:#a00 ls:0 lw:1 lo:1 fc:#faa
+circle 443 73 4
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:10px
+text 448 83 RWB
+style lc:#a00 ls:0 lw:1 lo:1 fc:#faa
+circle 458 76 4
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:10px
+text 463 86 KRI
+style lc:#a00 ls:0 lw:1 lo:1 fc:#faa
+circle 469 83 4
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:10px
+text 474 93 BKS
+style lc:#a00 ls:0 lw:1 lo:1 fc:#faa
+circle 460 88 4
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:10px
+text 465 98 BKST
+style lc:#a00 ls:0 lw:1 lo:1 fc:#faa
+circle 500 95 4
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:10px
+text 505 105 TB
+style lc:#a00 ls:0 lw:1 lo:1 fc:#faa
+circle 516 97 4
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:10px
+text 521 107 CIT
+style lc:#a00 ls:0 lw:1 lo:1 fc:#faa
+circle 521 94 4
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:10px
+text 526 104 MTM
+style lc:#a00 ls:0 lw:1 lo:1 fc:#faa
+circle 550 93 4
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:10px
+text 555 103 CKR
+style lc:#a00 ls:0 lw:1 lo:1 fc:#faa
+circle 358 32 4
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:10px
+text 363 42 AK
+</oo>
+
+<p>Unfortunately, the density of stations per area is not the same at different places. Perhaps an illustrative network [<a href="#ref1">1</a>] is preferable than network with the real distance in Fig. <a href="#fig:ambs-stations-position">1</a>.</p>
+
+<h2 id="js-file">JS file</h2>
+<p>Content of <code class="language-plaintext highlighter-rouge">station.js</code> is as follow</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*
+	station.js
+	Information about train stations
+	
+	Sparisoma Viridi | https://github.com/dudung
+	
+	20200926
+	1907 Advance StationInfo from abm-com-seir.js file.
+	1949 Complete until JNG, search for Pondok Betung abvr. (x).
+	2000 Accomplish CKY, MJ, CTR, RK stations.
+	2226 Find information about Cilangkap and Pondok Bitung [1].
+	2303 Create Google Maps link for CKP and PDB.
+	2306 Note the base url for Google Maps https://goo.gl/maps/.
+	2310 Add reference for commuter map [2].
+	2319 Add reference for simple conversion (la,lo)-&gt;(x,y) [3].
+	20200927
+	0508 Rename the key value array to StationInfoPTKCI.
+	0631 Create transformToXY function.
+	0641 Calculate avarage of la and lo for all stations.
+	0814 Miss stations to Cikarang, add stations id.
+	0910 Assume [3] already in deg as checked with Google Maps.
+	0946 Finish all 87 stations and draw all in canvas.
+	1005 Add AK and ask team to make illustration as in [2].
+	1236 Make SVG text for viewing stations with oo.
+	1302 Close this version and update related article.
+	
+	References
+	1. Bramantiyo Marjuki, "Jalur Kereta Api SS/KAI Tanah Abang
+	   - Rangkasbitung (1899 - sekarang)", 23 Oct 2017, url
+		 https://javarailmaps.blogspot.com/2017/10/jalur-kereta-api
+		 -sskai-tanah-abang.html [20200926].
+	2. Kontributor Wikipedia, "KRL Commuter Line", Wikipedia,
+	   Ensiklopedia Bebas, 24 September 2020, 15.47 UTC, url
+	   https://id.wikipedia.org/w/index.php?oldid=17435179
+	 	 [20200926].
+	3. Jim Lewis, "Answer to 'Simple calculations for working
+	   with lat/lon and km distance?'", StackOverflow, 10 Aug
+		 2009, url https://stackoverflow.com/a/1253545 [20200926]. 
+*/</span>
+
+
+<span class="c1">// Stations of PT Kereta Commuter Indonesia</span>
+<span class="kd">var</span> <span class="nx">StationInfoPTKCI</span> <span class="o">=</span> <span class="p">{</span>
+	<span class="na">NMO</span><span class="p">:</span>  <span class="p">{</span><span class="na">gmap</span><span class="p">:</span><span class="dl">"</span><span class="s2">9cF3yJYsegh5WwTn7</span><span class="dl">"</span><span class="p">,</span> <span class="na">la</span><span class="p">:</span><span class="o">-</span><span class="mf">6.4662291</span><span class="p">,</span> <span class="na">lo</span><span class="p">:</span><span class="mf">106.9040266</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span><span class="dl">"</span><span class="s2">Nambo</span><span class="dl">"</span><span class="p">,</span> <span class="p">},</span>
+	<span class="na">GPI</span><span class="p">:</span>  <span class="p">{</span><span class="na">gmap</span><span class="p">:</span><span class="dl">"</span><span class="s2">HrVo9GoqmtdKxemr9</span><span class="dl">"</span><span class="p">,</span> <span class="na">la</span><span class="p">:</span><span class="o">-</span><span class="mf">6.4718045</span><span class="p">,</span> <span class="na">lo</span><span class="p">:</span><span class="mf">106.8863609</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span><span class="dl">"</span><span class="s2">Gunung Putri</span><span class="dl">"</span><span class="p">,</span> <span class="p">},</span>
+	<span class="na">CBN</span><span class="p">:</span>  <span class="p">{</span><span class="na">gmap</span><span class="p">:</span><span class="dl">"</span><span class="s2">KWGWQmEbWJNW2Ae37</span><span class="dl">"</span><span class="p">,</span> <span class="na">la</span><span class="p">:</span><span class="o">-</span><span class="mf">6.4642644</span><span class="p">,</span> <span class="na">lo</span><span class="p">:</span><span class="mf">106.8502809</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span><span class="dl">"</span><span class="s2">Cibinong</span><span class="dl">"</span><span class="p">,</span> <span class="p">},</span>
+	<span class="na">PDRG</span><span class="p">:</span> <span class="p">{</span><span class="na">gmap</span><span class="p">:</span><span class="dl">"</span><span class="s2">P6rx1Cd8uSiEBcCb6</span><span class="dl">"</span><span class="p">,</span> <span class="na">la</span><span class="p">:</span><span class="o">-</span><span class="mf">6.4606999</span><span class="p">,</span> <span class="na">lo</span><span class="p">:</span><span class="mf">106.8223982</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span><span class="dl">"</span><span class="s2">Pondok Rajeg</span><span class="dl">"</span><span class="p">,</span> <span class="p">},</span>
+	<span class="na">BOO</span><span class="p">:</span>  <span class="p">{</span><span class="na">gmap</span><span class="p">:</span><span class="dl">"</span><span class="s2">w1bEwatPYaaN17et5</span><span class="dl">"</span><span class="p">,</span> <span class="na">la</span><span class="p">:</span><span class="o">-</span><span class="mf">6.5956098</span><span class="p">,</span> <span class="na">lo</span><span class="p">:</span><span class="mf">106.7882263</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span><span class="dl">"</span><span class="s2">Bogor</span><span class="dl">"</span><span class="p">,</span> <span class="p">},</span>
+	<span class="na">CLT</span><span class="p">:</span>  <span class="p">{</span><span class="na">gmap</span><span class="p">:</span><span class="dl">"</span><span class="s2">vHe3j22FCUkPrzYL7</span><span class="dl">"</span><span class="p">,</span> <span class="na">la</span><span class="p">:</span><span class="o">-</span><span class="mf">6.5305389</span><span class="p">,</span> <span class="na">lo</span><span class="p">:</span><span class="mf">106.7983720</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span><span class="dl">"</span><span class="s2">Cilebut</span><span class="dl">"</span><span class="p">,</span> <span class="p">},</span>
+	<span class="na">BJD</span><span class="p">:</span>  <span class="p">{</span><span class="na">gmap</span><span class="p">:</span><span class="dl">"</span><span class="s2">zA2zQNr6G4jX17Tu8</span><span class="dl">"</span><span class="p">,</span> <span class="na">la</span><span class="p">:</span><span class="o">-</span><span class="mf">6.4932483</span><span class="p">,</span> <span class="na">lo</span><span class="p">:</span><span class="mf">106.7927070</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span><span class="dl">"</span><span class="s2">Bojonggede</span><span class="dl">"</span><span class="p">,</span> <span class="p">},</span>
+	<span class="na">CTA</span><span class="p">:</span>  <span class="p">{</span><span class="na">gmap</span><span class="p">:</span><span class="dl">"</span><span class="s2">C4H9wZSGKVXh1jDKA</span><span class="dl">"</span><span class="p">,</span> <span class="na">la</span><span class="p">:</span><span class="o">-</span><span class="mf">6.4487951</span><span class="p">,</span> <span class="na">lo</span><span class="p">:</span><span class="mf">106.8003074</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span><span class="dl">"</span><span class="s2">Cityam</span><span class="dl">"</span><span class="p">,</span> <span class="p">},</span>
+	<span class="na">DP</span><span class="p">:</span>   <span class="p">{</span><span class="na">gmap</span><span class="p">:</span><span class="dl">"</span><span class="s2">gfrjQ4L6TPq5CdLw5</span><span class="dl">"</span><span class="p">,</span> <span class="na">la</span><span class="p">:</span><span class="o">-</span><span class="mf">6.4050057</span><span class="p">,</span> <span class="na">lo</span><span class="p">:</span><span class="mf">106.8150619</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span><span class="dl">"</span><span class="s2">Depok</span><span class="dl">"</span><span class="p">,</span> <span class="p">},</span>
+	<span class="na">DPB</span><span class="p">:</span>  <span class="p">{</span><span class="na">gmap</span><span class="p">:</span><span class="dl">"</span><span class="s2">7xj3ZnpMXWNjFqnx5</span><span class="dl">"</span><span class="p">,</span> <span class="na">la</span><span class="p">:</span><span class="o">-</span><span class="mf">6.3911285</span><span class="p">,</span> <span class="na">lo</span><span class="p">:</span><span class="mf">106.8195145</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span><span class="dl">"</span><span class="s2">Depok Baru</span><span class="dl">"</span><span class="p">,</span> <span class="p">},</span>
+	<span class="na">POC</span><span class="p">:</span>  <span class="p">{</span><span class="na">gmap</span><span class="p">:</span><span class="dl">"</span><span class="s2">LVV1fvW3QBzStuzX6</span><span class="dl">"</span><span class="p">,</span> <span class="na">la</span><span class="p">:</span><span class="o">-</span><span class="mf">6.3690785</span><span class="p">,</span> <span class="na">lo</span><span class="p">:</span><span class="mf">106.8300194</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span><span class="dl">"</span><span class="s2">Pondok Cina</span><span class="dl">"</span><span class="p">,</span> <span class="p">},</span>
+	<span class="na">UI</span><span class="p">:</span>   <span class="p">{</span><span class="na">gmap</span><span class="p">:</span><span class="dl">"</span><span class="s2">CBBtvMPsG9NTMJPD7</span><span class="dl">"</span><span class="p">,</span> <span class="na">la</span><span class="p">:</span><span class="o">-</span><span class="mf">6.3607541</span><span class="p">,</span> <span class="na">lo</span><span class="p">:</span><span class="mf">106.8295594</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span><span class="dl">"</span><span class="s2">Universitas Indonesia</span><span class="dl">"</span><span class="p">,</span> <span class="p">},</span>
+	<span class="na">UP</span><span class="p">:</span>   <span class="p">{</span><span class="na">gmap</span><span class="p">:</span><span class="dl">"</span><span class="s2">n3JSiSen85yob3Vi8</span><span class="dl">"</span><span class="p">,</span> <span class="na">la</span><span class="p">:</span><span class="o">-</span><span class="mf">6.3389397</span><span class="p">,</span> <span class="na">lo</span><span class="p">:</span><span class="mf">106.8322411</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span><span class="dl">"</span><span class="s2">Universitas Pancasila</span><span class="dl">"</span><span class="p">,</span> <span class="p">},</span>
+	<span class="na">LNA</span><span class="p">:</span>  <span class="p">{</span><span class="na">gmap</span><span class="p">:</span><span class="dl">"</span><span class="s2">57boEP5EXmqn3aRv7</span><span class="dl">"</span><span class="p">,</span> <span class="na">la</span><span class="p">:</span><span class="o">-</span><span class="mf">6.3306601</span><span class="p">,</span> <span class="na">lo</span><span class="p">:</span><span class="mf">106.8327927</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span><span class="dl">"</span><span class="s2">Lenteng Agung</span><span class="dl">"</span><span class="p">,</span> <span class="p">},</span>
+	<span class="na">TNT</span><span class="p">:</span>  <span class="p">{</span><span class="na">gmap</span><span class="p">:</span><span class="dl">"</span><span class="s2">B53E6wY42X3WxZnu8</span><span class="dl">"</span><span class="p">,</span> <span class="na">la</span><span class="p">:</span><span class="o">-</span><span class="mf">6.3075900</span><span class="p">,</span> <span class="na">lo</span><span class="p">:</span><span class="mf">106.8364913</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span><span class="dl">"</span><span class="s2">Tanjung Barat</span><span class="dl">"</span><span class="p">,</span> <span class="p">},</span>
+	<span class="na">PSM</span><span class="p">:</span>  <span class="p">{</span><span class="na">gmap</span><span class="p">:</span><span class="dl">"</span><span class="s2">5ShUGaya1TSjM1tHA</span><span class="dl">"</span><span class="p">,</span> <span class="na">la</span><span class="p">:</span><span class="o">-</span><span class="mf">6.2842455</span><span class="p">,</span> <span class="na">lo</span><span class="p">:</span><span class="mf">106.8423577</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span><span class="dl">"</span><span class="s2">Pasar Minggu</span><span class="dl">"</span><span class="p">,</span> <span class="p">},</span>
+	<span class="na">PSMB</span><span class="p">:</span> <span class="p">{</span><span class="na">gmap</span><span class="p">:</span><span class="dl">"</span><span class="s2">WoFavFzSXqnanvzH7</span><span class="dl">"</span><span class="p">,</span> <span class="na">la</span><span class="p">:</span><span class="o">-</span><span class="mf">6.2627837</span><span class="p">,</span> <span class="na">lo</span><span class="p">:</span><span class="mf">106.8496685</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span><span class="dl">"</span><span class="s2">Pasar Minggu Baru</span><span class="dl">"</span><span class="p">,</span> <span class="p">},</span>
+	<span class="na">DRN</span><span class="p">:</span>  <span class="p">{</span><span class="na">gmap</span><span class="p">:</span><span class="dl">"</span><span class="s2">NLaKRH3dRZpRztxB9</span><span class="dl">"</span><span class="p">,</span> <span class="na">la</span><span class="p">:</span><span class="o">-</span><span class="mf">6.2553411</span><span class="p">,</span> <span class="na">lo</span><span class="p">:</span><span class="mf">106.8528508</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span><span class="dl">"</span><span class="s2">Duren Kalibata</span><span class="dl">"</span><span class="p">,</span> <span class="p">},</span>
+	<span class="na">CW</span><span class="p">:</span>   <span class="p">{</span><span class="na">gmap</span><span class="p">:</span><span class="dl">"</span><span class="s2">GFsU4qWfdgEGsYiDA</span><span class="dl">"</span><span class="p">,</span> <span class="na">la</span><span class="p">:</span><span class="o">-</span><span class="mf">6.2427599</span><span class="p">,</span> <span class="na">lo</span><span class="p">:</span><span class="mf">106.8497567</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span><span class="dl">"</span><span class="s2">Cawang</span><span class="dl">"</span><span class="p">,</span> <span class="p">},</span>
+	<span class="na">TEB</span><span class="p">:</span>  <span class="p">{</span><span class="na">gmap</span><span class="p">:</span><span class="dl">"</span><span class="s2">Qi3PCyqRbzqk3ZBH7</span><span class="dl">"</span><span class="p">,</span> <span class="na">la</span><span class="p">:</span><span class="o">-</span><span class="mf">6.2255900</span><span class="p">,</span> <span class="na">lo</span><span class="p">:</span><span class="mf">106.8558813</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span><span class="dl">"</span><span class="s2">Tebet</span><span class="dl">"</span><span class="p">,</span> <span class="p">},</span>
+	<span class="na">MRI</span><span class="p">:</span>  <span class="p">{</span><span class="na">gmap</span><span class="p">:</span><span class="dl">"</span><span class="s2">NVgeKAcwzh3RwW7C7</span><span class="dl">"</span><span class="p">,</span> <span class="na">la</span><span class="p">:</span><span class="o">-</span><span class="mf">6.2098913</span><span class="p">,</span> <span class="na">lo</span><span class="p">:</span><span class="mf">106.8480260</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span><span class="dl">"</span><span class="s2">Manggarai</span><span class="dl">"</span><span class="p">,</span> <span class="p">},</span>
+	<span class="na">CKI</span><span class="p">:</span>  <span class="p">{</span><span class="na">gmap</span><span class="p">:</span><span class="dl">"</span><span class="s2">NemacqYZCSdn1JLZA</span><span class="dl">"</span><span class="p">,</span> <span class="na">la</span><span class="p">:</span><span class="o">-</span><span class="mf">6.1985563</span><span class="p">,</span> <span class="na">lo</span><span class="p">:</span><span class="mf">106.8390746</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span><span class="dl">"</span><span class="s2">Cikini</span><span class="dl">"</span><span class="p">,</span> <span class="p">},</span>
+	<span class="na">GDD</span><span class="p">:</span>  <span class="p">{</span><span class="na">gmap</span><span class="p">:</span><span class="dl">"</span><span class="s2">Ekd8fcB891AEZv6g9</span><span class="dl">"</span><span class="p">,</span> <span class="na">la</span><span class="p">:</span><span class="o">-</span><span class="mf">6.1860836</span><span class="p">,</span> <span class="na">lo</span><span class="p">:</span><span class="mf">106.8303993</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span><span class="dl">"</span><span class="s2">Gondangdia</span><span class="dl">"</span><span class="p">,</span> <span class="p">},</span>
+	<span class="na">GMR</span><span class="p">:</span>  <span class="p">{</span><span class="na">gmap</span><span class="p">:</span><span class="dl">"</span><span class="s2">N9VtKAy1yYacDnCt7</span><span class="dl">"</span><span class="p">,</span> <span class="na">la</span><span class="p">:</span><span class="o">-</span><span class="mf">6.1767112</span><span class="p">,</span> <span class="na">lo</span><span class="p">:</span><span class="mf">106.8284640</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span><span class="dl">"</span><span class="s2">Gambir</span><span class="dl">"</span><span class="p">,</span> <span class="p">},</span>
+	<span class="na">JUA</span><span class="p">:</span>  <span class="p">{</span><span class="na">gmap</span><span class="p">:</span><span class="dl">"</span><span class="s2">jLhdMKPAwqrba3K96</span><span class="dl">"</span><span class="p">,</span> <span class="na">la</span><span class="p">:</span><span class="o">-</span><span class="mf">6.1667216</span><span class="p">,</span> <span class="na">lo</span><span class="p">:</span><span class="mf">106.8282843</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span><span class="dl">"</span><span class="s2">Juanda</span><span class="dl">"</span><span class="p">,</span> <span class="p">},</span>
+	<span class="na">SWL</span><span class="p">:</span>  <span class="p">{</span><span class="na">gmap</span><span class="p">:</span><span class="dl">"</span><span class="s2">PbWuzKKRj858Czkr8</span><span class="dl">"</span><span class="p">,</span> <span class="na">la</span><span class="p">:</span><span class="o">-</span><span class="mf">6.1606407</span><span class="p">,</span> <span class="na">lo</span><span class="p">:</span><span class="mf">106.8254472</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span><span class="dl">"</span><span class="s2">Sawah Besar</span><span class="dl">"</span><span class="p">,</span> <span class="p">},</span>
+	<span class="na">MGB</span><span class="p">:</span>  <span class="p">{</span><span class="na">gmap</span><span class="p">:</span><span class="dl">"</span><span class="s2">tdTMqTbUh1PbKrNB8</span><span class="dl">"</span><span class="p">,</span> <span class="na">la</span><span class="p">:</span><span class="o">-</span><span class="mf">6.1496813</span><span class="p">,</span> <span class="na">lo</span><span class="p">:</span><span class="mf">106.8248376</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span><span class="dl">"</span><span class="s2">Mangga Besar</span><span class="dl">"</span><span class="p">,</span> <span class="p">},</span>
+	<span class="na">JAYL</span><span class="p">:</span> <span class="p">{</span><span class="na">gmap</span><span class="p">:</span><span class="dl">"</span><span class="s2">9GASV9arbiApx5Wk7</span><span class="dl">"</span><span class="p">,</span> <span class="na">la</span><span class="p">:</span><span class="o">-</span><span class="mf">6.1412853</span><span class="p">,</span> <span class="na">lo</span><span class="p">:</span><span class="mf">106.8143993</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span><span class="dl">"</span><span class="s2">Jayakarta</span><span class="dl">"</span><span class="p">,</span> <span class="p">},</span>
+	<span class="na">JAKK</span><span class="p">:</span> <span class="p">{</span><span class="na">gmap</span><span class="p">:</span><span class="dl">"</span><span class="s2">jdfQ2CRSdt1AMN2p8</span><span class="dl">"</span><span class="p">,</span> <span class="na">la</span><span class="p">:</span><span class="o">-</span><span class="mf">6.1375739</span><span class="p">,</span> <span class="na">lo</span><span class="p">:</span><span class="mf">106.8124393</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span><span class="dl">"</span><span class="s2">Jakarta Kota</span><span class="dl">"</span><span class="p">,</span> <span class="p">},</span>
+	<span class="na">TPK</span><span class="p">:</span>  <span class="p">{</span><span class="na">gmap</span><span class="p">:</span><span class="dl">"</span><span class="s2">ukrDFNA474KvtMNAA</span><span class="dl">"</span><span class="p">,</span> <span class="na">la</span><span class="p">:</span><span class="o">-</span><span class="mf">6.1120380</span><span class="p">,</span> <span class="na">lo</span><span class="p">:</span><span class="mf">106.8760139</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span><span class="dl">"</span><span class="s2">Tanjung Priok</span><span class="dl">"</span><span class="p">,</span> <span class="p">},</span>
+	<span class="na">AC</span><span class="p">:</span>   <span class="p">{</span><span class="na">gmap</span><span class="p">:</span><span class="dl">"</span><span class="s2">edYKjSTnMVUqjXfd7</span><span class="dl">"</span><span class="p">,</span> <span class="na">la</span><span class="p">:</span><span class="o">-</span><span class="mf">6.1215668</span><span class="p">,</span> <span class="na">lo</span><span class="p">:</span><span class="mf">106.8382612</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span><span class="dl">"</span><span class="s2">Ancol</span><span class="dl">"</span><span class="p">,</span> <span class="p">},</span>
+	<span class="na">KPB</span><span class="p">:</span>  <span class="p">{</span><span class="na">gmap</span><span class="p">:</span><span class="dl">"</span><span class="s2">Qno5GFA2tw1nM88L9</span><span class="dl">"</span><span class="p">,</span> <span class="na">la</span><span class="p">:</span><span class="o">-</span><span class="mf">6.1322199</span><span class="p">,</span> <span class="na">lo</span><span class="p">:</span><span class="mf">106.8265271</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span><span class="dl">"</span><span class="s2">Kampung Bandan</span><span class="dl">"</span><span class="p">,</span> <span class="p">},</span>
+	<span class="na">JNG</span><span class="p">:</span>  <span class="p">{</span><span class="na">gmap</span><span class="p">:</span><span class="dl">"</span><span class="s2">PNJ7GPh4xPwSMN19A</span><span class="dl">"</span><span class="p">,</span> <span class="na">la</span><span class="p">:</span><span class="o">-</span><span class="mf">6.2152144</span><span class="p">,</span> <span class="na">lo</span><span class="p">:</span><span class="mf">106.8680843</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span><span class="dl">"</span><span class="s2">Jatinegara</span><span class="dl">"</span><span class="p">,</span> <span class="p">},</span>
+	<span class="na">POK</span><span class="p">:</span>  <span class="p">{</span><span class="na">gmap</span><span class="p">:</span><span class="dl">"</span><span class="s2">h55E65hXhtCyxTKfA</span><span class="dl">"</span><span class="p">,</span> <span class="na">la</span><span class="p">:</span><span class="o">-</span><span class="mf">6.2091590</span><span class="p">,</span> <span class="na">lo</span><span class="p">:</span><span class="mf">106.8600711</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span><span class="dl">"</span><span class="s2">Pondok Jati</span><span class="dl">"</span><span class="p">,</span> <span class="p">},</span>
+	<span class="na">KMT</span><span class="p">:</span>  <span class="p">{</span><span class="na">gmap</span><span class="p">:</span><span class="dl">"</span><span class="s2">zH7rKyT1c3aZ8bh59</span><span class="dl">"</span><span class="p">,</span> <span class="na">la</span><span class="p">:</span><span class="o">-</span><span class="mf">6.1938028</span><span class="p">,</span> <span class="na">lo</span><span class="p">:</span><span class="mf">106.8215123</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span><span class="dl">"</span><span class="s2">Kramat</span><span class="dl">"</span><span class="p">,</span> <span class="p">},</span>
+	<span class="na">GST</span><span class="p">:</span>  <span class="p">{</span><span class="na">gmap</span><span class="p">:</span><span class="dl">"</span><span class="s2">AYKg6CrDnqefxHmBA</span><span class="dl">"</span><span class="p">,</span> <span class="na">la</span><span class="p">:</span><span class="o">-</span><span class="mf">6.1860203</span><span class="p">,</span> <span class="na">lo</span><span class="p">:</span><span class="mf">106.8506583</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span><span class="dl">"</span><span class="s2">Gang Sentiong</span><span class="dl">"</span><span class="p">,</span> <span class="p">},</span>
+	<span class="na">PSE</span><span class="p">:</span>  <span class="p">{</span><span class="na">gmap</span><span class="p">:</span><span class="dl">"</span><span class="s2">7omGiWtnJ7NXDtLe7</span><span class="dl">"</span><span class="p">,</span> <span class="na">la</span><span class="p">:</span><span class="o">-</span><span class="mf">6.1747891</span><span class="p">,</span> <span class="na">lo</span><span class="p">:</span><span class="mf">106.8442321</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span><span class="dl">"</span><span class="s2">Pasar Senen</span><span class="dl">"</span><span class="p">,</span> <span class="p">},</span>
+	<span class="na">KMO</span><span class="p">:</span>  <span class="p">{</span><span class="na">gmap</span><span class="p">:</span><span class="dl">"</span><span class="s2">WQuwSDtYuKttQidp8</span><span class="dl">"</span><span class="p">,</span> <span class="na">la</span><span class="p">:</span><span class="o">-</span><span class="mf">6.1618700</span><span class="p">,</span> <span class="na">lo</span><span class="p">:</span><span class="mf">106.8415700</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span><span class="dl">"</span><span class="s2">Kemayoran</span><span class="dl">"</span><span class="p">,</span> <span class="p">},</span>
+	<span class="na">RJW</span><span class="p">:</span>  <span class="p">{</span><span class="na">gmap</span><span class="p">:</span><span class="dl">"</span><span class="s2">of6GskMbDJciaJFn7</span><span class="dl">"</span><span class="p">,</span> <span class="na">la</span><span class="p">:</span><span class="o">-</span><span class="mf">6.1450470</span><span class="p">,</span> <span class="na">lo</span><span class="p">:</span><span class="mf">106.8367089</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span><span class="dl">"</span><span class="s2">Rajawali</span><span class="dl">"</span><span class="p">,</span> <span class="p">},</span>
+	<span class="na">DU</span><span class="p">:</span>   <span class="p">{</span><span class="na">gmap</span><span class="p">:</span><span class="dl">"</span><span class="s2">wXrGfEQeNjUHpBuQ7</span><span class="dl">"</span><span class="p">,</span> <span class="na">la</span><span class="p">:</span><span class="o">-</span><span class="mf">6.1552740</span><span class="p">,</span> <span class="na">lo</span><span class="p">:</span><span class="mf">106.8012554</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span><span class="dl">"</span><span class="s2">Duri</span><span class="dl">"</span><span class="p">,</span> <span class="p">},</span>
+	<span class="na">GGL</span><span class="p">:</span>  <span class="p">{</span><span class="na">gmap</span><span class="p">:</span><span class="dl">"</span><span class="s2">uGYD8B3f7Vu6HZ5C7</span><span class="dl">"</span><span class="p">,</span> <span class="na">la</span><span class="p">:</span><span class="o">-</span><span class="mf">6.1620267</span><span class="p">,</span> <span class="na">lo</span><span class="p">:</span><span class="mf">106.7893716</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span><span class="dl">"</span><span class="s2">Grogol</span><span class="dl">"</span><span class="p">,</span> <span class="p">},</span>
+	<span class="na">PSG</span><span class="p">:</span>  <span class="p">{</span><span class="na">gmap</span><span class="p">:</span><span class="dl">"</span><span class="s2">1MYo3mPrJsZ4XseFA</span><span class="dl">"</span><span class="p">,</span> <span class="na">la</span><span class="p">:</span><span class="o">-</span><span class="mf">6.1612657</span><span class="p">,</span> <span class="na">lo</span><span class="p">:</span><span class="mf">106.7714667</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span><span class="dl">"</span><span class="s2">Pesing</span><span class="dl">"</span><span class="p">,</span> <span class="p">},</span>
+	<span class="na">TKO</span><span class="p">:</span>  <span class="p">{</span><span class="na">gmap</span><span class="p">:</span><span class="dl">"</span><span class="s2">wx1LS5yr4nspTNcP9</span><span class="dl">"</span><span class="p">,</span> <span class="na">la</span><span class="p">:</span><span class="o">-</span><span class="mf">6.1585400</span><span class="p">,</span> <span class="na">lo</span><span class="p">:</span><span class="mf">106.7213411</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span><span class="dl">"</span><span class="s2">Taman Kota</span><span class="dl">"</span><span class="p">,</span> <span class="p">},</span>
+	<span class="na">BOI</span><span class="p">:</span>  <span class="p">{</span><span class="na">gmap</span><span class="p">:</span><span class="dl">"</span><span class="s2">7Y3CzQ33gfiHASdG6</span><span class="dl">"</span><span class="p">,</span> <span class="na">la</span><span class="p">:</span><span class="o">-</span><span class="mf">6.1601350</span><span class="p">,</span> <span class="na">lo</span><span class="p">:</span><span class="mf">106.7362047</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span><span class="dl">"</span><span class="s2">Bojong Indah</span><span class="dl">"</span><span class="p">,</span> <span class="p">},</span>
+	<span class="na">RW</span><span class="p">:</span>   <span class="p">{</span><span class="na">gmap</span><span class="p">:</span><span class="dl">"</span><span class="s2">xh7MBDR74nPikM8S9</span><span class="dl">"</span><span class="p">,</span> <span class="na">la</span><span class="p">:</span><span class="o">-</span><span class="mf">6.1627496</span><span class="p">,</span> <span class="na">lo</span><span class="p">:</span><span class="mf">106.7148621</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span><span class="dl">"</span><span class="s2">Rawa Buaya</span><span class="dl">"</span><span class="p">,</span> <span class="p">},</span>
+	<span class="na">KDS</span><span class="p">:</span>  <span class="p">{</span><span class="na">gmap</span><span class="p">:</span><span class="dl">"</span><span class="s2">VF6XhTtFyF8qqUJd9</span><span class="dl">"</span><span class="p">,</span> <span class="na">la</span><span class="p">:</span><span class="o">-</span><span class="mf">6.1660731</span><span class="p">,</span> <span class="na">lo</span><span class="p">:</span><span class="mf">106.7038006</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span><span class="dl">"</span><span class="s2">Kalideres</span><span class="dl">"</span><span class="p">,</span> <span class="p">},</span>
+	<span class="na">PI</span><span class="p">:</span>   <span class="p">{</span><span class="na">gmap</span><span class="p">:</span><span class="dl">"</span><span class="s2">3BjmujNuq8fqd19c9</span><span class="dl">"</span><span class="p">,</span> <span class="na">la</span><span class="p">:</span><span class="o">-</span><span class="mf">6.1699387</span><span class="p">,</span> <span class="na">lo</span><span class="p">:</span><span class="mf">106.6800057</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span><span class="dl">"</span><span class="s2">Poris</span><span class="dl">"</span><span class="p">,</span> <span class="p">},</span>
+	<span class="na">BPR</span><span class="p">:</span>  <span class="p">{</span><span class="na">gmap</span><span class="p">:</span><span class="dl">"</span><span class="s2">zjDgBHZf2R77CNBm8</span><span class="dl">"</span><span class="p">,</span> <span class="na">la</span><span class="p">:</span><span class="o">-</span><span class="mf">6.1717870</span><span class="p">,</span> <span class="na">lo</span><span class="p">:</span><span class="mf">106.6653337</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span><span class="dl">"</span><span class="s2">Batuceper</span><span class="dl">"</span><span class="p">,</span> <span class="p">},</span>
+	<span class="na">TTI</span><span class="p">:</span>  <span class="p">{</span><span class="na">gmap</span><span class="p">:</span><span class="dl">"</span><span class="s2">bizHhndZb8i7JVZ27</span><span class="dl">"</span><span class="p">,</span> <span class="na">la</span><span class="p">:</span><span class="o">-</span><span class="mf">6.1754527</span><span class="p">,</span> <span class="na">lo</span><span class="p">:</span><span class="mf">106.6454906</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span><span class="dl">"</span><span class="s2">Tanah Tinggi</span><span class="dl">"</span><span class="p">,</span> <span class="p">},</span>
+	<span class="na">TNG</span><span class="p">:</span>  <span class="p">{</span><span class="na">gmap</span><span class="p">:</span><span class="dl">"</span><span class="s2">yDn1Bf2Fkwpz9bdc6</span><span class="dl">"</span><span class="p">,</span> <span class="na">la</span><span class="p">:</span><span class="o">-</span><span class="mf">6.1768038</span><span class="p">,</span> <span class="na">lo</span><span class="p">:</span><span class="mf">106.6152237</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span><span class="dl">"</span><span class="s2">Tangerang</span><span class="dl">"</span><span class="p">,</span> <span class="p">},</span>
+	<span class="na">SUD</span><span class="p">:</span>  <span class="p">{</span><span class="na">gmap</span><span class="p">:</span><span class="dl">"</span><span class="s2">kmw913gjDvR1Mzxa6</span><span class="dl">"</span><span class="p">,</span> <span class="na">la</span><span class="p">:</span><span class="o">-</span><span class="mf">6.2024167</span><span class="p">,</span> <span class="na">lo</span><span class="p">:</span><span class="mf">106.8234654</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span><span class="dl">"</span><span class="s2">Sudirman</span><span class="dl">"</span><span class="p">,</span> <span class="p">},</span>
+	<span class="na">KAT</span><span class="p">:</span>  <span class="p">{</span><span class="na">gmap</span><span class="p">:</span><span class="dl">"</span><span class="s2">v6PyPL8Ss6Lnty2k7</span><span class="dl">"</span><span class="p">,</span> <span class="na">la</span><span class="p">:</span><span class="o">-</span><span class="mf">6.2008350</span><span class="p">,</span> <span class="na">lo</span><span class="p">:</span><span class="mf">106.8158467</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span><span class="dl">"</span><span class="s2">Karet</span><span class="dl">"</span><span class="p">,</span> <span class="p">},</span>
+	<span class="na">MPG</span><span class="p">:</span>  <span class="p">{</span><span class="na">gmap</span><span class="p">:</span><span class="dl">"</span><span class="s2">CN3LdNZQmHBFZqtF7</span><span class="dl">"</span><span class="p">,</span> <span class="na">la</span><span class="p">:</span><span class="o">-</span><span class="mf">6.2060495</span><span class="p">,</span> <span class="na">lo</span><span class="p">:</span><span class="mf">106.8378906</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span><span class="dl">"</span><span class="s2">Mampang</span><span class="dl">"</span><span class="p">,</span> <span class="p">},</span>
+	<span class="na">THB</span><span class="p">:</span>  <span class="p">{</span><span class="na">gmap</span><span class="p">:</span><span class="dl">"</span><span class="s2">B78J523EpkKseCjn6</span><span class="dl">"</span><span class="p">,</span> <span class="na">la</span><span class="p">:</span><span class="o">-</span><span class="mf">6.1856968</span><span class="p">,</span> <span class="na">lo</span><span class="p">:</span><span class="mf">106.8086649</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span><span class="dl">"</span><span class="s2">Tanahabang</span><span class="dl">"</span><span class="p">,</span> <span class="p">},</span>
+	<span class="na">PLM</span><span class="p">:</span>  <span class="p">{</span><span class="na">gmap</span><span class="p">:</span><span class="dl">"</span><span class="s2">7mt6GDcvqQyzrLzB6</span><span class="dl">"</span><span class="p">,</span> <span class="na">la</span><span class="p">:</span><span class="o">-</span><span class="mf">6.2074111</span><span class="p">,</span> <span class="na">lo</span><span class="p">:</span><span class="mf">106.7974382</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span><span class="dl">"</span><span class="s2">Palmerah</span><span class="dl">"</span><span class="p">,</span> <span class="p">},</span>
+	<span class="na">KBY</span><span class="p">:</span>  <span class="p">{</span><span class="na">gmap</span><span class="p">:</span><span class="dl">"</span><span class="s2">TKUzBSSoUPDLYC4K6</span><span class="dl">"</span><span class="p">,</span> <span class="na">la</span><span class="p">:</span><span class="o">-</span><span class="mf">6.2372475</span><span class="p">,</span> <span class="na">lo</span><span class="p">:</span><span class="mf">106.7825225</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span><span class="dl">"</span><span class="s2">Kebayoran</span><span class="dl">"</span><span class="p">,</span> <span class="p">},</span>
+	<span class="na">PDB</span><span class="p">:</span>  <span class="p">{</span><span class="na">gmap</span><span class="p">:</span><span class="dl">"</span><span class="s2">wXpgWDdQsdMBTjMQA</span><span class="dl">"</span><span class="p">,</span> <span class="na">la</span><span class="p">:</span><span class="o">-</span><span class="mf">6.2563450</span><span class="p">,</span> <span class="na">lo</span><span class="p">:</span><span class="mf">106.7635690</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span><span class="dl">"</span><span class="s2">Pondok Betung</span><span class="dl">"</span><span class="p">,</span> <span class="p">},</span>
+	<span class="na">PDJ</span><span class="p">:</span>  <span class="p">{</span><span class="na">gmap</span><span class="p">:</span><span class="dl">"</span><span class="s2">PKeWP1ymJMDXbX1E8</span><span class="dl">"</span><span class="p">,</span> <span class="na">la</span><span class="p">:</span><span class="o">-</span><span class="mf">6.2763674</span><span class="p">,</span> <span class="na">lo</span><span class="p">:</span><span class="mf">106.7099001</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span><span class="dl">"</span><span class="s2">Pondok Ranji</span><span class="dl">"</span><span class="p">,</span> <span class="p">},</span>
+	<span class="na">JRU</span><span class="p">:</span>  <span class="p">{</span><span class="na">gmap</span><span class="p">:</span><span class="dl">"</span><span class="s2">csg7dNTLXoXnYhUc6</span><span class="dl">"</span><span class="p">,</span> <span class="na">la</span><span class="p">:</span><span class="o">-</span><span class="mf">6.2887778</span><span class="p">,</span> <span class="na">lo</span><span class="p">:</span><span class="mf">106.7269200</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span><span class="dl">"</span><span class="s2">Jurumangu</span><span class="dl">"</span><span class="p">,</span> <span class="p">},</span>
+	<span class="na">SDM</span><span class="p">:</span>  <span class="p">{</span><span class="na">gmap</span><span class="p">:</span><span class="dl">"</span><span class="s2">w2mJ5GMUjaUxF6ry5</span><span class="dl">"</span><span class="p">,</span> <span class="na">la</span><span class="p">:</span><span class="o">-</span><span class="mf">6.2974329</span><span class="p">,</span> <span class="na">lo</span><span class="p">:</span><span class="mf">106.7103651</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span><span class="dl">"</span><span class="s2">Sudimara</span><span class="dl">"</span><span class="p">,</span> <span class="p">},</span>
+	<span class="na">RU</span><span class="p">:</span>   <span class="p">{</span><span class="na">gmap</span><span class="p">:</span><span class="dl">"</span><span class="s2">Q5eQ24p2r1h3N4YN6</span><span class="dl">"</span><span class="p">,</span> <span class="na">la</span><span class="p">:</span><span class="o">-</span><span class="mf">6.3150197</span><span class="p">,</span> <span class="na">lo</span><span class="p">:</span><span class="mf">106.6740118</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span><span class="dl">"</span><span class="s2">Rawabuntu</span><span class="dl">"</span><span class="p">,</span> <span class="p">},</span>
+	<span class="na">SRP</span><span class="p">:</span>  <span class="p">{</span><span class="na">gmap</span><span class="p">:</span><span class="dl">"</span><span class="s2">NE6JY1Y1DVsRWLhv7</span><span class="dl">"</span><span class="p">,</span> <span class="na">la</span><span class="p">:</span><span class="o">-</span><span class="mf">6.3200539</span><span class="p">,</span> <span class="na">lo</span><span class="p">:</span><span class="mf">106.6634312</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span><span class="dl">"</span><span class="s2">Serpong</span><span class="dl">"</span><span class="p">,</span> <span class="p">},</span>
+	<span class="na">CSK</span><span class="p">:</span>  <span class="p">{</span><span class="na">gmap</span><span class="p">:</span><span class="dl">"</span><span class="s2">hsXtcnuLpdTHhsVK8</span><span class="dl">"</span><span class="p">,</span> <span class="na">la</span><span class="p">:</span><span class="o">-</span><span class="mf">6.3252912</span><span class="p">,</span> <span class="na">lo</span><span class="p">:</span><span class="mf">106.6381084</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span><span class="dl">"</span><span class="s2">Cisauk</span><span class="dl">"</span><span class="p">,</span> <span class="p">},</span>
+	<span class="na">CCY</span><span class="p">:</span>  <span class="p">{</span><span class="na">gmap</span><span class="p">:</span><span class="dl">"</span><span class="s2">ZsNYJjW5S7p66ntAA</span><span class="dl">"</span><span class="p">,</span> <span class="na">la</span><span class="p">:</span><span class="o">-</span><span class="mf">6.3295787</span><span class="p">,</span> <span class="na">lo</span><span class="p">:</span><span class="mf">106.6167364</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span><span class="dl">"</span><span class="s2">Cicayur</span><span class="dl">"</span><span class="p">,</span> <span class="p">},</span>
+	<span class="na">PRP</span><span class="p">:</span>  <span class="p">{</span><span class="na">gmap</span><span class="p">:</span><span class="dl">"</span><span class="s2">bBNqqw79GkngkVjs9</span><span class="dl">"</span><span class="p">,</span> <span class="na">la</span><span class="p">:</span><span class="o">-</span><span class="mf">6.3442188</span><span class="p">,</span> <span class="na">lo</span><span class="p">:</span><span class="mf">106.5677077</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span><span class="dl">"</span><span class="s2">Parungpanjang</span><span class="dl">"</span><span class="p">,</span> <span class="p">},</span>
+	<span class="na">CKP</span><span class="p">:</span>  <span class="p">{</span><span class="na">gmap</span><span class="p">:</span><span class="dl">"</span><span class="s2">oQQSBSrWtoKpFyEt8</span><span class="dl">"</span><span class="p">,</span> <span class="na">la</span><span class="p">:</span><span class="o">-</span><span class="mf">6.3564370</span><span class="p">,</span> <span class="na">lo</span><span class="p">:</span><span class="mf">106.5297690</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span><span class="dl">"</span><span class="s2">Cilangkap</span><span class="dl">"</span><span class="p">,</span> <span class="p">},</span>
+	<span class="na">CJT</span><span class="p">:</span>  <span class="p">{</span><span class="na">gmap</span><span class="p">:</span><span class="dl">"</span><span class="s2">4VEKCpPSrP1Dd9Mm7</span><span class="dl">"</span><span class="p">,</span> <span class="na">la</span><span class="p">:</span><span class="o">-</span><span class="mf">6.3543538</span><span class="p">,</span> <span class="na">lo</span><span class="p">:</span><span class="mf">106.5073881</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span><span class="dl">"</span><span class="s2">Cilejit</span><span class="dl">"</span><span class="p">,</span> <span class="p">},</span>
+	<span class="na">DAR</span><span class="p">:</span>  <span class="p">{</span><span class="na">gmap</span><span class="p">:</span><span class="dl">"</span><span class="s2">tPu6yKrbkJWJZxUk9</span><span class="dl">"</span><span class="p">,</span> <span class="na">la</span><span class="p">:</span><span class="o">-</span><span class="mf">6.3380127</span><span class="p">,</span> <span class="na">lo</span><span class="p">:</span><span class="mf">106.4902432</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span><span class="dl">"</span><span class="s2">Daru</span><span class="dl">"</span><span class="p">,</span> <span class="p">},</span>
+	<span class="na">TEJ</span><span class="p">:</span>  <span class="p">{</span><span class="na">gmap</span><span class="p">:</span><span class="dl">"</span><span class="s2">wrjbYDWQCR4sEkkC8</span><span class="dl">"</span><span class="p">,</span> <span class="na">la</span><span class="p">:</span><span class="o">-</span><span class="mf">6.3272565</span><span class="p">,</span> <span class="na">lo</span><span class="p">:</span><span class="mf">106.4591702</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span><span class="dl">"</span><span class="s2">Tenjo</span><span class="dl">"</span><span class="p">,</span> <span class="p">},</span>
+	<span class="na">TGS</span><span class="p">:</span>  <span class="p">{</span><span class="na">gmap</span><span class="p">:</span><span class="dl">"</span><span class="s2">AirdtDdGjVmB98mN6</span><span class="dl">"</span><span class="p">,</span> <span class="na">la</span><span class="p">:</span><span class="o">-</span><span class="mf">6.3284349</span><span class="p">,</span> <span class="na">lo</span><span class="p">:</span><span class="mf">106.4324708</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span><span class="dl">"</span><span class="s2">Tigaraksa</span><span class="dl">"</span><span class="p">,</span> <span class="p">},</span>
+	<span class="na">CKY</span><span class="p">:</span>  <span class="p">{</span><span class="na">gmap</span><span class="p">:</span><span class="dl">"</span><span class="s2">Z2kix8S4pKdCLfZF9</span><span class="dl">"</span><span class="p">,</span> <span class="na">la</span><span class="p">:</span><span class="o">-</span><span class="mf">6.3348065</span><span class="p">,</span> <span class="na">lo</span><span class="p">:</span><span class="mf">106.4080310</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span><span class="dl">"</span><span class="s2">Cikoya</span><span class="dl">"</span><span class="p">,</span> <span class="p">},</span>
+	<span class="na">MJ</span><span class="p">:</span>   <span class="p">{</span><span class="na">gmap</span><span class="p">:</span><span class="dl">"</span><span class="s2">RmUBCq9hpxHq66mq6</span><span class="dl">"</span><span class="p">,</span> <span class="na">la</span><span class="p">:</span><span class="o">-</span><span class="mf">6.3338860</span><span class="p">,</span> <span class="na">lo</span><span class="p">:</span><span class="mf">106.3941802</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span><span class="dl">"</span><span class="s2">Maja</span><span class="dl">"</span><span class="p">,</span> <span class="p">},</span>
+	<span class="na">CTR</span><span class="p">:</span>  <span class="p">{</span><span class="na">gmap</span><span class="p">:</span><span class="dl">"</span><span class="s2">Tgy2s9A6QwqZmdHT8</span><span class="dl">"</span><span class="p">,</span> <span class="na">la</span><span class="p">:</span><span class="o">-</span><span class="mf">6.3338452</span><span class="p">,</span> <span class="na">lo</span><span class="p">:</span><span class="mf">106.3302688</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span><span class="dl">"</span><span class="s2">Citeras</span><span class="dl">"</span><span class="p">,</span> <span class="p">},</span>
+	<span class="na">RK</span><span class="p">:</span>   <span class="p">{</span><span class="na">gmap</span><span class="p">:</span><span class="dl">"</span><span class="s2">kpuPGe49DFcBfVzSA</span><span class="dl">"</span><span class="p">,</span> <span class="na">la</span><span class="p">:</span><span class="o">-</span><span class="mf">6.3526599</span><span class="p">,</span> <span class="na">lo</span><span class="p">:</span><span class="mf">106.2427967</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span><span class="dl">"</span><span class="s2">Rangkasbitung</span><span class="dl">"</span><span class="p">,</span> <span class="p">},</span>
+	<span class="na">CPN</span><span class="p">:</span>  <span class="p">{</span><span class="na">gmap</span><span class="p">:</span><span class="dl">"</span><span class="s2">kbz7JyBW9zLNuxVJ7</span><span class="dl">"</span><span class="p">,</span> <span class="na">la</span><span class="p">:</span><span class="o">-</span><span class="mf">6.2143352</span><span class="p">,</span> <span class="na">lo</span><span class="p">:</span><span class="mf">106.8844360</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span><span class="dl">"</span><span class="s2">Cipinang</span><span class="dl">"</span><span class="p">,</span> <span class="p">},</span>
+	<span class="na">KLD</span><span class="p">:</span>  <span class="p">{</span><span class="na">gmap</span><span class="p">:</span><span class="dl">"</span><span class="s2">FDyterC5JWrXi4mm8</span><span class="dl">"</span><span class="p">,</span> <span class="na">la</span><span class="p">:</span><span class="o">-</span><span class="mf">6.2135200</span><span class="p">,</span> <span class="na">lo</span><span class="p">:</span><span class="mf">106.8986500</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span><span class="dl">"</span><span class="s2">Klender</span><span class="dl">"</span><span class="p">,</span> <span class="p">},</span>
+	<span class="na">BUA</span><span class="p">:</span>  <span class="p">{</span><span class="na">gmap</span><span class="p">:</span><span class="dl">"</span><span class="s2">uEXuQueR9jKLW7xW9</span><span class="dl">"</span><span class="p">,</span> <span class="na">la</span><span class="p">:</span><span class="o">-</span><span class="mf">6.2182466</span><span class="p">,</span> <span class="na">lo</span><span class="p">:</span><span class="mf">106.9203397</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span><span class="dl">"</span><span class="s2">Buaran</span><span class="dl">"</span><span class="p">,</span> <span class="p">},</span>
+	<span class="na">KLDB</span><span class="p">:</span> <span class="p">{</span><span class="na">gmap</span><span class="p">:</span><span class="dl">"</span><span class="s2">V2SKe5hLcC8oYSEE6</span><span class="dl">"</span><span class="p">,</span> <span class="na">la</span><span class="p">:</span><span class="o">-</span><span class="mf">6.2176471</span><span class="p">,</span> <span class="na">lo</span><span class="p">:</span><span class="mf">106.9401219</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span><span class="dl">"</span><span class="s2">Klender Baru</span><span class="dl">"</span><span class="p">,</span> <span class="p">},</span>
+	<span class="na">CUK</span><span class="p">:</span>  <span class="p">{</span><span class="na">gmap</span><span class="p">:</span><span class="dl">"</span><span class="s2">SeAQp2PzMFQggbXk7</span><span class="dl">"</span><span class="p">,</span> <span class="na">la</span><span class="p">:</span><span class="o">-</span><span class="mf">6.2191346</span><span class="p">,</span> <span class="na">lo</span><span class="p">:</span><span class="mf">106.9523570</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span><span class="dl">"</span><span class="s2">Cakung</span><span class="dl">"</span><span class="p">,</span> <span class="p">},</span>
+	<span class="na">RWB</span><span class="p">:</span>  <span class="p">{</span><span class="na">gmap</span><span class="p">:</span><span class="dl">"</span><span class="s2">1viKG1Yd2TS9tE5C6</span><span class="dl">"</span><span class="p">,</span> <span class="na">la</span><span class="p">:</span><span class="o">-</span><span class="mf">6.2190921</span><span class="p">,</span> <span class="na">lo</span><span class="p">:</span><span class="mf">106.9525856</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span><span class="dl">"</span><span class="s2">Rawabebek</span><span class="dl">"</span><span class="p">,</span> <span class="p">},</span>
+	<span class="na">KRI</span><span class="p">:</span>  <span class="p">{</span><span class="na">gmap</span><span class="p">:</span><span class="dl">"</span><span class="s2">ivoRyMiodGNjtS4E7</span><span class="dl">"</span><span class="p">,</span> <span class="na">la</span><span class="p">:</span><span class="o">-</span><span class="mf">6.2245125</span><span class="p">,</span> <span class="na">lo</span><span class="p">:</span><span class="mf">106.9798459</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span><span class="dl">"</span><span class="s2">Kranji</span><span class="dl">"</span><span class="p">,</span> <span class="p">},</span>
+	<span class="na">BKS</span><span class="p">:</span>  <span class="p">{</span><span class="na">gmap</span><span class="p">:</span><span class="dl">"</span><span class="s2">LsBokmQ8w4RQbChe6</span><span class="dl">"</span><span class="p">,</span> <span class="na">la</span><span class="p">:</span><span class="o">-</span><span class="mf">6.2366208</span><span class="p">,</span> <span class="na">lo</span><span class="p">:</span><span class="mf">106.9992014</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span><span class="dl">"</span><span class="s2">Bekasi</span><span class="dl">"</span><span class="p">,</span> <span class="p">},</span>
+	<span class="na">BKST</span><span class="p">:</span> <span class="p">{</span><span class="na">gmap</span><span class="p">:</span><span class="dl">"</span><span class="s2">jdS3bEHpkDnUAQUbA</span><span class="dl">"</span><span class="p">,</span> <span class="na">la</span><span class="p">:</span><span class="o">-</span><span class="mf">6.2468343</span><span class="p">,</span> <span class="na">lo</span><span class="p">:</span><span class="mf">106.9830389</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span><span class="dl">"</span><span class="s2">Bekasi Timur</span><span class="dl">"</span><span class="p">,</span> <span class="p">},</span>
+	<span class="na">TB</span><span class="p">:</span>   <span class="p">{</span><span class="na">gmap</span><span class="p">:</span><span class="dl">"</span><span class="s2">UXiWYqqoCF4Pnk8U8</span><span class="dl">"</span><span class="p">,</span> <span class="na">la</span><span class="p">:</span><span class="o">-</span><span class="mf">6.2587119</span><span class="p">,</span> <span class="na">lo</span><span class="p">:</span><span class="mf">107.0558270</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span><span class="dl">"</span><span class="s2">Tambung</span><span class="dl">"</span><span class="p">,</span> <span class="p">},</span>
+	<span class="na">CIT</span><span class="p">:</span>  <span class="p">{</span><span class="na">gmap</span><span class="p">:</span><span class="dl">"</span><span class="s2">ZZjJ4cYhSRALFHJQ6</span><span class="dl">"</span><span class="p">,</span> <span class="na">la</span><span class="p">:</span><span class="o">-</span><span class="mf">6.2618862</span><span class="p">,</span> <span class="na">lo</span><span class="p">:</span><span class="mf">107.0836313</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span><span class="dl">"</span><span class="s2">Cibitung</span><span class="dl">"</span><span class="p">,</span> <span class="p">},</span>
+	<span class="na">MTM</span><span class="p">:</span>  <span class="p">{</span><span class="na">gmap</span><span class="p">:</span><span class="dl">"</span><span class="s2">K2gpStVhScdAfPndA</span><span class="dl">"</span><span class="p">,</span> <span class="na">la</span><span class="p">:</span><span class="o">-</span><span class="mf">6.2571524</span><span class="p">,</span> <span class="na">lo</span><span class="p">:</span><span class="mf">107.0936672</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span><span class="dl">"</span><span class="s2">Metland Telaga Murni</span><span class="dl">"</span><span class="p">,</span> <span class="p">},</span>
+	<span class="na">CKR</span><span class="p">:</span>  <span class="p">{</span><span class="na">gmap</span><span class="p">:</span><span class="dl">"</span><span class="s2">iRXetk3PS2ncVuAn6</span><span class="dl">"</span><span class="p">,</span> <span class="na">la</span><span class="p">:</span><span class="o">-</span><span class="mf">6.2553738</span><span class="p">,</span> <span class="na">lo</span><span class="p">:</span><span class="mf">107.1450583</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span><span class="dl">"</span><span class="s2">Cikarang</span><span class="dl">"</span><span class="p">,</span> <span class="p">},</span>
+	<span class="na">AK</span><span class="p">:</span>   <span class="p">{</span><span class="na">gmap</span><span class="p">:</span><span class="dl">"</span><span class="s2">9xj48bECuUqyRTNL9</span><span class="dl">"</span><span class="p">,</span> <span class="na">la</span><span class="p">:</span><span class="o">-</span><span class="mf">6.1446789</span><span class="p">,</span> <span class="na">lo</span><span class="p">:</span><span class="mf">106.7986757</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span><span class="dl">"</span><span class="s2">Angke</span><span class="dl">"</span><span class="p">,</span> <span class="p">},</span>
+<span class="p">};</span>
+
+
+
+<span class="c1">// Transform to (x, y) from (la, lo)</span>
+<span class="kd">function</span> <span class="nx">transformToXY</span><span class="p">()</span> <span class="p">{</span>
+	<span class="kd">var</span> <span class="nx">la</span> <span class="o">=</span> <span class="nx">arguments</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+	<span class="kd">var</span> <span class="nx">lo</span> <span class="o">=</span> <span class="nx">arguments</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+	
+	<span class="c1">// Already in degree while checked with Google Maps</span>
+	<span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="mf">111.320</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">cos</span><span class="p">(</span><span class="nx">la</span><span class="p">)</span> <span class="o">*</span> <span class="nx">lo</span><span class="p">;</span>
+	<span class="kd">var</span> <span class="nx">y</span> <span class="o">=</span> <span class="mf">110.574</span> <span class="o">*</span> <span class="nx">la</span><span class="p">;</span>
+	
+	<span class="k">return</span> <span class="p">{</span><span class="na">x</span><span class="p">:</span> <span class="nx">x</span><span class="p">,</span> <span class="na">y</span><span class="p">:</span> <span class="nx">y</span><span class="p">};</span>
+<span class="p">}</span>
+
+
+<span class="c1">// Calculate average of la and lo as center</span>
+<span class="kd">function</span> <span class="nx">getCenter</span><span class="p">()</span> <span class="p">{</span>
+	<span class="kd">var</span> <span class="nx">lac</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+	<span class="kd">var</span> <span class="nx">loc</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+	<span class="kd">var</span> <span class="nx">N</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+	<span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">k</span> <span class="k">in</span> <span class="nx">StationInfoPTKCI</span><span class="p">)</span> <span class="p">{</span>
+		<span class="nx">lac</span> <span class="o">+=</span> <span class="nx">StationInfoPTKCI</span><span class="p">[</span><span class="nx">k</span><span class="p">].</span><span class="nx">la</span><span class="p">;</span>
+		<span class="nx">loc</span> <span class="o">+=</span> <span class="nx">StationInfoPTKCI</span><span class="p">[</span><span class="nx">k</span><span class="p">].</span><span class="nx">lo</span><span class="p">;</span>
+		<span class="nx">N</span><span class="o">++</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="nx">lac</span> <span class="o">/=</span> <span class="nx">N</span><span class="p">;</span>
+	<span class="nx">loc</span> <span class="o">/=</span> <span class="nx">N</span><span class="p">;</span>
+	<span class="k">return</span> <span class="p">{</span><span class="na">la</span><span class="p">:</span> <span class="nx">lac</span><span class="p">,</span> <span class="na">lo</span><span class="p">:</span> <span class="nx">loc</span><span class="p">};</span>
+<span class="p">}</span>
+
+
+<span class="c1">// Class of Station</span>
+<span class="kd">class</span> <span class="nx">Station</span> <span class="p">{</span>
+	<span class="kd">constructor</span><span class="p">()</span> <span class="p">{</span>
+		<span class="k">if</span><span class="p">(</span><span class="nx">arguments</span><span class="p">.</span><span class="nx">length</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+			<span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="dl">"</span><span class="s2">Station must provide stationID</span><span class="dl">"</span><span class="p">);</span>
+		<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+			<span class="k">if</span><span class="p">(</span><span class="nx">arguments</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">in</span> <span class="nx">StationInfoPTKCI</span><span class="p">)</span> <span class="p">{</span>
+				<span class="k">this</span><span class="p">.</span><span class="nx">id</span> <span class="o">=</span> <span class="nx">arguments</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+				<span class="kd">var</span> <span class="nx">s</span> <span class="o">=</span> <span class="nx">StationInfoPTKCI</span><span class="p">[</span><span class="k">this</span><span class="p">.</span><span class="nx">id</span><span class="p">];</span>
+				<span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">s</span><span class="p">.</span><span class="nx">name</span><span class="p">;</span>
+				<span class="kd">var</span> <span class="nx">la</span> <span class="o">=</span> <span class="nx">s</span><span class="p">.</span><span class="nx">la</span><span class="p">;</span>
+				<span class="kd">var</span> <span class="nx">lo</span> <span class="o">=</span> <span class="nx">s</span><span class="p">.</span><span class="nx">lo</span><span class="p">;</span>
+				<span class="kd">var</span> <span class="nx">c</span> <span class="o">=</span> <span class="nx">getCenter</span><span class="p">();</span>
+				<span class="kd">var</span> <span class="nx">r</span> <span class="o">=</span> <span class="nx">transformToXY</span><span class="p">(</span><span class="nx">la</span> <span class="o">-</span> <span class="nx">c</span><span class="p">.</span><span class="nx">la</span><span class="p">,</span> <span class="nx">lo</span> <span class="o">-</span> <span class="nx">c</span><span class="p">.</span><span class="nx">lo</span><span class="p">);</span>
+				<span class="k">this</span><span class="p">.</span><span class="nx">position</span> <span class="o">=</span> <span class="p">{</span><span class="na">x</span><span class="p">:</span> <span class="nx">r</span><span class="p">.</span><span class="nx">x</span><span class="p">,</span> <span class="na">y</span><span class="p">:</span> <span class="nx">r</span><span class="p">.</span><span class="nx">y</span><span class="p">};</span>
+			<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+				<span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">id</span> <span class="o">+</span> <span class="dl">"</span><span class="s2"> station does not exist</span><span class="dl">"</span><span class="p">);</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+
+
+<span class="c1">// Create array for all stations</span>
+<span class="kd">var</span> <span class="nx">stations</span> <span class="o">=</span> <span class="p">[];</span>
+<span class="k">for</span><span class="p">(</span><span class="nx">id</span> <span class="k">in</span> <span class="nx">StationInfoPTKCI</span><span class="p">)</span> <span class="p">{</span>
+	<span class="kd">var</span> <span class="nx">s</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Station</span><span class="p">(</span><span class="nx">id</span><span class="p">);</span>
+	<span class="nx">stations</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">s</span><span class="p">);</span>
+<span class="p">}</span>
+
+
+<span class="c1">// Calculate range of positition</span>
+<span class="kd">function</span> <span class="nx">getXYRange</span><span class="p">()</span> <span class="p">{</span>
+	<span class="kd">var</span> <span class="nx">s</span> <span class="o">=</span> <span class="nx">arguments</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+	<span class="kd">var</span> <span class="nx">N</span> <span class="o">=</span> <span class="nx">s</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+	
+	<span class="kd">var</span> <span class="nx">xmin</span> <span class="o">=</span> <span class="nx">s</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">position</span><span class="p">.</span><span class="nx">x</span><span class="p">;</span>
+	<span class="kd">var</span> <span class="nx">xmax</span> <span class="o">=</span> <span class="nx">s</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">position</span><span class="p">.</span><span class="nx">x</span><span class="p">;</span>
+	<span class="kd">var</span> <span class="nx">ymin</span> <span class="o">=</span> <span class="nx">s</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">position</span><span class="p">.</span><span class="nx">y</span><span class="p">;</span>
+	<span class="kd">var</span> <span class="nx">ymax</span> <span class="o">=</span> <span class="nx">s</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">position</span><span class="p">.</span><span class="nx">y</span><span class="p">;</span>
+	
+	<span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">N</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+		<span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="nx">s</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">position</span><span class="p">.</span><span class="nx">x</span><span class="p">;</span>
+		<span class="k">if</span><span class="p">(</span><span class="nx">x</span> <span class="o">&lt;</span> <span class="nx">xmin</span><span class="p">)</span> <span class="nx">xmin</span> <span class="o">=</span> <span class="nx">x</span><span class="p">;</span>
+		<span class="k">if</span><span class="p">(</span><span class="nx">x</span> <span class="o">&gt;</span> <span class="nx">xmax</span><span class="p">)</span> <span class="nx">xmax</span> <span class="o">=</span> <span class="nx">x</span><span class="p">;</span>
+
+		<span class="kd">var</span> <span class="nx">y</span> <span class="o">=</span> <span class="nx">s</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">position</span><span class="p">.</span><span class="nx">y</span><span class="p">;</span>
+		<span class="k">if</span><span class="p">(</span><span class="nx">y</span> <span class="o">&lt;</span> <span class="nx">ymin</span><span class="p">)</span> <span class="nx">ymin</span> <span class="o">=</span> <span class="nx">y</span><span class="p">;</span>
+		<span class="k">if</span><span class="p">(</span><span class="nx">y</span> <span class="o">&gt;</span> <span class="nx">xmax</span><span class="p">)</span> <span class="nx">ymax</span> <span class="o">=</span> <span class="nx">y</span><span class="p">;</span>
+	<span class="p">}</span>
+	
+	<span class="kd">var</span> <span class="nx">xrange</span> <span class="o">=</span> <span class="nx">xmax</span> <span class="o">-</span> <span class="nx">xmin</span><span class="p">;</span>
+	<span class="kd">var</span> <span class="nx">yrange</span> <span class="o">=</span> <span class="nx">ymax</span> <span class="o">-</span> <span class="nx">ymin</span><span class="p">;</span>
+	
+	<span class="kd">var</span> <span class="nx">padx</span> <span class="o">=</span> <span class="mf">0.1</span> <span class="o">*</span> <span class="nx">xrange</span><span class="p">;</span>
+	<span class="kd">var</span> <span class="nx">pady</span> <span class="o">=</span> <span class="mf">0.1</span> <span class="o">*</span> <span class="nx">yrange</span><span class="p">;</span>
+	
+	<span class="nx">xmax</span> <span class="o">+=</span> <span class="nx">padx</span><span class="p">;</span>
+	<span class="nx">xmin</span> <span class="o">-=</span> <span class="nx">padx</span><span class="p">;</span>
+	
+	<span class="nx">ymax</span> <span class="o">+=</span> <span class="nx">pady</span><span class="p">;</span>
+	<span class="nx">ymin</span> <span class="o">-=</span> <span class="nx">pady</span><span class="p">;</span>
+	
+	<span class="k">return</span> <span class="p">{</span><span class="na">xmin</span><span class="p">:</span> <span class="nx">xmin</span><span class="p">,</span> <span class="na">ymin</span><span class="p">:</span> <span class="nx">ymin</span><span class="p">,</span> <span class="na">xmax</span><span class="p">:</span> <span class="nx">xmax</span><span class="p">,</span> <span class="na">ymax</span><span class="p">:</span> <span class="nx">ymax</span><span class="p">};</span>
+<span class="p">}</span>
+
+
+<span class="c1">// Set global coordinates</span>
+<span class="kd">var</span> <span class="nx">coord</span> <span class="o">=</span> <span class="nx">getXYRange</span><span class="p">(</span><span class="nx">stations</span><span class="p">);</span>
+<span class="nx">coord</span><span class="p">.</span><span class="nx">dx</span> <span class="o">=</span> <span class="nx">coord</span><span class="p">.</span><span class="nx">xmax</span> <span class="o">-</span> <span class="nx">coord</span><span class="p">.</span><span class="nx">xmin</span><span class="p">;</span>
+<span class="nx">coord</span><span class="p">.</span><span class="nx">dy</span> <span class="o">=</span> <span class="nx">coord</span><span class="p">.</span><span class="nx">ymax</span> <span class="o">-</span> <span class="nx">coord</span><span class="p">.</span><span class="nx">ymin</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">zoom</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">XMIN</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">XMAX</span> <span class="o">=</span> <span class="nx">XMIN</span> <span class="o">+</span> <span class="nx">zoom</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">round</span><span class="p">(</span><span class="nx">coord</span><span class="p">.</span><span class="nx">dx</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">YMAX</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">YMIN</span> <span class="o">=</span> <span class="nx">YMAX</span> <span class="o">+</span> <span class="nx">zoom</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">round</span><span class="p">(</span><span class="nx">coord</span><span class="p">.</span><span class="nx">dy</span><span class="p">);</span>
+
+
+<span class="c1">// Create canvas</span>
+<span class="kd">var</span> <span class="nx">can</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="dl">"</span><span class="s2">canvas</span><span class="dl">"</span><span class="p">);</span>
+<span class="nx">can</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="nx">XMAX</span> <span class="o">-</span> <span class="nx">XMIN</span><span class="p">;</span>
+<span class="nx">can</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="nx">YMIN</span> <span class="o">-</span> <span class="nx">YMAX</span><span class="p">;</span>
+<span class="nx">can</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="nx">can</span><span class="p">.</span><span class="nx">width</span> <span class="o">+</span> <span class="dl">"</span><span class="s2">px</span><span class="dl">"</span><span class="p">;</span>
+<span class="nx">can</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="nx">can</span><span class="p">.</span><span class="nx">height</span> <span class="o">+</span> <span class="dl">"</span><span class="s2">px</span><span class="dl">"</span><span class="p">;</span>
+<span class="nx">can</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">background</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">#fcfcfc</span><span class="dl">"</span><span class="p">;</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="nx">can</span><span class="p">);</span>
+
+
+<span class="kd">function</span> <span class="nx">transformX</span><span class="p">()</span> <span class="p">{</span>
+	<span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="nx">arguments</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+	<span class="kd">var</span> <span class="nx">X</span> <span class="o">=</span> <span class="p">(</span><span class="nx">x</span> <span class="o">-</span> <span class="nx">coord</span><span class="p">.</span><span class="nx">xmin</span><span class="p">)</span> <span class="o">/</span> <span class="nx">coord</span><span class="p">.</span><span class="nx">dx</span> <span class="o">*</span> <span class="p">(</span><span class="nx">XMAX</span> <span class="o">-</span> <span class="nx">XMIN</span><span class="p">)</span> <span class="o">+</span> <span class="nx">XMIN</span><span class="p">;</span>
+	<span class="k">return</span> <span class="nx">X</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">transformY</span><span class="p">()</span> <span class="p">{</span>
+	<span class="kd">var</span> <span class="nx">y</span> <span class="o">=</span> <span class="nx">arguments</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+	<span class="kd">var</span> <span class="nx">Y</span> <span class="o">=</span> <span class="p">(</span><span class="nx">y</span> <span class="o">-</span> <span class="nx">coord</span><span class="p">.</span><span class="nx">ymin</span><span class="p">)</span> <span class="o">/</span> <span class="nx">coord</span><span class="p">.</span><span class="nx">dy</span> <span class="o">*</span> <span class="p">(</span><span class="nx">YMAX</span> <span class="o">-</span> <span class="nx">YMIN</span><span class="p">)</span> <span class="o">+</span> <span class="nx">YMIN</span><span class="p">;</span>
+	<span class="k">return</span> <span class="nx">Y</span><span class="p">;</span>
+<span class="p">}</span>
+
+
+<span class="c1">// Draw all stations</span>
+<span class="kd">function</span> <span class="nx">drawStation</span><span class="p">()</span> <span class="p">{</span>
+	<span class="kd">var</span> <span class="nx">s</span> <span class="o">=</span> <span class="nx">arguments</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+	<span class="kd">var</span> <span class="nx">c</span> <span class="o">=</span> <span class="nx">arguments</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+	<span class="kd">var</span> <span class="nx">N</span> <span class="o">=</span> <span class="nx">s</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+	
+	<span class="kd">var</span> <span class="nx">cx</span> <span class="o">=</span> <span class="nx">can</span><span class="p">.</span><span class="nx">getContext</span><span class="p">(</span><span class="dl">"</span><span class="s2">2d</span><span class="dl">"</span><span class="p">);</span>
+	
+	<span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">N</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+		<span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="nx">s</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">position</span><span class="p">.</span><span class="nx">x</span><span class="p">;</span>
+		<span class="kd">var</span> <span class="nx">y</span> <span class="o">=</span> <span class="nx">s</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">position</span><span class="p">.</span><span class="nx">y</span><span class="p">;</span>
+		
+		<span class="kd">var</span> <span class="nx">X</span> <span class="o">=</span> <span class="nx">transformX</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span>
+		<span class="kd">var</span> <span class="nx">Y</span> <span class="o">=</span> <span class="nx">transformY</span><span class="p">(</span><span class="nx">y</span><span class="p">);</span>
+		<span class="kd">var</span> <span class="nx">R</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+		
+		<span class="nx">cx</span><span class="p">.</span><span class="nx">beginPath</span><span class="p">();</span>
+		<span class="nx">cx</span><span class="p">.</span><span class="nx">arc</span><span class="p">(</span><span class="nx">X</span><span class="p">,</span> <span class="nx">Y</span><span class="p">,</span> <span class="nx">R</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span><span class="p">);</span>
+		<span class="nx">cx</span><span class="p">.</span><span class="nx">fillStyle</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">#faa</span><span class="dl">"</span><span class="p">;</span>
+		<span class="nx">cx</span><span class="p">.</span><span class="nx">fill</span><span class="p">();</span>
+		<span class="nx">cx</span><span class="p">.</span><span class="nx">lineWidth</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+		<span class="nx">cx</span><span class="p">.</span><span class="nx">strokeStyle</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">#a00</span><span class="dl">"</span><span class="p">;</span>
+		<span class="nx">cx</span><span class="p">.</span><span class="nx">stroke</span><span class="p">();</span>
+		
+		<span class="nx">cx</span><span class="p">.</span><span class="nx">fillStyle</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">#000</span><span class="dl">"</span><span class="p">;</span>
+		<span class="nx">cx</span><span class="p">.</span><span class="nx">fillText</span><span class="p">(</span><span class="nx">s</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">id</span><span class="p">,</span> <span class="nx">X</span> <span class="o">+</span> <span class="mi">5</span><span class="p">,</span> <span class="nx">Y</span> <span class="o">+</span> <span class="mi">10</span><span class="p">);</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+
+
+<span class="c1">// Perform drawing all stations</span>
+<span class="nx">drawStation</span><span class="p">(</span><span class="nx">stations</span><span class="p">,</span> <span class="nx">can</span><span class="p">);</span>
+
+
+<span class="c1">// Generate SVG for oo in butiran</span>
+<span class="kd">function</span> <span class="nx">generateStationSVGText</span><span class="p">()</span> <span class="p">{</span>
+	<span class="kd">var</span> <span class="nx">s</span> <span class="o">=</span> <span class="nx">arguments</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+	<span class="kd">var</span> <span class="nx">N</span> <span class="o">=</span> <span class="nx">s</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+	<span class="kd">var</span> <span class="nx">ooT</span> <span class="o">=</span> <span class="dl">""</span><span class="p">;</span>
+	
+	<span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">N</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+		<span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="nx">s</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">position</span><span class="p">.</span><span class="nx">x</span><span class="p">;</span>
+		<span class="kd">var</span> <span class="nx">y</span> <span class="o">=</span> <span class="nx">s</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">position</span><span class="p">.</span><span class="nx">y</span><span class="p">;</span>
+		
+		<span class="kd">var</span> <span class="nx">X</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">round</span><span class="p">(</span><span class="nx">transformX</span><span class="p">(</span><span class="nx">x</span><span class="p">));</span>
+		<span class="kd">var</span> <span class="nx">Y</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">round</span><span class="p">(</span><span class="nx">transformY</span><span class="p">(</span><span class="nx">y</span><span class="p">));</span>
+		<span class="kd">var</span> <span class="nx">R</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+		
+		<span class="nx">ooT</span> <span class="o">+=</span> <span class="dl">"</span><span class="s2">style lc:#a00 ls:0 lw:1 lo:1 fc:#faa</span><span class="dl">"</span> <span class="o">+</span> <span class="dl">"</span><span class="se">\n</span><span class="dl">"</span><span class="p">;</span>
+		<span class="nx">ooT</span> <span class="o">+=</span> <span class="dl">"</span><span class="s2">circle </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">X</span> <span class="o">+</span> <span class="dl">"</span><span class="s2"> </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">Y</span> <span class="o">+</span> <span class="dl">"</span><span class="s2"> </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">R</span> <span class="o">+</span> <span class="dl">"</span><span class="se">\n</span><span class="dl">"</span><span class="p">;</span>
+		
+		<span class="nx">ooT</span> <span class="o">+=</span> <span class="dl">"</span><span class="s2">style lw:0 fc:#000 fo:1 ts:normal tw:normal </span><span class="dl">"</span><span class="p">;</span>
+		<span class="nx">ooT</span> <span class="o">+=</span> <span class="dl">"</span><span class="s2">tf:Times tz:10px</span><span class="dl">"</span> <span class="o">+</span> <span class="dl">"</span><span class="se">\n</span><span class="dl">"</span><span class="p">;</span>
+		<span class="nx">X</span> <span class="o">+=</span> <span class="mi">5</span><span class="p">;</span>
+		<span class="nx">Y</span> <span class="o">+=</span> <span class="mi">10</span><span class="p">;</span>
+		<span class="nx">ooT</span> <span class="o">+=</span> <span class="dl">"</span><span class="s2">text </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">X</span> <span class="o">+</span> <span class="dl">"</span><span class="s2"> </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">Y</span> <span class="o">+</span> <span class="dl">"</span><span class="s2"> </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">s</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">id</span> <span class="o">+</span> <span class="dl">"</span><span class="se">\n</span><span class="dl">"</span><span class="p">;</span>
+	<span class="p">}</span>
+	
+	<span class="k">return</span> <span class="nx">ooT</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">ooText</span> <span class="o">=</span> <span class="nx">generateStationSVGText</span><span class="p">(</span><span class="nx">stations</span><span class="p">,</span> <span class="nx">XMAX</span> <span class="o">-</span> <span class="nx">XMIN</span><span class="p">,</span> <span class="nx">YMIN</span> <span class="o">-</span> <span class="nx">YMAX</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">ooText</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>which can be a subject of modification by the team.</p>
+
+<h2 id="note">Note</h2>
+<p>Conversion from $(la, lo)$ to $(x, y)$ using Eqns. \eqref{eqn:abms-lalo-y} and \eqref{eqn:abms-lalo-x} should be further tested, since the current test (27/9) is only rough approximation while measureing distance between two points using a feature from Google Maps [<a href="#ref4">4</a>]. Some differences about $1-3 \ \rm km$ are still obtained.</p>
+
+<h2 id="references">References</h2>
+<ol>
+  <li><a name="ref1"></a>Kontributor Wikipedia, “KRL Commuter Line”, Wikipedia, Ensiklopedia Bebas, 24 September 2020, 15.47 UTC, url <a href="https://id.wikipedia.org/w/index.php?oldid=17435179">https://id.wikipedia.org/w/index.php?oldid=17435179</a> [20200926].</li>
+  <li><a name="ref2"></a>Bramantiyo Marjuki, “Jalur Kereta Api SS/KAI Tanah Abang - Rangkasbitung (1899 - sekarang)”, 23 Oct 2017, url <a href="https://javarailmaps.blogspot.com/2017/10/jalur-kereta-api-sskai-tanah-abang.html">https://javarailmaps.blogspot.com/2017/10/jalur-kereta-api-sskai-tanah-abang.html</a> [20200926].</li>
+  <li><a name="ref3"></a>Jim Lewis, “Answer to ‘Simple calculations for working with lat/lon and km distance?’”, StackOverflow, 10 Aug 2009, url <a href="https://stackoverflow.com/a/1253545">https://stackoverflow.com/a/1253545</a> [20200926].</li>
+  <li><a name="ref4"></a>-, “Measure distance between points”, Google Maps Help, url <a href="https://support.google.com/maps/answer/1628031">https://support.google.com/maps/answer/1628031</a> [20200927].</li>
+</ol>
+
+<ul>
+  <li><a href="https://github.com/butiran/butiran.github.io/commits/master/_posts/abm/2020-09-26-abm-station.md">Article history</a></li>
+</ul>
+:ET

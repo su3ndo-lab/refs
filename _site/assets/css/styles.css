@@ -1,0 +1,29 @@
+@import url(github.css);
+@import url(pygments-github.css);
+.current { color: blue; }
+
+.citation { border: 1px solid #ddf; background: #eef; padding: 2px 8px; font-size: 95%; }
+
+li { margin-top: 0.2em; margin-bottom: 0.2em; }
+
+.inc_false, .mathjax_true, .chartjs_true, .ptext_true, .x3dom_true, .threejs_true, ._3dmol_true, .oo_true { font-size: 11px; }
+
+.inc_false { padding: 1px 4px; border: 1px solid #ccc; color: #aaa; }
+
+.mathjax_true { color: #fff; background: #a00; border: 1px solid #a00; padding: 1px 6px; }
+
+.chartjs_true { color: #fff; background: #0a0; border: 1px solid #0a0; padding: 1px 6px; }
+
+.ptext_true { color: #fff; background: #00a; border: 1px solid #00a; padding: 1px 6px; }
+
+.x3dom_true { color: #fff; background: #a0a; border: 1px solid #a0a; padding: 1px 6px; }
+
+.threejs_true { color: #fff; background: #aa0; border: 1px solid #aa0; padding: 1px 6px; }
+
+._3dmol_true { color: #fff; background: #0aa; border: 1px solid #0aa; padding: 1px 6px; }
+
+.oo_true { color: #fff; background: #48f; border: 1px solid #48f; padding: 1px 6px; }
+
+pre { tab-size: 2; }
+
+/*# sourceMappingURL=styles.css.map */

@@ -1,0 +1,143 @@
+I"6<p>Gravitational force (or gravity or gravitation) is the universal force of attraction acting between all matters [<a href="#ref1">1</a>]. The gravitational force between two masses is often called the universal law of gravitation [<a href="#ref2">2</a>] or Newton’s law of universal gravitation [<a href="#ref3">3</a>].</p>
+
+<h2 id="equation">Equation</h2>
+<p>Equation of the universal law of gravitation in <a href="vector">vector</a> form is</p>
+
+<p>\begin{equation}
+\label{eqn:pgf-force-equation}
+\vec{F}_{ij} = -G \frac{m_1 m_j}{r _{ij} ^2} \hat{r} _{ij},
+\end{equation}</p>
+
+<p>which gives the force acting on particle with mass $m_i$ due to existence of particle with mass $m_j$, where their separation distance is $r_{ij}$. And $G$ having value of</p>
+
+<p>\begin{equation}
+\label{eqn:pgf-gravitational-constant}
+G = 6.672 59(85) \times 10^{-11} \ {\rm m}^3 \cdot {\rm kg}^{-1} \cdot {\rm s}^{-2}
+\end{equation}</p>
+
+<p>is gravitational constant [<a href="#ref4">4</a>]. Using Eqn. \eqref{eqn:pgf-force-equation} direction of the force is already accomodated with the minus sign together with unit vector of relative position $\hat{r}_{ij}$, which gives that this force is always attractive. In the scalar form of the equation</p>
+
+<p>\begin{equation}
+\label{eqn:pgf-force-equation-scalar}
+F_{ij} = G \frac{m_1 m_j}{r _{ij} ^2},
+\end{equation}</p>
+
+<p>the directon of the force must be first understood, because it gives only the magnitude of the force but not the direction. See the case of <a href="particle electrostatic force">particle electrostatic force</a>, where there are attractive and repulsive forces.</p>
+
+<h2 id="relative-position">Relative position</h2>
+<p>Gravitational force works only along the line connected the two masses, $m_i$ and $m_j$ or force direction is parallel to this line. The direction is given by unit vector $\hat{r}_{ij}$, which is calculated from</p>
+
+<p>\begin{equation}
+\label{eqn:pgf-relative-position-unit}
+\hat{r}_{ij} = \frac{\vec{r} _{ij}}{r _{ij}},
+\end{equation}</p>
+
+<p>where</p>
+
+<p>\begin{equation}
+\label{eqn:pgf-relative-position}
+\vec{r}_{ij} = \vec{r}_i - \vec{r}_j
+\end{equation}</p>
+
+<p>is relative position or position of mass $m_i$ relative to position of mass $m_j$ and</p>
+
+<p>\begin{equation}
+\label{eqn:pgf-relative-position-magnitude}
+r_{ij} = | \vec{r} _{ij} | = \sqrt{\vec{r} _{ij} \cdot \vec{r} _{ij}}
+\end{equation}</p>
+
+<p>is seperation distance between mass $m_i$ and $m_j$.</p>
+
+<h2 id="force-components">Force components</h2>
+<p>Eqn. \eqref{eqn:pgf-force-equation} can also be written using its components in each direction, $x$, $y$, and $z$,</p>
+
+<p>\begin{equation}
+\label{eqn:pgf-force-equation-component}
+\vec{F}_{ij} = F _{ij,x} \ \hat{x} + F _{ij,y} \ \hat{y} + F _{ij,z} \ \hat{z},
+\end{equation}</p>
+
+<p>with</p>
+
+\[\begin{eqnarray}
+\label{eqn:pgf-force-equation-components-x}
+F _{ij,x} &amp; = &amp; -G \left( \frac{m_i m_j}{x _{ij}^2 + y _{ij}^2 + z _{ij}^2} \right) \left( \frac{x_{ij}}{\sqrt{x_{ij}^2 + y_{ij}^2 + z _{ij}^2}} \right), \\[0.5em]
+\label{eqn:pgf-force-equation-components-y}
+F _{ij,y} &amp; = &amp; -G \left( \frac{m_i m_j}{x _{ij}^2 + y _{ij}^2 + z _{ij}^2} \right) \left( \frac{y_{ij}}{\sqrt{x_{ij}^2 + y_{ij}^2 + z _{ij}^2}} \right), \\[0.5em]
+\label{eqn:pgf-force-equation-components-z}
+F _{ij,z} &amp; = &amp; -G \left( \frac{m_i m_j}{x _{ij}^2 + y _{ij}^2 + z _{ij}^2} \right) \left( \frac{z_{ij}}{\sqrt{x_{ij}^2 + y_{ij}^2 + z _{ij}^2}} \right).
+\end{eqnarray}\]
+
+<p>And similar to Eqn. \eqref{eqn:pgf-relative-position}</p>
+
+\[\begin{eqnarray}
+\label{eqn:pgf-relative-position-x}
+x_{ij} &amp; = &amp; x_i - x_j, \\[0.5em]
+\label{eqn:pgf-relative-position-y}
+y_{ij} &amp; = &amp; y_i - y_j, \\[0.5em]
+\label{eqn:pgf-relative-position-z}
+z_{ij} &amp; = &amp; z_i - z_j.
+\end{eqnarray}\]
+
+<p>Note hat we use $\hat{x}$, $\hat{y}$, and $\hat{z}$ instead of $\hat{i}$, $\hat{j}$, and $\hat{k}$ in Eqn. \eqref{eqn:pgf-force-equation-component} to avoid confusion with particle index $i$ and $j$.</p>
+
+<h2 id="proposed-numerical-implementation">Proposed numerical implementation</h2>
+<p>In order to calculate Eqn. \eqref{eqn:pgf-force-equation} or \eqref{eqn:pgf-force-equation-component} numerically, there are some approaches. We will discuss only a conventional and an object oriented programming approach (OOP) to differ them. It is easier to illustrate first how to calculate Eqn. \eqref{eqn:pgf-force-equation-component}. We will use JavaScript (JS) programming language.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">G</span> <span class="o">=</span> <span class="mf">6.6725985</span><span class="nx">E</span><span class="o">-</span><span class="mi">11</span><span class="p">;</span> <span class="c1">// m^3.kg^-1.s^-2</span>
+
+<span class="kd">var</span> <span class="nx">m1</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span> <span class="c1">// kg</span>
+<span class="kd">var</span> <span class="nx">x1</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">// m</span>
+<span class="kd">var</span> <span class="nx">y1</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">// m</span>
+<span class="kd">var</span> <span class="nx">z1</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">// m</span>
+
+<span class="kd">var</span> <span class="nx">m2</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="c1">// kg</span>
+<span class="kd">var</span> <span class="nx">x2</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span> <span class="c1">// m</span>
+<span class="kd">var</span> <span class="nx">y2</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">// m</span>
+<span class="kd">var</span> <span class="nx">z2</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">// m</span>
+
+<span class="kd">var</span> <span class="nx">x12</span> <span class="o">=</span> <span class="nx">x1</span> <span class="o">-</span> <span class="nx">x2</span><span class="p">;</span> <span class="c1">// m</span>
+<span class="kd">var</span> <span class="nx">y12</span> <span class="o">=</span> <span class="nx">y1</span> <span class="o">-</span> <span class="nx">y2</span><span class="p">;</span> <span class="c1">// m</span>
+<span class="kd">var</span> <span class="nx">z12</span> <span class="o">=</span> <span class="nx">z1</span> <span class="o">-</span> <span class="nx">z2</span><span class="p">;</span> <span class="c1">// m</span>
+
+<span class="kd">var</span> <span class="nx">r12</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">sqrt</span><span class="p">(</span><span class="nx">x12</span> <span class="o">*</span> <span class="nx">x12</span> <span class="o">+</span> <span class="nx">y12</span> <span class="o">*</span> <span class="nx">y12</span> <span class="o">+</span> <span class="nx">z12</span> <span class="o">*</span> <span class="nx">z12</span><span class="p">);</span> <span class="c1">// m</span>
+<span class="kd">var</span> <span class="nx">F12</span> <span class="o">=</span> <span class="o">-</span> <span class="nx">G</span> <span class="o">*</span> <span class="p">(</span><span class="nx">m1</span> <span class="o">*</span> <span class="nx">m2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="nx">r12</span> <span class="o">*</span> <span class="nx">r12</span><span class="p">);</span> <span class="c1">// N</span>
+
+<span class="kd">var</span> <span class="nx">F12x</span> <span class="o">=</span> <span class="nx">F12</span> <span class="o">*</span> <span class="nx">x12</span> <span class="o">/</span> <span class="nx">r12</span><span class="p">;</span> <span class="c1">// N</span>
+<span class="kd">var</span> <span class="nx">F12y</span> <span class="o">=</span> <span class="nx">F12</span> <span class="o">*</span> <span class="nx">y12</span> <span class="o">/</span> <span class="nx">r12</span><span class="p">;</span> <span class="c1">// N</span>
+<span class="kd">var</span> <span class="nx">F12z</span> <span class="o">=</span> <span class="nx">F12</span> <span class="o">*</span> <span class="nx">z12</span> <span class="o">/</span> <span class="nx">r12</span><span class="p">;</span> <span class="c1">// N</span>
+</code></pre></div></div>
+
+<p>Above code should be clear in explaining how to calculate Eqn. \eqref{eqn:pgf-force-equation-component} using Eqns. \eqref{eqn:pgf-force-equation-components-x} -  \eqref{eqn:pgf-relative-position-z}. And then see the following code.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">Grav</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GravitationalForce</span><span class="p">({</span><span class="na">G</span><span class="p">:</span> <span class="mf">6.6725985</span><span class="nx">E</span><span class="o">-</span><span class="mi">11</span><span class="p">});</span>
+
+<span class="kd">var</span> <span class="nx">p1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Particle</span><span class="p">({</span><span class="na">m</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="na">r</span><span class="p">:</span> <span class="p">{</span><span class="na">x</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="na">y</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="na">z</span><span class="p">:</span> <span class="mi">1</span><span class="p">}});</span>
+<span class="kd">var</span> <span class="nx">p2</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Particle</span><span class="p">({</span><span class="na">m</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="na">r</span><span class="p">:</span> <span class="p">{</span><span class="na">x</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="na">y</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="na">z</span><span class="p">:</span> <span class="mi">1</span><span class="p">}});</span>
+
+<span class="kd">var</span> <span class="nx">F12</span> <span class="o">=</span> <span class="nx">Grav</span><span class="p">.</span><span class="nx">force</span><span class="p">(</span><span class="nx">p1</span><span class="p">,</span> <span class="nx">p2</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>Can you see how compact the last code is? It seems simple since the complexity is hidden in the <code class="language-plaintext highlighter-rouge">GravitationalForce</code> and <code class="language-plaintext highlighter-rouge">Particle</code> classes.</p>
+
+<h2 id="exercises">Exercises</h2>
+<ol>
+  <li>By equating Eqns. \eqref{eqn:pgf-force-equation} and \eqref{eqn:pgf-force-equation-component}, show the steps to produce Eqns. \eqref{eqn:pgf-force-equation-components-x} - \eqref{eqn:pgf-force-equation-components-z}.</li>
+  <li>Explain the first JS code which line is related to which equation. And what are the value of indices $i$ and $j$ in the code?</li>
+  <li>Give your comments, which equation is easier to implement in programming, Eqn. \eqref{eqn:pgf-force-equation} or \eqref{eqn:pgf-force-equation-component}, when you use conventional programming and when you use object oriented programming (OOP).</li>
+  <li>Propose your idea how the <code class="language-plaintext highlighter-rouge">Particle</code> class might be.</li>
+  <li>Propose also about the <code class="language-plaintext highlighter-rouge">GravitationalForce</code> class.</li>
+  <li>Have you any idea about gravitational force near surface of a planet? Explain in brief how the formulation is.</li>
+</ol>
+
+<h2 id="references">References</h2>
+<ol>
+  <li><a name="ref1"></a>James E. Faller, Alan H. Cook, Kenneth L. Nordtvedt, Vivek Abhinav, Adam Augustyn, Yamini Chauhan, Erik Gregersen, Parul Jain, William L. Hosch, Gloria Lotha, Richard Pallardy, Marco Sampaolo, Veenu Setia, Shiveta Singh, Amy Tikkanen, Grace Young, and The Editors of Encyclopaedia Britannica, “Gravity”, Encyclopædia Britannica, 20 Jun 2019, url <a href="https://www.britannica.com/science/gravity-physics">https://www.britannica.com/science/gravity-physics</a> [20200918].</li>
+  <li><a name="ref2"></a>Carl R. Nave, “Gravity”, HyperPhysics, 2017, url <a href="http://hyperphysics.phy-astr.gsu.edu/hbase/grav.html">http://hyperphysics.phy-astr.gsu.edu/hbase/grav.html</a> [20200918].</li>
+  <li><a name="ref3"></a>Wikipedia contributors, “Step function”, Wikipedia, The Free Encyclopedia, 17 Sep 2020, 20:12 UTC, <a href="https://en.wikipedia.org/w/index.php?oldid=978934382">https://en.wikipedia.org/w/index.php?oldid=978934382</a> [20200918].</li>
+  <li><a name="ref4"></a>A. D. McNaught, A. Wilkinson (eds.), “Compendium of Chemical Terminology (IUPAC Gold Book)”, Blackwell Scientific Publications, Oxford, 2nd edition, Dec 1997, url <a href="https://isbnsearch.org/isbn/9780865426849">https://isbnsearch.org/isbn/9780865426849</a>; S. J. Chalk, online version (2019-), ISBN 0-9678550-9-8, url <a href="https://doi.org/10.1351/goldbook.G02695">https://doi.org/10.1351/goldbook.G02695</a>.</li>
+</ol>
+
+<ul>
+  <li><a href="https://github.com/butiran/butiran.github.io/commits/master/_posts/phys/2020-09-18-particle-gravitational-force.md">Article history</a></li>
+</ul>
+:ET

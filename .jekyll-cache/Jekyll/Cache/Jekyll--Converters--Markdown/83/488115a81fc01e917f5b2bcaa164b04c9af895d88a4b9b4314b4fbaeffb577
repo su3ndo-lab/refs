@@ -1,0 +1,76 @@
+I"�<p>Momentum [<a href="#ref1">1</a>], or more specific linear momentum [<a href="#ref2">2</a>], will be discussed here.</p>
+
+<h2 id="definition">Definition</h2>
+<p>Momentum is defined as product of mass $m$ and velocity $\vec{v}$ as follow</p>
+
+<p>\begin{equation}
+\label{eqn:linmom-def}
+\vec{p} = m \vec{v},
+\end{equation}</p>
+
+<p>which produces a vector quantity with unit of $\rm kg \cdot m \cdot s^{-1}$ in SI unit (the International System of Units) [<a href="#ref3">3</a>]. Since we are not dealing with negative mass [<a href="#ref4">4</a>], particle momentum is a vector that has the same direction with particle velocity since it is a product of a positive scalar (mass) with a vector (velocity) as given in Eqn. \eqref{eqn:linmom-def}.</p>
+
+<h2 id="relation-to-net-force">Relation to net force</h2>
+<p>Remember net force in Newton’s 2nd law of linear motion</p>
+
+<p>\begin{equation}
+\label{eqn:linmom-newton-2nd-law}
+\sum \vec{F} = m \vec{a}.
+\end{equation}</p>
+
+<p>Suppose that $\vec{F}$, an external force (do not confuse with $\sum \vec{F}$), is the only force acted upon the particle, which makes it the net force. Then, Eqn. \eqref{eqn:linmom-newton-2nd-law} will be turned into</p>
+
+<p>\begin{equation}
+\label{eqn:linmom-newton-2nd-law-F}
+\vec{F} = m \vec{a}.
+\end{equation}</p>
+
+<p>Differentiate both side of Eqn. \eqref{eqn:linmom-def} once with respect to time $t$ and we will have</p>
+
+<p>\begin{equation}
+\label{eqn:linmom-dp/dt}
+\frac{d\vec{p}}{dt} = \frac{d(m \vec{v})}{dt}.
+\end{equation}</p>
+
+<p>With product rule or Leibniz rule [<a href="#ref5">5</a>], Eqn. \eqref{eqn:linmom-dp/dt} will be</p>
+
+<p>\begin{equation}
+\label{eqn:linmom-total-differential-mv}
+\frac{d(m \vec{v})}{dt} = \left(\frac{dm}{dt}\right)\vec{v} + m\left(\frac{d\vec{v}}{dt}\right).
+\end{equation}</p>
+
+<p>If we limit our discussion to constant mass $m$ or $dm/dt = 0$ then Eqn. \eqref{eqn:linmom-total-differential-mv} will be change into</p>
+
+<p>\begin{equation}
+\label{eqn:linmom-dp/dt=ma}
+\frac{d\vec{p}}{dt} = m\left(\frac{d\vec{v}}{dt}\right) = m \vec{a},
+\end{equation}</p>
+
+<p>with kinematics relation between acceleration and velocity, $\vec{a} = d\vec{v}/dt$. Using Eqns. \eqref{eqn:linmom-newton-2nd-law-F} and \eqref{eqn:linmom-dp/dt=ma} we will have</p>
+
+<p>\begin{equation}
+\label{eqn:linmom-dp/dt=F}
+\frac{d\vec{p}}{dt} = \vec{F},
+\end{equation}</p>
+
+<p>which is the relation between momentum $\vec{p}$ and net force $\vec{F}$ of a particle.</p>
+
+<h2 id="exercises">Exercises</h2>
+<ol>
+  <li>A $100 \ \rm g$-particle moves with velocity $1 \ \rm dm/s$ to $+x$ direction. Find its momentum and present it SI unit and vector. Remember that $1 \ {\rm kg} = 1000 \ {\rm g}$, $1 \ {\rm dm} = 0.1 \ {\rm m}$, and unit vector for $+x$ direction can be $\hat{i}$, $\hat{x}$, or $\hat{e}_x$.</li>
+  <li>Net fore on a particle is $\vec{F} = [(2t - 1) \hat{i} + t^2 \hat{j} + \hat{k}] \ {\rm N}$. Find its momentum and velocity at $t = 5 \ {\rm s}$, if mass of the particle is $0.1 \ {\rm kg}$.</li>
+</ol>
+
+<h2 id="references">References</h2>
+<ol>
+  <li><a name="ref1"></a>Carl R. Nave, “Momentum”, HyperPhysics, 2017, url <a href="http://hyperphysics.phy-astr.gsu.edu/hbase/mom.html">http://hyperphysics.phy-astr.gsu.edu/hbase/mom.html</a> [20201026].</li>
+  <li><a name="ref2"></a>Wikipedia contributors, “Momentum”, Wikipedia, The Free Encyclopedia, 19 Oct 2020, 05:55 UTC, <a href="https://en.wikipedia.org/w/index.php?oldid=984273085">https://en.wikipedia.org/w/index.php?oldid=984273085</a> [20201026].</li>
+  <li><a name="ref3"></a>TheSI@nist.gov, “SI Units”, National Institute of Standards and Technology, U.S. Department of Commerce, Gaithersburg, 15 Nov 2019, url <a href="https://www.nist.gov/pml/weights-and-measures/metric-si/si-units">https://www.nist.gov/pml/weights-and-measures/metric-si/si-units</a> [20201026].</li>
+  <li><a name="ref4"></a>Eric Sorensen, “Physicists create ‘negative mass’”, Phys.Org, 17 Apr 2017, url <a href="https://phys.org/news/2017-04-physicists-negative-mass.html">https://phys.org/news/2017-04-physicists-negative-mass.html</a> [20201026].</li>
+  <li><a name="ref5"></a>Wikipedia, “Produktregel”, Die freie Enzyklopädie, 7 Dec 2019, 21:32 UTC, url <a href="https://de.wikipedia.org/w/index.php?oldid=194721034">https://de.wikipedia.org/w/index.php?oldid=194721034</a> [20201026].</li>
+</ol>
+
+<ul>
+  <li><a href="https://github.com/butiran/butiran.github.io/commits/master/_posts/phys/2020-10-26-linear-momentum.md">Article history</a></li>
+</ul>
+:ET

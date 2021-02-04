@@ -1,0 +1,194 @@
+I".<p>Due to line of charge in the form of a straight line, electric field in front of the line can be calculated using electric field formulation due to charge distribution. It is not the same as when the observation point is on the side of the line [<a href="#ref1">1</a>].</p>
+
+<h2 id="line-charge-density">line charge density</h2>
+<p>In system that can be considered as one-dimensional system since the other two dimensions are negligible compared to the first, we hava line charge density $\lambda$</p>
+
+<p>\begin{equation}
+\label{eqn:eflicf-line-charge-density}
+\lambda = \frac{dq_j}{dl},
+\end{equation}</p>
+
+<p>where $dl$ is element of length, that can be $dx$, $dy$, $dz$, $rd\theta$, etc. Total charge of the system is simply</p>
+
+<p>\begin{equation}
+\label{eqn:eflicf-line-charge-density-qj}
+q_j = \int dq_j = \int \lambda dl,
+\end{equation}</p>
+
+<p>where in general $\lambda = \lambda(l)$. If $\lambda \ne \lambda(l)$ then then $\lambda$ has constant value and the material is homogeneous [<a href="#ref2">2</a>], which turns Eqn. \eqref{eqn:eflicf-line-charge-density-qj} into</p>
+
+<p>\begin{equation}
+\label{eqn:eflicf-line-charge-density-qj-homogeneous}
+q_j = \lambda \int dl = \lambda l.
+\end{equation}</p>
+
+<h3 id="example">example</h3>
+<p>A line of charge, lies along $x$ axis from $x = a$ to $x = a + L$, has a homogenous charge density $\lambda = c_0$. Find length of the line of charge and its total charge $q_j$. If total charge of the system is $+Q$ find value of $c_0$.</p>
+
+<p>$\displaystyle l = \int dl = \int_{x = a}^{a + L} dx = [x]_{x = a}^{a + L} = [(a + L) - a] = L$.</p>
+
+<p>$\displaystyle q_j = \int dq_j = \int \lambda dl = \int_{x = a}^{a + L} c_0 dx = c_0 \int_{x = a}^{a + L} dx = c_0 L$.</p>
+
+<p>$\displaystyle c_0 = \frac{q_j}{L} = \frac{+Q}{L}$.</p>
+
+<p>$\displaystyle \lambda = \frac{+Q}{L}$.</p>
+
+<h2 id="electric-field-due-to-charge-distribution">electric field due to charge distribution</h2>
+<p>A group of charges can assemble a charge distribution $dq_j$ as shown in Fig. <a href="#fig:eflicf-electric-field-charge-distribution">1</a>.</p>
+
+<p style="text-align: center;"><img src="/assets/img/phys/electrostatics/electric-field-charge-distribution.png" alt=".." />
+<br />
+Figure <a name="fig:eflicf-electric-field-charge-distribution">1</a> Element of charge distribution $q_j$ produces element of electric field $d\vec{E}_j$.</p>
+
+<p>The element of electric field $d\vec{E}_j$, due to differential element of charge distribution $dq_j$ shown in Fig. <a ref="#fig:eflicf-electric-field-charge-distribution">1</a>, is formulated as</p>
+
+<p>\begin{equation}
+\label{eqn:eflicf-electric-field-charge-distribution}
+d\vec{E}_j(\vec{r}) = k \frac{dq_j}{| \vec{r} - \vec{r}_j |^3} \ (\vec{r} - \vec{r}_j),
+\end{equation}</p>
+
+<p>and integration will produce the electric field</p>
+
+<p>\begin{equation}
+\label{eqn:eflicf-electric-field-charge-distribution-int}
+\vec{E}_j(\vec{r}) = \int d\vec{E}_j(\vec{r}),
+\end{equation}</p>
+
+<p>where $dq_j$ is given previouly in Eqn. \eqref{eqn:eflicf-line-charge-density}.</p>
+
+<h2 id="in-front-of-line-of-charge">in front of line of charge</h2>
+<p>For this case more specific illustration than the general in Fig. <a href="#fig:eflicf-electric-field-charge-distribution">1</a> is required and it will be given in following Fig. <a href="#fig:eflicf-electric-field-charge-distribution-front">2</a>. Top part of the figure shows the system where we want to obtain the electric charge due to line of charge where the observation point $o$ is located at a distance $l$ in front of the line.</p>
+
+<p style="text-align: center;"><img src="/assets/img/phys/electrostatics/line/straight-line-charge-front.png" alt=".." />
+<br />
+Figure <a name="fig:eflicf-electric-field-charge-distribution-front">1</a> Electric field in front of line of charge (top) and contribution of differential charge element $dq_j$ to element of electric field $d\vec{E}_j$.</p>
+
+<p>Using Eqn. \eqref{eqn:eflicf-electric-field-charge-distribution} and Fig. <a href="#fig:eflicf-electric-field-charge-distribution-front">2</a> we can have <br />
+$\vec{r} - \vec{r}_j = [(b+l) - x] \hat{x}$. <br />
+$|\vec{r} - \vec{r}_j | = |(b+l) - x|$. <br />
+$\displaystyle \frac{\vec{r} - \vec{r}_j}{|\vec{r} - \vec{r}_j |} = \hat{x}$. <br />
+$|\vec{r} - \vec{r}_j |^2 =[(b+l) - x]^2 = (b+l-x)^2$. <br />
+$b - a = L$ or $b = a + L$.</p>
+
+<p>And from Eqns. \eqref{eqn:eflicf-line-charge-density} and \eqref{eqn:eflicf-line-charge-density-qj} <br />
+$dq_j = \lambda \ dx$. <br />
+$q_j = \lambda L$.</p>
+
+<p>Then using previous equations <br />
+$\displaystyle d\vec{E}_j = k \ \frac{dq_j}{|\vec{r} - \vec{r}_j |^2} \ \frac{\vec{r} - \vec{r}_j}{|\vec{r} - \vec{r}_j |} = k \ \frac{\lambda dx}{(b+l-x)^2} \ \hat{x}$ <br />
+$\displaystyle \vec{E}_j = \hat{x} k \lambda \int_a^b \frac{dx}{(b+l-x)^2}$.</p>
+
+<p>From <a href="/math/list-of-integrals-0#in-front-line-of-charge">list of integrals 0</a> we can have the solution <br />
+$\displaystyle \vec{E}_j = \hat{x} k \lambda \frac{L}{l(L+l)} = k \ \frac{\lambda L}{l(L+l)} \ \hat{x} = k \ \frac{q_j}{l(L+l)} \ \hat{x}$.</p>
+
+<p>If we set $l » L$ then $L + l \approx l$ <br />
+$\displaystyle \vec{E}_j \approx k \ \frac{q_j}{l^2} \ \hat{x}$, <br />
+which gives an electric field of a point charge. From far away a finite line of charge will be seen as a point charge.</p>
+
+<h2 id="at-back-of-the-other-end-of-the-line">at back of the other end of the line</h2>
+<p>What is the electric field of similar system shown in Fig. <a href="#fig:eflicf-electric-field-charge-distribution-back">2</a>? Do we need to calculate that? The result should be $\displaystyle \vec{E}_j = k \ \frac{q_j}{l(L+l)} \ (-\hat{x})$.
+And we are going to show that.</p>
+
+<p style="text-align: center;"><img src="/assets/img/phys/electrostatics/line/straight-line-charge-back.png" alt=".." />
+<br />
+Figure <a name="fig:eflicf-electric-field-charge-distribution-back">2</a> Electric field in front of line of charge (top) and contribution of differential charge element $dq_j$ to element of electric field $d\vec{E}_j$.</p>
+
+<p>Using Eqn. \eqref{eqn:eflicf-electric-field-charge-distribution} and Fig. <a href="#fig:eflicf-electric-field-charge-distribution-back">2</a> we can have <br />
+$\vec{r} - \vec{r}_j = [(a-l) - x] \hat{x} = [x - (a-l)] (-\hat{x})$. $\leftarrow$ the form of (magnitude) (direction) <br />
+$|\vec{r} - \vec{r}_j | = |x - (a-l)|$. <br />
+$\displaystyle \frac{\vec{r} - \vec{r}_j}{|\vec{r} - \vec{r}_j |} = (-\hat{x})$. <br />
+$|\vec{r} - \vec{r}_j |^2 =[(a-l) - x]^2 = (a-l-x)^2$. <br />
+$b - a = L$ or $b = a + L$.</p>
+
+<p>And from Eqns. \eqref{eqn:eflicf-line-charge-density} and \eqref{eqn:eflicf-line-charge-density-qj} <br />
+$dq_j = \lambda \ dx$. <br />
+$q_j = \lambda L$.</p>
+
+<p>Then using previous equations <br />
+$\displaystyle d\vec{E}_j = k \ \frac{dq_j}{|\vec{r} - \vec{r}_j |^2} \ \frac{\vec{r} - \vec{r}_j}{|\vec{r} - \vec{r}_j |} = k \ \frac{\lambda dx}{(a-l-x)^2} \ (-\hat{x})$ <br />
+$\displaystyle \vec{E}_j = (-\hat{x}) k \lambda \int_a^b \frac{dx}{(a-l-x)^2}$.</p>
+
+<p>From <a href="/math/list-of-integrals-0#at-back-of-line-of-charge">list of integrals 0</a> we can have the solution <br />
+$\displaystyle \vec{E}_j = (-\hat{x}) k \lambda \frac{L}{l(L+l)} = k \ \frac{\lambda L}{l(L+l)} \ (-\hat{x}) = k \ \frac{q_j}{l(L+l)} \ (-\hat{x})$, <br />
+as predicted.</p>
+
+<h2 id="along-x-y-and-z-directions">along $x$, $y$, and $z$ directions</h2>
+<p>Along $x$ direction there were in front and at back of the line. There are also similar cases along $y$ dan $z$ direction. Fig. <a href="#fig:straight-line-charge-both-ends">3</a> show the six possible cases. Notice that the axis orientation is different in each row.</p>
+
+<p style="text-align: center;"><img src="/assets/img/phys/electrostatics/line/straight-line-charge-both-ends.png" alt=".." />
+<br />
+Figure <a name="fig:straight-line-charge-both-ends">3</a> Electric field at both end of line of charge, which can be along $x$ axis (top), along $y$ axis (middle), and along $z$ axis (bottom).</p>
+
+<p>Electric field in Fig. <a href="#fig:straight-line-charge-both-ends">3</a> can be summerized as follow</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>along axis of</strong></td>
+      <td><strong>negative end</strong></td>
+      <td><strong>positive end</strong></td>
+    </tr>
+    <tr>
+      <td>$x$</td>
+      <td>$\displaystyle \vec{E}_{1-} = k \ \frac{\lambda_1 L_1}{(L_1 + l _{1-}) l _{1-}} \ (-\hat{x})$</td>
+      <td>$\displaystyle \vec{E}_{1+} = k \ \frac{\lambda_1 L_1}{(L_1 + l _{1+}) l _{1+}} \ (+\hat{x})$</td>
+    </tr>
+    <tr>
+      <td>$y$</td>
+      <td>$\displaystyle \vec{E}_{2-} = k \ \frac{\lambda_2 L_2}{(L_2 + l _{2-}) l _{2-}} \ (-\hat{y})$</td>
+      <td>$\displaystyle \vec{E}_{2+} = k \ \frac{\lambda_2 L_2}{(L_2 + l _{2+}) l _{2+}} \ (+\hat{y})$</td>
+    </tr>
+    <tr>
+      <td>$z$</td>
+      <td>$\displaystyle \vec{E}_{3-} = k \ \frac{\lambda_3 L_3}{(L_3 + l _{3-}) l _{3-}} \ (-\hat{z})$</td>
+      <td>$\displaystyle \vec{E}_{3+} = k \ \frac{\lambda_3 L_3}{(L_3 + l _{3+}) l _{3+}} \ (+\hat{z})$</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>where the patterns are so clear to notice.</p>
+
+<h2 id="superposition">superposition</h2>
+<p>Suppose that there are three line of charges in along each axis as given in following Fig. <a href="#fig:straight-line-charges-3-axes">4</a>.</p>
+
+<p style="text-align: center;"><img src="/assets/img/phys/electrostatics/line/straight-line-charges-3-axes.png" alt=".." />
+<br />
+Figure <a name="fig:straight-line-charges-3-axes">4</a> Three line of charges in along $x$, $y$, and $z$ axes give resultan of electric field at observation point $o$.</p>
+
+<p>According to previous table and Fig. <a href="#fig:straight-line-charge-both-ends">3</a>, we can have</p>
+
+<p>\begin{equation}
+\label{eqn:eflicf-e-field-line-x}
+\vec{E}_1 = k \ \frac{\lambda_1 L_1}{l_1 (L_1 + l_1)} \ (+\hat{x}),
+\end{equation}</p>
+
+<p>\begin{equation}
+\label{eqn:eflicf-e-field-line-y}
+\vec{E}_2 = k \ \frac{\lambda_2 L_2}{l_2 (L_2 + l_2)} \ (-\hat{y}),
+\end{equation}</p>
+
+<p>and</p>
+
+<p>\begin{equation}
+\label{eqn:eflicf-e-field-line-z}
+\vec{E}_3 = k \ \frac{\lambda_3 L_3}{l_3 (L_3 + l_3)} \ (-\hat{z})
+\end{equation}</p>
+
+<p>for system in Fig. <a href="#fig:straight-line-charges-3-axes">4</a>.</p>
+
+<h2 id="exercises">exercises</h2>
+<ol>
+  <li>Explain why Eqns. \eqref{eqn:eflicf-e-field-line-x}, \eqref{eqn:eflicf-e-field-line-y}, and \eqref{eqn:eflicf-e-field-line-z} have different sign of their unit vector, even they are along each principal axis?</li>
+  <li>There are two line of charges along $x$ axis. The first has $\lambda_1$ and lies from $x = a$ to $x = a + L_1$, while the second has $\lambda_2$ and lies from $x = -b$ to $x = -b - L_2$. Observation point $o$ is located at $x = c$, where $-b &lt; c &lt; a$. Draw the system. find $\vec{E}_1$ and $\vec{E}_2$ at $o$, and calculate total electric field at the observation point. Assume that $L_1 &gt; 0$ and $L_2 &gt; 0$.</li>
+</ol>
+
+<h2 id="references">references</h2>
+<ol>
+  <li><a name="ref1"></a>Carl R. Nave, “Electric Field of Line Charge”, HyperPhysics, 2017, url <a href="http://hyperphysics.phy-astr.gsu.edu/hbase/electric/elelin.html">http://hyperphysics.phy-astr.gsu.edu/hbase/electric/elelin.html</a> [20210125].</li>
+  <li><a name="ref2"></a>Wikipedia contributors, “Charge density”, Wikipedia, The Free Encyclopedia, 13 Jan 2021, 01:41 UTC, url <a href="https://en.wikipedia.org/w/index.php?oldid=1000006708#Homogeneous_charge_density">https://en.wikipedia.org/w/index.php?oldid=1000006708#Homogeneous_charge_density</a> [20210125].</li>
+</ol>
+
+<ul>
+  <li><a href="https://github.com/butiran/butiran.github.io/commits/master/_posts/phys/electrostatics/2021-01-25-electric-field-line-charge-front.md">Article history</a></li>
+</ul>
+:ET

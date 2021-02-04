@@ -1,0 +1,469 @@
+I"a]<p>In heat engines Carnot cycle is an ideal cyclical sequence of changes of pressure and temperature of a fluid, which is used as a standard of performance of all heat enginges operating between a high and a low temperature [<a href="#ref1">1</a>]. It is only a theoretical construct since it is not an actual thermodynamic cycle, but it provides upper limit on the efficiency that any classical thermodynamic engine can achieve during the conversion of heat into work [<a href="#ref2">2</a>]. This cycle concept is related to other concepts in thermodynamics, e.g isothermal and adiabatic processes, second law of thermodynamics, entropy, etc [<a href="#ref3">3</a>].</p>
+
+<h2 id="cycle-in-p-v-diagram">Cycle in p-V diagram</h2>
+<p>Ideal gas performing a Carnot cycle is shown in Fig. <a href="#fig:carnotc-carnot-cycle">1</a>, where therea are four points and four processes connecting the two sequential points in the cycle ($1 \rightarrow 2 \rightarrow 3 \rightarrow 4 \rightarrow 1$).</p>
+
+<p style="text-align: center;"><img src="/assets/img/phys/thermodynamics/carnot-cycle.png" alt=".." />
+<br />
+Figure <a name="fig:carnotc-carnot-cycle">1</a> A Carnot cycle consists of isothermal expansion, adiabatic expansion, isothermal compression, and adiabatic compression processes.</p>
+
+<p>Thera are isothermal and adiabatic processes during gas expansion and compression, where $1 \rightarrow 2$ is an isothermal expansion process, $2 \rightarrow 3$ is an adiabatic expansion process, $3 \rightarrow 4$ is an isothermal compression process, and $4 \rightarrow 1$ is an adiabatic compression process.</p>
+
+<h2 id="relation-between-states">Relation between states</h2>
+<p>Each point in $p-V$ diagram is a state of the ideal gas. Since the gas obeys ideal gas law</p>
+
+<p>\begin{equation}
+\label{eqn:carnotc-ideal-gas-law}
+pV = nRT,
+\end{equation}</p>
+
+<p>where for isothermal process</p>
+
+<p>\begin{equation}
+\label{eqn:carnotc-ideal-gas-law-isothermal}
+pV = {\rm const}
+\end{equation}</p>
+
+<p>holds and for adiabatic process</p>
+
+<p>\begin{equation}
+\label{eqn:carnotc-ideal-gas-law-adiabatic}
+pV^\gamma = {\rm const}
+\end{equation}</p>
+
+<p>holds. Note that the ${\rm const}$ in Eqns. \eqref{eqn:carnotc-ideal-gas-law-isothermal} and \eqref{eqn:carnotc-ideal-gas-law-adiabatic} are different. Using the last two equations following table can be created to relate two different states belong to a same process.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>State</strong></td>
+      <td>$p$</td>
+      <td>$V$</td>
+      <td>$T$</td>
+      <td><strong>Relation(s) to other state</strong></td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>$p_1$</td>
+      <td>$V_1$</td>
+      <td>$T_1$</td>
+      <td>$T_1 = T_2$,   $p_1 V_1 = p_2 V_2$   $p_1 V_1^\gamma = p_4 V_4^\gamma$</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>$p_2$</td>
+      <td>$V_2$</td>
+      <td>$T_2$</td>
+      <td>$T_2 = T_1$,   $p_2 V_2 = p_1 V_1$,   $p_2 V_2^\gamma = p_3 V_3^\gamma$</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>$p_3$</td>
+      <td>$V_3$</td>
+      <td>$T_3$</td>
+      <td>$T_3 = T_4$,   $p_3 V_3 = p_4 V_4$   $p_3 V_3^\gamma = p_2 V_2^\gamma$</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>$p_4$</td>
+      <td>$V_4$</td>
+      <td>$T_4$</td>
+      <td>$T_4 = T_3$,   $p_4 V_4 = p_3 V_3$   $p_4 V_4^\gamma = p_1 V_1^\gamma$</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Last column of the previous table is obtained using Eqns. \eqref{eqn:carnotc-ideal-gas-law-isothermal} and \eqref{eqn:carnotc-ideal-gas-law-adiabatic}.</p>
+
+<h2 id="work">Work</h2>
+<p>For the isothermal process, which is $1 \rightarrow 2$ and $3 \rightarrow 4$ processes in Fig. <a href="#fig:carnotc-carnot-cycle">1</a>, the work of gas is</p>
+
+<p>\begin{equation}
+\label{eqn:carnotc-ideal-gas-law-isothermal-work}
+W_{i \rightarrow f} = nRT \ln \left( \frac{V_f}{V_i} \right),
+\end{equation}</p>
+
+<p>where $i$ is for initial state and $f$ for final state, e.g. for $4 \rightarrow `$ process $i = 4$ and $f = 1$. And for adiabatic process, the work is</p>
+
+<p>\begin{equation}
+\label{eqn:carnotc-ideal-gas-law-adiabatic-work}
+W_{i \rightarrow f} = \frac{c_0}{1 - \gamma} \left(V_f^{1-\gamma} - V_i^{1-\gamma} \right) = \frac{nR}{1-\gamma} (T_f - T_i).
+\end{equation}</p>
+
+<p>with $c_0 = nRTV^{\gamma - 1}$. And for monoatomic gas $\gamma = 5/3$ since $C_p = \frac52 R$ and $C_V = \frac32 R$.</p>
+
+<h3 id="isothermal-expansion-process">Isothermal expansion process</h3>
+<p>Process $1 \rightarrow 2$ is a isothermal expansion process, where the work in this process is shown in Fig. <a href="#fig:carnotc-carnot-cycle-work-isothermal-expansion">2</a> as area shaded with gray parallel lines.</p>
+
+<p style="text-align: center;"><img src="/assets/img/phys/thermodynamics/carnot-cycle-work-isothermal-expansion.png" alt=".." />
+<br />
+Figure <a name="fig:carnotc-carnot-cycle-work-isothermal-expansion">2</a> Isothermal expansion process as part of a Carnot cycle.</p>
+
+<p>Using Eqn. \eqref{eqn:carnotc-ideal-gas-law-isothermal-work} we can have</p>
+
+<p>\begin{equation}
+\label{eqn:carnotc-ideal-gas-law-work-isothermal-expansion}
+W_{1 \rightarrow 2} = nRT_1 \ln \left( \frac{V_2}{V_1} \right),
+\end{equation}</p>
+
+<p>which gives positive value since $V_2 &gt; V_1$.</p>
+
+<h3 id="adiabatic-expansion-process">Adiabatic expansion process</h3>
+<p>Process $2 \rightarrow 3$ is a adiabatic expansion process, where the work in this process is shown in Fig. <a href="#fig:carnotc-carnot-cycle-work-adiabatic-expansion">3</a> as area shaded with gray parallel lines.</p>
+
+<p style="text-align: center;"><img src="/assets/img/phys/thermodynamics/carnot-cycle-work-adiabatic-expansion.png" alt=".." />
+<br />
+Figure <a name="fig:carnotc-carnot-cycle-work-adiabatic-expansion">3</a> Adiabatic expansion process as part of a Carnot cycle.</p>
+
+<p>Using Eqn. \eqref{eqn:carnotc-ideal-gas-law-adiabatic-work} we can have</p>
+
+<p>\begin{equation}
+\label{eqn:carnotc-ideal-gas-law-work-adiabatic-expansion}
+W_{2 \rightarrow 3} = \frac{nR}{1-\gamma} (T_3 - T_2),
+\end{equation}</p>
+
+<p>which gives positive value since $T_3 &lt; T_2$  and $\gamma &gt; 1$. For monoatomic gas \eqref{eqn:carnotc-ideal-gas-law-work-adiabatic-expansion} will become</p>
+
+<p>\begin{equation}
+\label{eqn:carnotc-ideal-gas-law-work-adiabatic-expansion-2}
+W_{2 \rightarrow 3} = -\frac32 nR (T_3 - T_2),
+\end{equation}</p>
+
+<p>since $\gamma = 5/3$.</p>
+
+<h3 id="isothermal-compression-process">Isothermal compression process</h3>
+<p>Process $3 \rightarrow 4$ is a isothermal compression process, where the work in this process is shown in Fig. <a href="#fig:carnotc-carnot-cycle-work-isothermal-compression">4</a> as area shaded with gray parallel lines.</p>
+
+<p style="text-align: center;"><img src="/assets/img/phys/thermodynamics/carnot-cycle-work-isothermal-compression.png" alt=".." />
+<br />
+Figure <a name="fig:carnotc-carnot-cycle-work-isothermal-compression">4</a> Isothermal compression process as part of a Carnot cycle.</p>
+
+<p>Using Eqn. \eqref{eqn:carnotc-ideal-gas-law-isothermal-work} we can have</p>
+
+<p>\begin{equation}
+\label{eqn:carnotc-ideal-gas-law-work-isothermal-compression}
+W_{3 \rightarrow 4} = nRT_3 \ln \left( \frac{V_4}{V_3} \right),
+\end{equation}</p>
+
+<p>which gives negative value since $V_4 &lt; V_3$.</p>
+
+<h3 id="adiabatic-compression-process">Adiabatic compression process</h3>
+<p>Process $4 \rightarrow 1$ is a adiabatic compression process, where the work in this process is shown in Fig. <a href="#fig:carnotc-carnot-cycle-work-adiabatic-compression">5</a> as area shaded with gray parallel lines.</p>
+
+<p style="text-align: center;"><img src="/assets/img/phys/thermodynamics/carnot-cycle-work-adiabatic-compression.png" alt=".." />
+<br />
+Figure <a name="fig:carnotc-carnot-cycle-work-adiabatic-compression">5</a> Adiabatic compression process as part of a Carnot cycle.</p>
+
+<p>Using Eqn. \eqref{eqn:carnotc-ideal-gas-law-adiabatic-work} we can have</p>
+
+<p>\begin{equation}
+\label{eqn:carnotc-ideal-gas-law-work-adiabatic-compression}
+W_{4 \rightarrow 1} = \frac{nR}{1-\gamma} (T_1 - T_4),
+\end{equation}</p>
+
+<p>which gives positive value since $T_1 &gt; T_4$  and $\gamma &gt; 1$. For monoatomic gas \eqref{eqn:carnotc-ideal-gas-law-work-adiabatic-compression} will become</p>
+
+<p>\begin{equation}
+\label{eqn:carnotc-ideal-gas-law-work-adiabatic-compression-2}
+W_{4 \rightarrow 1} = -\frac32 nR (T_1 - T_4),
+\end{equation}</p>
+
+<p>since $\gamma = 5/3$.</p>
+
+<h3 id="closed-cycle">Closed cycle</h3>
+<p>When previous work is summed up, then total work for the cycle is obtained as shown Fig. <a href="#fig:carnotc-carnot-cycle-work-total">6</a> as area shaded shaded with gray parallel lines.</p>
+
+<p style="text-align: center;"><img src="/assets/img/phys/thermodynamics/carnot-cycle-work-total.png" alt=".." />
+<br />
+Figure <a name="fig:carnotc-carnot-cycle-work-total">6</a> Total work of a Carnot cycle.</p>
+
+<p>The total work is</p>
+
+<p>\begin{equation}
+\label{eqn:carnotc-ideal-gas-law-work-total}
+W_{\rm closed \ cycle} = W_{1 \rightarrow 2} + W_{2 \rightarrow 3} + W_{3 \rightarrow 4} + W_{4 \rightarrow 1},
+\end{equation}</p>
+
+<p>where each terms in the right side of Eqn. \eqref{eqn:carnotc-ideal-gas-law-work-total} are from Eqns. \eqref{eqn:carnotc-ideal-gas-law-work-isothermal-expansion}, \eqref{eqn:carnotc-ideal-gas-law-work-adiabatic-expansion}, \eqref{eqn:carnotc-ideal-gas-law-work-isothermal-compression}, and \eqref{eqn:carnotc-ideal-gas-law-work-adiabatic-compression}.</p>
+
+<h2 id="change-in-internal-energy">Change in internal energy</h2>
+<p>An ideal gas for any process will have change in internal energy</p>
+
+<p>\begin{equation}
+\label{eqn:carnotc-ideal-gas-law-DU}
+\Delta U_{i \rightarrow f} = \frac32 nR(T_f - T_i),
+\end{equation}</p>
+
+<p>which depends only on final and initial temperatures and does not depend on the trajectory of the process in $p-V$ diagram. Using Eqn. \eqref{eqn:carnotc-ideal-gas-law-DU} we can have $\Delta U$ for all processes.</p>
+
+<h3 id="isothermal-expansion-process-1">Isothermal expansion process</h3>
+<p>\begin{equation}
+\label{eqn:carnotc-ideal-gas-law-DU-1-&gt;2}
+\Delta U_{1 \rightarrow 2} = 0,
+\end{equation}</p>
+
+<h3 id="adiabatic-expansion-process-1">Adiabatic expansion process</h3>
+<p>\begin{equation}
+\label{eqn:carnotc-ideal-gas-law-DU-2-&gt;3}
+\Delta U_{2 \rightarrow 3} = \frac32 nR(T_3 - T_2),
+\end{equation}</p>
+
+<h3 id="isothermal-compression-process-1">Isothermal compression process</h3>
+<p>\begin{equation}
+\label{eqn:carnotc-ideal-gas-law-DU-3-&gt;4}
+\Delta U_{3 \rightarrow 4} = 0,
+\end{equation}</p>
+
+<h3 id="adiabatic-compression-process-1">Adiabatic compression process</h3>
+<p>\begin{equation}
+\label{eqn:carnotc-ideal-gas-law-DU-4-&gt;1}
+\Delta U_{4 \rightarrow 1} = \frac32 nR(T_1 - T_4).
+\end{equation}</p>
+
+<p>Eqns. \eqref{eqn:carnotc-ideal-gas-law-DU-1-&gt;2} and \eqref{eqn:carnotc-ideal-gas-law-DU-3-&gt;4} are zero since $T_2 = T_1$ and $T_4 = T_3$.</p>
+
+<h2 id="heat">Heat</h2>
+<p>For isobaric process heat can be obtained through</p>
+
+<p>\begin{equation}
+\label{eqn:carnotc-ideal-gas-law-heat-isobaric}
+Q_{i \rightarrow f} = C_p n (T_f - T_i)
+\end{equation}</p>
+
+<p>for isochoric (isovolume) process through</p>
+
+<p>\begin{equation}
+\label{eqn:carnotc-ideal-gas-law-heat-isochoric}
+Q_{i \rightarrow f} = C_V n (T_f - T_i)
+\end{equation}</p>
+
+<p>and for other process the first law of thermodynamics</p>
+
+<p>\begin{equation}
+\label{eqn:carnotc-ideal-gas-law-heat-first-law}
+Q = \Delta U + W
+\end{equation}</p>
+
+<p>can be used to get the heat. Since in Carnot cycle there is not any isobaric and isochoric processes, then we can only use Eqn. \eqref{eqn:carnotc-ideal-gas-law-heat-first-law} for calculating $Q$ for every process.</p>
+
+<h3 id="isothermal-expansion-process-2">Isothermal expansion process</h3>
+<p>Substitution of Eqns. \eqref{eqn:carnotc-ideal-gas-law-work-isothermal-expansion} and \eqref{eqn:carnotc-ideal-gas-law-DU-1-&gt;2} into Eqn. \eqref{eqn:carnotc-ideal-gas-law-heat-first-law} will produce</p>
+
+<p>\begin{equation}
+\label{eqn:carnotc-ideal-gas-law-heat-first-law-1-&gt;2}
+Q_{1 \rightarrow 2} = \Delta U_{1 \rightarrow 2} + W_{1 \rightarrow 2} = 0 + nRT \ln \left( \frac{V_2}{V_1} \right) = nRT \ln \left( \frac{V_2}{V_1} \right),
+\end{equation}</p>
+
+<p>which has positive value since $V_2 &gt; V_1$.</p>
+
+<h3 id="adiabatic-expansion-process-2">Adiabatic expansion process</h3>
+<p>Substitution of Eqns. \eqref{eqn:carnotc-ideal-gas-law-work-adiabatic-expansion} and \eqref{eqn:carnotc-ideal-gas-law-DU-2-&gt;3} into Eqn. \eqref{eqn:carnotc-ideal-gas-law-heat-first-law} will produce</p>
+
+<p>\begin{equation}
+\label{eqn:carnotc-ideal-gas-law-heat-first-law-2-&gt;3}
+Q_{2 \rightarrow 3} = \Delta U_{2 \rightarrow 3} + W_{2 \rightarrow 3} = -\frac32 nR (T_3 - T_2) + \frac32 nR(T_3 - T_2) = 0,
+\end{equation}</p>
+
+<p>which holds for every adiabatic process, that is $Q = 0$.</p>
+
+<h3 id="isothermal-compression-process-2">Isothermal compression process</h3>
+<p>Substitution of Eqns. \eqref{eqn:carnotc-ideal-gas-law-work-isothermal-compression} and \eqref{eqn:carnotc-ideal-gas-law-DU-3-&gt;4} into Eqn. \eqref{eqn:carnotc-ideal-gas-law-heat-first-law} will produce</p>
+
+<p>\begin{equation}
+\label{eqn:carnotc-ideal-gas-law-heat-first-law-3-&gt;4}
+Q_{3 \rightarrow 4} = \Delta U_{3 \rightarrow 4} + W_{3 \rightarrow 4} = 0 + nRT \ln \left( \frac{V_4}{V_3} \right) = nRT \ln \left( \frac{V_4}{V_3} \right),
+\end{equation}</p>
+
+<p>which has negative value since $V_4 &lt; V_3$.</p>
+
+<h3 id="adiabatic-compression-process-2">Adiabatic compression process</h3>
+<p>We can directly say that</p>
+
+<p>\begin{equation}
+\label{eqn:carnotc-ideal-gas-law-heat-first-law-4-&gt;1}
+Q_{4 \rightarrow 1} = 0,
+\end{equation}</p>
+
+<p>since it is an adiabatic process. Or Substitution of Eqns. \eqref{eqn:carnotc-ideal-gas-law-work-adiabatic-compression} and \eqref{eqn:carnotc-ideal-gas-law-DU-4-&gt;1} into Eqn. \eqref{eqn:carnotc-ideal-gas-law-heat-first-law} will produce</p>
+
+<p>\begin{equation}
+\label{eqn:carnotc-ideal-gas-law-heat-first-law-4-&gt;1-2}
+Q_{4 \rightarrow 1} = \Delta U_{4 \rightarrow 1} + W_{4 \rightarrow 1} = \frac32 nR (T_1 - T_4) - \frac32 nR(T_1 - T_4) = 0
+\end{equation}</p>
+
+<p>as in Eqn. \eqref{eqn:carnotc-ideal-gas-law-heat-first-law-2-&gt;3}.</p>
+
+<h2 id="closed-cycle-table">Closed cycle table</h2>
+<p>Value of change in internal energy $\Delta U$, heat $Q$, and work $W$ for all processes can put in table as follow.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>Process</strong></td>
+      <td><strong>Name</strong></td>
+      <td>$\Delta U$</td>
+      <td>$Q$</td>
+      <td>$W$</td>
+    </tr>
+    <tr>
+      <td>$1 \rightarrow 2$</td>
+      <td>isothermal expansion</td>
+      <td>$0$ \eqref{eqn:carnotc-ideal-gas-law-DU-1-&gt;2}</td>
+      <td>$nRT_1 \ln \left( \frac{V_2}{V_1} \right)$ \eqref{eqn:carnotc-ideal-gas-law-heat-first-law-1-&gt;2}</td>
+      <td>$nRT_1 \ln \left( \frac{V_2}{V_1} \right)$ \eqref{eqn:carnotc-ideal-gas-law-work-isothermal-expansion}</td>
+    </tr>
+    <tr>
+      <td>$2 \rightarrow 3$</td>
+      <td>adiabatic expansion</td>
+      <td>$\frac32 nR(T_3 - T_2)$ \eqref{eqn:carnotc-ideal-gas-law-DU-2-&gt;3}</td>
+      <td>$0$ \eqref{eqn:carnotc-ideal-gas-law-heat-first-law-2-&gt;3}</td>
+      <td>$-\frac32 nR (T_3 - T_2)$ \eqref{eqn:carnotc-ideal-gas-law-work-adiabatic-expansion}</td>
+    </tr>
+    <tr>
+      <td>$3 \rightarrow 4$</td>
+      <td>isothermal compression</td>
+      <td>$0$  \eqref{eqn:carnotc-ideal-gas-law-DU-3-&gt;4}</td>
+      <td>$nRT_3 \ln \left( \frac{V_4}{V_3} \right)$ \eqref{eqn:carnotc-ideal-gas-law-heat-first-law-3-&gt;4}</td>
+      <td>$nRT_3 \ln \left( \frac{V_4}{V_3} \right)$ \eqref{eqn:carnotc-ideal-gas-law-work-isothermal-compression}</td>
+    </tr>
+    <tr>
+      <td>$4 \rightarrow 1$</td>
+      <td>adiabatic compression</td>
+      <td>$\frac32 nR(T_1 - T_4)$ \eqref{eqn:carnotc-ideal-gas-law-DU-4-&gt;1}</td>
+      <td>$0$ \eqref{eqn:carnotc-ideal-gas-law-heat-first-law-4-&gt;1-2}</td>
+      <td>$-\frac32 nR (T_1 - T_4)$ \eqref{eqn:carnotc-ideal-gas-law-work-adiabatic-compression-2}</td>
+    </tr>
+    <tr>
+      <td>$1 \rightarrow 2$ $\rightarrow 3$ $\rightarrow 4$ $\rightarrow 1$</td>
+      <td><strong>Total</strong></td>
+      <td>0</td>
+      <td>$nRT_1 \ln \left( \frac{V_2}{V_1} \right)$ + $nRT_3 \ln \left( \frac{V_4}{V_3} \right)$</td>
+      <td>$nRT_1 \ln \left( \frac{V_2}{V_1} \right)$ + $nRT_3 \ln \left( \frac{V_4}{V_3} \right)$</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Note that in every row Eqn. \eqref{eqn:carnotc-ideal-gas-law-heat-first-law} always holds.</p>
+
+<h2 id="efficiency">Efficiency</h2>
+<p>Carnot cycle is a heat engine with efficiency defined as</p>
+
+<p>\begin{equation}
+\label{eqn:carnotc-ideal-gas-law-efficiency}
+\eta = \frac{W}{|Q_H|} = \frac{|Q_H| - |Q_C|}{|Q_H|} = 1 - \left| \frac{Q_C}{Q_H} \right|
+\end{equation}</p>
+
+<p>where hot temperature $T_H = T_1 = T_2$ and cold temperature $T_C = T_3 = T_4$. From Eqn. \eqref{eqn:carnotc-ideal-gas-law-heat-first-law-1-&gt;2} and \eqref{eqn:carnotc-ideal-gas-law-heat-first-law-3-&gt;4} we can have</p>
+
+<p>\begin{equation}
+\label{eqn:carnotc-ideal-gas-law-heat-first-law-1-&gt;2-QH}
+|Q_H| = Q_H = nRT_H \ln \left( \frac{V_2}{V_1} \right)
+\end{equation}</p>
+
+<p>since $V_2 &gt; V_1$</p>
+
+<p>and</p>
+
+<p>\begin{equation}
+\label{eqn:carnotc-ideal-gas-law-heat-first-law-3-&gt;4-QC}
+|Q_C| = -Q_C = -nRT_C \ln \left( \frac{V_4}{V_3} \right) = nRT_C \ln \left( \frac{V_3}{V_4} \right)
+\end{equation}</p>
+
+<p>since $V_4 &lt; V_3$. Substitution of Eqns. \eqref{eqn:carnotc-ideal-gas-law-heat-first-law-1-&gt;2-QH} and \eqref{eqn:carnotc-ideal-gas-law-heat-first-law-3-&gt;4-QC} into Eqn. \eqref{eqn:carnotc-ideal-gas-law-efficiency will produce</p>
+
+<p>\begin{equation}
+\label{eqn:carnotc-ideal-gas-law-efficiency-2}
+\eta = 1 - \frac{nRT_C \ln \left( \frac{V_3}{V_4} \right)}{nRT_H \ln \left( \frac{V_2}{V_1} \right)} = 1 - \frac{T_C}{T_H}
+\end{equation}</p>
+
+<p>due to Eqn. \eqref{eqn:carnotc-ideal-gas-law-adiabatic}, which holds only for Carnot cycle [<a href="#ref5">5</a>].</p>
+
+<h3 id="proof">Proof</h3>
+<p>Using Eqn. \eqref{eqn:carnotc-ideal-gas-law-adiabatic} we can relate $V_2$ with $V_3$ and $V_4$ and $V_1$ through</p>
+
+<p>\begin{equation}
+\label{eqn:carnotc-ideal-gas-law-adiabatic-2-3}
+p_2 V_2^\gamma = p_3 V_3^\gamma
+\end{equation}</p>
+
+<p>and</p>
+
+<p>\begin{equation}
+\label{eqn:carnotc-ideal-gas-law-adiabatic-4-1}
+p_4 V_4^\gamma = p_1 V_1^\gamma.
+\end{equation}</p>
+
+<p>From Eqn. \eqref{eqn:carnotc-ideal-gas-law} we can have</p>
+
+<p>\begin{equation}
+\label{eqn:carnotc-ideal-gas-law-1-2-3-4}
+\frac{p_1 V_1}{T_1} = \frac{p_2 V_2}{T_2} = \frac{p_3 V_3}{T_3} = \frac{p_4 V_4}{T_4} = nR.
+\end{equation}</p>
+
+<p>We can rewrite</p>
+
+<p>\begin{equation}
+\label{eqn:carnotc-ideal-gas-law-adiabatic-pVT}
+p_i V_i^\gamma = p_i V_i V_i^{\gamma - 1},
+\end{equation}</p>
+
+<p>which can be implemented in Eqn. \eqref{eqn:carnotc-ideal-gas-law-adiabatic-2-3} then gives</p>
+
+<p>\begin{equation}
+\label{eqn:carnotc-ideal-gas-law-adiabatic-2-3–1}
+\begin{array}{rcl}
+p_2 V_2 V_2^{\gamma-1} &amp; = &amp; p_3 V_3 V_3^{\gamma-1} \newline
+\displaystyle \left( \frac{T_2}{T_3} p_3 V_3 \right) V_2^{\gamma-1} &amp; = &amp; p_3 V_3 V_3^{\gamma-1} \newline
+\displaystyle \frac{T_2}{T_3} &amp; = &amp; \displaystyle \left( \frac{V_3}{V_2} \right)^{\gamma-1} \newline
+\displaystyle \frac{T_H}{T_C} &amp; = &amp; \displaystyle \left( \frac{V_3}{V_2} \right)^{\gamma-1},
+\end{array}
+\end{equation}</p>
+
+<p>and also implemented in Eqn. \eqref{eqn:carnotc-ideal-gas-law-adiabatic-4-1} then gives</p>
+
+<p>\begin{equation}
+\label{eqn:carnotc-ideal-gas-law-adiabatic-4-1–1}
+\begin{array}{rcl}
+p_4 V_4 V_4^{\gamma-1} &amp; = &amp; p_1 V_1 V_1^{\gamma-1} \newline
+\displaystyle \left( \frac{T_4}{T_1} p_1 V_1 \right) V_4^{\gamma-1} &amp; = &amp; p_1 V_1 V_1^{\gamma-1} \newline
+\displaystyle \frac{T_4}{T_1} &amp; = &amp; \displaystyle \left( \frac{V_1}{V_4} \right)^{\gamma-1} \newline
+\displaystyle \frac{T_C}{T_H} &amp; = &amp; \displaystyle \left( \frac{V_1}{V_4} \right)^{\gamma-1}.
+\end{array}
+\end{equation}</p>
+
+<p>Multiply Eqn. \eqref{eqn:carnotc-ideal-gas-law-adiabatic-2-3–1} with Eqn. \eqref{eqn:carnotc-ideal-gas-law-adiabatic-4-1–1} will produce</p>
+
+<p>\begin{equation}
+\label{eqn:carnotc-ideal-gas-law-adiabatic-v1-2-3-4}
+\begin{array}{rcl}
+\displaystyle \left( \frac{V_3}{V_2} \right)^{\gamma-1} &amp; = &amp; \displaystyle \left( \frac{V_4}{V_1} \right)^{\gamma-1} \newline
+\displaystyle \frac{V_3}{V_2} &amp; = &amp; \displaystyle \frac{V_4}{V_1} \newline
+\displaystyle \frac{V_3}{V_4} &amp; = &amp; \displaystyle \frac{V_2}{V_1} \newline
+\displaystyle \ln \left( \frac{V_3}{V_4} \right) &amp; = &amp; \ln \left( \displaystyle \frac{V_2}{V_1} \right).
+\end{array}
+\end{equation}</p>
+
+<p>Substitute final line of Eqn. \eqref{eqn:carnotc-ideal-gas-law-adiabatic-v1-2-3-4} into middle side of Eqn. \eqref{eqn:carnotc-ideal-gas-law-efficiency-2} will produce the right side of Eqn. \eqref{eqn:carnotc-ideal-gas-law-efficiency-2}.</p>
+
+<h2 id="exercises">Exercises</h2>
+<ol>
+  <li>Open a web reference [<a href="#ref6">6</a>], answer <code class="language-plaintext highlighter-rouge">Ans 1</code> - <code class="language-plaintext highlighter-rouge">Ans 8</code>, change the parameters $n$, $p_1$, $V_1$, $V_3$, and $V_4$, and reanswer <code class="language-plaintext highlighter-rouge">Ans 1</code> - <code class="language-plaintext highlighter-rouge">Ans 8</code> until you understand how to obtain the right answer. Section <a href="#relation-between-states">Relation between states</a> will help.</li>
+  <li>Open a web reference [<a href="#ref7">7</a>] and exercise to calculate eficiency from net work $W$, heat in $Q_H$, heat out $Q_C$ and also from higher temperature $T_H = T_1$, lower temperature $T_C = T_2$.</li>
+  <li>See <a href="carnot-cycle-example-1">Carnot cyle example 1</a> for a numerical example.</li>
+</ol>
+
+<h2 id="references">References</h2>
+<ol>
+  <li><a name="ref1"></a>The Editors of Encyclopaedia Britannica, Gloria Lotha, Deepti Mahajan, Emily Rodiquez, “Carnot cycle”, Encyclopædia Britannica, 27 Jul 2018, url <a href="https://www.britannica.com/science/Carnot-cycle">https://www.britannica.com/science/Carnot-cycle</a> [20201217].</li>
+  <li><a name="ref2"></a>Wikipedia contributors, “Kinetic theory of gases”, Wikipedia, The Free Encyclopedia, 2 Dec 2020, 21:15 UTC, url <a href="https://en.wikipedia.org/w/index.php?oldid=991982665">https://en.wikipedia.org/w/index.php?oldid=991982665</a> [20201217].</li>
+  <li><a name="ref3"></a>Carl R. Nave, “Kinetic Theory”, HyperPhysics, 2017, url <a href="http://hyperphysics.phy-astr.gsu.edu/hbase/thermo/carnotcon.html">http://hyperphysics.phy-astr.gsu.edu/hbase/thermo/carnotcon.html</a> [20201217].</li>
+  <li><a name="ref4"></a>-, “What are PV diagrams?”, Khan Academy, url <a href="https://www.khanacademy.org/science/physics/thermodynamics/laws-of-thermodynamics/a/what-are-pv-diagrams">https://www.khanacademy.org/science/physics/thermodynamics/laws-of-thermodynamics/a/what-are-pv-diagrams</a> [20201217].</li>
+  <li><a name="ref5"></a>Carl R. Nave, “Carnot efficiency”, HyperPhysics, 2017, url <a href="http://hyperphysics.phy-astr.gsu.edu/hbase/thermo/carnot.html">http://hyperphysics.phy-astr.gsu.edu/hbase/thermo/carnot.html</a> [20201217].</li>
+  <li><a name="ref6"></a>Narlin Beaty, “Carnot Engine Practice Problem”, GeoGebra, 8 Sep 2016, url <a href="https://www.geogebra.org/m/vyXcfAKS">https://www.geogebra.org/m/vyXcfAKS</a> [20201217].</li>
+  <li><a name="ref7"></a>Chris Hamper, “Carnot cycle ( with energies and efficiency)”, GeoGebra, 17 Jan 2015, url <a href="https://www.geogebra.org/m/dW93FqWd">https://www.geogebra.org/m/dW93FqWd</a> [20201217].</li>
+</ol>
+
+<ul>
+  <li><a href="https://github.com/butiran/butiran.github.io/commits/master/_posts/phys/2020-12-17-carnot-cycle.md">Article history</a></li>
+</ul>
+:ET

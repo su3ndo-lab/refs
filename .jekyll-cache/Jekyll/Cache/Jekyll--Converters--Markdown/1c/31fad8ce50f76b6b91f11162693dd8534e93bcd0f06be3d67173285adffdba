@@ -1,0 +1,101 @@
+I"�<p>A function $f(x)$ can be approached using an infinite sum of terms that are expressed in terms of derivatives of the function at single point $x_0$, where this infinite sum of terms is known as Taylor series [<a href="#ref1">1</a>]. If we choose that $x_0 = 0$, then the series known as Maclaurin series [<a href="#ref2">2</a>].</p>
+
+<h2 id="notation">Notation</h2>
+<p>Suppose that there is a function $f(x)$, where its $n$-th derivative is</p>
+
+<p>\begin{equation}
+\label{eqn:maclaurin-series-nth-derivative}
+f_n(x) = \frac{d^n f(x)}{dx^n} 
+\end{equation}</p>
+
+<p>and</p>
+
+<p>\begin{equation}
+\label{eqn:maclaurin-series-nth-derivative-x0}
+f_n(x_0) = \left[ \frac{d^n f(x)}{dx^n} \right]_{x = x_0}
+\end{equation}</p>
+
+<p>is value of a term of derivatives of the function, when $x = x_0$. Let’s take $f(x) = x^3$ as an example that gives $f_2(x) = 6x$ and $f_2(x_0) = 6 x_0$, or when $x_0 = 2$ then $ f_2(2) = 12$.</p>
+
+<h2 id="infinite-sum-of-terms">Infinite sum of terms</h2>
+<p>An normal function $f(x)$ can expressed in Maclaurin series as</p>
+
+<p>\begin{equation}
+\label{eqn:maclaurin-series}
+f(x) = \sum_{n = 0}^N f_n(0) \left( \frac{x^n}{n!} \right),
+\end{equation}</p>
+
+<p>with</p>
+
+<p>\begin{equation}
+\label{eqn:maclaurin-series-n!}
+n! = n \cdot (n-1) \cdot (n-1) \cdot \ \dots \ \cdot 2 \cdot 1
+\end{equation}</p>
+
+<p>is the factorial of a positive integer $n$ [<a href="#ref3">3</a>]. Remember that $0! = 1$. Using again previous example, we can have that</p>
+
+<p>\begin{equation}
+\label{eqn:maclaurin-series-example-1a}
+\begin{array}{rclcrcl}
+f_0(x) &amp; = &amp; x^3,  &amp; \ \ \ \ f_0(0) &amp; = &amp; 0, \newline
+f_1(x) &amp; = &amp; 3x^2, &amp; \ \ \ \ f_1(0) &amp; = &amp; 0, \newline
+f_2(x) &amp; = &amp; 6x,   &amp; \ \ \ \ f_2(0) &amp; = &amp; 0, \newline
+f_3(x) &amp; = &amp; 6,    &amp; \ \ \ \ f_3(0) &amp; = &amp; 6, \newline
+f_4(x) &amp; = &amp; 0,    &amp; \ \ \ \ f_4(0) &amp; = &amp; 0. \newline
+\end{array}
+\end{equation}</p>
+
+<p>Substitution of Eqn. \eqref{eqn:maclaurin-series-example-1a} to Eqn. \eqref{eqn:maclaurin-series} will produce</p>
+
+<p>\begin{equation}
+\label{eqn:maclaurin-series-example-1b}
+\begin{array}{rcl}
+f(x) &amp; =  &amp; \displaystyle f_0(0) \left( \frac{x^0}{0!} \right) + f_1(0) \left( \frac{x^1}{1!} \right) + f_2(0) \left( \frac{x^2}{2!} \right) + f_3(0) \left( \frac{x^3}{3!} \right) + f_4(0) \left( \frac{x^4}{4!} \right) + \dots \newline
+&amp; = &amp; \displaystyle 0 \cdot \left( \frac{1}{1} \right) + 0 \cdot \left( \frac{x}{1} \right) + 0 \cdot \left( \frac{x^2}{2} \right) + 6 \cdot \left( \frac{x^3}{6} \right) + 0 \cdot \left( \frac{x^4}{24} \right) + \dots \newline
+&amp; = &amp; x^3,
+\end{array}
+\end{equation}</p>
+
+<p>which is the original function. Further derivative of $f(x)$, i.e. $n &gt; 4$, will always zero since $f_4(x)$ is already a constant. You can test Eqn. \eqref{eqn:maclaurin-series} with another function and will get similar result as in Eqn. \eqref{eqn:maclaurin-series-example-1b} that gives the original function. If the series is infinite, then you must decide number of terms to be considered. More terms will give better approximation of the function $f(x)$.</p>
+
+<h2 id="infinite-series">Infinite series</h2>
+<p>There are well-known infinite series for some function obtained using Maclaurin series, e.g.</p>
+
+<p>\begin{equation}
+\label{eqn:maclaurin-serie-sin-x}
+\sin x = x - \frac{x^3}{3!} + \frac{x^5}{5!} - \frac{x^7}{7!} + \dots,
+\end{equation}</p>
+
+<p>\begin{equation}
+\label{eqn:maclaurin-serie-cos-x}
+\cos x = 1 - \frac{x^2}{2!} + \frac{x^4}{4!} - \frac{x^6}{6!} + \dots,
+\end{equation}</p>
+
+<p>\begin{equation}
+\label{eqn:maclaurin-serie-1/(1-x)}
+\displaystyle \frac{1}{1 - x} = 1 + x + x^2 + x^3 + x^4 + x^5 + \dots,
+\end{equation}</p>
+
+<p>and</p>
+
+<p>\begin{equation}
+\label{eqn:maclaurin-serie-ln(1+x)}
+\displaystyle \ln(1 + x) = x - \frac12 x^2 + \frac13 x^3 - \frac14 x^4 + \frac15 x^5 - \frac16 x^6 + \dots,
+\end{equation}</p>
+
+<p>where you can find their explicit forms and also other functions [<a href="#ref1">1</a>, <a href="#ref2">2</a>].</p>
+
+<h2 id="application">Application</h2>
+<p>In <a href="simple-harmonic-motion">simple harmonic motion</a> for the case of simple pendulum, you will use small angle approximation or the approximation of $\sin \theta$, which is only the first term in Eqn. \eqref{eqn:maclaurin-serie-sin-x}, i.e. $\sin \theta \approx \theta$.</p>
+
+<h2 id="references">References</h2>
+<ol>
+  <li><a name="ref1"></a>Wikipedia contributors, “Taylor series”, Wikipedia, The Free Encyclopedia, 8 Nov 2020, 09:09 UTC, url <a href="https://en.wikipedia.org/w/index.php?oldid=987632839">https://en.wikipedia.org/w/index.php?oldid=987632839</a> [20201114].</li>
+  <li><a name="ref2"></a>Eric W. Weisstein, “Maclaurin Series”, From MathWorld–A Wolfram Web Resource, url <a href="https://mathworld.wolfram.com/MaclaurinSeries.html">https://mathworld.wolfram.com/MaclaurinSeries.html</a> [20201114].</li>
+  <li><a name="ref3"></a>Wikipedia contributors, “Factorial”, Wikipedia, The Free Encyclopedia, 21 Oct 2020, 22:22 UTC, url <a href="https://en.wikipedia.org/w/index.php?oldid=984755821">https://en.wikipedia.org/w/index.php?oldid=984755821</a> [20201114].</li>
+</ol>
+
+<ul>
+  <li><a href="https://github.com/butiran/butiran.github.io/commits/master/_posts/phys/2020-11-14-maclaurin-series.md">Article history</a></li>
+</ul>
+:ET

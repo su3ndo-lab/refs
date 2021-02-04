@@ -1,0 +1,386 @@
+I",<p>In this article the previous <a href="sf-ulm">step function uniform linear motion</a> will be advanced to a 2-d motion but with special limitation, where in each time interval only one of the vector components is not zero.</p>
+
+<h2 id="problem">Problem</h2>
+<p>A particle is moving and visiting points $E$, $F$, $G$, and $H$ at  time</p>
+
+<p>\begin{equation}
+\label{eqn:sfulm-2d-points-EFGH-time}
+t_E = 0 \ {\rm s}, \ \ t_F = 2 \ {\rm s}, \ \ t_G = 5 \ {\rm s}, \ \ t_H = 6 \ {\rm s}.
+\end{equation}</p>
+
+<p>Coordinate of the points are</p>
+
+<p>\begin{equation}
+\label{eqn:sfulm-2d-points-EFGH-x}
+x_E = 1 \ {\rm m}, \ \ x_F = 5 \ {\rm m}, \ \ x_G = 5 \ {\rm m}, \ \ x_H = 4 \ {\rm m}
+\end{equation}</p>
+
+<p>and</p>
+
+<p>\begin{equation}
+\label{eqn:sfulm-2d-points-EFGH-y}
+y_E = 1 \ {\rm m}, \ \ y_F = 1 \ {\rm m}, \ \ y_G = 4 \ {\rm m}, \ \ y_H = 4 \ {\rm m}.
+\end{equation}</p>
+
+<p>The sequence of visited points in chronological order is $E \rightarrow F \rightarrow G \rightarrow H$ as denoted by Eqn. \eqref{eqn:sfulm-2d-points-EFGH-time}.</p>
+
+<h2 id="table">Table</h2>
+<p>From Eqns. \eqref{eqn:sfulm-2d-points-EFGH-time} - \eqref{eqn:sfulm-2d-points-EFGH-y} we can summerize the information in the form of following table</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>$t$ (s)</strong></td>
+      <td>0</td>
+      <td>2</td>
+      <td>5</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <td><strong>$x$ (m)</strong></td>
+      <td>1</td>
+      <td>5</td>
+      <td>5</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td><strong>$y$ (m)</strong></td>
+      <td>1</td>
+      <td>1</td>
+      <td>4</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td><strong>Point</strong></td>
+      <td>$E$</td>
+      <td>$F$</td>
+      <td>$G$</td>
+      <td>$H$</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>or this one</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>$t$ (s)</strong></td>
+      <td><strong>$x$ (m)</strong></td>
+      <td><strong>$y$ (m)</strong></td>
+      <td><strong>Point</strong></td>
+    </tr>
+    <tr>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>$E$</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>5</td>
+      <td>1</td>
+      <td>$F$</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>5</td>
+      <td>4</td>
+      <td>$G$</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>4</td>
+      <td>4</td>
+      <td>$H$</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>where you can choose which one is more suit you.</p>
+
+<h2 id="picture">Picture</h2>
+<p>Using picture with series of sub-picture, how the particle moving can be visualized easier. Since there are four different time, there will be four sub-pictures. One for each time as shown in following Fig. <a href="#fig:sfulm-2d-points-EFGH">1</a>.</p>
+
+<oo>
+svg 600 600 #fafafa fig:sfulm-2d-points-EFGH|Position of particle at time $t = 0 \ {\rm s}, 2 \ {\rm s}, 5 \ {\rm s}, 6 \ {\rm s}$.
+
+# t = 0 s
+style lc:#000 ls:6-2 lw:0.3 lo:0.8
+grid 20 20 260 260 40 40
+style lc:#000 ls:0 lw:1 lo:1
+arrow 20 260 260 260
+arrow 20 260 20 20
+style lw:0 fc:#000 fo:1 ts:italic tw:normal tf:Times tz:16px
+text 265 265 x
+text 15 15 y
+text 240 25 t
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:16px
+text 250 25 = 0 s
+text 15 277 0
+text 55 277 1
+text 95 277 2
+text 135 277 3
+text 175 277 4
+text 215 277 5
+text 5 265 0
+text 5 225 1
+text 5 185 2
+text 5 145 3
+text 5 105 4
+text 5 65 5
+
+# t = 2 s
+style lc:#000 ls:6-2 lw:0.3 lo:0.8
+grid 320 20 560 260 40 40
+style lc:#000 ls:0 lw:1 lo:1
+arrow 320 260 560 260
+arrow 320 260 320 20
+style lw:0 fc:#000 fo:1 ts:italic tw:normal tf:Times tz:16px
+text 565 265 x
+text 315 15 y
+text 540 25 t
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:16px
+text 550 25 = 2 s
+text 315 277 0
+text 355 277 1
+text 395 277 2
+text 435 277 3
+text 475 277 4
+text 515 277 5
+text 305 265 0
+text 305 225 1
+text 305 185 2
+text 305 145 3
+text 305 105 4
+text 305 65 5
+
+# t = 5 s
+style lc:#000 ls:6-2 lw:0.3 lo:0.8
+grid 20 320 260 560 40 40
+style lc:#000 ls:0 lw:1 lo:1
+arrow 20 560 260 560
+arrow 20 560 20 320
+style lw:0 fc:#000 fo:1 ts:italic tw:normal tf:Times tz:16px
+text 265 565 x
+text 15 315 y
+text 240 325 t
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:16px
+text 250 325 = 5 s
+text 15 577 0
+text 55 577 1
+text 95 577 2
+text 135 577 3
+text 175 577 4
+text 215 577 5
+text 5 565 0
+text 5 525 1
+text 5 485 2
+text 5 445 3
+text 5 405 4
+text 5 365 5
+
+# t = 6 s
+style lc:#000 ls:6-2 lw:0.3 lo:0.8
+grid 320 320 560 560 40 40
+style lc:#000 ls:0 lw:1 lo:1
+arrow 320 560 560 560
+arrow 320 560 320 320
+style lw:0 fc:#000 fo:1 ts:italic tw:normal tf:Times tz:16px
+text 565 565 x
+text 315 315 y
+text 540 325 t
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:16px
+text 550 325 = 6 s
+text 315 577 0
+text 355 577 1
+text 395 577 2
+text 435 577 3
+text 475 577 4
+text 515 577 5
+text 305 565 0
+text 305 525 1
+text 305 485 2
+text 305 445 3
+text 305 405 4
+text 305 365 5
+
+	t | x | y | p
+	0 | 1 | 1 | E
+	2 | 5 | 1 | F
+	5 | 5 | 4 | G 
+	6 | 4 | 4 | H
+
+# t = 0 s
+style lc:#f00 ls:0 lw:1 lo:1 fc:#faa fo:1
+rect 50 210 20 20
+style lc:#000 ls:0 lw:1 lo:1 fc:#00 fo:1
+circle 60 220 2
+circle 220 220 2
+circle 220 100 2
+circle 180 100 2
+style lw:0 fc:#000 fo:1 ts:italic tw:normal tf:Times tz:16px
+text 55 250 E
+text 215 250 F
+text 235 105 G
+text 175 130 H
+
+# t = 2 s
+style lc:#00f ls:0 lw:2 lo:1
+line 360 220 520 220
+style lc:#f00 ls:0 lw:1 lo:1 fc:#faa fo:1
+rect 510 210 20 20
+arrow 360 200 400 200
+style lc:#f88 ls:4-2 lw:1 lo:1 fc:#fee fo:0.2
+rect 350 210 20 20
+style lc:#000 ls:0 lw:1 lo:1 fc:#00 fo:1
+circle 360 220 2
+circle 520 220 2
+circle 520 100 2
+circle 480 100 2
+style lw:0 fc:#000 fo:1 ts:italic tw:normal tf:Times tz:16px
+text 355 250 E
+text 515 250 F
+text 535 105 G
+text 475 130 H
+
+# t = 5 s
+style lc:#00f ls:0 lw:2 lo:1
+line 60 520 220 520
+line 220 520 220 400
+style lc:#f00 ls:0 lw:1 lo:1 fc:#faa fo:1
+rect 210 390 20 20
+arrow 240 520 240 480
+style lc:#f88 ls:4-2 lw:1 lo:1 fc:#fee fo:0.2
+rect 210 510 20 20
+style lc:#000 ls:0 lw:1 lo:1 fc:#00 fo:1
+circle 60 520 2
+circle 220 520 2
+circle 220 400 2
+circle 180 400 2
+style lw:0 fc:#000 fo:1 ts:italic tw:normal tf:Times tz:16px
+text 55 550 E
+text 215 550 F
+text 235 405 G
+text 175 430 H
+
+# t = 6 s
+style lc:#00f ls:0 lw:2 lo:1
+line 360 520 520 520
+line 520 520 520 400
+line 520 400 480 400
+style lc:#f00 ls:0 lw:1 lo:1 fc:#faa fo:1
+rect 470 390 20 20
+arrow 520 380 480 380
+style lc:#f88 ls:4-2 lw:1 lo:1 fc:#fee fo:0.2
+rect 510 390 20 20
+style lc:#000 ls:0 lw:1 lo:1 fc:#00 fo:1
+circle 360 520 2
+circle 520 520 2
+circle 520 400 2
+circle 480 400 2
+style lw:0 fc:#000 fo:1 ts:italic tw:normal tf:Times tz:16px
+text 355 550 E
+text 515 550 F
+text 535 405 G
+text 475 430 H
+</oo>
+
+<p>Solid blue line in Fig. <a href="#fig:sfulm-2d-points-EFGH">1</a> show the <a href="position#path-length">path length</a> or <a href="position#distance">distance</a> travelled by the particle from initial time $t = 0 \ \rm s$ until a certain time, while the <a href="position#displacement">displacement</a> is the difference between final position and initial osition.</p>
+
+<h2 id="graph">Graph</h2>
+<p>If we want to create a $y-x$ graph, Fig. <a href="#fig:sfulm-2d-points-EFGH">1</a> is actually already the one. Beside that graph we can also make $x-t$ and $y-t$ graphs.</p>
+
+<oo>
+svg 600 300 #fafafa fig:sfulm-2d-x-t-yt|Graphs for $x-t$ (left) and $y-t$ (right).
+
+# t = 0 s
+style lc:#000 ls:6-2 lw:0.3 lo:0.8
+grid 20 20 260 260 40 40
+style lc:#000 ls:0 lw:1 lo:1
+arrow 20 260 260 260
+arrow 20 260 20 20
+style lw:0 fc:#000 fo:1 ts:italic tw:normal tf:Times tz:16px
+text 265 265 t
+text 15 15 x
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:16px
+text 15 277 0
+text 55 277 1
+text 95 277 2
+text 135 277 3
+text 175 277 4
+text 215 277 5
+text 5 265 0
+text 5 225 1
+text 5 185 2
+text 5 145 3
+text 5 105 4
+text 5 65 5
+style lc:#f00 ls:0 lw:2 lo:1
+line 20 220 100 60
+line 100 60 220 60
+line 220 60 260 100
+style lc:#800 ls:0 lw:2 lo:1 fc:#f88 fo:1
+circle 20 220 4
+circle 100 60 4
+circle 220 60 4
+circle 260 100 4
+
+# t = 2 s
+style lc:#000 ls:6-2 lw:0.3 lo:0.8
+grid 320 20 560 260 40 40
+style lc:#000 ls:0 lw:1 lo:1
+arrow 320 260 560 260
+arrow 320 260 320 20
+style lw:0 fc:#000 fo:1 ts:italic tw:normal tf:Times tz:16px
+text 565 265 t
+text 315 15 y
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:16px
+text 315 277 0
+text 355 277 1
+text 395 277 2
+text 435 277 3
+text 475 277 4
+text 515 277 5
+text 305 265 0
+text 305 225 1
+text 305 185 2
+text 305 145 3
+text 305 105 4
+text 305 65 5
+style lc:#f00 ls:0 lw:2 lo:1
+line 320 220 400 220
+line 400 220 520 100
+line 520 100 560 100
+style lc:#800 ls:0 lw:2 lo:1 fc:#f88 fo:1
+circle 320 220 4
+circle 400 220 4
+circle 520 100 4
+circle 560 100 4
+
+	t | x | y | p
+	0 | 1 | 1 | E
+	2 | 5 | 1 | F
+	5 | 5 | 4 | G 
+	6 | 4 | 4 | H
+</oo>
+<p>Fig. <a href="#fig:sfulm-2d-x-t-yt">2</a> gives different way to describe particle motion than what have been given by Fig. <a href="#fig:sfulm-2d-points-EFGH">1</a>. With Fig. <a href="#fig:sfulm-2d-x-t-yt">2</a> we can see how individual position component, i.e. $x$ and $y$, evolve with time $t$, while Fig. <a href="#fig:sfulm-2d-points-EFGH">1</a> shows the relation between $y$ and $x$ at every time $t$.</p>
+
+<h2 id="exercises">Exercises</h2>
+<ol>
+  <li>From Fig. <a href="#fig:sfulm-2d-points-EFGH">1</a> find the displacement between $t = 0 \ \rm s$ and $t = 2 \ \rm s$ and between $t = 0 \ \rm s$ and $t = 5 \ \rm s$. Show your answer in vector form by defining first the initial position vector $\vec{r}_i$ and the final position vector $\vec{r}_j$.</li>
+  <li>Find the path length or distance travelled by the particle $t = 0 \ \rm s$ and $t = 2 \ \rm s$, between $t = 0 \ \rm s$ and $t = 5 \ \rm s$, and between $t = 2 \ \rm s$ and $t = 6 \ \rm s$ from Fig. <a href="#fig:sfulm-2d-points-EFGH">1</a>.</li>
+  <li>Use Fig. <a href="#fig:sfulm-2d-x-t-yt">2</a> to get total displacement in $x$ and $y$ direction from $t = 0 \ \rm s$ to $t = 6 \ \rm s$, then find the displacement vector between time $t = 0 \ \rm s$ and $t = 6 \ \rm s$. Compare the result when you use the initial and final position vectors.</li>
+  <li>Use Fig. <a href="#fig:sfulm-2d-x-t-yt">2</a> left and right as bottom and left parts of Fig. <a href="#fig:sfulm-2d-points-EFGH">1</a>. Relates the three graphs and get the understanding that the all three actually complement to each other. Or we can saya that Use Fig. <a href="#fig:sfulm-2d-x-t-yt">2</a> give the projection of Fig. <a href="#fig:sfulm-2d-points-EFGH">1</a> in $x$ and $y$ directions with time $t$ as the parameter of two parametric equations [<a href="#ref1">1</a>].</li>
+  <li>Position of a particle $(x, y)$ at time $t$ can also be written in the form of $(x, y, t)$ notation. Suppose that we have these information $(1, 1, 0)$,  $(1, 5, 4)$,  $(5, 5, 6)$,  $(5, 1, 8)$, and  $(1, 1, 12)$, where $x$ and $y$ are in $\rm m$ and $t$ in $\rm s$. Draw the $x-t$, $y-t$, and $y-x$ graphs. Find the displacement and distance from $t = 0 \ \rm s$ to $t = 12 \ \rm s.$</li>
+</ol>
+
+<h2 id="references">References</h2>
+<ol>
+  <li><a name="ref1"></a>Wikipedia contributors, “Parametric equation”, Wikipedia, The Free Encyclopedia, 16 Aug 2020, 19:10 UTC, <a href="https://en.wikipedia.org/w/index.php?oldid=973351978">https://en.wikipedia.org/w/index.php?oldid=973351978</a> [20200927].</li>
+</ol>
+
+<ul>
+  <li><a href="https://github.com/butiran/butiran.github.io/commits/master/_posts/phys/2020-09-23-sf-ulm-2d.md">Article history</a></li>
+</ul>
+:ET

@@ -1,0 +1,84 @@
+I"<p>A special type of periodic motion is simple harmonic motion (SHM), where object displacement causes restoring force in opposite direction and always towards the equilibrium position of the object performing SHM [<a href="#ref1">1</a>]. Pendulum and spring-mass systems are examples of periodic motion  [<a href="#ref2">2</a>].</p>
+
+<h2 id="differential-equation">Differential equation</h2>
+<p>A system performing SHM will have a differential equation in the form of [<a href="#ref3">3</a>]</p>
+
+<p>\begin{equation}
+\label{eqn:shm-diff-eqn}
+\frac{d^2 x}{dt^2} + \omega^2 x = 0,
+\end{equation}</p>
+
+<p>which give soulution of</p>
+
+<p>\begin{equation}
+\label{eqn:shm-diff-eqn-soulution}
+x(t) = A \sin (\omega t + \varphi_0).
+\end{equation}</p>
+
+<p>From Eqn. \eqref{eqn:shm-diff-eqn-soulution} we can have</p>
+
+<p>\begin{equation}
+\label{eqn:shm-diff-eqn-soulution-ddt}
+\frac{dx}{dt} = \omega A \cos (\omega t + \varphi_0).
+\end{equation}</p>
+
+<p>and</p>
+
+<p>\begin{equation}
+\label{eqn:shm-diff-eqn-soulution-d2dtd}
+\frac{d^2x}{dt^2} = -\omega^2 A \sin (\omega t + \varphi_0).
+\end{equation}</p>
+
+<p>Substitute Eqns. \eqref{eqn:shm-diff-eqn-soulution} and \eqref{eqn:shm-diff-eqn-soulution-d2dtd} to Eqn. \eqref{eqn:shm-diff-eqn} will make left side of the equation zero as the right side.</p>
+
+<h2 id="application">Application</h2>
+<p>Some examples of oscillating system are as follow.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>System</strong></td>
+      <td><strong>Restoring force</strong></td>
+      <td><strong>SHM</strong></td>
+      <td><strong>ω</strong></td>
+    </tr>
+    <tr>
+      <td><a href="shm-spring-mass-horiz">spring-mass</a></td>
+      <td>spring force</td>
+      <td>yes</td>
+      <td>$\sqrt{k/m}$</td>
+    </tr>
+    <tr>
+      <td><a href="shm-simple-pendulum">simple pendulum</a></td>
+      <td>gravitational force</td>
+      <td>only for small angle</td>
+      <td>$\sqrt{g/l}$</td>
+    </tr>
+    <tr>
+      <td>thin film [<a href="#ref4">4</a>]</td>
+      <td>elastic force</td>
+      <td>no</td>
+      <td>$$</td>
+    </tr>
+    <tr>
+      <td>torsional system (rod) [<a href="#ref5">5</a>]</td>
+      <td>elastic torque</td>
+      <td>yes</td>
+      <td>$\sqrt{\kappa/I}$</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="references">References</h2>
+<ol>
+  <li><a name="ref1"></a>Wikipedia contributors, “Simple harmonic motion”, Wikipedia, The Free Encyclopedia, 19 Oct 2020, 03:17 UTC, url <a href="https://en.wikipedia.org/w/index.php?oldid=984257153">https://en.wikipedia.org/w/index.php?oldid=984257153</a> [20201115].</li>
+  <li><a name="ref2"></a>Carl R. Nave, “Periodic Motion”, HyperPhysics, 2017, url <a href="http://hyperphysics.phy-astr.gsu.edu/hbase/permot.html">http://hyperphysics.phy-astr.gsu.edu/hbase/permot.html</a> [20201115].</li>
+  <li><a name="ref3"></a>-, “Simple Harmonic Motion”, BYJU’S The Learning App, url <a href="https://byjus.com/jee/simple-harmonic-motion-shm/">https://byjus.com/jee/simple-harmonic-motion-shm/</a> [20201115].</li>
+  <li><a name="ref4"></a>Scott Whitney, “Vibrations of Cantilever Beams: Deflection, Frequency, and Research Uses”, EngrM 325H, Dr. Negahban (ed.), 23 Apr 1999, url <a href="http://emweb.unl.edu/Mechanics-Pages/Scott-Whitney/325hweb/Beams.htm">http://emweb.unl.edu/Mechanics-Pages/Scott-Whitney/325hweb/Beams.htm</a> [20201116].</li>
+  <li><a name="ref5"></a>-, “Question: Calculate The Natural Frequency Omega_n Of Oscillation Of The Torsional System Given Below. You Are Given That The Equivalent Torsional Stiffness Of The Rod Is K_t, Eq = GJ_p/l Where J_p Is The”, Chegg Study, url <a href="https://www.chegg.com/homework-help/questions-and-answers/calculate-natural-frequency-omegan-oscillation-torsional-system-given--given-equivalent-to-q16591427">https://www.chegg.com/homework-help/questions-and-answers/calculate-natural-frequency-omegan-oscillation-torsional-system-given--given-equivalent-to-q16591427</a> [20201116].</li>
+</ol>
+
+<ul>
+  <li><a href="https://github.com/butiran/butiran.github.io/commits/master/_posts/phys/2020-11-12-simple-harmonic-motion.md">Article history</a></li>
+</ul>
+:ET

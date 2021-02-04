@@ -1,0 +1,251 @@
+I"�E<p>With a function, its derivative, and a initial guess of a root, root of a real-valued function can be approximated better successively using Newton-Raphson method [<a href="#ref1">1</a>].</p>
+
+<h2 id="formula">formula</h2>
+
+<p>With initial guess of a root $x_n$, value of the function $f(x_n)$, and its derivative $f’(x_n)$, following iterative formula</p>
+
+<p>\begin{equation}
+\label{eqn:rnr-newton-raphson-method}
+x_{n+1} = x_n - \frac{f(x_n)}{f’(x_n)}
+\end{equation}</p>
+
+<p>where $x_{n+1}$ is a better approximation of the root.</p>
+
+<h2 id="tangent">tangent</h2>
+<p>A tangent line to a curve at a certain point is a straight line that touches the curve at the point [<a href="#ref2">2</a>]. If the curve is simply function of one variable, namely $x$, then we can have the curve as a function $f(x)$.</p>
+
+<p style="text-align: center;"><img src="/assets/img/math/line/line-tangent-1-d.png" alt=".." />
+<br />
+Figure <a name="fig:rnr-line-tangent-1-d">1</a> Tanget line of a curve $f(x)$ at point $x = x_1$.</p>
+
+<p>If the point is $x = x_1$ then the tangent should pass the point $(x_1, f(x_1))$ and the gradient of the line is simply $f’(x_1)$ as shown in Fig. <a href="#fig:rnr-line-tangent-1-d">1</a>.</p>
+
+<h2 id="equation-of-a-line">equation of a line</h2>
+<p>A line with gradient $m$ and is passing point $(0, n)$ will have equation of</p>
+
+<p>\begin{equation}
+\label{eqn:rnr-equation-of-a-line}
+y = mx + n,
+\end{equation}</p>
+
+<p>which is known as equation of a line [<a href="#ref3">3</a>]. If we measure the angle between the line and $x$ axis as $\theta$ then</p>
+
+<p>\begin{equation}
+\label{eqn:rnr-gradient-tan-theta}
+m = \tan \theta
+\end{equation}</p>
+
+<p>is the relation between gradient $m$ and the angle $\theta$.</p>
+
+<p style="text-align: center;"><img src="/assets/img/math/line/line-equation-1-d.png" alt=".." />
+<br />
+Figure <a name="fig:rnr-line-equation-1-d">2</a> A line passing $(x_1, y_1)$ has gradient of $m$ and $y$ is $n$.</p>
+
+<p>Fig. <a href="#fig:fig:rnr-line-equation-1-d">2</a> shows the relation between gradient $m$ and $\theta$ through Eqn. \eqref{eqn:rnr-gradient-tan-theta}.</p>
+
+<p>The $y$ intercept is obtained when we set $x = 0$. And there also another way to get the equation when we know that the function is passing a point, namely $(x_1, y_1)$, through</p>
+
+<p>\begin{equation}
+\label{eqn:rnr-line-x1-y1}
+y = m(x - x_1) + y_1,
+\end{equation}</p>
+
+<p>when we know the gradient $m$ and</p>
+
+<p>\begin{equation}
+\label{eqn:rnr-line-x1-y1-n}
+n = y_1 - m x_1
+\end{equation}</p>
+
+<p>is the relation between $n$ and the point $(x_1, y_1)$, obtained by equating Eqn. \eqref{eqn:rnr-equation-of-a-line} with Eqn. \eqref{eqn:rnr-line-x1-y1}.</p>
+
+<h2 id="derivation">derivation</h2>
+<p>The formula in Eqn. \eqref{eqn:rnr-newton-raphson-method} can be derived using equation of a line in Eqn. \eqref{eqn:rnr-equation-of-a-line}.</p>
+
+<p style="text-align: center;"><img src="/assets/img/math/root/root-newton-raphson.png" alt=".." />
+<br />
+Figure <a name="fig:rnr-root-newton-raphson">3</a> Steps performed in Newton-Raphson method in obtaning $x_1$, $x_2$, until it gets $x_\infty$ with certain accurary.</p>
+
+<p>Let $x_1$ is the initial guess, then point on the function is $(x_1, f_1)$ where $f_1 = f(x_1)$ and gradient of the tangent is $f_1’ = f_1’(x_1)$. Using this information we can have equation of the first tangent line using Eqn. \eqref{eqn:rnr-line-x1-y1}</p>
+
+<p>\begin{equation}
+\label{eqn:rnr-tangent-line-1}
+y_1^{\tan} = f_1’ (x - x_1) + f_1.
+\end{equation}</p>
+
+<p>To find $x$ intercept of Eqn. \eqref{eqn:rnr-tangent-line-1} we set $y_1^{\tan} = 0$</p>
+
+<p>\begin{equation}
+\label{eqn:rnr-tangent-line-1-step-by-step}
+\begin{array}{rcl}
+0 &amp; = &amp; f_1’ (x - x_1) + f_1 \newline
+0 &amp; = &amp; f_1’ x - f_1’ x_1 + f_1 \newline
+f_1’ x_1 &amp; = &amp; f_1’ x  + f_1 \newline
+f_1’ x_1 - f_1 &amp; = &amp; f_1’ x \newline
+f_1’ x &amp; = &amp; f_1’ x_1 - f_1 \newline
+x &amp; = &amp; \displaystyle x_1 - \frac{f_1}{f_1’} \newline
+x_2 &amp; = &amp; \displaystyle x_1 - \frac{f(x_1)}{f’(x_1)}
+\end{array}
+\end{equation}</p>
+
+<p>and name the solution as $x_2$. We can repeat it for using $x_2$ as updated guess</p>
+
+<p>\begin{equation}
+\label{eqn:rnr-tangent-line-2}
+y_2^{\tan} = f_2’ (x - x_2) + f_2.
+\end{equation}</p>
+
+<p>Then following similar steps we can have</p>
+
+<p>\begin{equation}
+\label{eqn:rnr-tangent-line-2-step-by-step}
+\begin{array}{rcl}
+0 &amp; = &amp; f_2’ (x - x_2) + f_2 \newline
+0 &amp; = &amp; f_2’ x - f_2’ x_2 + f_2 \newline
+f_2’ x_2 &amp; = &amp; f_2’ x  + f_2 \newline
+f_2’ x_2 - f_2 &amp; = &amp; f_2’ x \newline
+f_2’ x &amp; = &amp; f_2’ x_2 - f_2 \newline
+x &amp; = &amp; \displaystyle x_2 - \frac{f_2}{f_2’} \newline
+x_3 &amp; = &amp; \displaystyle x_2 - \frac{f(x_2)}{f’(x_2)}
+\end{array}
+\end{equation}</p>
+
+<p>and name the solution as $x_3$. By observing the relation pattern between $x_2$ and $x_1$ in Eqn. \eqref{eqn:rnr-tangent-line-1-step-by-step} and between $x_3$ and $x_2$ in Eqn. \eqref{eqn:rnr-tangent-line-2-step-by-step} we can have Eqn. \eqref{eqn:rnr-newton-raphson-method} that relates $x_{n+1}$ with $x_n$ using $f(x_n)$ and $f’(x_n)$.</p>
+
+<h2 id="algorithm">algorithm</h2>
+<p>Eqn. \eqref{eqn:rnr-newton-raphson-method} can be described in following algorithm. We assume that at least one root does exist for $f(x)$.</p>
+
+<p>Algorithm <a name="alg:rnr-newton-raphson-method-algorithm">1</a> Newton-Raphson method. <br />
+<code class="language-plaintext highlighter-rouge">I</code>: $f(x)$, $f’(x)$, $x_1$, $\epsilon$. <br />
+<code class="language-plaintext highlighter-rouge">O</code>: $x_{\rm root}$.</p>
+<ol>
+  <li>$n = 1$.</li>
+  <li>$\displaystyle x_{n+1} \leftarrow x_n - \frac{f(x_n)}{f’(x_n)}$.</li>
+  <li>$|f(x_{n+1})| &lt; \epsilon \Rightarrow \color{blue}{\bf\scriptsize STEP} \ 6$.</li>
+  <li>$n = n + 1$.</li>
+  <li>$\Rightarrow \color{blue}{\bf\scriptsize STEP} \ 2$.</li>
+  <li>$x_{\rm root} = x_{n+1}$.</li>
+</ol>
+
+<p>There might be many another variations of algorithm than shown in Alg. <a href="#alg:rnr-newton-raphson-method-algorithm">1</a>.</p>
+
+<h2 id="flowchart">flowchart</h2>
+<p>As alternative to Alg. <a href="#alg:rnr-newton-raphson-method-algorithm">1</a> we can also have following flowchart for Eqn. \eqref{eqn:rnr-newton-raphson-method}.</p>
+
+<p style="text-align: center;"><img src="/assets/img/math/root/root-newton-raphson-flowchart.png" alt=".." />
+<br />
+Figure <a name="fig:rnr-newton-raphson-method-flowchart">1</a> Steps in Newton-Raphson method are described in a flow chart.</p>
+
+<p>Flowchart in Fig. <a href="#fig:rnr-newton-raphson-method-flowchart">1</a> is slightly different thatn Alg. <a href="#alg:rnr-newton-raphson-method-algorithm">1</a>, e.g. the use of $c$, due to size of element block in the flowchart.</p>
+
+<h2 id="test-function">test function</h2>
+<p>Following function</p>
+
+<p>\begin{equation}
+\label{eqn:rnr-test-function}
+f(x) = 0.01x^2 - 0.2192x^2 + 0.3056x + 1.568
+\end{equation}</p>
+
+<p>is used as test function, where the roots are $-2$, $3.92$, and $20$. As initial guess we will use $x_1 = 2$.</p>
+
+<p style="text-align: center;"><img src="/assets/img/math/root/root-newton-raphson-x1.png" alt=".." />
+<img src="/assets/img/math/root/root-newton-raphson-x2.png" alt=".." />
+<img src="/assets/img/math/root/root-newton-raphson-x3.png" alt=".." />
+<br />
+Figure <a name="fig:rnr-newton-raphson-method-example">2</a> Illustration in obtaining $x_2 = 5.063829787$ from initial guess $x_1 = 2$ (top), $x_3 = 4.009945362$ from $x_2 = 5.063829787$ (middle), and $x_4 = 3.920832405$ from $x_3 = 4.009945362$ (bottom) using Newton-Raphson method for the test function.</p>
+
+<p>With initial guess $x_1 = 2$ it seems that the root obtained is approximated to $3.92$ as shown in Fig. <a href="#fig:rnr-newton-raphson-method-example">2</a> as $x_4 = 3.920832405$</p>
+
+<h2 id="implementation">implementation</h2>
+<p>In implementing algorithm in Alg. <a href="#alg:rnr-newton-raphson-method-algorithm">1</a> or flowchart in Fig. <a href="#fig:rnr-newton-raphson-method-flowchart">1</a> a program can have following output</p>
+
+<div class="language-batch highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">f</span><span class="o">(</span><span class="kd">x</span><span class="o">)</span>  <span class="m">0</span>.01x<span class="se">^3</span> <span class="o">-</span> <span class="m">0</span>.2192x<span class="se">^2</span> <span class="o">+</span> <span class="m">0</span>.3056x <span class="o">+</span> <span class="m">1</span>.568
+<span class="kd">xinit</span> <span class="m">2</span>
+ε     <span class="m">1</span><span class="kd">E</span><span class="o">-</span><span class="m">10</span>
+<span class="kd">Nstep</span> <span class="m">6</span>
+<span class="kd">xroot</span> <span class="m">3</span>.920000000000001
+</code></pre></div></div>
+
+<p>where the example is given in Python.</p>
+
+<h3 id="python">python</h3>
+<p>Following code <code class="language-plaintext highlighter-rouge">root-newton-raphson.py</code> has been tested using Python 3.7.7 through Cygwin version 2.873 on Windows 10 Home.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Import necessary libraries
+</span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+
+
+<span class="c1"># Define a test function
+</span><span class="k">def</span> <span class="nf">test_function</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+	<span class="n">y3</span> <span class="o">=</span> <span class="mf">0.01</span> <span class="o">*</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span><span class="p">;</span>
+	<span class="n">y2</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.2192</span> <span class="o">*</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span><span class="p">;</span>
+	<span class="n">y1</span> <span class="o">=</span> <span class="mf">0.3056</span> <span class="o">*</span> <span class="n">x</span><span class="p">;</span>
+	<span class="n">y0</span> <span class="o">=</span> <span class="mf">1.568</span><span class="p">;</span>
+	<span class="n">y</span> <span class="o">=</span> <span class="n">y3</span> <span class="o">+</span> <span class="n">y2</span> <span class="o">+</span> <span class="n">y1</span> <span class="o">+</span> <span class="n">y0</span><span class="p">;</span>
+	<span class="k">return</span> <span class="n">y</span>
+
+
+<span class="c1"># Define derivative of the test function
+</span><span class="k">def</span> <span class="nf">derivative_test_function</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+	<span class="n">y2</span> <span class="o">=</span> <span class="mi">3</span> <span class="o">*</span> <span class="mf">0.01</span> <span class="o">*</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span><span class="p">;</span>
+	<span class="n">y1</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="o">-</span><span class="mf">0.2192</span> <span class="o">*</span> <span class="n">x</span><span class="p">;</span>
+	<span class="n">y0</span> <span class="o">=</span> <span class="mf">0.3056</span><span class="p">;</span>
+	<span class="n">y</span> <span class="o">=</span> <span class="n">y2</span> <span class="o">+</span> <span class="n">y1</span> <span class="o">+</span> <span class="n">y0</span><span class="p">;</span>
+	<span class="k">return</span> <span class="n">y</span>
+
+
+<span class="c1"># Define input
+</span><span class="n">f</span> <span class="o">=</span> <span class="n">test_function</span>
+<span class="n">dfdx</span> <span class="o">=</span> <span class="n">derivative_test_function</span>
+<span class="n">xinit</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">eps</span> <span class="o">=</span> <span class="mf">1E-10</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">maxstep</span> <span class="o">=</span> <span class="mi">40</span>
+
+<span class="c1"># Define default message and parameter
+</span><span class="n">xroot</span> <span class="o">=</span> <span class="s">"not found"</span>
+
+<span class="c1"># Do iteration
+</span><span class="n">Nstep</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">x</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">x</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">xinit</span><span class="p">)</span>
+<span class="n">froot</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nb">abs</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">n</span><span class="p">]))</span>
+
+<span class="k">while</span> <span class="n">froot</span> <span class="o">&gt;</span> <span class="n">eps</span> <span class="ow">and</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="n">maxstep</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
+	<span class="n">x</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">-</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">n</span><span class="p">])</span> <span class="o">/</span> <span class="n">dfdx</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">n</span><span class="p">]))</span>
+	
+	<span class="n">froot</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nb">abs</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">]))</span>
+	<span class="k">if</span> <span class="n">froot</span> <span class="o">&lt;</span> <span class="n">eps</span><span class="p">:</span>
+		<span class="n">xroot</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
+	
+	<span class="n">n</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="n">Nstep</span> <span class="o">=</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span>
+
+<span class="c1"># Display result
+</span><span class="k">print</span><span class="p">(</span><span class="s">"f(x)  0.01x^3 - 0.2192x^2 + 0.3056x + 1.568"</span><span class="p">);</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"xinit "</span><span class="p">,</span> <span class="n">xinit</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s">""</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"ε     "</span><span class="p">,</span> <span class="n">eps</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s">""</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Nstep "</span><span class="p">,</span> <span class="n">Nstep</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s">""</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"xroot "</span><span class="p">,</span> <span class="n">xroot</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s">""</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Full source code with comments can be accessed <a href="https://github.com/butiran/butiran.github.io/blob/master/src/py/fi3201/root/root-newton-raphson.py">here</a></p>
+
+<h2 id="exercises">exercises</h2>
+<ol>
+  <li>Study Eqns. \eqref{eqn:rnr-tangent-line-1} - \eqref{eqn:rnr-tangent-line-2} in obtaining the relation in Eqn. \eqref{eqn:rnr-newton-raphson-method}, then use it in a spreadsheet to see how it works in producing root of $x^2 - 9 = 0$ when $x_1 = 2$. What is the answer when $x_1 = -4$? Explain results difference due to the choice of initial guess.</li>
+  <li>Create another variation of Alg. <a href="#alg:rnr-newton-raphson-method-algorithm">1</a>, e.g. change the order of checking $|f(x_{n+1})|$ and incresing $n$.</li>
+</ol>
+
+<h2 id="references">references</h2>
+<ol>
+  <li><a name="ref1"></a>Wikipedia contributors, “Newton’s method”, Wikipedia, The Free Encyclopedia, 9 January 2021, 08:37 UTC, <a href="https://en.wikipedia.org/w/index.php?oldid=999264602">https://en.wikipedia.org/w/index.php?oldid=999264602</a> [20210130].</li>
+  <li><a name="ref2"></a>Wikipedia contributors, “Tangent”, Wikipedia, The Free Encyclopedia, 12 January 2021, 05:18 UTC, <a href="https://en.wikipedia.org/w/index.php?oldid=999834620">https://en.wikipedia.org/w/index.php?oldid=999834620</a> [20210130].</li>
+  <li><a name="ref3"></a>Wikipedia contributors, “Linear equation”, Wikipedia, The Free Encyclopedia, 11 November 2020, 23:58 UTC, <a href="https://en.wikipedia.org/w/index.php?oldid=988244807">https://en.wikipedia.org/w/index.php?oldid=988244807</a> [20210130].</li>
+</ol>
+
+<ul>
+  <li><a href="https://github.com/butiran/butiran.github.io/commits/master/_posts/fi3201/2021-01-30-root-newton-raphson.md">Article history</a></li>
+</ul>
+:ET

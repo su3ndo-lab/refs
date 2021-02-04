@@ -1,0 +1,368 @@
+I"�~<p>We can use scanning method in finding a root, even it is not listed in the list of root-finding algorithms [<a href="#ref1">1</a>]. This method is not efficient, not accurate, and very step dependent, but very simple and straightforward.</p>
+
+<h2 id="sign-function">sign function</h2>
+<p>A signum function or sign function can be deined as [<a href="#ref2">2</a>]</p>
+
+<p>\begin{equation}
+\label{eqn:rs-sign-function}
+{\rm sign}(x) = \left\{
+\begin{array}{lr}
+-1, &amp; x &lt; 0, \newline
+0, &amp; x = 0, \newline
+1, &amp; x &gt; 0,
+\end{array}
+\right.
+\end{equation}</p>
+
+<p>or for $x \ne 0$ it can be approximated with</p>
+
+<p>\begin{equation}
+\label{eqn:rs-sign-function-non-zero}
+{\rm sign}(x) = \frac{x}{|x|} = \frac{|x|}{x}.
+\end{equation}</p>
+
+<p>We will use the Eqn. \eqref{eqn:rs-sign-function-non-zero} instead of \eqref{eqn:rs-sign-function} only for simplicity.</p>
+
+<p>In C++ we must define the sign function since there is not any standar one [<a href="#ref3">3</a>], where in Python we can use NumPy [<a href="#ref4">4</a>], and Math in JS [<a href="#ref5">5</a>].</p>
+
+<h2 id="algorithm">algorithm</h2>
+<p>Assume that a function $f(x)$ already exists and we would like to find $x$ as a root of the function.</p>
+
+<p>Algorithm <a name="alg:rs-scanning-method-algorithm">1</a> Scanning method. <br />
+<code class="language-plaintext highlighter-rouge">I</code>: $f(x)$, $x_{\rm beg}$, $x_{\rm end}$, $\Delta x$ <br />
+<code class="language-plaintext highlighter-rouge">O</code>: $x_{\rm root}$</p>
+<ol>
+  <li>$x \leftarrow x_{\rm beg}$.</li>
+  <li>$\displaystyle S_0 \leftarrow \frac{f(x)}{|f(x)|}$.</li>
+  <li>$x \leftarrow x + \Delta x$.</li>
+  <li>$\displaystyle S \leftarrow \frac{f(x)}{|f(x)|}$.</li>
+  <li>$S_0 S &lt; 0 \Rightarrow \color{blue}{\bf\scriptsize STEP} \  8$</li>
+  <li>$x &gt; x_{\rm end} \Rightarrow \color{blue}{\bf\scriptsize STEP} \ 10$</li>
+  <li>$\Rightarrow \color{blue}{\bf\scriptsize STEP} \ 3$</li>
+  <li>$x_{\rm r} \leftarrow x - \frac12 \Delta x$.</li>
+  <li>$\Rightarrow \color{blue}{\bf\scriptsize STEP} \ 11$</li>
+  <li>$x_{\rm r} \notin  [x_{\rm beg}, x_{\rm end}]$.</li>
+  <li>$x_{\rm root} \leftarrow x_r$</li>
+</ol>
+
+<p>A function $f(x)$ will be solved using Alg. <a href="#alg:rs-scanning-method-algorithm">1</a> as discussed after following section.</p>
+
+<h2 id="flow-chart">flow chart</h2>
+<p>Beside using Alg. <a href="#alg:rs-scanning-method-algorithm">1</a> we can also use a flow chart to design how steps of finding root using scanning method.</p>
+
+<p style="text-align: center;"><img src="/assets/img/math/root/root-scanning-flowchart.png" alt=".." />
+<br />
+Figure <a name="fig:rs-scanning-method-flowchart">1</a> Steps in scanning method are described in a flow chart.</p>
+
+<p>Fig. <a href="#fig:rs-scanning-method-flowchart">1</a> shows an alternative flow chart explaining the scanning method in finding a root from a function, where two examples are discussed in the following section.</p>
+
+<h2 id="test-function">test function</h2>
+<p>Let us have a function</p>
+
+<p>\begin{equation}
+\label{eqn:rs-test-function}
+f(x) = \frac{1}{20} (x + 1) (x - 3.45) (x - 8),
+\end{equation}</p>
+
+<p>a polynomial function with 3rd order. Illustration how Alg. <a href="#alg:rs-scanning-method-algorithm">2</a> works for Eqn. \eqref{eqn:rs-test-function} is given in Figs. <a href="#fig:rs-example-dx-1">2</a> and <a href="#fig:rs-example-dx-0.5">3</a>.</p>
+
+<p style="text-align: center;"><img src="/assets/img/math/root/root-scanning-dx-1-2.png" alt=".." />
+<img src="/assets/img/math/root/root-scanning-dx-1-3.png" alt=".." />
+<img src="/assets/img/math/root/root-scanning-dx-1-4.png" alt=".." />
+<br />
+Figure <a name="fig:rs-example-dx-1">2</a> Scanning a root with $x_{\rm beg} = 2$ and $\Delta x = 1$, with result of $x_{\rm root} = 3.5$, while: $x = 2$ (top), $x = 3$ (middle), and $x = 4$ (bottom).</p>
+
+<p>Three steps are required to get the result of $x_{\rm root} = 3.5$ for $\Delta x = 1$ as shown in Fig. <a name="fig:rs-example-dx-1">2</a>. In each sub-figure the point being examined is indicated with vertical blue line.</p>
+
+<p style="text-align: center;"><img src="/assets/img/math/root/root-scanning-dx-0.5-2.0.png" alt=".." />
+<img src="/assets/img/math/root/root-scanning-dx-0.5-2.5.png" alt=".." />
+<img src="/assets/img/math/root/root-scanning-dx-0.5-3.0.png" alt=".." />
+<img src="/assets/img/math/root/root-scanning-dx-0.5-3.5.png" alt=".." />
+<br />
+Figure <a name="fig:rs-example-dx-0.5">3</a> Scanning a root with $x_{\rm beg} = 2$ and $\Delta x = 0.5$, with result of $x_{\rm root} = 3.25$, while: $x = 2$ (top), $x = 2.5$ )second top), $x = 3$ (second bottom), and $x = 3.5$ (bottom).</p>
+
+<p>If we choose $\Delta x = 0.5$ then four steps are required to produce $x_{\rm root} = 3.25$. We can also try with $\Delta x = 0.25$ and we will have seven steps that produces $x_{\rm root} = 3.375$. Then $x = 3.5$ with 9 steps for $\Delta x = 0.2$. And finally $x = 3.45$ with 16 steps for $\Delta x = 0.1$, which is the right answer.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>$\Delta x$</td>
+      <td>1</td>
+      <td>0.5</td>
+      <td>0.25</td>
+      <td>0.2</td>
+      <td>0.1</td>
+    </tr>
+    <tr>
+      <td>$N_{\rm step}$</td>
+      <td>3</td>
+      <td>4</td>
+      <td>7</td>
+      <td>9</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <td>$x_{\rm root}$</td>
+      <td>3.5</td>
+      <td>3.25</td>
+      <td>3.375</td>
+      <td>3.5</td>
+      <td>3.45</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Previous table summerized the discussed results, where all use the same initial value $x_{\rm beg} = 2$.</p>
+
+<h2 id="implementation">implementation</h2>
+<p>We can design that the output is as follow</p>
+
+<div class="language-batch highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">f</span><span class="o">(</span><span class="kd">x</span><span class="o">)</span>  <span class="m">0</span>.05<span class="o">(</span><span class="kd">x</span><span class="o">+</span><span class="m">1</span><span class="o">)(</span><span class="kd">x</span><span class="o">-</span><span class="m">3</span>.45<span class="o">)(</span><span class="kd">x</span><span class="o">-</span><span class="m">8</span><span class="o">)</span>
+Δx    <span class="m">1</span>
+<span class="kd">xbeg</span>  <span class="m">2</span>
+<span class="kd">xend</span>  <span class="m">5</span>
+<span class="kd">Nstep</span> <span class="m">3</span>
+<span class="kd">xroot</span> <span class="m">3</span>.5
+</code></pre></div></div>
+
+<p>Three examples are given in the next sub-sections.</p>
+
+<h3 id="javascript">javascript</h3>
+<p>Following code <code class="language-plaintext highlighter-rouge">root-scanning.js</code> is tested using Node.js v10.1.0 on Windows 10 Home.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Define a test function</span>
+<span class="kd">function</span> <span class="nx">test_function</span><span class="p">()</span> <span class="p">{</span>
+	<span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="nx">arguments</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+	<span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mf">0.05</span><span class="p">;</span>
+	<span class="kd">var</span> <span class="nx">x1</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+	<span class="kd">var</span> <span class="nx">x2</span> <span class="o">=</span> <span class="mf">3.45</span><span class="p">;</span>
+	<span class="kd">var</span> <span class="nx">x3</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span>
+	<span class="kd">var</span> <span class="nx">y</span> <span class="o">=</span> <span class="nx">a</span><span class="o">*</span><span class="p">(</span><span class="nx">x</span><span class="o">-</span><span class="nx">x1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="nx">x</span><span class="o">-</span><span class="nx">x2</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="nx">x</span><span class="o">-</span><span class="nx">x3</span><span class="p">);</span>
+	<span class="k">return</span> <span class="nx">y</span><span class="p">;</span>
+<span class="p">}</span>
+
+
+<span class="c1">// Define main function</span>
+<span class="kd">function</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+	<span class="c1">// Define input</span>
+	<span class="kd">var</span> <span class="nx">f</span> <span class="o">=</span> <span class="nx">test_function</span><span class="p">;</span>
+	<span class="kd">var</span> <span class="nx">xbeg</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+	<span class="kd">var</span> <span class="nx">xend</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+	<span class="kd">var</span> <span class="nx">dx</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+	
+	<span class="c1">// Define default message</span>
+	<span class="kd">var</span> <span class="nx">xroot</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">not found</span><span class="dl">"</span><span class="p">;</span>
+	
+	<span class="c1">// Do iteration</span>
+	<span class="kd">var</span> <span class="nx">S0</span><span class="p">,</span> <span class="nx">S</span><span class="p">;</span>
+	<span class="kd">var</span> <span class="nx">Nstep</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+	<span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="nx">xbeg</span><span class="p">;</span>
+	<span class="k">while</span><span class="p">(</span><span class="nx">x</span> <span class="o">&lt;=</span> <span class="nx">xend</span><span class="p">)</span> <span class="p">{</span>
+		<span class="c1">// Increase Nstep;</span>
+		<span class="nx">Nstep</span><span class="o">++</span><span class="p">;</span>
+		
+		<span class="c1">// Calculate S0 and S</span>
+		<span class="k">if</span><span class="p">(</span><span class="nx">x</span> <span class="o">==</span> <span class="nx">xbeg</span><span class="p">)</span> <span class="p">{</span>
+			<span class="nx">S0</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span><span class="nx">f</span><span class="p">(</span><span class="nx">x</span><span class="p">));</span>
+		<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+			<span class="nx">S</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span><span class="nx">f</span><span class="p">(</span><span class="nx">x</span><span class="p">));</span>
+		<span class="p">}</span>
+		
+		<span class="c1">// Check S0.S for root</span>
+		<span class="k">if</span><span class="p">(</span><span class="nx">x</span> <span class="o">&gt;</span> <span class="nx">xbeg</span><span class="p">)</span> <span class="p">{</span>
+			<span class="k">if</span><span class="p">(</span><span class="nx">S0</span> <span class="o">*</span> <span class="nx">S</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+				<span class="nx">xroot</span> <span class="o">=</span> <span class="nx">x</span> <span class="o">-</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="nx">dx</span><span class="p">;</span>
+				<span class="k">break</span><span class="p">;</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+		<span class="nx">x</span> <span class="o">+=</span> <span class="nx">dx</span><span class="p">;</span>
+	<span class="p">}</span>
+	
+	<span class="c1">// Display result</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">f(x)  0.05(x+1)(x-3.45)(x-8)</span><span class="dl">"</span><span class="p">);</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Δx    </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">dx</span><span class="p">);</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">xbeg  </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">xbeg</span><span class="p">);</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">xend  </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">xend</span><span class="p">);</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Nstep </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">Nstep</span><span class="p">);</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">xroot </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">xroot</span><span class="p">);</span>
+<span class="p">}</span>
+
+
+<span class="c1">// Call main function</span>
+<span class="nx">main</span><span class="p">();</span>
+</code></pre></div></div>
+
+<p>Full source code with comments can be accessed <a href="https://github.com/butiran/butiran.github.io/blob/master/src/js/fi3201/root/root-scanning.js">here</a></p>
+
+<h3 id="c">c++</h3>
+<p>Following code <code class="language-plaintext highlighter-rouge">root-scanning.cpp</code> has been tested using g++ (GCC) 10.2.0 through Cygwin version 2.873 on Windows 10 Home.</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Include necessary libraries</span>
+<span class="cp">#include &lt;iostream&gt;
+</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="c1">// Define some functions</span>
+<span class="kt">double</span> <span class="nf">sign</span><span class="p">(</span><span class="kt">double</span><span class="p">);</span>
+<span class="kt">double</span> <span class="nf">test_function</span><span class="p">(</span><span class="kt">double</span><span class="p">);</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
+	<span class="c1">// Define input</span>
+	<span class="kt">double</span> <span class="n">xbeg</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+	<span class="kt">double</span> <span class="n">xend</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+	<span class="kt">double</span> <span class="n">dx</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+	
+	<span class="c1">// Define default value</span>
+	<span class="kt">double</span> <span class="n">not_found</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2021</span><span class="p">;</span>
+	<span class="kt">double</span> <span class="n">xroot</span> <span class="o">=</span> <span class="n">not_found</span><span class="p">;</span>
+	
+	<span class="c1">// Do iteration</span>
+	<span class="kt">double</span> <span class="n">S0</span><span class="p">,</span> <span class="n">S</span><span class="p">;</span>
+	<span class="kt">int</span> <span class="n">Nstep</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+	<span class="kt">double</span> <span class="n">x</span> <span class="o">=</span> <span class="n">xbeg</span><span class="p">;</span>
+	<span class="k">while</span><span class="p">(</span><span class="n">x</span> <span class="o">&lt;=</span> <span class="n">xend</span><span class="p">)</span> <span class="p">{</span>
+		<span class="c1">// Increase Nstep;</span>
+		<span class="n">Nstep</span><span class="o">++</span><span class="p">;</span>
+		
+		<span class="c1">// Calculate S0 and S</span>
+		<span class="kt">double</span> <span class="n">fx</span> <span class="o">=</span> <span class="n">test_function</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+		<span class="k">if</span><span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="n">xbeg</span><span class="p">)</span> <span class="p">{</span>
+			<span class="n">S0</span> <span class="o">=</span> <span class="n">sign</span><span class="p">(</span><span class="n">fx</span><span class="p">);</span>
+		<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+			<span class="n">S</span> <span class="o">=</span> <span class="n">sign</span><span class="p">(</span><span class="n">fx</span><span class="p">);</span>
+		<span class="p">}</span>
+		
+		<span class="c1">// Check S0.S for root</span>
+		<span class="k">if</span><span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="n">xbeg</span><span class="p">)</span> <span class="p">{</span>
+			<span class="k">if</span><span class="p">(</span><span class="n">S0</span> <span class="o">*</span> <span class="n">S</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+				<span class="n">xroot</span> <span class="o">=</span> <span class="n">x</span> <span class="o">-</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">dx</span><span class="p">;</span>
+				<span class="k">break</span><span class="p">;</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+		<span class="n">x</span> <span class="o">+=</span> <span class="n">dx</span><span class="p">;</span>
+	<span class="p">}</span>
+	
+	<span class="c1">// Display result</span>
+	<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"f(x)  0.05(x+1)(x-3.45)(x-8)"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+	<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Δx    "</span> <span class="o">&lt;&lt;</span> <span class="n">dx</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+	<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"xbeg  "</span> <span class="o">&lt;&lt;</span> <span class="n">xbeg</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+	<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"xend  "</span> <span class="o">&lt;&lt;</span> <span class="n">xend</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+	<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Nstep "</span> <span class="o">&lt;&lt;</span> <span class="n">Nstep</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+	<span class="k">if</span><span class="p">(</span><span class="n">xroot</span> <span class="o">==</span> <span class="n">not_found</span><span class="p">)</span> <span class="p">{</span>
+		<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"xroot not found"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+	<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+		<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"xroot "</span> <span class="o">&lt;&lt;</span> <span class="n">xroot</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+	<span class="p">}</span>
+	
+	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+
+<span class="c1">// Implement sign function from [1]</span>
+<span class="kt">double</span> <span class="nf">sign</span><span class="p">(</span><span class="kt">double</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">return</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="o">?</span> <span class="o">-</span><span class="mi">1</span> <span class="o">:</span> <span class="p">((</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="o">?</span> <span class="mi">1</span> <span class="o">:</span> <span class="mi">0</span><span class="p">);</span>
+<span class="p">}</span>
+
+
+<span class="c1">// Define test function</span>
+<span class="kt">double</span> <span class="nf">test_function</span><span class="p">(</span><span class="kt">double</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+	<span class="kt">double</span> <span class="n">a</span> <span class="o">=</span> <span class="mf">0.05</span><span class="p">;</span>
+	<span class="kt">double</span> <span class="n">x1</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+	<span class="kt">double</span> <span class="n">x2</span> <span class="o">=</span> <span class="mf">3.45</span><span class="p">;</span>
+	<span class="kt">double</span> <span class="n">x3</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span>
+	<span class="kt">double</span> <span class="n">y</span> <span class="o">=</span> <span class="n">a</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">x1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">x2</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">x3</span><span class="p">);</span>
+	<span class="k">return</span> <span class="n">y</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Full source code with comments can be accessed <a href="https://github.com/butiran/butiran.github.io/blob/master/src/cpp/fi3201/root/root-scanning.cpp">here</a></p>
+
+<h3 id="python">python</h3>
+<p>Following code <code class="language-plaintext highlighter-rouge">root-scanning.py</code> has been tested using Python 3.7.7 through Cygwin version 2.873 on Windows 10 Home.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Import necessary libraries
+</span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+
+<span class="c1"># Define a test function
+</span><span class="k">def</span> <span class="nf">test_function</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+	<span class="n">a</span> <span class="o">=</span> <span class="mf">0.05</span>
+	<span class="n">x1</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+	<span class="n">x2</span> <span class="o">=</span> <span class="mf">3.45</span>
+	<span class="n">x3</span> <span class="o">=</span> <span class="mi">8</span>
+	<span class="n">y</span> <span class="o">=</span> <span class="n">a</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">x1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">x2</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">x3</span><span class="p">)</span>
+	<span class="k">return</span> <span class="n">y</span>
+
+
+<span class="c1"># Define input
+</span><span class="n">f</span> <span class="o">=</span> <span class="n">test_function</span>
+<span class="n">xbeg</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">xend</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">dx</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="c1"># Define default message
+</span><span class="n">xroot</span> <span class="o">=</span> <span class="s">"not found"</span><span class="p">;</span>
+
+<span class="c1"># Do iteration
+</span><span class="n">Nstep</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">xbeg</span><span class="p">;</span>
+
+<span class="k">while</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="n">xend</span><span class="p">:</span>
+	<span class="c1"># Increase Nstep;
+</span>	<span class="n">Nstep</span> <span class="o">+=</span> <span class="mi">1</span>
+	
+	<span class="c1"># Calculate S0 and S
+</span>	<span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="n">xbeg</span><span class="p">:</span>
+		<span class="n">S0</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">sign</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+	<span class="k">else</span><span class="p">:</span>
+		<span class="n">S</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">sign</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+	
+	<span class="c1"># Check S0.S for root
+</span>	<span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="n">xbeg</span><span class="p">:</span>
+		<span class="k">if</span> <span class="n">S0</span> <span class="o">*</span> <span class="n">S</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+			<span class="n">xroot</span> <span class="o">=</span> <span class="n">x</span> <span class="o">-</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">dx</span><span class="p">;</span>
+			<span class="k">break</span><span class="p">;</span>
+	
+	<span class="n">x</span> <span class="o">+=</span> <span class="n">dx</span><span class="p">;</span>
+
+<span class="c1"># Display result
+</span><span class="k">print</span><span class="p">(</span><span class="s">"f(x)   0.05(x+1)(x-3.45)(x-8)"</span><span class="p">);</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Δx    "</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s">""</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"xbeg  "</span><span class="p">,</span> <span class="n">xbeg</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s">""</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"xend  "</span><span class="p">,</span> <span class="n">xend</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s">""</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Nstep "</span><span class="p">,</span> <span class="n">Nstep</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s">""</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"xroot "</span><span class="p">,</span> <span class="n">xroot</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s">""</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Full source code with comments can be accessed <a href="https://github.com/butiran/butiran.github.io/blob/master/src/py/fi3201/root/root-scanning.py">here</a></p>
+
+<h2 id="exercises">exercises</h2>
+<ol>
+  <li>Using previous C++ code compile the program to produce results for $\Delta x = 0.01$. What are the value of $N_{\rm step}$ and $x_{\rm root}$? Use the same $x_{\rm beg} = 2$.</li>
+  <li>Modify <code class="language-plaintext highlighter-rouge">root-scanning.js</code> to get following result
+    <div class="language-batch highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">f</span><span class="o">(</span><span class="kd">x</span><span class="o">)</span>  <span class="m">0</span>.05<span class="o">(</span><span class="kd">x</span><span class="o">+</span><span class="m">1</span><span class="o">)(</span><span class="kd">x</span><span class="o">-</span><span class="m">3</span>.45<span class="o">)(</span><span class="kd">x</span><span class="o">-</span><span class="m">8</span><span class="o">)</span>
+Δx    <span class="m">1</span>
+<span class="kd">xbeg</span>  <span class="m">0</span>
+<span class="kd">xend</span>  <span class="m">3</span>
+<span class="kd">Nstep</span> <span class="m">4</span>
+<span class="kd">xroot</span> <span class="ow">not</span> <span class="kd">found</span>
+</code></pre></div>    </div>
+    <p>Can you explain why such result is produced?</p>
+  </li>
+  <li>Explain the difference of implementation in producing the result of <code class="language-plaintext highlighter-rouge">xroot not found</code> in <code class="language-plaintext highlighter-rouge">root-scanning.js</code> and <code class="language-plaintext highlighter-rouge">root-scanning.cpp</code> programs.</li>
+  <li>Is there any similiarity in implementing condition of <code class="language-plaintext highlighter-rouge">xroot not found</code> in <code class="language-plaintext highlighter-rouge">root-scanning.js</code> and <code class="language-plaintext highlighter-rouge">root-scanning.py</code> programs. Explain that in brief.</li>
+  <li>Using one of the given programs, <code class="language-plaintext highlighter-rouge">root-scanning.py</code>, <code class="language-plaintext highlighter-rouge">root-scanning.js</code>, or <code class="language-plaintext highlighter-rouge">root-scanning.cpp</code>, calculate $x_{\rm root}$ using different step size $\Delta x$ and make a chart of obtained $x_{\rm root}$ againts $\Delta x$. Discuss the result and shown the relation between $\Delta x$ and accuracy of the results.</li>
+</ol>
+
+<h2 id="references">references</h2>
+<ol>
+  <li><a name="ref1"></a>Wikipedia contributors, “Root-finding algorithms”, Wikipedia, The Free Encyclopedia, 15 January 2021, 23:25 UTC, <a href="https://en.wikipedia.org/w/index.php?oldid=1000624440">https://en.wikipedia.org/w/index.php?oldid=1000624440</a> [20210126].</li>
+  <li><a name="ref2"></a>Wikipedia contributors, “Sign function”, Wikipedia, The Free Encyclopedia, 3 January 2021, 19:24 UTC, <a href="https://en.wikipedia.org/w/index.php?oldid=998088494">https://en.wikipedia.org/w/index.php?oldid=998088494</a> [20210128].</li>
+  <li><a name="ref3"></a>Mark Byers, “Answer to ‘Is there a standard sign function (signum, sgn) in C/C++?’”, StackOverflow, 14 Dec 2009 22:3-0, url &lt;	   https://stackoverflow.com/a/1903975&gt; [20210128].</li>
+  <li><a name="ref4"></a>sanjoy_62, “numpy.sign() in Python”, GeeksforGeeks, 03 Oct 2019, url <a href="https://www.geeksforgeeks.org/numpy-sign-in-python/">https://www.geeksforgeeks.org/numpy-sign-in-python/</a> [20210128].</li>
+  <li><a name="ref4"></a>MDN contributors (schlagi123, cedrichaase), “Math.sign()”, MDN Web Docs, 16. Okt. 2020, url <a href="https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Math/sign">https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Math/sign</a> [20210128].</li>
+</ol>
+
+<ul>
+  <li><a href="https://github.com/butiran/butiran.github.io/commits/master/_posts/fi3201/2021-01-26-root-scanning.md">Article history</a></li>
+</ul>
+:ET

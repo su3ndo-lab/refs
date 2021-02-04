@@ -1,0 +1,39 @@
+I"�<p>This entry is related to the questions and problems contained in a problem set using in tutorial activity [<a href="#ref1">1</a>].</p>
+
+<h2 id="questions">Questions</h2>
+<ol>
+  <li>Two objects have the same momentum. Do the velocities of these objects necessarily have (a) the same directions and (b) the same magnitudes? Give your reasoning in each case.</li>
+  <li>(a) Can a single object have kinetic energy but no momentum? (b) Can a system of two or more objects have a total kinetic energy that is not zero but a total momentum that is zero? Account for your answers.</li>
+  <li>Where would you expect the center of mass of a doughnut to be located? Why?</li>
+  <li>A satellite explodes in outer space, far from any other body, sending thousands of pieces in all directions. How does the linear momentum of the satellite before the explosion compare with the total linear momentum of all the pieces after the explosion? Account for your answer.</li>
+  <li>A boxer being hit with a punch tries to extend the time of contact for best results, whereas a karate expert delivers a blow in a short time for best results. Isn’t there a contradiction here?</li>
+</ol>
+
+<h2 id="problems">Problems</h2>
+<ol>
+  <li>(a) Show that the kinetic energy $K$ and the momentum magnitude $p$ of a particle with mass $m$ are related by $K = p^2/2m$.(b) A $700 \ \rm N$ child and a $450 \ \rm N$ second child have the same momentum. What is the ratio of the first child kinetic energy to that of the second child?</li>
+  <li>A $0.160 \rm kg$ hockey puck is moving on an icy, frictionless, horizontal surface. At $t = 0$, the puck is moving to the right at $3.00 \ \rm m/s$. Calculate the velocity of the puck (magnitude and direction) after a force of $12.0 \ \rm N$ directed to the left is applied from $t = 0$ to $t = 0.050 \ \rm s$.</li>
+  <li>An engine of the orbital maneuvering system (OMS) on a space shuttle exerts a force of $26,700 \hat{j} \ \rm N$ for $3.90 \ \rm s$, exhausting a negligible mass of fuel relative to the $95,000-\rm kg$ mass of the shuttle. (a) What is the impulse of the force for this $3.90 \ \rm s$? (b) What is the shuttle’s change in momentum from this impulse? (c) What is the shuttle’s change in velocity from this impulse?</li>
+  <li>Starting at $t = 0$, an average net force $\bar{\vec{F}} = 0.280 \hat{i} \ \rm N$ is applied to a box that has an initial momentum $\vec{p} = -3.00 \hat{i} \ \rm kg \cdot m/s$. What is the momentum of the box at $ t = 2.00 \ \rm s$?</li>
+  <li>Two identical $1.50-\rm kg$ masses are pressed against opposite ends of a light spring of force constant $1.75 \ \rm N/cm$ compressing the spring by $20.0 \ \rm cm$ from its normal length. Find the speed of each mass when it has moved free of the spring on a frictionless horizontal table.</li>
+  <li>You are at the controls of a particle accelerator, sending a beam of $1.50 \times 10^7 \ \rm m/s$ protons (mass $m$) at a gas target of an unknown element. Your detector tells you that some protons bounce straight back after a collision with one of the nuclei of the unknown element. All such protons rebound with a speed of $1.20 \times 10^7 \ \rm m/s$. Assume that the initial speed of the target nucleus is negligible and the collision is elastic. (a) Find the mass of one nucleus of the unknown element. Express your answer in terms of the proton mass $m$. (b) What is the speed of the unknown nucleus immediately after such a collision?</li>
+  <li>Pluto’s diameter is approximately $2370 \ \rm km$, and the diameter of its satellite Charon is $1250 \ \rm km$. Although the distance varies, they are often about $19,700 \ \rm km$ apart, center to center. Assuming that both Pluto and Charon have the same composition and hence the same average density, find the location of the center of mass of this system relative to the center of Pluto.</li>
+  <li>A machine part consists of a thin, uniform $4.00 \ \rm kg$ bar that is $1.50 \ \rm m$ long, hinged perpendicular to a similar vertical bar of mass $3.00 \ \rm kg$ and length $1.80 \ \rm m$. The longer bar has a small but dense $2.00 \ \rm kg$ ball at one end (see the figure). By what distance will the center of mass of this part move horizontally and vertically if the vertical bar is pivoted counterclockwise through $90^\circ$ to make the entire part horizontal? [∎] See [<a href="#ref2">2</a>] for illustration.</li>
+  <li>A $1500 \ \rm kg$ blue SUV is traveling south, and a $2000 \ \rm kg$ red SUV is traveling west. If the total momentum of the system consisting of the two cars is $7200 \ \rm kg \cdot m/s$ directed $60^\circ$ at west of south, what is the speed of each vehicle?</li>
+  <li>Two identical masses are released from rest in a smooth hemispherical bowl of radius $R$ from the positions shown in the figure. You can ignore friction between the masses and the surface of the bowl. If they stick together when they collide, how high above the bottom of the bowl will the masses go after colliding? [∎] See [<a href="#ref3">3</a>] for illustration.</li>
+</ol>
+
+<h2 id="note">Note</h2>
+<p>The symbol [∎] means that there is a diagram, figure, or graph, which is still illustrated using only text. Or a link to an image. It is possible that the link might not be provided yet.</p>
+
+<h2 id="references">References</h2>
+<ol>
+  <li><a name="ref1"></a>Nurhasan, I. Magdalena (eds.), “Topic 4: Linear Momentum”, Problem Set Elementary Physics 1B (FI-1102), 1st Semester, Academic Year 2020-2021, Physics Study Program, Faculty of Mathematics and Natural Sciences, Institut Teknologi Bandung, Indonesia, url <a href="https://fmipa.itb.ac.id/fisika-dasar">https://fmipa.itb.ac.id/fisika-dasar</a> [20201101].</li>
+  <li><a name="ref2"></a>-, “Question: A Machine Part Consists Of A Thin, Uniform 4.00-kg Bar That Is 1.50 M Long, Hinged Perpendicular To A Similar Vertical Bar Of Mass 3.00 Kg And Length 1.80 M. The Longer Bar Has A Small But Dense 2.00-kg Ball At One End (Figure 1) Part A.)By What Distance Will The Center Of Mass Of This Part Move Horizontally And Vertically If The Vertical Bar Is Pivoted …”, Chegg Study, url <a href="https://www.chegg.com/homework-help/questions-and-answers/machine-part-consists-thin-uniform-400-kg-bar-150-m-long-hinged-perpendicular-similar-vert-q8679583">https://www.chegg.com/homework-help/questions-and-answers/machine-part-consists-thin-uniform-400-kg-bar-150-m-long-hinged-perpendicular-similar-vert-q8679583</a>[20201101].</li>
+  <li><a name="ref3"></a>-, “Question: 82 • Two Identical Masses Figure P82 Are Released From Rest In…”, Chegg Study, url <a href="https://www.chegg.com/homework-help/questions-and-answers/82-two-identical-masses-figure-p82-released-rest-smooth-hemispherical-bowl-radius-r-positi-q24994911">https://www.chegg.com/homework-help/questions-and-answers/82-two-identical-masses-figure-p82-released-rest-smooth-hemispherical-bowl-radius-r-positi-q24994911</a> [20201101].</li>
+</ol>
+
+<ul>
+  <li><a href="https://github.com/butiran/butiran.github.io/commits/master/_posts/phys/tutorial/2020-11-01-tutorial-04-2020-1.md">Article history</a></li>
+</ul>
+:ET

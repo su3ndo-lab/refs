@@ -1,0 +1,20 @@
+I"<p>A uniform beam is diagonally positioned in such posture, so that left end of the beam is on a frictionless wall and the right end of the beam is on a floor with friction. The left end is at higher position in vertical direction compared to the right end. It is usually related to ladder [<a href="#ref1">1</a>].</p>
+
+<h2 id="problem">Problem</h2>
+<p>A ladder, represented by an uniform beam, is positioned diagonally as shown in Fig. <a href="#dbar-floor-wall-0">1</a>, where the beam is in a stable condition. The wall is frictionless, while there is friction between right end of the beam and the floor.</p>
+
+<p style="text-align: center;"><img src="/assets/img/phys/dbar-floor-wall-0.png" alt="diagonal beam frictionless wall rough floor" />
+<br />
+Figure <a name="dbar-floor-wall-0">1</a> A beam supported horizontally by two vertical wires.</p>
+
+<p>Normal force from the wall to the beam is $N_{\rm wall}$ and form the floor $N_{\rm floor}$. There is also static friction between the beam and and the floor, named as $f_{\rm floor}$. Gravitational force $w$ is from point $O$ downward in the same direction with gravitational acceleration $\vec{g}$. Draw the free-body diagram of the beam and write all relations between $w$, $N_{\rm wall}$, $N_{\rm floor}$, and $f_{\rm floor}$ through length of the beam $L$ and angle of the beam with horizontal direction $\theta$.</p>
+
+<h2 id="references">References</h2>
+<ol>
+  <li><a name="ref1"></a>William Moebs, Samuel J. Ling, Jeff Sanny, “Figure 12.14 A 5.0-m-long ladder rests against a frictionless wall.”, in 12.2 Examples of Static Equilibrium, University Physics, vol. 1, OpenStax, 2016, url <a href="https://opentextbc.ca/universityphysicsv1openstax/chapter/12-2-examples-of-static-equilibrium/">https://opentextbc.ca/universityphysicsv1openstax/chapter/12-2-examples-of-static-equilibrium/</a> [20201111]..</li>
+</ol>
+
+<ul>
+  <li><a href="https://github.com/butiran/butiran.github.io/commits/master/_posts/phys/2020-11-10-statics-beam-diag-fless-wall-fric-floor.md">Article history</a></li>
+</ul>
+:ET

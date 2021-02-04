@@ -1,0 +1,170 @@
+I"6<p>Two types of two-dimensional coordinate system (CS), cartesian and polar, will be discussed in brief.</p>
+
+<h2 id="cartesian">Cartesian</h2>
+<p>In Cartesian CS there are two components used in determining positition of a particle. The components are $x$ and $y$. A position vector $r$</p>
+
+<p>\begin{equation}
+\label{eqn:xyrq-position}
+\vec{r} = r_x \ \hat{i} + r_y \ \hat{j} 
+\end{equation}</p>
+
+<p>pointing to point $\rm P$, will be drawn as shown in Fig. <a href="#fig:xyrq-position">1</a>, where $\hat{i}$ and $\hat{j}$ are unit vectors in $x$ and $y$ direction, respectively. The reason why we use $r_x$ and $r_y$ instead of $x$ and $y$ for the components, is to differ them from the $x$ and $y$ direction or axes.</p>
+
+<oo>
+svg 200 200 #fafafa fig:xyrq-position|Posisition of point $\rm P$ pointed by vector $\vec{r} \equiv \bf r$ in Cartesian coordinate system.
+
+style lc:#000 ls:6-2 lw:0.3 lo:0.8
+grid 20 20 180 180 40 40
+style lc:#000 ls:0 lw:1 lo:1 fc:#000
+arrow 20 180 180 180
+arrow 20 180 20 20
+style lc:#000 ls:0 lw:1 lo:1 fc:#000
+circle 20 180 2
+style lw:0 fc:#000 fo:1 ts:italic tw:normal tf:Times tz:16px
+text 186 183 x
+text 18 12 y
+text 101 195 r
+text 5 95 r
+
+style lw:0 fc:#000 fo:1 ts:normal tw:bold tf:Times tz:16px
+text 45 135 r
+
+style lw:0 fc:#000 fo:1 ts:italic tw:normal tf:Times tz:10px
+text 105 197 x
+text 9 97 y
+
+style lc:#f44 ls:6-3-1-3 lw:1 lo:1
+line 105 95 105 180
+line 105 95 20 95
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:16px
+text 110 90 P
+style lc:#000 ls:0 lw:1 lo:1 fc:#000
+circle 105 95 2
+style lc:#f00 ls:0 lw:2 lo:1 fc:#f00
+arrow 20 180 105 95
+</oo>
+
+<p>Projection of vector $\vec{r}$ along $x$ direction is $r_x$ and along $y$ direction is $r_y$, that can be calculated using</p>
+
+<p>\begin{equation}
+\label{eqn:xyrq-position-rx}
+r_x = \vec{r} \cdot \hat{i} 
+\end{equation}</p>
+
+<p>and</p>
+
+<p>\begin{equation}
+\label{eqn:xyrq-position-ry}
+r_y = \vec{r} \cdot \hat{j}. 
+\end{equation}</p>
+
+<p>Eqns. \eqref{eqn:xyrq-position-rx} and \eqref{eqn:xyrq-position-ry} using the relation</p>
+
+<p>\begin{equation}
+\label{eqn:xyrq-unit-vector-dot-0}
+\hat{i} \cdot \hat{j} = \hat{j} \cdot \hat{k} = \hat{k} \cdot \hat{i} = 0
+\end{equation}</p>
+
+<p>and</p>
+
+<p>\begin{equation}
+\label{eqn:xyrq-unit-vector-dot-1}
+\hat{i} \cdot \hat{i} = \hat{j} \cdot \hat{j} = \hat{k} \cdot \hat{k} = 1.
+\end{equation}</p>
+
+<p>Remember that dot product of two vectors (also unit vector) is commutative. For other parameters of motion, e.g. $\vec{v}$, $\vec{a}$, the formulation in Cartesian CS is similar to Eqn. \eqref{eqn:xyrq-position}.</p>
+
+<h2 id="polar">Polar</h2>
+<p>In polar CS there are the two components used to defined a vector, which are $r$ and $\theta$ components and the related unit vectors are $\hat{r}$ and $\hat{\theta}$.</p>
+
+<oo>
+svg 200 200 #fafafa fig:xyrq-position-polar|Posisition of point $\rm P$ pointed by vector $\vec{r} \equiv \bf r$ in polar coordinate system.
+
+style lc:#000 ls:6-2 lw:0.3 lo:0.8
+grid 20 20 180 180 40 40
+style lc:#000 ls:0 lw:1 lo:1 fc:#000
+arrow 20 180 180 180
+arrow 20 180 20 20
+style lc:#000 ls:0 lw:1 lo:1 fc:#000
+circle 20 180 2
+style lw:0 fc:#000 fo:1 ts:italic tw:normal tf:Times tz:16px
+text 186 183 x
+text 18 12 y
+text 138 195 r
+text 40 175 &theta;
+
+style lw:0 fc:#000 fo:1 ts:normal tw:bold tf:Times tz:16px
+text 45 135 r
+
+style lc:#f44 ls:6-3 lw:1 lo:1 fo:0
+polyline 140 180 140 171 139 161 137 152 134 143 131 134 127 126 122 117 117 109 111 102 105 95 98 89 91 83 83 78 74 73 66 69 57 66 48 63 39 61 29 60 20 60
+
+style lw:0 fc:#000 fo:1 ts:normal tw:normal tf:Times tz:16px
+text 110 90 P
+style lc:#000 ls:0 lw:1 lo:1 fc:#000
+circle 105 95 2
+style lc:#f00 ls:0 lw:2 lo:1 fc:#f00
+arrow 20 180 105 95
+</oo>
+
+<!--
+<script>
+var N = 20;
+var R = 120;
+var xc = 20;
+var yc = 180;
+var dq = 90 / N;
+var coords = "";
+for(var i = 0; i <= N; i++) {
+	var q = (i * dq) * Math.PI / 180;
+	var x = Math.round(xc + R * Math.cos(q));
+	var y = Math.round(yc - R * Math.sin(q));
+	coords += x + " " + y;
+	if(i < N) coords += " ";
+}
+console.log(coords);
+</script>
+-->
+
+<p>In polar CS position vector $\vec{r}$ will be simply</p>
+
+<p>\begin{equation}
+\label{eqn:xyrq-position-polar}
+\vec{r} = r \ \hat{r}.
+\end{equation}</p>
+
+<p>Note that position vector $\vec{r}$ does not have $\theta$ component or $\vec{r} \cdot \hat{\theta} =  0$.</p>
+
+<h2 id="transformation">Transformation</h2>
+<p>Now we use again $(x, y)$ for Cartesian CS and $(r, \theta)$ for polar CS. From Figs. Fig. <a href="#fig:xyrq-position">1</a> and Fig. <a href="#fig:xyrq-position-polar">2</a> following relations</p>
+
+<p>\begin{equation}
+\label{eqn:xyrq-x-from-rq}
+x = r \cos \theta
+\end{equation}</p>
+
+<p>and</p>
+
+<p>\begin{equation}
+\label{eqn:xyrq-y-from-rq}
+y = r \sin \theta
+\end{equation}</p>
+
+<p>can be obtained. There are also relation that maps $x$ and $y$ to $r$ and $\theta$</p>
+
+<p>\begin{equation}
+\label{eqn:xyrq-r-from-xy}
+r = \sqrt{x^2 + y^2}
+\end{equation}</p>
+
+<p>and</p>
+
+<p>\begin{equation}
+\label{eqn:xyrq-q-from-xy}
+\theta = \arctan \frac{y}{x}.
+\end{equation}</p>
+
+<ul>
+  <li><a href="https://github.com/butiran/butiran.github.io/commits/master/_posts/phys/2020-09-14-xy-rtheta.md">Article history</a></li>
+</ul>
+:ET

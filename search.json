@@ -1,0 +1,29 @@
+---
+layout: blank
+---
+{% comment %}
+url https://blog.webjeda.com/instant-jekyll-search/
+url https://stackoverflow.com/a/46996146/9475509
+{% endcomment %}
+[
+  {% for post in site.posts %}
+    {
+
+      "title"    : "{{ post.title | escape }}",
+      "url"      : "{{ site.baseurl }}{{ post.url }}",
+      "category" : "{{ post.category }}",
+      "tags"     : "{{ post.tags | join: ', ' }}",
+      "date"     : "{{ post.date }}"
+			
+    } {% unless forloop.last %},{% endunless %}
+  {% endfor %}
+]
+
+{% comment %}
+set back to https://blog.webjeda.com/instant-jekyll-search/
+
+remove the line
+,
+      "excerpt"  : "{{ post.excerpt | strip_html | strip_newlines | truncate: 180 | escape }}"
+
+{% endcomment %}

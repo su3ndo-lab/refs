@@ -1,0 +1,333 @@
+I"a<p>Some simple examples of python are presented here, including the hello world program [<a href="#ref1">1</a>]. It is not a realy complete introduction to Python but only a first glance of taste in entering Computational Physics course in beginning of 2021.</p>
+
+<h2 id="applications">applications</h2>
+<p>You can use various types of plain text editors, e.g. Notepad++ [<a href="#ref2">2</a>] to write a Python code. To execute the code we can install Cygwin, which is a large collection of GNU and Open Source tools which provide functionality similar to a Linux distribution on Windows [<a href="#ref3">3</a>], use online compiler [<a href="#ref4">4</a>], or install a Python 3 compiler [<a href="#ref5">5</a>] on your local computer.</p>
+
+<h2 id="hello-world">hello world</h2>
+<p>Look at the following code</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 
+# hello.py
+# Display 'Hello, world!' in Python 3.7
+# 
+# Sparisoma Viridi | https://github.com/dudung
+# 
+# Execute: python3.7 hello.py
+# 
+# 20210122
+# 0647 Create this example, test it, and it works.
+# 
+</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Hello, world!"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>that can be executed as</p>
+
+<div class="language-batch highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ <span class="kd">python3</span>.7 <span class="kd">hello</span>.py
+<span class="kd">Hello</span><span class="o">,</span> <span class="kd">world</span><span class="err">!</span>
+</code></pre></div></div>
+
+<p>to produce desired result. In the previous example we can see that the actual line to produce the output is only</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="s">"Hello, world!"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>where the other lines are comments that are suggested to put in a program to explain the program, e.g. purpose of the program, how to execute the program, what is output of the program, etc.</p>
+
+<h2 id="for">for</h2>
+<p>Using <code class="language-plaintext highlighter-rouge">for</code> [<a href="#ref6">6</a>] we will reduce our effort in doing a repetition work.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 
+# for.py
+# Use for to display lines of number in Python 3.7
+# 
+# Sparisoma Viridi | https://github.com/dudung
+# 
+# Execute: python3.7 for.py
+# 
+# 20210122
+# 0921 Create this example, test it, and it works.
+# 
+</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
+	<span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>will produce</p>
+
+<div class="language-batch highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ <span class="kd">python3</span>.7 <span class="k">for</span>.py
+<span class="m">1</span>
+<span class="m">2</span>
+<span class="m">3</span>
+<span class="m">4</span>
+<span class="m">5</span>
+<span class="m">6</span>
+<span class="m">7</span>
+<span class="m">8</span>
+<span class="m">9</span>
+</code></pre></div></div>
+
+<p>as executed. Previous result can also be obtained when we use following code</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>print(1)
+print(2)
+print(3)
+print(4)
+print(5)
+print(6)
+print(7)
+print(8)
+print(9)
+</code></pre></div></div>
+
+<p>which still works but not so efficient compered to</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
+	<span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Note that there is tabulator or tab charater in front of <code class="language-plaintext highlighter-rouge">print</code> statement. This tab charater or <code class="language-plaintext highlighter-rouge">\t</code> must be used in every sub-block in iteration <code class="language-plaintext highlighter-rouge">for</code> or condition <code class="language-plaintext highlighter-rouge">if</code>.</p>
+
+<h2 id="nested-for">nested for</h2>
+<p>From now on the comments will not be displayed when they are not so important, in order to focus on the essential lines only. Pay attention to the following code saved as <code class="language-plaintext highlighter-rouge">for-nested.py</code></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">):</span>
+	<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">):</span>
+		<span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>that produces</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">$</span> <span class="n">python3</span><span class="p">.</span><span class="mi">7</span> <span class="k">for</span><span class="o">-</span><span class="n">nested</span><span class="p">.</span><span class="n">py</span>
+<span class="mi">1</span> <span class="mi">1</span>
+<span class="mi">1</span> <span class="mi">2</span>
+<span class="mi">1</span> <span class="mi">3</span>
+<span class="mi">2</span> <span class="mi">1</span>
+<span class="mi">2</span> <span class="mi">2</span>
+<span class="mi">2</span> <span class="mi">3</span>
+<span class="mi">3</span> <span class="mi">1</span>
+<span class="mi">3</span> <span class="mi">2</span>
+<span class="mi">3</span> <span class="mi">3</span>
+<span class="mi">4</span> <span class="mi">1</span>
+<span class="mi">4</span> <span class="mi">2</span>
+<span class="mi">4</span> <span class="mi">3</span>
+</code></pre></div></div>
+
+<p>and <code class="language-plaintext highlighter-rouge">for-nested-3.py</code></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">):</span>
+	<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">):</span>
+		<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
+			<span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>that produces</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">$</span> <span class="n">python3</span><span class="p">.</span><span class="mi">7</span> <span class="k">for</span><span class="o">-</span><span class="n">nested</span><span class="o">-</span><span class="mf">3.</span><span class="n">py</span>
+<span class="mi">1</span> <span class="mi">1</span> <span class="mi">0</span>
+<span class="mi">1</span> <span class="mi">1</span> <span class="mi">1</span>
+<span class="mi">1</span> <span class="mi">2</span> <span class="mi">0</span>
+<span class="mi">1</span> <span class="mi">2</span> <span class="mi">1</span>
+<span class="mi">1</span> <span class="mi">3</span> <span class="mi">0</span>
+<span class="mi">1</span> <span class="mi">3</span> <span class="mi">1</span>
+<span class="mi">2</span> <span class="mi">1</span> <span class="mi">0</span>
+<span class="mi">2</span> <span class="mi">1</span> <span class="mi">1</span>
+<span class="mi">2</span> <span class="mi">2</span> <span class="mi">0</span>
+<span class="mi">2</span> <span class="mi">2</span> <span class="mi">1</span>
+<span class="mi">2</span> <span class="mi">3</span> <span class="mi">0</span>
+<span class="mi">2</span> <span class="mi">3</span> <span class="mi">1</span>
+<span class="mi">3</span> <span class="mi">1</span> <span class="mi">0</span>
+<span class="mi">3</span> <span class="mi">1</span> <span class="mi">1</span>
+<span class="mi">3</span> <span class="mi">2</span> <span class="mi">0</span>
+<span class="mi">3</span> <span class="mi">2</span> <span class="mi">1</span>
+<span class="mi">3</span> <span class="mi">3</span> <span class="mi">0</span>
+<span class="mi">3</span> <span class="mi">3</span> <span class="mi">1</span>
+<span class="mi">4</span> <span class="mi">1</span> <span class="mi">0</span>
+<span class="mi">4</span> <span class="mi">1</span> <span class="mi">1</span>
+<span class="mi">4</span> <span class="mi">2</span> <span class="mi">0</span>
+<span class="mi">4</span> <span class="mi">2</span> <span class="mi">1</span>
+<span class="mi">4</span> <span class="mi">3</span> <span class="mi">0</span>
+<span class="mi">4</span> <span class="mi">3</span> <span class="mi">1</span>
+</code></pre></div></div>
+
+<p>Can you deduce the funtion of <code class="language-plaintext highlighter-rouge">for</code> and <code class="language-plaintext highlighter-rouge">range</code> statements?</p>
+
+<h2 id="list-and-for">list and for</h2>
+<p>Using list and <code class="language-plaintext highlighter-rouge">for</code> in Pyhton, we can have following example</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Define a list
+</span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+
+<span class="c1"># Get length of the list
+</span><span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
+	<span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+</code></pre></div></div>
+
+<p>that produces</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">$</span> <span class="n">python3</span><span class="p">.</span><span class="mi">7</span> <span class="nb">list</span><span class="o">-</span><span class="k">for</span><span class="p">.</span><span class="n">py</span>
+<span class="mi">1</span>
+<span class="mi">7</span>
+<span class="mi">8</span>
+<span class="mi">5</span>
+<span class="mi">4</span>
+</code></pre></div></div>
+
+<p>and</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">N</span><span class="p">):</span>
+	<span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+</code></pre></div></div>
+
+<p>that produces</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">$</span> <span class="n">python3</span><span class="p">.</span><span class="mi">7</span> <span class="nb">list</span><span class="o">-</span><span class="k">for</span><span class="p">.</span><span class="n">py</span>
+<span class="mi">1</span>
+<span class="mi">7</span>
+<span class="mi">8</span>
+<span class="mi">5</span>
+<span class="mi">4</span>
+</code></pre></div></div>
+
+<p>and</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+	<span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+</code></pre></div></div>
+
+<p>that produces</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">$</span> <span class="n">python3</span><span class="p">.</span><span class="mi">7</span> <span class="nb">list</span><span class="o">-</span><span class="k">for</span><span class="p">.</span><span class="n">py</span>
+<span class="mi">1</span>
+<span class="mi">7</span>
+<span class="mi">8</span>
+<span class="mi">5</span>
+<span class="mi">4</span>
+</code></pre></div></div>
+
+<p>and</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">x</span><span class="p">:</span>
+	<span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>that produces</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">$</span> <span class="n">python3</span><span class="p">.</span><span class="mi">7</span> <span class="nb">list</span><span class="o">-</span><span class="k">for</span><span class="p">.</span><span class="n">py</span>
+<span class="mi">1</span>
+<span class="mi">7</span>
+<span class="mi">8</span>
+<span class="mi">5</span>
+<span class="mi">4</span>
+</code></pre></div></div>
+
+<p>In the last example <code class="language-plaintext highlighter-rouge">i</code> is actualy element of <code class="language-plaintext highlighter-rouge">x</code> and not only index of <code class="language-plaintext highlighter-rouge">x</code>. This is a difference that should be noted.</p>
+
+<h2 id="for-and-if">for and if</h2>
+<p>Following code</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
+	<span class="k">if</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">:</span>
+		<span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>is supposed to produce number more than 5 and the resulta are</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ python3.7 for-if.py
+6
+7
+8
+9
+</code></pre></div></div>
+
+<p>as expected.</p>
+
+<h2 id="nested-for-and-if">nested for and if</h2>
+<p>In the next example we will show the use of <code class="language-plaintext highlighter-rouge">if</code> in a <code class="language-plaintext highlighter-rouge">for</code> loop.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
+	<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
+		<span class="n">k</span> <span class="o">=</span> <span class="n">i</span> <span class="o">*</span> <span class="n">j</span>
+		<span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="n">j</span><span class="p">:</span>
+			<span class="k">print</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s">" "</span><span class="p">)</span>
+		<span class="k">else</span><span class="p">:</span>
+			<span class="k">print</span><span class="p">(</span><span class="s">"00"</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s">" "</span><span class="p">)</span>
+	<span class="k">print</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>which produces</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">$</span> <span class="n">python3</span><span class="p">.</span><span class="mi">7</span> <span class="k">for</span><span class="o">-</span><span class="k">if</span><span class="p">.</span><span class="n">py</span>
+<span class="mi">16</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span>
+<span class="mi">00</span> <span class="mi">25</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span>
+<span class="mi">00</span> <span class="mi">00</span> <span class="mi">36</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span>
+<span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">49</span> <span class="mi">00</span> <span class="mi">00</span>
+<span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">64</span> <span class="mi">00</span>
+<span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">00</span> <span class="mi">81</span>
+</code></pre></div></div>
+
+<p>where the rule is simply</p>
+
+<p>\begin{equation}
+\label{eqn:pyint-matrix-example}
+m_{ij} = \left\{
+\begin{array}{cc}
+(i + 3)(j + 3), &amp; i = j, \newline
+0, &amp; i \ne j,
+\end{array}
+\right.
+\end{equation}</p>
+
+<p>for the matrix elemement with $i = 1, .., 6$ and $j = 1, .., 6$.</p>
+
+<h2 id="exercises">Exercises</h2>
+<ol>
+  <li>What is the ASCII character that we need to put in the beginning of a line to indicate that the line is a comment (not a Python statement)? What about a multi-line commment in Python? Is there any pair of <code class="language-plaintext highlighter-rouge">/*</code> and <code class="language-plaintext highlighter-rouge">*/</code>in Python as in C++ language?</li>
+  <li>Explain the use of <code class="language-plaintext highlighter-rouge">range</code> in a <code class="language-plaintext highlighter-rouge">for</code> loop. What are the parameters required? What is the minimum number of parameters? Read reference about it [<a href="#ref7">7</a>], whenever necessary.</li>
+  <li>What is the output of following code?
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">7</span><span class="p">):</span>
+ <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">i</span><span class="p">):</span>
+     <span class="k">print</span><span class="p">(</span><span class="n">j</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s">" "</span><span class="p">)</span>
+ <span class="k">print</span><span class="p">()</span>
+</code></pre></div>    </div>
+    <p>You can use [<a href="#ref4">4</a>] to do that.</p>
+  </li>
+  <li>Write a code to produce following output
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>12345
+1234
+123
+12
+1
+</code></pre></div>    </div>
+    <p>and name it as <code class="language-plaintext highlighter-rouge">triangle-number-lines-down.py</code>.</p>
+  </li>
+  <li>Study following lines
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">N</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">N</span> <span class="o">+</span> <span class="mi">2</span><span class="p">):</span>
+ <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">-</span> <span class="n">i</span><span class="p">):</span>
+     <span class="k">print</span><span class="p">(</span><span class="s">" "</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s">" "</span><span class="p">)</span>
+ <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">i</span><span class="p">):</span>
+     <span class="k">print</span><span class="p">(</span><span class="s">"0"</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s">" "</span><span class="p">)</span>
+ <span class="k">print</span><span class="p">()</span>
+</code></pre></div>    </div>
+    <p>and shown the output. Explain how it can produce such result.</p>
+  </li>
+</ol>
+
+<h2 id="references">References</h2>
+<ol>
+  <li><a name="ref1"></a>Wikipedia contributors, “‘Hello, World!’ program”, Wikipedia, The Free Encyclopedia, 20 Jan 2021, 01:21 UTC, url <a href="https://en.wikipedia.org/w/index.php?oldid=1001702830">https://en.wikipedia.org/w/index.php?oldid=1001702830</a> [20210122].</li>
+  <li><a name="ref2"></a>-, “Notepad++”, Version 7.9.2, release Date 2021-01-01, url <a href="https://notepad-plus-plus.org/downloads/">https://notepad-plus-plus.org/downloads/</a> [20210122].</li>
+  <li><a name="ref3"></a>-, “Cygwin”, Version 3.1.6-1, url <a href="https://www.cygwin.com/">https://www.cygwin.com/</a> [20210122].</li>
+  <li><a name="ref4"></a>-, “Python Online Compiler”, Programiz, url <a href="https://www.programiz.com/python-programming/online-compiler/">https://www.programiz.com/python-programming/online-compiler/</a> [20210122].</li>
+  <li><a name="ref5"></a>-, “Python Releases for Windows”, Latest Python 3 Release - Python 3.9.1, url <a href="https://www.python.org/downloads/windows/">https://www.python.org/downloads/windows/</a> [20210122].</li>
+  <li><a name="ref6"></a>-, “Python For Loops”, W3Schools, url &lt;https://www.w3schools.com/python/python_for_loops.asp. [20210122].</li>
+  <li><a name="ref7"></a>Vishal Hule, “Python range() function explained with examples”, PYnative - Python Programming, 15 Dec 2020, url <a href="https://pynative.com/python-range-function/">https://pynative.com/python-range-function/</a> [20210122].</li>
+</ol>
+
+<ul>
+  <li><a href="https://github.com/butiran/butiran.github.io/commits/master/_posts/fi3201/2021-01-22-python-intro.md">Article history</a></li>
+</ul>
+
+:ET

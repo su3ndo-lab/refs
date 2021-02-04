@@ -1,0 +1,63 @@
+I"<p>Some concepts are related to moment of inertia, e.g. Newton’s 2nd law for rotation, rotational kinetic energy, angular momentum, mass distribution, parallel and perpendicular axis theorems, etc [<a href="#ref1">1</a>]. Moment of inertia is also known as mass moment of inertia, angular mass, or rotational intertia [<a href="#ref2">2</a>].</p>
+
+<h2 id="definition">Definition</h2>
+<p>Moment of inertia $I$ is as defined product of mass of a section or part of an object $m$ and the square distance between that center of that part to a reference axis $r_\perp^2$, which</p>
+
+<p>\begin{equation}
+\label{eqn:moi-def}
+I = m r_\perp^2,
+\end{equation}</p>
+
+<p>where for system with many objects, e.g. $N$ body system, it becomes</p>
+
+<p>\begin{equation}
+\label{eqn:moi-def-discrete}
+I = \sum_{i = 1}^N m_i r_{\perp, i}^2,
+\end{equation}</p>
+
+<p>since it is an extensive physical property that has additive feature. Eqn. \eqref{eqn:moi-def-discrete} can also be seen as a discrete system, while for a continuum system, it must use integral</p>
+
+<p>\begin{equation}
+\label{eqn:moi-def-continuum}
+I = \int r_\perp^2 \ dm.
+\end{equation}</p>
+
+<p>Illustration of both systems is given in following Fig. <a href="#fig:moi-discrete-continuum">1</a>.</p>
+
+<p style="text-align: center;"><img src="/assets/img/phys/moi-disc-cont.png" alt="moment of inertia of dicrete and continuum systems" />
+<br />
+Figure <a name="fig:moi-discrete-continuum">1</a> A discrete system consisted of four objects (left) and a continuum system (right).</p>
+
+<h2 id="common-moment-of-inertia">Common moment of inertia</h2>
+<p>Regular form objects have a well-known moment of inertia. Some examples of them are shown in Fig. <a href="#fig:moi-common-form">2</a>.</p>
+
+<p style="text-align: center;"><img src="/assets/img/phys/moi-common-forms.png" alt="example of common moment of inertia" />
+<br />
+Figure <a name="fig:moi-common-form">2</a> Common moments of inertia.</p>
+
+<h2 id="parallel-axis-theorem">Parallel axis theorem</h2>
+<p>If moment of inertia through center of mass $I_{\rm com}$ is known then moment of inertia about to another axis parallel to the main axis can be calculated</p>
+
+<p>\begin{equation}
+\label{eqn:moi-def-parallel-axis-theorem}
+I = I_{\rm com} + Ml^2,
+\end{equation}</p>
+
+<p>where $l$ is the distance for another axis to the main axis.</p>
+
+<h2 id="exercises">Exercises</h2>
+<ol>
+  <li>Use Eqn. \eqref{eqn:moi-def-parallel-axis-theorem} to prove the formulation of two moment of inertia in the last rows in Fig. <a href="#fig:moi-common-form">2</a>. Which formulation is showing the $I_{\rm com}$?</li>
+  <li>Revisit the system of two masses and a pulley. Solve it by considering that the pulley has moment of inertia now. What is moment of inertia of the pulley? Compare the difference with previous solution in <a href="massless-pulley">massless pulley</a>.</li>
+</ol>
+
+<h2 id="references">References</h2>
+<ol>
+  <li><a name="ref1"></a>Carl R. Nave, “Moment of Intertia Concepts”, HyperPhysics, 2017, url <a href="http://hyperphysics.phy-astr.gsu.edu/hbase/inecon.html">http://hyperphysics.phy-astr.gsu.edu/hbase/inecon.html</a> [20201102].</li>
+  <li><a name="ref2"></a>Wikipedia contributors, “Moment of inertia”, Wikipedia, The Free Encyclopedia, 19 Oct 2020, 05:51 UTC, url <a href="https://en.wikipedia.org/w/index.php?oldid=984272703">https://en.wikipedia.org/w/index.php?oldid=984272703</a> [20201102].</li>
+</ol>
+
+<ul>
+  <li><a href="https://github.com/butiran/butiran.github.io/commits/master/_posts/phys/2020-11-02-moment-of-inertia.md">Article history</a></li>
+</ul>
+:ET

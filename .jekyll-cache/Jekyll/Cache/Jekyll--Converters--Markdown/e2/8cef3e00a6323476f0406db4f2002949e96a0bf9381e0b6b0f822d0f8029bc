@@ -1,0 +1,135 @@
+I"�<p>Law of conservation of energy [<a href="#ref1">1</a>] application considering only kinetic energy and gravitational potensial energy along a semicircular track is discussed here.</p>
+
+<h2 id="problem">Problem</h2>
+<p>Consider a frictionless track $(\mu_k = 0)$ consisted of linear and semicircular parts as shown in Fig. <a href="#fig:lce-fsct-problem">1</a>. The first part is denoted by segment $A-B$ and the second by segments $B-C$, $C-D$, $D-E$, and $E-F$.</p>
+
+<p style="text-align: center;"><img src="/assets/img/phys/fsct.png" alt="an object moves along a frictionless semicircular track" />
+<br />
+Figure <a name="fig:lce-fsct-problem">1</a> An object moves along a frictionless semicircular track through points $A - F$.</p>
+
+<p>Relate the velocity at points $B$, $C$, $D$, $E$, and $F$ to velocity at point $A$, if we know the vertical position of each point point as $y_A$, $y_B$, $y_C$, $y_D$, $y_E$, and $y_F$. Compare their magnitude and explain how these velocities are drawn in Fig. <a href="#fig:lce-fsct-problem">1</a>.</p>
+
+<h2 id="concepts">Concepts</h2>
+<p>Following concepts are required to solve the problem</p>
+<ol>
+  <li>conservation of energy
+\begin{equation}
+\label{eqn:lce-fsct-conservation-of-energy}
+E_1 = E_2
+\end{equation}</li>
+  <li>mechanical energy
+\begin{equation}
+\label{eqn:lce-fsct-mechanical-energy}
+E_1 = K_1 + U_1
+\end{equation}</li>
+  <li>kinetic energy
+\begin{equation}
+\label{eqn:lce-fsct-kinetic-energy}
+K_1 = \frac12 m v_1^2
+\end{equation}</li>
+  <li>gravitational potential energy
+\begin{equation}
+\label{eqn:lce-fsct-gravitational-potential-energy}
+U_1 = m g y_1
+\end{equation}</li>
+</ol>
+
+<p>The subscripts $1$ and $2$ can be changed to e.g. $A$ and $B$, or other pairs.</p>
+
+<h2 id="solution">Solution</h2>
+<p>Using Eqns. \eqref{eqn:lce-fsct-conservation-of-energy}, \eqref{eqn:lce-fsct-mechanical-energy}, \eqref{eqn:lce-fsct-kinetic-energy}, and \eqref{eqn:lce-fsct-gravitational-potential-energy} we can get</p>
+
+<p>\begin{equation}
+\label{eqn:lce-fsct-conservation-of-energy-points-1-2}
+\frac12 m v_1^2 + m g y_1 = \frac12 m v_2^2 + m g y_2,
+\end{equation}</p>
+
+<p>that relates point $1$ and and point $2$. With the last equation, following relation</p>
+
+<p>\begin{equation}
+\label{eqn:lce-fsct-conservation-of-energy-points-1-2-v2}
+E_{\rm total} = v_i^2 + 2 g y_i, \ \ i = A, B, .., F,
+\end{equation}</p>
+
+<p>can be obtained, where $E_{\rm total}$ is a constant value. Notice that using Eqn. \eqref{eqn:lce-fsct-conservation-of-energy-points-1-2-v2} we can relate every two points directly and not necessary two adjacent points, e.g. points $A$ and $E$, since the semicircular track is frictionless.</p>
+
+<h3 id="points-a-and-b">Points $A$ and $B$</h3>
+<p>Since points $A$ dan $B$ are at the same level or $y_A = y_B$, then</p>
+
+<p>\begin{equation}
+\label{eqn:lce-fsct-vA=vB}
+v_A = v_B.
+\end{equation}</p>
+
+<h3 id="other-point-and-point-a">Other point and point $A$</h3>
+<p>Since semicircular track is frictionless, we can have that</p>
+
+<p>\begin{equation}
+\label{eqn:lce-fsct-vA-vn}
+v_n = \sqrt{v_A^2 - 2g(y_n - y_A)}, \ \ n = B, C, D, E, F,
+\end{equation}</p>
+
+<p>or explicitly</p>
+
+<p>\begin{equation}
+\label{eqn:lce-fsct-vA-vB}
+v_B = \sqrt{v_A^2 - 2g(y_B - y_A)} = v_A \sqrt{1 - \frac{2g(y_B - y_A)}{v_A^2}},
+\end{equation}</p>
+
+<p>\begin{equation}
+\label{eqn:lce-fsct-vA-vC}
+v_C = \sqrt{v_A^2 - 2g(y_C - y_A)} = v_A \sqrt{1 - \frac{2g(y_C - y_A)}{v_A^2}},
+\end{equation}</p>
+
+<p>\begin{equation}
+\label{eqn:lce-fsct-vA-vD}
+v_D = \sqrt{v_A^2 - 2g(y_D - y_A)} = v_A \sqrt{1 - \frac{2g(y_D - y_A)}{v_A^2}},
+\end{equation}</p>
+
+<p>\begin{equation}
+\label{eqn:lce-fsct-vA-vE}
+v_E = \sqrt{v_A^2 - 2g(y_E - y_A)} = v_A \sqrt{1 - \frac{2g(y_E - y_A)}{v_A^2}},
+\end{equation}</p>
+
+<p>\begin{equation}
+\label{eqn:lce-fsct-vA-vF}
+v_F = \sqrt{v_A^2 - 2g(y_F - y_A)} = v_A \sqrt{1 - \frac{2g(y_F - y_A)}{v_A^2}}.
+\end{equation}</p>
+
+<h3 id="magnitude">Magnitude</h3>
+<p>From Eqns. \eqref{eqn:lce-fsct-vA-vB} - \eqref{eqn:lce-fsct-vA-vF}, we can have that</p>
+
+<p>\begin{equation}
+\label{eqn:lce-fsct-vA:vB:vC:vD:vE:vF}
+\begin{array}{rcl}
+v_A:v_B:v_C:v_D:v_E:v_F &amp; = &amp;  1:1:\sqrt{1 - \frac{2g(y_C - y_A)}{v_A^2}}:\sqrt{1 - \frac{2g(y_D - y_A)}{v_A^2}} \newline 
+&amp;&amp; :\sqrt{1 - \frac{2g(y_E - y_A)}{v_A^2}}:\sqrt{1 - \frac{2g(y_F - y_A)}{v_A^2}}.
+\end{array}
+\end{equation}</p>
+
+<p>From Eqn. \eqref{eqn:lce-fsct-vA:vB:vC:vD:vE:vF} it is clear that</p>
+
+<p>\begin{equation}
+\label{eqn:lce-fsct-vA=vB&lt;vC&lt;vD&lt;vE&lt;vF}
+v_A = v_B &lt; v_C &lt; v_D &lt; v_E &lt; v_F
+\end{equation}</p>
+
+<p>as drawn in the length of arrows in Fig. <a href="#fig:lce-fsct-problem">1</a>.</p>
+
+<h2 id="exercises">Exercises</h2>
+<ol>
+  <li>Modify Eqn. \eqref{eqn:lce-fsct-mechanical-energy} if there is also elasticc pontential energy caused by a spring.</li>
+  <li>If segments $B-C$, $C-D$, $D-E$, and $E-F$ have equal length, find the ratio of $v_B : v_C : v_D : v_E : v_F$.</li>
+  <li>If the semicircular track is extended to circular track with additional equidistance points $G$, $H$, $I$, and continue to $B$, discuss the length of velociticy $v_G$, $v_H$, $v_I$, and the other (new) $v_B$.</li>
+  <li>What will happen then the semicircular track is not frictionless? Explain possible events when it is reaching some points with not sufficient velociticy, e.g. $C$, $D$, $E$, $F$?</li>
+</ol>
+
+<h2 id="references">References</h2>
+<ol>
+  <li><a name="ref1"></a>Wikipedia contributors, “Conservation of energy”, Wikipedia, The Free Encyclopedia, 22 Oct 2020, 19:44 UTC, <a href="https://en.wikipedia.org/w/index.php?oldid=983534266">https://en.wikipedia.org/w/index.php?oldid=983534266</a> [20201019].</li>
+</ol>
+
+<ul>
+  <li><a href="https://github.com/butiran/butiran.github.io/commits/master/_posts/phys/quiz/2020-10-23-lce-fsct.md">Article history</a></li>
+</ul>
+:ET
